@@ -1,5 +1,6 @@
 """Own random-start search for vectors unbiased to I and the Fourier basis (batched Levenberg-Marquardt on phases).
 Counts distinct solutions (x_0 = 1) and, for d = 10, compares with the certified list."""
+import os; HERE = os.path.dirname(os.path.abspath(__file__)) + os.sep   # data files live next to this script
 import sys, time, numpy as np
 from scipy.spatial import cKDTree
 d = int(sys.argv[1]); nb = int(sys.argv[2]); B = int(sys.argv[3]); seed = int(sys.argv[4])
@@ -38,7 +39,7 @@ print(f"d={d}: {conv}/{total} starts converged; distinct solutions: {len(distinc
 counts = np.bincount(rep, minlength=len(pts))[distinct]
 print("  hits per solution: min %d, median %d, max %d" % (counts.min(), np.median(counts), counts.max()))
 if d == 10:
-    L = np.load("/home/claude/work/d10/vecs.npy")[:, 1:]; Lp = np.concatenate([L.real, L.imag], axis=1)
+    L = np.load(HERE+"vecs.npy")[:, 1:]; Lp = np.concatenate([L.real, L.imag], axis=1)
     dist, idx = cKDTree(Lp).query(pts[distinct])
     print("  solutions not within 1e-6 of the certified list of 3,040:", int((dist > 1e-6).sum()), "; list members found:", len(np.unique(idx[dist <= 1e-6])), "of", len(Lp))
     print("  largest distance to the list among matches: %.1e" % dist[dist <= 1e-6].max())

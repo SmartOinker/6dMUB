@@ -111,4 +111,6 @@ fro = float(fro2.sqrt().upper())
 print("(2) ||Q - tau I - L L^T||_F <= %.3e  (tau = %.0e)" % (fro, tau))
 assert fro < tau, "PSD check failed"
 bound = arb(gamma0) - S
-print("CERTIFIED (%s):  E(psi) >= %s - S  >  %.12f  for every unit psi" % (triple, gamma0, float(bound.lower())))
+import math
+# The printed bound is rounded DOWN to 11 decimals (an earlier version rounded to nearest, which overstated it by 2e-13).
+print("CERTIFIED (%s):  E(psi) >= %s - S  >  %.11f  for every unit psi" % (triple, gamma0, math.floor(float(bound.lower())*1e11 - 1e-3)/1e11))

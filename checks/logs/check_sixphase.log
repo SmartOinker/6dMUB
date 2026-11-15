@@ -1,0 +1,20 @@
+extremal configuration: |z|        = [1. 1. 1. 1. 1. 1.]
+   sum z_j     = (2.4494897427831783+0j)  (target sqrt6 = 2.449489742783178 )
+   |sum z_j^3| = 5.715476066494085  bound 7 sqrt6/3 = 5.715476066494081
+   mpmath (50 digits): |sum z - sqrt6| = 2.67e-51   | |sum z^3| - 7 sqrt6/3 | = 1.07e-50
+
+random starts: 4000, feasible local solutions: 3998, infeasible/failed: 2
+largest |sum z^3| found      : 5.7154760665
+bound 7 sqrt6/3              : 5.7154760665
+gap (bound - largest found)  : -4.441e-15
+starts reaching the bound within 1e-6: 445
+distinct local-maximum values (rounded 1e-4) and counts, top 8 by value:
+   5.7155  x 445
+   5.2303  x 2511
+   4.9240  x 735
+   4.3732  x 307
+
+exactly feasible random points tested (4 free phases + 2 solved): about 300000; largest |sum z^3| = 5.61200974
+
+runtime 41.3 s
+OK

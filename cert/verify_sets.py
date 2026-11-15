@@ -41,5 +41,6 @@ def study(path):
 for p in sys.argv[1:]:
     study(p)
 c = 3 * arb(6).sqrt() / (arb(6).sqrt() + 1) ** 2
-for nm, g in (("T0", arb("0.0385")), ("T1", arb("0.0235"))):
+# g = certified energy bounds rounded down: verify.py proves E > 0.03849999999 (T0) and E > 0.02349999999 (T1).
+for nm, g in (("T0", arb("0.03849999999")), ("T1", arb("0.02349999999"))):
     print("%s: any 4 bases containing it:  delta >= sqrt(g/18) > %.6f ;  game shortfall >= c*g/72 > %.6e" % (nm, float((g / 18).sqrt().lower()), float((c * g / 72).lower())))

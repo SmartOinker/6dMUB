@@ -1,0 +1,12 @@
+moments loaded: 1365  nonzero: 693
+exact quadratics rebuilt (0 s)
+max |exact c_l - float64 c_l| over 18 x 78 coefficients: 2.7755575615628914e-16
+M c_l = 0 verified exactly: 1404 equations (18 x 78)
+L(N^2) = 1 verified exactly
+L(E_hom) = sum_l c_l^T M c_l = 0 verified exactly
+exact LDL^T: 63 strictly positive pivots, remaining Schur block 15x15 exactly zero: True  (10 s)
+exact rank of the 18 x 78 matrix [c_l]: 15 ; rank M + rank C = 78 (= 78 iff kernel M = span c_l)
+pivot sign tests all strictly positive; smallest pivot (float): 0.00114829573052088
+
+runtime 11.6 s
+OK

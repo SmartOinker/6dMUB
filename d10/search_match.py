@@ -1,4 +1,5 @@
 """Large random-start search at d = 10; every converged end point is matched directly against the certified list."""
+import os; HERE = os.path.dirname(os.path.abspath(__file__)) + os.sep   # data files live next to this script
 import sys, time, numpy as np
 from scipy.spatial import cKDTree
 d = 10; nb = int(sys.argv[1]); B = 20000; seed = int(sys.argv[2])
@@ -7,7 +8,7 @@ W = np.exp(-2j*np.pi*np.outer(np.arange(d), np.arange(d))/d)
 def resjac(th):
     x = np.concatenate([np.ones((th.shape[0],1)), np.exp(1j*th)], axis=1); X = x @ W.T
     return np.abs(X)**2 - d, -2*np.imag(np.conj(X)[:, :, None] * x[:, None, 1:] * W[None, :, 1:])
-L = np.load("/home/claude/work/d10/vecs.npy")[:, 1:]; tree = cKDTree(np.concatenate([L.real, L.imag], axis=1))
+L = np.load(HERE+"vecs.npy")[:, 1:]; tree = cKDTree(np.concatenate([L.real, L.imag], axis=1))
 hits = np.zeros(len(L), int); conv = 0; total = 0; unmatched = 0; worst = 0.0; t0 = time.time()
 for b in range(nb):
     th = rng.uniform(0, 2*np.pi, size=(B, d-1)); lam = np.full(B, 1e-2)

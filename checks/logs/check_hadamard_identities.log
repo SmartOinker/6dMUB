@@ -1,0 +1,39 @@
+generic search: 700 Hadamard matrices accepted (||H*H-6I||_F<1e-11) from 700 random starts (7 s)
+generic search split: rank1 127 (of which share Tao's 4-point invariant: 127), rank2 0, rank>=3 573
+
+Hadamard defect max per family, then identity violations (max over family):
+family                                                n  |H*H-6I|        VV       F27        BK max||M||^2   max tr2  cube ranks
+Fourier F6(a,b) [Tadej-Zyczkowski]                   60   1.4e-14   5.2e-14   1.2e-14   4.8e-14   18.00000   648.000  {2: 60}
+transpose of F6(a,b)                                 60   1.4e-14   5.2e-14   8.3e-15   4.8e-14   18.00000   648.000  {2: 60}
+report family H(z) (w^{ts}(-1)^{ab} z_t^b)           60   4.6e-15   1.7e-14   3.4e-15   1.9e-14   18.00000   648.000  {2: 60}
+transpose of H(z)                                    60   4.8e-15   2.0e-14   3.7e-16   1.4e-14   18.00000   648.000  {2: 60}
+F6 standard equivalents (random perm/phases)         30   1.5e-14   5.1e-14   1.2e-14   5.7e-14   18.00000   648.000  {2: 30}
+Tao S6 (report definition)                            1   3.6e-15   6.7e-15   3.0e+00   6.0e+00   36.00000  1296.000  {1: 1}
+    note (Tao, not claimed): (F27) violation 3.000e+00; (BK) violation 6.000e+00; ||M||^2 = 36.0000 (M is the all-ones matrix, ||M||^2 = 36 > 18); tr((M*M)^2) = 1296.0 > 648; cube rank [1]
+Tao S6 standard equivalents                          20   5.7e-15   2.0e-14   3.0e+00   6.0e+00   36.00000  1296.000  {1: 20}
+    note (Tao, not claimed): (F27) violation 3.000e+00; (BK) violation 6.000e+00; ||M||^2 = 36.0000 (M is the all-ones matrix, ||M||^2 = 36 > 18); tr((M*M)^2) = 1296.0 > 648; cube rank [1]
+Dita D6                                               1   0.0e+00   0.0e+00   0.0e+00   0.0e+00    6.00000   216.000  {6: 1}
+generic: cube rank 1 (random-start numerical Hadamard)  127   1.4e-14   1.1e-14   3.0e+00   6.0e+00   36.00000  1296.000  {1: 127}
+    note (Tao, not claimed): (F27) violation 3.000e+00; (BK) violation 6.000e+00; ||M||^2 = 36.0000 (M is the all-ones matrix, ||M||^2 = 36 > 18); tr((M*M)^2) = 1296.0 > 648; cube rank [1]
+generic: cube rank >= 3 (random-start numerical Hadamard)  573   1.4e-14   1.1e-14   1.0e-14   2.0e-14   17.99841   647.885  {6: 573}
+generic rank>=3, random standard equivalents        100   1.4e-14   2.0e-14   7.6e-15   1.5e-14   17.98003   646.564  {6: 100}
+
+cube-rank histogram of the generic numerical matrices: {1: 127, 6: 573}
+generic matrices with cube rank <= 2 (Fourier-type expected): 127
+largest ||M||_op^2 over all non-Tao matrices tested: 18.0000000000 (cap 18)
+
+Table: family -> cube rank (count of matrices)
+  Fourier F6(a,b) [Tadej-Zyczkowski]                 {2: 60}
+  transpose of F6(a,b)                               {2: 60}
+  report family H(z) (w^{ts}(-1)^{ab} z_t^b)         {2: 60}
+  transpose of H(z)                                  {2: 60}
+  F6 standard equivalents (random perm/phases)       {2: 30}
+  Tao S6 (report definition)                         {1: 1}
+  Tao S6 standard equivalents                        {1: 20}
+  Dita D6                                            {6: 1}
+  generic: cube rank 1 (random-start numerical Hadamard) {1: 127}
+  generic: cube rank >= 3 (random-start numerical Hadamard) {6: 573}
+  generic rank>=3, random standard equivalents       {6: 100}
+
+runtime 10.1 s
+OK

@@ -1,0 +1,70 @@
+=== find_roots.py run 1 (SIGS=0.4,0.7,1.0 default, seed 1, killed at ~320 s with 34340 roots) ===
+symmetry check dilation3: max residual of images = 3.33e-15
+symmetry check dilation9(reversal): max residual of images = 1.34e-15
+symmetry check inversion: max residual of images = 2.40e-15
+symmetry check conjugation: max residual of images = 1.98e-15
+symmetry check shift: max residual of images = 2.22e-15
+symmetry check modulation: max residual of images = 4.99e-15
+starts 4000 converged 3777 distinct_roots 32340 t=9s
+starts 8000 converged 4000 distinct_roots 33540 t=11s
+starts 16000 converged 4000 distinct_roots 33940 t=22s
+starts 56000 converged 4000 distinct_roots 33940 t=68s
+starts 96000 converged 4000 distinct_roots 33940 t=137s
+starts 136000 converged 4000 distinct_roots 34340 t=203s
+starts 176000 converged 4000 distinct_roots 34340 t=264s
+starts 216000 converged 4000 distinct_roots 34340 t=313s
+
+=== find_roots.py run 2: SIGS=2.0,3.0,4.0 seed 2, reached 34940 ===
+symmetry check dilation3: max residual of images = 3.61e-15
+symmetry check dilation9(reversal): max residual of images = 3.11e-15
+symmetry check inversion: max residual of images = 5.42e-15
+symmetry check conjugation: max residual of images = 3.56e-15
+symmetry check shift: max residual of images = 4.49e-15
+symmetry check modulation: max residual of images = 1.02e-14
+starts 4000 converged 3836 distinct_roots 34740 t=13s
+starts 8000 converged 4000 distinct_roots 34740 t=16s
+starts 12000 converged 3819 distinct_roots 34740 t=27s
+starts 16000 converged 4000 distinct_roots 34740 t=32s
+starts 20000 converged 3854 distinct_roots 34740 t=42s
+starts 24000 converged 4000 distinct_roots 34740 t=45s
+starts 28000 converged 3827 distinct_roots 34740 t=55s
+starts 32000 converged 4000 distinct_roots 34740 t=59s
+starts 36000 converged 3832 distinct_roots 34740 t=66s
+starts 40000 converged 4000 distinct_roots 34740 t=69s
+starts 44000 converged 3832 distinct_roots 34740 t=77s
+starts 48000 converged 4000 distinct_roots 34740 t=81s
+starts 52000 converged 3825 distinct_roots 34740 t=94s
+starts 56000 converged 4000 distinct_roots 34940 t=99s
+FINAL distinct roots (rounded 1e-6 keys): 34940 after 56000 starts, 99s
+
+=== certify_roots.py (2 processes) ===
+loaded 34940 candidate roots; prec=128 bits, box half-width 2^-30*max(1,ceil|c|)
+  krawczyk 200/34940  1s
+  krawczyk 4200/34940  4s
+  krawczyk 8200/34940  8s
+  krawczyk 12200/34940  12s
+  krawczyk 16200/34940  16s
+  krawczyk 20200/34940  19s
+  krawczyk 24200/34940  23s
+  krawczyk 28200/34940  27s
+  krawczyk 32200/34940  30s
+Krawczyk: 34940/34940 boxes certified (unique root each); max K-deviation 2.68e-13; max box half-width 5.77e-08; 33s
+Disjointness of the 34940 certified boxes: window pairs examined 647634, exact-rational fallbacks 0, pairs NOT shown disjoint 0; 34s
+Stored list: 3040 points, 3040 lie strictly inside a certified box; boxes hit: 3040
+  sigma-unimodular boxes: 3040; equal to matched set: True; matched boxes not certified unimodular: 0; unimodular boxes with no stored point: 0
+COUNTS: found=34940 certified=34940 unimodular=3040 certified_non_unimodular=31900 undecided=0 krawczyk_failed=0; total time 35s
+
+real	0m35.511s
+user	0m17.091s
+sys	0m0.092s
+
+=== re-run from the shipped npz (reproducibility) ===
+Krawczyk: 34940/34940 boxes certified (unique root each); max K-deviation 2.68e-13; max box half-width 5.77e-08; 32s
+Disjointness of the 34940 certified boxes: window pairs examined 647634, exact-rational fallbacks 0, pairs NOT shown disjoint 0; 32s
+Stored list: 3040 points, 3040 lie strictly inside a certified box; boxes hit: 3040
+  sigma-unimodular boxes: 3040; equal to matched set: True; matched boxes not certified unimodular: 0; unimodular boxes with no stored point: 0
+COUNTS: found=34940 certified=34940 unimodular=3040 certified_non_unimodular=31900 undecided=0 krawczyk_failed=0; total time 33s
+
+real	0m33.620s
+user	0m17.512s
+sys	0m0.160s

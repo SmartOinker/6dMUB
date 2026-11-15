@@ -1,0 +1,22 @@
+(1) exact: mean, variance formula, uniform variance 5/(18N(N-1)) and X^2 = 5 + 6(N-1)(C - 1/6) hold for N = 2,3,4
+(2) variance bound: max of Var(T)/bound over 200,000 random triples = 0.8097130235906328
+(3) canonical product triple, gamma = 0.0384999: N = 1936 shots per setting, threshold 0.38751*gamma: miss <= 0.05000, false alarm <= 9.984e-04
+(3) canonical product triple, gamma = 0.0384999: N = 5142 shots per setting, threshold 0.14579*gamma: miss <= 0.01000, false alarm <= 9.996e-04
+(3) canonical product triple, gamma = 0.0384999: with the fixed threshold gamma/2: N = 2892, miss <= 0.05000, false alarm <= 2.689e-04
+(3) second product triple and all 16 Fourier-pair triples, gamma = 0.0234999: N = 3007 shots per setting, threshold 0.40853*gamma: miss <= 0.05000, false alarm <= 9.993e-04
+(3) second product triple and all 16 Fourier-pair triples, gamma = 0.0234999: N = 7687 shots per setting, threshold 0.15978*gamma: miss <= 0.01000, false alarm <= 9.994e-04
+(3) second product triple and all 16 Fourier-pair triples, gamma = 0.0234999: with the fixed threshold gamma/2: N = 4189, miss <= 0.04999, false alarm <= 3.439e-04
+(4) minimum-energy state found numerically: E = 0.0387627565  ((4 - sqrt6)/40 = 0.0387627564)
+    N = 1936: mean of T = 0.03874 (E = 0.03876); empirical variance 1.240e-05, exact 1.238e-05, bound 2.952e-05
+    missed detections (T < 0.38751*gamma): 0 of 20000   [theorem: <= 0.050]
+    200 random pure states x 100 runs: missed 0 of 20000 (random states have energy well above the minimum, so this is a weak test)
+    200 states near the minimiser (perturbation 0.03) x 100 runs: missed 0 of 20000
+    white noise: false alarms (T >= 0.38751*gamma): 0 of 20000   [theorem: <= 9.98e-04]; empirical variance 2.193e-07, exact 2.225e-07
+(5) Pearson test, false alarm 0.1%, threshold 37.697. Noncentral chi-square prediction with 6*N*0.0385:
+    N =  50: prediction 0.1078; simulated, minimum-energy state: 0.0976 (20,000 trials)
+    N = 100: prediction 0.4812; simulated, minimum-energy state: 0.4793 (20,000 trials)
+    N = 126: prediction 0.6819; simulated, minimum-energy state: 0.6931 (20,000 trials)
+    N = 239: prediction 0.9901; simulated, minimum-energy state: 0.9925 (20,000 trials)
+    N = 239, 50 random pure states (2,000 trials each): smallest simulated detection rate 1.0000
+    white noise at N = 239: simulated false-alarm rate 0.00112 (100,000 trials)
+OK

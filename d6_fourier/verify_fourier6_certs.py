@@ -31,6 +31,6 @@ for bi, o in enumerate(D["energy"]):
     va = std + fou + [[c/s6 for c in encl[k]] for k in Bx]
     bound, S, fro = sg.verify(va, gamma, Q)
     res.append(dict(triple=bi, basis=Bx, numerical_min=em, relaxation_value=gstar, gamma=gamma, certified_lower_bound=bound, residual=S, psd_defect=fro))
-    print(f"triple {bi:2d}: numerical min {em:.7f}; degree-6 relaxation {gstar:.6f}; CERTIFIED E >= {bound:.10f}   [{time.time()-t0:.0f}s]", flush=True)
+    print(f"triple {bi:2d}: numerical min {em:.7f}; CERTIFIED E > {int(bound*1e10 - 1e-3)/1e10:.10f} (rounded down)   [{time.time()-t0:.0f}s]", flush=True)
     json.dump(res, open("fourier6_verified.json", "w"), indent=1)
 print("minimum certified bound over the 16 triples:", min(r["certified_lower_bound"] for r in res))

@@ -1,0 +1,31 @@
+s* (40 digits) = 0.2242138988404377963946674   float: 0.2242138988404378
+s* = 0.2242138988  < sqrt6/8 - 1/(4pi) = 0.2266087463  < 5/16-7/88 = 0.2329545455  = 41/176 = 0.2329545455  < 1/4
+  side facts: arccos x < pi/2 - x on (0,1) at x = 1/sqrt6: 1.1502619915109316 < 1.1625480363310337 ; sqrt6 < 5/2; pi < 22/7
+
+witness: sum x = 0.0  ||x|| = 0.22421389884043785  s* = 0.2242138988404378
+   squared overlap |<phi_x,phi_y>|^2 = 0.1666666666666668  1/6 = 0.16666666666666666  diff 1.3877787807814457e-16
+   mpmath: |S|^2/36 - 1/6 = -1.7219e-41 ; sum x_j = -2.87e-42 ; ||x|| - s* = -2.87e-42
+
+(3) random pairs in B(0,s): minimum of |S| (need > sqrt6 = 2.449490), also vs. bound 6cos(4 pi s/sqrt6)
+   s=0.0500000: min|S| = 5.803707   lower bound 6cos(4 pi s/sqrt6) = 5.803688   min|S|-bound = 1.94e-05  min overlap |S|/6 = 0.96728
+   s=0.1000000: min|S| = 5.228006   lower bound 6cos(4 pi s/sqrt6) = 5.227598   min|S|-bound = 4.08e-04  min overlap |S|/6 = 0.87133
+   s=0.1500000: min|S| = 4.312335   lower bound 6cos(4 pi s/sqrt6) = 4.309427   min|S|-bound = 2.91e-03  min overlap |S|/6 = 0.71872
+   s=0.2000000: min|S| = 3.116352   lower bound 6cos(4 pi s/sqrt6) = 3.109259   min|S|-bound = 7.09e-03  min overlap |S|/6 = 0.51939
+   s=0.2200000: min|S| = 2.577684   lower bound 6cos(4 pi s/sqrt6) = 2.567316   min|S|-bound = 1.04e-02  min overlap |S|/6 = 0.42961
+   s=0.2240000: min|S| = 2.458692   lower bound 6cos(4 pi s/sqrt6) = 2.455499   min|S|-bound = 3.19e-03  min overlap |S|/6 = 0.40978
+   s=0.2242129: min|S| = 2.458063   lower bound 6cos(4 pi s/sqrt6) = 2.449518   min|S|-bound = 8.54e-03  min overlap |S|/6 = 0.40968
+   pairs tested: 175000
+
+(4) adversarial minimum of |S| (SLSQP, 300 random starts each):  [sqrt6 = 2.44948974]
+   s = 0.20000000: min |S| = 3.10925889   6cos(4 pi s/sqrt6) = 3.10925892   diff -2.80e-08   min|S| > sqrt6? True
+   s = 0.22000000: min |S| = 2.56731558   6cos(4 pi s/sqrt6) = 2.56731560   diff -1.56e-08   min|S| > sqrt6? True
+   s = 0.22400000: min |S| = 2.45549863   6cos(4 pi s/sqrt6) = 2.45549867   diff -3.73e-08   min|S| > sqrt6? True
+   s = 0.22421290: min |S| = 2.44951783   6cos(4 pi s/sqrt6) = 2.44951784   diff -8.13e-09   min|S| > sqrt6? True
+   s = 0.22421390: min |S| = 2.44948973   6cos(4 pi s/sqrt6) = 2.44948974   diff -1.04e-08   min|S| > sqrt6? False
+   s = 0.22521390: min |S| = 2.42135836   6cos(4 pi s/sqrt6) = 2.42135837   diff -1.17e-08   min|S| > sqrt6? False
+
+(5) f''(u) = (sin t - t cos t)/(4 t^3) on t in (0, pi]: min = 0.025330295910584444 (>=0); limit at 0 = 0.08333333333333333 ; f''(1e-6^2)= 0.08333332499532373
+    Jensen step sum_j cos(2 pi z_j) >= 6 cos(2 pi ||z||/sqrt6) on 200,000 random z (||z||<=2s*): min slack = 2.106224137321533e-07
+
+runtime 124.5 s
+OK

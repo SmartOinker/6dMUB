@@ -1,0 +1,14 @@
+starts 4000 converged 3836 distinct_roots 34740 t=13s
+starts 8000 converged 4000 distinct_roots 34740 t=16s
+starts 12000 converged 3819 distinct_roots 34740 t=27s
+starts 16000 converged 4000 distinct_roots 34740 t=32s
+starts 20000 converged 3854 distinct_roots 34740 t=42s
+starts 24000 converged 4000 distinct_roots 34740 t=45s
+starts 28000 converged 3827 distinct_roots 34740 t=55s
+starts 32000 converged 4000 distinct_roots 34740 t=59s
+starts 36000 converged 3832 distinct_roots 34740 t=66s
+starts 40000 converged 4000 distinct_roots 34740 t=69s
+starts 44000 converged 3832 distinct_roots 34740 t=77s
+starts 48000 converged 4000 distinct_roots 34740 t=81s
+starts 52000 converged 3825 distinct_roots 34740 t=94s
+starts 56000 converged 4000 distinct_roots 34940 t=99s

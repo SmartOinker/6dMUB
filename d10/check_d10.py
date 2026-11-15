@@ -6,6 +6,7 @@ list of 1,136 index sets).  Steps:
   3. All 10-cliques of the possibly-orthogonal graph; compare with the stored list of bases.
   4. For every clique B and every vector v: max_u ||<u,v>|^2 - 10| ; minimum over (B, v).
 What this does NOT check: that the 3,040 are ALL unimodular solutions (completeness)."""
+import os; HERE = os.path.dirname(os.path.abspath(__file__)) + os.sep   # data files live next to this script
 import sys, json, time, itertools
 import numpy as np
 from flint import arb, acb, acb_mat, ctx
@@ -114,5 +115,5 @@ for a in range(len(Bl)):
     mp = min(mp, m.min())
 print(f"   min over pairs of bases of max ||<u,v>|^2 - 10| = {mp:.5f}")
 np.save(U + "/../d10_floats.npy", fl) if False else None
-np.save("/home/claude/work/d10/vecs.npy", fl); json.dump([list(b) for b in Bl], open("/home/claude/work/d10/bases.json", "w"))
+np.save(HERE+"vecs.npy", fl); json.dump([list(b) for b in Bl], open(HERE+"bases.json", "w"))
 print(f"done in {time.time()-t0:.0f}s")

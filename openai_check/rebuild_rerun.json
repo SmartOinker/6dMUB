@@ -1,0 +1,51 @@
+{
+ "commit": "4eaee87548250b2682affda7d05d947c05554bae",
+ "compiler": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+ "glibc": "Ubuntu GLIBC 2.39-0ubuntu8.9",
+ "cpu": "Intel(R) Xeon(R) Processor @ 2.10GHz (virtualised, 2 vCPU, family 6 model 207 stepping 2; flags avx512f, fma, amx_tile, avx512_fp16)",
+ "flags": "build_rebuild.sh native: g++ -O3 -march=native -ffp-contract=off (-std=gnu++17 for arun/brun/crun); both ABI/FP probes printed 'arithmetic/ABI checks passed'",
+ "load_note": "machine shared, load average 4.8-6.4 on 2 cores during runs; wall times inflated",
+ "sources_match_extraction_json": true,
+ "covrun_disassembly": {
+  "call_pow_lines": 0,
+  "fma_instruction_lines": 0,
+  "note": "manual inspection of the two squares in coverSeeds::run NOT done"
+ },
+ "binaries_sha256_native": {
+  "covrun": "dc535e5bdb2841d9fa26308578736b012a837f45e8eb4ba808262cbf1c50015f",
+  "arun": "ee6c2585b8aff4201cfb818d17fe1cef475b502237b0cb17e5217391f7e5a463",
+  "brun": "a0a9ab5c2e5c870f9c7fb81f9f76267bc6d39ff0a453dd5ce54f84049e9ff5ce",
+  "crun": "6a6aaf35741ccf6bb19fe6c07341ad89f0c00ceb4575da2deece088305c3371e"
+ },
+ "binaries_note": "differ from the earlier rebuild's native hashes (different CPU model/clock and build directory); outputs nevertheless identical",
+ "stages_rerun": {
+  "seed cover (covrun centers.txt)": {
+   "saved": "c48bc9a2be1eb2cdeea82ea1b030d7cb9f00a6c9563b63f0248dd115748a5789",
+   "rerun": "c48bc9a2be1eb2cdeea82ea1b030d7cb9f00a6c9563b63f0248dd115748a5789",
+   "identical": true,
+   "exit": 0,
+   "wall_s": 1298.9,
+   "program_reported_s": 1298.84,
+   "counts": "checked151744086 centers249878"
+  },
+  "C.batch0 (crun ... f0.bin)": {
+   "saved": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc",
+   "rerun": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc",
+   "identical": true,
+   "exit": 0,
+   "expected_exit": 0,
+   "wall_s": 176.9,
+   "result_line": "done256 bad0 (graph0 cap0 over0 cluster0)"
+  },
+  "C.batch3 (crun ... f3.bin)": {
+   "saved": "9a9593704f38a71b303b6fc194bc5d763ff6916cb02a057b72ba143556dcf6c9",
+   "rerun": "9a9593704f38a71b303b6fc194bc5d763ff6916cb02a057b72ba143556dcf6c9",
+   "identical": true,
+   "exit": 1,
+   "expected_exit": 1,
+   "wall_s": 259.6,
+   "result_line": "done256 bad2 (graph0 cap2 over0 cluster0)"
+  }
+ },
+ "not_rerun": "Stage A (all shards), Stage B, 86 of 88 initial C batches, B fallback, final C (the 100-invocation run)"
+}

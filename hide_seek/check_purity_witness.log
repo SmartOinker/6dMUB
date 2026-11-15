@@ -1,0 +1,4 @@
+(a) max of E(rho) - (tr rho^2 - 1/6) over 100,000 states: -0.00042650532618104163
+(b) max of lambda_max - bound over 100,000 states: -0.056978751310668097
+bound at E = 0: 0.8230848477387459
+OK

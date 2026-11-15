@@ -1,7 +1,8 @@
+import os; HERE = os.path.dirname(os.path.abspath(__file__)) + os.sep   # data files live next to this script
 import numpy as np, json, time, sys
 from flint import arb, acb, ctx
 ctx.prec = 80
-V=np.load('/home/claude/work/work/d10/vecs.npy'); B=json.load(open('/home/claude/work/work/d10/bases.json'))
+V=np.load(HERE+'vecs.npy'); B=json.load(open(HERE+'bases.json'))
 P2=np.abs(V.conj()@V.T)**2
 pairs=set()
 for b in B:

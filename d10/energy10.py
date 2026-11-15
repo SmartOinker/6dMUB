@@ -1,12 +1,13 @@
 """Numerical minimum of E(psi) = sum over 30 outcomes of (p - 1/10)^2 for triples {I, F_10, B} in dimension ten.
 One representative B per basis orbit. Numerical upper bounds on the true minima (random-start L-BFGS)."""
+import os; HERE = os.path.dirname(os.path.abspath(__file__)) + os.sep   # data files live next to this script
 import json, numpy as np, time
 from scipy.optimize import minimize
 from scipy.stats import chi2, ncx2
 from scipy.optimize import brentq
 U = "/mnt/user-data/uploads/mathathon/mub10"
 A = json.load(open(U + "/data/exact/d10_analysis.json"))
-V = np.load("/home/claude/work/d10/vecs.npy") / np.sqrt(10)          # 3040 x 10, unit vectors (rows)
+V = np.load(HERE+"vecs.npy") / np.sqrt(10)          # 3040 x 10, unit vectors (rows)
 d = 10
 F = np.exp(2j*np.pi*np.outer(np.arange(d), np.arange(d))/d)/np.sqrt(d)
 I = np.eye(d)
