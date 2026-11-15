@@ -90,3 +90,21 @@ Not rerun (time box): `covrun`/A with `-march=x86-64`, all Stage A shards, Stage
 
 ## Interpretation
 Same compiler and libc, a different (virtualised, same-generation) CPU: the saved checker input is consistent with the published sources for the three stages rerun. Hardware independence is weakly tested, because the CPU is similar and no FMA was emitted. It cannot detect a systematic flaw that the code reproduces faithfully, and it does not check the mathematical argument.
+
+## Lean scope of the OpenAI repository (read, not rebuilt; added 2026-11-15)
+
+For the report's paragraph "Verified versus headline" two files of `openai/math` were read at the pinned revision
+`4eaee87548250b2682affda7d05d947c05554bae` (fetched from raw.githubusercontent.com; not redistributed here):
+
+| file | sha256 of the file as fetched |
+|---|---|
+| `lean/docs/266.md` (scope note) | `3141714e25026b26a4028e27ee001e70295310bad4290b5a8f7c9fd546e8a174` |
+| `lean/ComparatorChallenges/MUBSix.lean` (statement file) | `7a634ee492b54abe357901a69272c42aa8dfc85b7a3401eef723468bb0c6c355` |
+| `lean/lean-toolchain` (`leanprover/lean4:v4.34.1`) | `d5edba4e4b8faad9c1baeadb265716d20d03be4d1a2647dc5e35b0c0325bea7b` |
+
+What was read: the scope note says the formalization proves a family bound of five and a Fourier character-sum
+vanishing statement, and that it does not establish the upper bound of three. The statement file defines
+`IsMUBFamily`, `Attainable n` and states `fourier_and_family_bound`, whose second part is
+`∀ n : ℕ, Attainable n → n ≤ 5`; in that file the proof is `sorry` (it is the challenge statement). The proof
+directory (`lean/OAI/Analysis/MutuallyUnbiased`) was NOT fetched, built or audited by us. Nothing here verifies the
+OpenAI Lean development.

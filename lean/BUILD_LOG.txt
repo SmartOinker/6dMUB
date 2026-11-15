@@ -1,10 +1,21 @@
-# Build log of the Lean project MUB6Bridge (rebuilt by the lead agent of workstream A, 2026-11-15T12:58Z)
+# Build log of the Lean project MUB6Bridge (rebuilt by the lead agent of workstream A, 2026-11-15T13:18Z)
 $ lean --version
 Lean (version 4.35.0, x86_64-unknown-linux-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)
 $ grep rev lake-manifest.json   (Mathlib revision; tag v4.35.0)
 8:   "rev": "56a005855ea17e0b0958f73ec801ae140b0a1679",
-$ lake build     (after touching the three project files; Mathlib modules were compiled from source earlier)
-⚠ [1552/1770] Replayed MUB6Bridge.BridgeLemma
+$ lake build     (project build products deleted first, so all four project files are compiled again; Mathlib modules were compiled from source earlier)
+⚠ [1552/1630] Built MUB6Bridge.FiniteSample (5.2s)
+warning: MUB6Bridge/FiniteSample.lean:73:42: Variable name `hsum` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hsum
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+info: MUB6Bridge/FiniteSample.lean:128:0: 'MUB6Bridge.pearson_eq_collision' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUB6Bridge/FiniteSample.lean:129:0: 'MUB6Bridge.zeta1_le_second_moment' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUB6Bridge/FiniteSample.lean:130:0: 'MUB6Bridge.second_moment_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUB6Bridge/FiniteSample.lean:131:0: 'MUB6Bridge.shots_T0' depends on axioms: [propext, Classical.choice, Quot.sound]
+⚠ [2190/2438] Built MUB6Bridge.BridgeLemma (5.6s)
 info: MUB6Bridge/BridgeLemma.lean:218:0: 'MUB6Bridge.sqrt6_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: MUB6Bridge/BridgeLemma.lean:219:0: 'MUB6Bridge.sqrt6_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: MUB6Bridge/BridgeLemma.lean:220:0: 'MUB6Bridge.sqrt6_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -17,18 +28,7 @@ info: MUB6Bridge/BridgeLemma.lean:226:0: 'MUB6Bridge.game_bound' depends on axio
 info: MUB6Bridge/BridgeLemma.lean:227:0: 'MUB6Bridge.numbers_T0' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: MUB6Bridge/BridgeLemma.lean:228:0: 'MUB6Bridge.numbers_T1' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: MUB6Bridge/BridgeLemma.lean:229:0: 'MUB6Bridge.cstar' depends on axioms: [propext, Classical.choice, Quot.sound]
-⚠ [1553/1770] Replayed MUB6Bridge.FiniteSample
-warning: MUB6Bridge/FiniteSample.lean:73:42: Variable name `hsum` is not explicitly referenced.
-
-Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
-  [apply] _hsum
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-info: MUB6Bridge/FiniteSample.lean:128:0: 'MUB6Bridge.pearson_eq_collision' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: MUB6Bridge/FiniteSample.lean:129:0: 'MUB6Bridge.zeta1_le_second_moment' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: MUB6Bridge/FiniteSample.lean:130:0: 'MUB6Bridge.second_moment_le' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: MUB6Bridge/FiniteSample.lean:131:0: 'MUB6Bridge.shots_T0' depends on axioms: [propext, Classical.choice, Quot.sound]
-⚠ [2487/2489] Replayed MUB6Bridge.Bases
+⚠ [2487/2490] Built MUB6Bridge.Bases (2.6s)
 info: MUB6Bridge/Bases.lean:117:0: 'MUB6Bridge.sq_overlap_le_one' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: MUB6Bridge/Bases.lean:118:0: 'MUB6Bridge.sq_overlap_row_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: MUB6Bridge/Bases.lean:119:0: 'MUB6Bridge.sq_overlap_total' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -39,11 +39,33 @@ info: MUB6Bridge/Bases.lean:123:0: 'MUB6Bridge.bridge_game' depends on axioms: [
 info: MUB6Bridge/Bases.lean:124:0: 'MUB6Bridge.energy' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: MUB6Bridge/Bases.lean:125:0: 'MUB6Bridge.pairSum' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: MUB6Bridge/Bases.lean:126:0: 'MUB6Bridge.gameScore' depends on axioms: [propext, Classical.choice, Quot.sound]
-✔ [2488/2489] Built MUB6Bridge (1.0s)
-Build completed successfully (2489 jobs).
+ℹ [2488/2490] Built MUB6Bridge.Corollaries (4.8s)
+info: MUB6Bridge/Corollaries.lean:196:0: 'MUB6Bridge.gameScore_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUB6Bridge/Corollaries.lean:197:0: 'MUB6Bridge.gameLoss_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUB6Bridge/Corollaries.lean:198:0: 'MUB6Bridge.corollary_of' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUB6Bridge/Corollaries.lean:199:0: 'MUB6Bridge.corollary_T0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUB6Bridge/Corollaries.lean:200:0: 'MUB6Bridge.corollary_T1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUB6Bridge/Corollaries.lean:201:0: 'MUB6Bridge.shots_of' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUB6Bridge/Corollaries.lean:202:0: 'MUB6Bridge.sqrt_T0_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUB6Bridge/Corollaries.lean:203:0: 'MUB6Bridge.sqrt_T1_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUB6Bridge/Corollaries.lean:204:0: 'MUB6Bridge.missBound' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUB6Bridge/Corollaries.lean:205:0: 'MUB6Bridge.faBound' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUB6Bridge/Corollaries.lean:206:0: 'MUB6Bridge.gameLoss' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUB6Bridge/Corollaries.lean:207:0: 'MUB6Bridge.shots_T0_95' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUB6Bridge/Corollaries.lean:208:0: 'MUB6Bridge.shots_T0_99' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUB6Bridge/Corollaries.lean:209:0: 'MUB6Bridge.shots_T0_half' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUB6Bridge/Corollaries.lean:210:0: 'MUB6Bridge.shots_T1_95' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUB6Bridge/Corollaries.lean:211:0: 'MUB6Bridge.shots_T1_99' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUB6Bridge/Corollaries.lean:212:0: 'MUB6Bridge.pearson_total' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUB6Bridge/Corollaries.lean:213:0: 'MUB6Bridge.zeta2_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUB6Bridge/Corollaries.lean:214:0: 'MUB6Bridge.three_halves_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+✔ [2489/2490] Built MUB6Bridge (2.2s)
+Build completed successfully (2490 jobs).
 $ grep -n "sorry\|admit\|native_decide\|axiom" MUB6Bridge/*.lean | grep -v "#print axioms"
 (no output above this line means none)
-$ python3 stmt_diff.py   (statements frozen before the proof repair, compared after)
-Bases sq_overlap_row_sum UNCHANGED
-Bases sq_overlap_total UNCHANGED
-ALL STATEMENTS UNCHANGED
+$ sha256sum MUB6Bridge.lean MUB6Bridge/*.lean
+b6d93bce94825619edd71b5313d816a5fd5f9a3ef93fdaac7f51291e1b7de91a  MUB6Bridge.lean
+40bf9b2abb8a6efda47c5e3ea6108a36f84cca2581530127fa8b04d4e72a2113  MUB6Bridge/Bases.lean
+66f49cb355b23f781b32654e1433943a84c6bab3c023d6e11d2fad38087655a5  MUB6Bridge/BridgeLemma.lean
+a38001c70b884ba75148df27aafb59dbee5a382eb6053b8e358f76bbc49247ea  MUB6Bridge/Corollaries.lean
+bd6e26b1bc662f3db74ec6589b0b23c8396a2290683c85ea4173f365146841e5  MUB6Bridge/FiniteSample.lean

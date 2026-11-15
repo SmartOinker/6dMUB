@@ -70,8 +70,9 @@ if len(rows) != 35:
     mism(f"expected 35 rows in the report table, parsed {len(rows)}")
 
 # summary table (six rows) of the main text
-j0 = tex.index(r"\label{tab:constsum}")
-sbody = tex[tex.rindex(r"\begin{tabular}", 0, j0):j0]
+# (the summary table was removed from the main text in review cycle 4; the check runs only if it is present)
+j0 = tex.find(r"\label{tab:constsum}")
+sbody = tex[tex.rindex(r"\begin{tabular}", 0, j0):j0] if j0 >= 0 else ""
 srows = []
 for m in re.finditer(r"\$\\\{5,(\d),(\d),(\d)\\\}\$\s*&\s*([0-9.]+)\s*&\s*([0-9.]+)\s*&\s*([0-9.]+)\s*&\s*(\$[^&]*?\$)\s*&", sbody):
     srows.append(dict(g=tuple(int(m.group(k)) for k in (1, 2, 3)), r2008=float(m.group(4)), ours=float(m.group(5)),
@@ -211,9 +212,9 @@ print(f"  report: {rep}")
 # ------------------------------------------------------------------ levels (evidence.json, seed 77)
 print("\nFinding 1: level counts (evidence.json, 6,000 starts, seed 77)")
 ev = json.load(open(os.path.join(RC, "evidence.json")))["c_levels_of_2008_hits"]
-mm = re.search(r"the (\d+) hits for \$\\\{5,4,4,1\\\}\$ sit at three positive levels of the misfit\s*"
-               r"\(\$\\mu\\approx([0-9.]+)\\times10\^\{-3\}\$, \$([0-9.]+)\\times10\^\{-3\}\$, \$([0-9.]+)\\times10\^\{-3\}\$\)"
-               r" and the (\d+) hits for \$\\\{5,5,3,1\\\}\$ at (\w+)\s*levels from \$([0-9.]+)\\times10\^\{-4\}\$ to \$([0-9.]+)\\times10\^\{-3\}\$", tex)
+mm = re.search(r"the (\d+) hits for \$\\\{5,4,4,1\\\}\$ sit at three positive misfit levels\s*"
+               r"\(\$\\mu\\approx([0-9.]+)\$,\s*\$([0-9.]+)\$,\s*\$([0-9.]+)\\times10\^\{-3\}\$\)"
+               r"\s*and the (\d+) hits for \$\\\{5,5,3,1\\\}\$ at (\w+)\s*levels from \$([0-9.]+)\\times10\^\{-4\}\$ to \$([0-9.]+)\\times10\^\{-3\}\$", tex)
 e441, e531 = ev["441"], ev["531"]
 lv441 = [l for l, c in e441["misfit_levels"]]
 lv531 = [l for l, c in e531["misfit_levels"]]
