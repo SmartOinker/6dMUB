@@ -5,7 +5,7 @@ report: degree-six sum-of-squares energy certificates for the two product MUB tr
 bounds and their check against explicit four-basis sets, the hide-and-seek detection simulation, the rerun of the
 2008-table near-miss certificate, and the conditional dimension-ten result. Every claim of the report is mapped to the check that
 re-verifies it, with the exact command and expected output, in `docs/verification_matrix.md`; `verify_all.sh` runs all fast checks
-in one go (log: `docs/verify_all.log`; 40 steps). `docs/verification_ledger.md` is a short pointer to the matrix. Upstream sources and commit
+in one go (log: `docs/verify_all.log`; 41 steps). `docs/verification_ledger.md` is a short pointer to the matrix. Upstream sources and commit
 hashes are in `docs/UPSTREAM.md`.
 
     ./verify_all.sh 2>&1 | tee docs/verify_all.log     # about 11 minutes on 2 cores; works on a copy of the repository; exit status 0 = all passed
@@ -28,7 +28,7 @@ hashes are in `docs/UPSTREAM.md`.
 | `lakefile.toml`, `lean-toolchain`, `lake-manifest.json`, `MUB6Bridge/`, `lean/` | Lean 4 project `MUB6Bridge`: four files (`BridgeLemma.lean`, `FiniteSample.lean`, `Bases.lean`, `Corollaries.lean`), 45 declarations; built locally with Lean v4.35.0 and Mathlib v4.35.0, no `sorry`, standard axioms only; the competition's automated build has not been run on it by us. Lean-verified: the square-root cap inequality; the vector-to-basis theorem as inequalities about orthonormal bases of C^6 with the game score defined by its formula (`bridge_bias`, `bridge_game`); the numerical corollaries as implications from an assumed energy bound (`corollary_T0`, `corollary_T1`); `gameScore_le`; the identity X^2 = 15 + 6(N-1)T (`pearson_eq_collision`, `pearson_total`); four elementary variance steps; the arithmetic of all five shot counts (`shots_*`). NOT Lean-verified: the energy bounds, the meaning of the score as an optimal success probability, every probability statement, the purity witness, dimension ten. `lean/README.md` lists the declarations and the differences from the report, `lean/BUILD_LOG.txt` is the build log. Not run by `verify_all.sh` |
 | `docs/` | `verification_matrix.md` (claim-by-claim matrix), `verify_all.log`, `verification_ledger.md` (pointer), `adversarial_review.md`, `UPSTREAM.md` |
 | `report/`, `slides/` | the report source and the slides with speaker notes |
-| `tools/` | helper client. (There is no `lean_drafts/` folder in this repository. The Lean build of workstream B was not run by us) |
+| `tools/` | helper client for the Open Math OS platform API (the key is read from an environment variable and is not stored) |
 
 ## Install
 

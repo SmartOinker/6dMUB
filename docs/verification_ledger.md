@@ -6,7 +6,7 @@ square-root lemma had no script), so its rows were removed instead of being patc
 
 The current, complete record is **`docs/verification_matrix.md`**: 70 rows (65 claims of the report plus five Lean rows), each with where it appears, its status tag, who produced it, the shipped
 check that independently re-verifies it (script, exact command, expected output line, runtime), what was observed on 15 November 2026, and a
-yes / partly / no verdict. `verify_all.sh` runs all fast checks, and `docs/verify_all.log` is the log of the run (40 steps).
+yes / partly / no verdict. `verify_all.sh` runs all fast checks, and `docs/verify_all.log` is the log of the run (41 steps).
 
 Summary of the verdicts at the time of writing: 70 rows; 32 independently re-verified, 25 partly, 13 not (literature cited and not re-verified,
 results reported by a teammate, or results without a script in this repository). The two largest items that remain outside this repository are the Lean

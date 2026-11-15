@@ -200,6 +200,9 @@ step S39 "C17" "the three explicit constellation examples of the third 2026 prep
 step S40 "C34" "stored record of the optimisation behind the explicit four-basis sets: 72 and 700 starts, best values, stored matrices" "$R/near_misses" \
   "bias optimisation: 72 starts recorded|||game optimisation: 700 runs recorded|||^OK" \
   nice -n 5 python3 -I check_visibility_records.py
+step S41 "C70" "structure paper, Section 13 (numerical only): cube-Gram spectrum on the seed, operator inequality on random admissible operators" "$R/checks" \
+  "PASS\] seed third transition C is a phase Hadamard|||PASS\] 1 - tr rho\^3 > 1/144|||NOT CHECKED\] requires the 55-variable" \
+  nice -n 5 python3 check_seed_geometry.py
 echo
 echo "=== SUMMARY: $NPASS steps passed, $NFAIL failed.${FAILED:+ Failed steps:$FAILED}"
 echo "Not re-run here (stored logs only): hide_seek/hide_seek.py, d6_fourier/run_fourier6_certs.py, d10/search_match.py, d10/energy10.py, openai_check/*, near_misses 20,000-start and 35-shape searches, near_misses/repo/src/fourier/fourier_case.py, evidence.py, the Lean build."

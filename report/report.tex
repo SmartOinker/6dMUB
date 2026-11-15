@@ -67,7 +67,7 @@
 \newtheorem{remark}[theorem]{Remark}
 
 \setlength{\parskip}{0.35em}
-\emergencystretch=2em
+\emergencystretch=3em
 \setlist{itemsep=0.15em,topsep=0.3em}
 
 \begin{document}
@@ -1186,7 +1186,7 @@ the expected output. Workstreams: A = certificate audit, energy certificates, ve
 detection test, dimension ten; B = structure theory and its separate Lean development (the bound $\E>1/72$); C = explanatory audit and full rerun. The Lean project \texttt{MUB6Bridge} is by A.
 
 {\small
-\begin{longtable}{@{}p{0.04\textwidth}>{\raggedright\arraybackslash}p{0.36\textwidth}>{\raggedright\arraybackslash}p{0.15\textwidth}>{\raggedright\arraybackslash}p{0.37\textwidth}@{}}
+\begin{longtable}{@{}p{0.04\textwidth}>{\raggedright\arraybackslash}p{0.35\textwidth}>{\raggedright\arraybackslash}p{0.17\textwidth}>{\raggedright\arraybackslash}p{0.36\textwidth}@{}}
 \caption{Claims, status and support.}\label{tab:support}\\
 \toprule
 \# & Claim & Status & Support and independent re-check\\
@@ -1213,73 +1213,73 @@ detection test, dimension ten; B = structure theory and its separate Lean develo
   128 bits (Section~\ref{sec:checks}) & reported, not re-run & C (audit code revision \texttt{4360b1a5}). A
   could not access C's rerun environment; only row 3 was repeated.\\
 5 & Sharp phase-ball radius $s^\ast=\rsix\arccos(1/\rsix)/(4\pi)$ (Appendix~\ref{app:phase}) & proved & C;
-  re-derived and tested numerically by A (\texttt{checks/check\_phase\_ball.py}). Not used downstream.\\
+  re-derived and tested numerically by A (\texttt{checks/}\allowbreak\texttt{check\_phase\_ball.py}). Not used downstream.\\
 6 & Two entries of the 2008 table, $\{5,4,4,1\}_6$ and $\{5,5,3,1\}_6$: strict local minima with nonzero misfit
   that pass the 2008 test (Section~\ref{sec:const}) & interval-certified & A. \texttt{near\_misses/}: certificate
   rerun passes; a separate 60-digit evaluation agrees. The shapes themselves stay undecided.\\
 7 & $\{5,3,3,3\}_6$ is found once in $20{,}000$ random starts (Section~\ref{sec:const}) & computed & A. One seed;
   run record in \texttt{near\_misses/}.\\
 8 & $\E>0.0384999$ on $\Tz$ and $\E>0.0234999$ on $\To$ for every unit vector (Proposition~\ref{prop:cert6}) &
-  interval-certified & A. Degree-six certificate checked in ball arithmetic by \texttt{cert/verify.py} (2 s per
+  interval-certified & A. Degree-six certificate checked in ball arithmetic by \texttt{cert/}\allowbreak\texttt{verify.py} (2 s per
   triple), a checker separate from the program that found the certificate. External check: agrees with the
   independent exact value of row 9 to $0.7\%$.\\
 9 & The exact minimum on $\Tz$ is $(4-\rsix)/40=0.0387628$ (Section~\ref{sec:gap}) & cited & Prior work \cite{Erlwein} (an unrefereed manuscript with a verification bundle).
-  Not ours. 400 numerical minimizations reach it (\texttt{checks/check1.py}).\\
+  Not ours. 400 numerical minimizations reach it (\texttt{checks/}\allowbreak\texttt{check1.py}).\\
 10 & $\E>1/72$ on $\Tz$, analytic proof (Appendix~\ref{app:gap}) & Lean-checked, as reported & B; Lean build by
   B, not re-run by A. Independently implied by row 8; each proof step tested numerically by A
-  (\texttt{checks/check\_gap72.py}).\\
+  (\texttt{checks/}\allowbreak\texttt{check\_gap72.py}).\\
 11 & All $16$ triples containing $\{I,F_6\}$ have $\E>0.0234999$ (Proposition~\ref{prop:fourier6}) &
-  interval-certified, given a cited classification & A. \texttt{d6\_fourier/verify\_fourier6\_certs.py} (under
+  interval-certified, given a cited classification & A. \texttt{d6\_fourier/}\allowbreak\texttt{verify\_fourier6\_certs.py} (under
   30 s). That the $48$ vectors are all of them is cited \cite{BF91,Grassl}.\\
 12 & Lemma~\ref{lem:sqrt} and Theorem~\ref{thm:bridge}: a one-vector energy bound gives a bias bound and a game
   bound for every fourth basis added to the triple & proved here; Lean-checked here, as inequalities about
   orthonormal bases of $\C^6$ & A. Complete elementary proof in the text. Lean 4 project \texttt{MUB6Bridge},
   built by A (Table~\ref{tab:leanA}); in Lean the game score is defined by its formula, and that the formula is the
   optimal success probability is cited \cite{ABMP}. Numerical test of the lemma
-  (\texttt{checks/check\_sqrt\_lemma.py}).\\
+  (\texttt{checks/}\allowbreak\texttt{check\_sqrt\_lemma.py}).\\
 13 & Fourth basis added to $\Tz$: bias $>0.046248$, game loss $>3.302\times10^{-4}$; added to $\To$ or to any
   triple containing $\{I,F_6\}$: bias $>0.036132$ (Corollaries~\ref{cor:numbers}, \ref{cor:fourier6}) & proved,
-  from certified inputs; Fourier-pair triples: given a cited count & Rows 8, 11, 12; evaluated in ball arithmetic by \texttt{cert/verify\_sets.py}. For
+  from certified inputs; Fourier-pair triples: given a cited count & Rows 8, 11, 12; evaluated in ball arithmetic by \texttt{cert/}\allowbreak\texttt{verify\_sets.py}. For
   the product triples the implication ``energy bound for every unit vector, hence these two numbers'' is also in
   Lean (\texttt{corollary\_T0}, \texttt{corollary\_T1}); the energy bound itself is not.\\
 14 & Explicit quadruples: bias $\le0.030223873$; game loss $\le2.357826\times10^{-4}$
-  (Section~\ref{sec:sets}) & interval-certified & A. \texttt{cert/verify\_sets.py} on the two stored sets.\\
+  (Section~\ref{sec:sets}) & interval-certified & A. \texttt{cert/}\allowbreak\texttt{verify\_sets.py} on the two stored sets.\\
 15 & Design lesson: no bias-optimal and no game-optimal quadruple contains $\Tz$, because one explicit
   quadruple beats every completion of it on both measures (Corollary~\ref{cor:design}) & proved, from certified inputs & Rows 13, 14. For $\To$ and the Fourier-pair
   triples: proved for bias; for the game, inconclusive for the triples with the smaller bound.\\
 16 & Finite-sample detection: $1{,}936$ shots per setting flag every pure state with probability $\ge95\%$ at
   false alarm $\le0.1\%$ (Theorem~\ref{thm:finite}, Corollary~\ref{cor:finite}) & proved here, from certified
   inputs & A. Proof in the text (collision statistic, exact variance, Cantelli). Variance formula checked exactly
-  by enumeration for $N\le4$; shot counts and Monte Carlo in \texttt{hide\_seek/finite\_sample.py}. In
+  by enumeration for $N\le4$; shot counts and Monte Carlo in \texttt{hide\_seek/}\allowbreak\texttt{finite\_sample.py}. In
   Lean (Table~\ref{tab:leanA}): the identity between Pearson's statistic and $T$, four elementary steps of the
   variance bound, and the arithmetic of the five shot counts (the four of Corollary~\ref{cor:finite} and the count $2{,}892$ for $t=1/2$). Not in Lean: every probability statement, hence not
   the theorem.\\
 17 & Purity witness: uniform statistics in the three settings force $\lambda_{\max}(\rho)\le0.8232$
   (Proposition~\ref{prop:purity}) & proved here, from certified inputs & A. Proof in the text; tested on
-  $100{,}000$ random states (\texttt{hide\_seek/check\_purity\_witness.py}).\\
+  $100{,}000$ random states (\texttt{hide\_seek/}\allowbreak\texttt{check\_purity\_witness.py}).\\
 18 & Large-sample rule: $239$ shots per setting for $99\%$ detection at $0.1\%$ false alarm
   (Section~\ref{sec:hide}) & computed (approximation) & A. Noncentral chi-square model; two independent
   simulations; optimistic for $N\le100$. Not a theorem.\\
 19 & The game needs $9.37\times10^{7}$ rounds to resolve the loss of the explicit quadruple
-  (Section~\ref{sec:game}) & computed & A. \texttt{hide\_seek/RESULTS.md}.\\
+  (Section~\ref{sec:game}) & computed & A. \texttt{hide\_seek/}\allowbreak\texttt{RESULTS.md}.\\
 20 & Cube-rank criterion: $\operatorname{rank}\hcube{H}\le2$ iff Fourier family, transpose, or Tao class
-  (Proposition~\ref{prop:cuberank}) & proved in the supplementary structure paper, with one cited ingredient; outlined here & B. Reduction to the subblock
-  classification of \cite{CWT}. Enumeration counts reproduced by A (\texttt{checks/check2.py}); cube ranks by
-  family checked numerically (\texttt{checks/check\_hadamard\_identities.py}).\\
-21 & Cubic norm cap $\norm{\hcube{H}}^2\le18$ outside the Tao class (Proposition~\ref{prop:cubiccap}) & proved in the supplementary structure paper,
+  (Proposition~\ref{prop:cuberank}) & proved in the supplement, with one cited ingredient; outlined here & B. Reduction to the subblock
+  classification of \cite{CWT}. Enumeration counts reproduced by A (\texttt{checks/}\allowbreak\texttt{check2.py}); cube ranks by
+  family checked numerically (\texttt{checks/}\allowbreak\texttt{check\_hadamard\_identities.py}).\\
+21 & Cubic norm cap $\norm{\hcube{H}}^2\le18$ outside the Tao class (Proposition~\ref{prop:cubiccap}) & proved in the supplement,
   with one cited ingredient; outlined here & B. Proof outline in Appendix~\ref{app:gap}. Identities and cap checked numerically by A on
-  six families (\texttt{checks/check\_hadamard\_identities.py}). Whether equality forces cube rank two is open.\\
+  six families (\texttt{checks/}\allowbreak\texttt{check\_hadamard\_identities.py}). Whether equality forces cube rank two is open.\\
 22 & Six-phase bound $\abs{\sum z_j^3}\le7\rsix/3$ (Remark~\ref{prop:sixphase}) & reported; numerical & B's
   written proof is outlined only. A: $4{,}000$ constrained maximizations reach $7\rsix/3=5.7154760665$ and no more
-  (\texttt{checks/check\_sixphase.py}).\\
+  (\texttt{checks/}\allowbreak\texttt{check\_sixphase.py}).\\
 23 & The degree-four sum-of-squares relaxation of $\min\E$ on $\Tz$ has optimum exactly $0$
   (Proposition~\ref{prop:quartic}) & computed, exact arithmetic & B's exact functional (reported), and an
-  independent exact functional of rank 63 built by A (\texttt{checks/check\_quartic\_sos.py}).\\
+  independent exact functional of rank 63 built by A (\texttt{checks/}\allowbreak\texttt{check\_quartic\_sos.py}).\\
 24 & Universal vanishing of the residual products (Section~\ref{sec:structure}) & open & Not proved. Nothing
   about the maximum number of MUBs follows from Section~\ref{sec:structure}.\\
 25 & Dimension ten: no four MUBs contain $\{I,F_{10}\}$ (Theorem~\ref{thm:ten}) & conditional & A. Conditional on
   hypothesis (H), a cited root count. In the repository: $34{,}940$ roots certified, $3{,}040$ unimodular,
-  $31{,}900$ certified not unimodular (\texttt{d10/roots\_full/}); $1{,}136$ candidate bases; margin $0.04178$ in
+  $31{,}900$ certified not unimodular (\texttt{d10/}\allowbreak\texttt{roots\_full/}); $1{,}136$ candidate bases; margin $0.04178$ in
   ball arithmetic (\texttt{d10/}).\\
 26 & Dimension ten: minimum energy $0.0202$ for the product-basis orbit (Section~\ref{sec:ten}) & numerical only
   & A. Local minimization; no certificate. Of the other 18 orbits, 17 have lower numerical minima (the lowest
@@ -1288,7 +1288,7 @@ detection test, dimension ten; B = structure theory and its separate Lean develo
   and closed in the solution set, so no unknown branch attaches to it; $8{,}000$ pieces of $216$ surfaces with
   $3{,}888$ double points (Section~\ref{sec:structure}) & reported & B. Written proofs with exact computations in
   Section 13 of the supplementary structure paper; parts reported as Lean-checked at revision \texttt{f981b666}
-  of the team Lean repository. Not re-derived by A; A checked numerically only the cube-Gram spectrum on the seed and the operator inequality (\texttt{checks/check\_seed\_geometry.py}).\\
+  of the team Lean repository. Not re-derived by A; A checked numerically only the cube-Gram spectrum on the seed and the operator inequality (\texttt{checks/}\allowbreak\texttt{check\_seed\_geometry.py}).\\
 \end{longtable}
 }
 
@@ -2204,6 +2204,7 @@ python3 check2.py                    # cube-rank enumeration counts
 python3 check_hadamard_identities.py # identities, cubic cap, cube ranks by family
 python3 check_sixphase.py            # six-phase bound
 python3 check_quartic_sos.py         # exact degree-four functional, rank 63
+python3 check_seed_geometry.py       # row 27 (numerical): seed cube-Gram spectrum
 python3 check_gap72.py               # steps of the proof of E > 1/72
 python3 check_phase_ball.py          # phase-ball radius
 

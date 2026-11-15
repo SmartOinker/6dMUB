@@ -1,4 +1,4 @@
-verify_all.sh  2026-11-15T17:19:47Z  host: Linux x86_64, 2 cores, python 3.13.18
+verify_all.sh  2026-11-15T17:56:57Z  host: Linux x86_64, 2 cores, python 3.13.18
 python-flint 0.9.0 | numpy 2.5.3 | scipy 1.18.1 | mpmath 1.3.0 | cvxpy 1.9.3
 
 === S01  supports: C4 C5 C23 C25
@@ -15,7 +15,7 @@ python-flint 0.9.0 | numpy 2.5.3 | scipy 1.18.1 | mpmath 1.3.0 | cvxpy 1.9.3
     expected line found: CERTIFIED (T1):  E(psi) >= 0.0235 - S  >  0.02349999999  for every unit psi
     expected line found: (3) residual bound S <= 2.807e-12
     expected line found: (2) ||Q - tau I - L L^T||_F <= 7.8320e-15  (tau = 1e-05; rounded up)
-    PASS  (1 s)
+    PASS  (0 s)
 
 === S03  supports: C32 C33 C35
     bias and game bounds for any fourth basis, and the two explicit four-basis sets (Arb; upper bounds rounded up, lower bounds rounded down)
@@ -40,20 +40,20 @@ python-flint 0.9.0 | numpy 2.5.3 | scipy 1.18.1 | mpmath 1.3.0 | cvxpy 1.9.3
     Fourier pair: the 16 stored Gram matrices re-checked in Arb (third-basis vectors re-certified inside)
     command: (cd d6_fourier && nice -n 5 python3 verify_fourier6_certs.py)
     expected line found: minimum certified bound over the 16 triples: 0.02349999999466995
-    expected line found: triple 15: numerical min 0.0326759; CERTIFIED E > 0.0323999999 (rounded down)   [11s]
+    expected line found: triple 15: numerical min 0.0326759; CERTIFIED E > 0.0323999999 (rounded down)   [10s]
     PASS  (11 s)
 
 === S06  supports: C29
     degree-six moment relaxation (SCS, tolerance 2e-4): 0.0383285692
     command: (cd checks && nice -n 5 python3 sos.py 6 SCS 2e-4)
-    expected line found: status optimal; relaxation optimum = 0.0383285692; time 21.2s
-    PASS  (22 s)
+    expected line found: status optimal; relaxation optimum = 0.0383285692; time 18.0s
+    PASS  (19 s)
 
 === S07  supports: C29
     degree-six moment relaxation (SCS, tolerance 1e-5): 0.0386693296
     command: (cd checks && nice -n 5 python3 sos.py 6 SCS 1e-5)
-    expected line found: status optimal; relaxation optimum = 0.0386693296; time 40.3s
-    PASS  (41 s)
+    expected line found: status optimal; relaxation optimum = 0.0386693296; time 39.4s
+    PASS  (40 s)
 
 === S08  supports: C30 C31
     square-root lemma: 1.8 million random squared overlaps plus a grid of 2,000,001 points
@@ -88,7 +88,7 @@ python-flint 0.9.0 | numpy 2.5.3 | scipy 1.18.1 | mpmath 1.3.0 | cvxpy 1.9.3
     expected line found: (3) canonical product triple, gamma = 0.0384999: with the fixed threshold gamma/2: N = 2892, miss <= 0.05000, false alarm <= 2.689e-04
     expected line found:     missed detections (T < 0.38751*gamma): 0 of 20000   [theorem: <= 0.050]
     expected line found: OK
-    PASS  (9 s)
+    PASS  (8 s)
 
 === S11  supports: C51
     2008 near-misses: independent 60-digit evaluation (mpmath, no shared code with the certificate)
@@ -96,21 +96,21 @@ python-flint 0.9.0 | numpy 2.5.3 | scipy 1.18.1 | mpmath 1.3.0 | cvxpy 1.9.3
     expected line found: shape [4, 4, 1]: misfit = 0.00102497683851953369499  (listed 0.0010249768385195336949)
     expected line found: shape [5, 3, 1]: misfit = 0.0007327886563036878044317  (listed 0.0007327886563036878044)
     expected line found:    20 perturbed restarts returning to the same misfit: 20/20
-    PASS  (2 s)
+    PASS  (3 s)
 
 === S12  supports: C51
     2008 near-misses: Arb interval certificate rerun (on a copy: the script overwrites certificate.json)
     command: (cd near_misses/repo && nice -n 5 python3 src/constellations/certify/certify.py)
     expected line found: 441 overall: True {"T1": true, "T2": true, "T3": true, "T4": true, "T5_F_below_1em7": true, "overall": true} rho: 1e-9 8.5030560e-23 t= 0.3
-    expected line found: 531 overall: True {"T1": true, "T2": true, "T3": true, "T4": true, "T5_F_below_1em7": true, "overall": true} rho: 1e-8 1.4348907e-25 t= 0.2
-    expected line found: 432 overall: True {"T1": true, "T2": true, "T3": true, "T4": true, "T5_F_below_1em7": false, "overall": true} rho: 1e-7 1.2754584e-25 t= 0.2
+    expected line found: 531 overall: True {"T1": true, "T2": true, "T3": true, "T4": true, "T5_F_below_1em7": true, "overall": true} rho: 1e-8 1.4348907e-25 t= 0.3
+    expected line found: 432 overall: True {"T1": true, "T2": true, "T3": true, "T4": true, "T5_F_below_1em7": false, "overall": true} rho: 1e-7 1.2754584e-25 t= 0.3
     expected line found: 442 overall: True {"T1": true, "T2": true, "T3": true, "T4": true, "T5_F_below_1em7": false, "overall": true} rho: 1e-7 1.5411789e-24 t= 0.3
     PASS  (2 s)
 
 === S13  supports: C51
     regenerated certificate.json equals the original one in every field except run times
     command: (cd near_misses && python3 -)
-    expected line found: differences other than timing: 0 ; timing fields differing: 0
+    expected line found: differences other than timing: 0 ; timing fields differing: 2
     PASS  (0 s)
 
 === S14  supports: C18 C31
@@ -119,7 +119,7 @@ python-flint 0.9.0 | numpy 2.5.3 | scipy 1.18.1 | mpmath 1.3.0 | cvxpy 1.9.3
     expected line found: clique counts sizes 0..5: [1, 30, 135, 120, 60, 12]  (claimed 1,30,135,120,60,12)
     expected line found: k = 3 systems: 1215 nullity histogram: {0: 1160, 1: 54, 3: 1}
     expected line found:   P_4 deficit (average over 6 pairs) = 0.0015063683461546222   proved lower bound 1/41472 = 2.4112654320987653e-05
-    PASS  (74 s)
+    PASS  (77 s)
 
 === S15  supports: C23 C27
     energy identity, witness minimiser, 400 BFGS minimisations on T0
@@ -134,12 +134,12 @@ python-flint 0.9.0 | numpy 2.5.3 | scipy 1.18.1 | mpmath 1.3.0 | cvxpy 1.9.3
     command: (cd checks && nice -n 5 python3 check3.py)
     expected line found: T1 (third basis |0_y>B2, |1_y>B3) min E = 0.023835355278249426 ; distinct minima: [0.023835]
     expected line found: c = 0.6175713839378697 (21*sqrt6-36)/25 = 0.6175713839378694
-    PASS  (24 s)
+    PASS  (22 s)
 
 === S17  supports: C21 C29
     degree-four moment relaxation: optimum about 0, numerical rank 63
     command: (cd checks && nice -n 5 python3 sos.py 4)
-    expected line found: status optimal; relaxation optimum = -0.0000000207; time 4.2s
+    expected line found: status optimal; relaxation optimum = -0.0000000207; time 4.3s
     expected line found: moment matrix: min eig -6.59e-10, numerical rank (>1e-7) 63 (claimed rank 63 for their certificate)
     PASS  (5 s)
 
@@ -149,7 +149,7 @@ python-flint 0.9.0 | numpy 2.5.3 | scipy 1.18.1 | mpmath 1.3.0 | cvxpy 1.9.3
     expected line found: M c_l = 0 verified exactly: 1404 equations (18 x 78)
     expected line found: exact LDL^T: 63 strictly positive pivots, remaining Schur block 15x15 exactly zero: True  (5 s)
     expected line found: OK
-    PASS  (6 s)
+    PASS  (7 s)
 
 === S19  supports: C18 C19
     Hadamard identities, cubic cap, cube ranks on Fourier-family, Tao, Dita and 700 numerical Hadamard matrices
@@ -201,50 +201,50 @@ python-flint 0.9.0 | numpy 2.5.3 | scipy 1.18.1 | mpmath 1.3.0 | cvxpy 1.9.3
     expected line found: 2. graph: 300 edges (smallest non-orthogonal |<u,v>| = 0.9282); 16 six-cliques, largest clique 6; they cover 228 of 300 edges; every vertex lies in 2 cliques
     expected line found: 5. numerical energy minima over the 16 triples (own BFGS, 40 starts each): [12, 2, 2] triples at 0.0326759 / 0.0238354 / 0.0387628, identical to the stored list
     expected line found: OK
-    PASS  (30 s)
+    PASS  (31 s)
 
 === S26  supports: C56 C57
     dimension ten: re-certification of the 3,040 vectors, 57,680 pairs, 1,136 cliques, margin (Arb, own Krawczyk code)
-    command: (cd d10 && nice -n 5 python3 check_d10.py /tmp/mub_verify.LpSzSD/repo/d10/upstream_mub10)
+    command: (cd d10 && nice -n 5 python3 check_d10.py /tmp/mub_verify.Xk8DKO/repo/d10/upstream_mub10)
     expected line found: 1. Krawczyk: 3040/3040 unique roots within 1e-30 of the stored points; max |K - p|/R = 5.00e-11; unimodular by the sigma test: 3040/3040   [2s]
     expected line found:    float64: pairs with |<u,v>| < 1e-6: 57680 ; smallest |<u,v>| among the others: 0.0089515
     expected line found: 3. largest clique size 10; 10-cliques: 1136; identical to the stored list of bases: True   [3s]
     expected line found: 4. min over (basis B, vector v) of max_u ||<u,v>|^2 - 10| = 4.17807  (normalised probabilities: 0.04178)
-    PASS  (4 s)
+    PASS  (3 s)
 
 === S27  supports: C57
     dimension ten margin in Arb with every coordinate widened to 1e-15 (1,272,177 pairs)
     command: (cd d10 && nice -n 5 python3 margin_arb.py)
     expected line found: distinct (u,v) pairs 1272177
-    expected line found: certified lower bound on margin: [4.178074647 +/- 3.79e-10] time 7.314570903778076
-    PASS  (9 s)
+    expected line found: certified lower bound on margin: [4.178074647 +/- 3.79e-10] time 6.963548421859741
+    PASS  (10 s)
 
 === S28  supports: C55
     dimension ten: all 34,940 cyclic 10-roots, boxes pairwise disjoint, 3,040 unimodular, 31,900 not, match with the stored list (Arb)
-    command: (cd d10/roots_full && nice -n 5 python3 certify_roots.py cyclic10_roots.npz /tmp/mub_verify.LpSzSD/roots_out.npz ../upstream_mub10/data/exact/bu10hp_unimod.txt 2)
-    expected line found: COUNTS: found=34940 certified=34940 unimodular=3040 certified_non_unimodular=31900 undecided=0 krawczyk_failed=0; total time 10s
+    command: (cd d10/roots_full && nice -n 5 python3 certify_roots.py cyclic10_roots.npz /tmp/mub_verify.Xk8DKO/roots_out.npz ../upstream_mub10/data/exact/bu10hp_unimod.txt 2)
+    expected line found: COUNTS: found=34940 certified=34940 unimodular=3040 certified_non_unimodular=31900 undecided=0 krawczyk_failed=0; total time 8s
     expected line found:   sigma-unimodular boxes: 3040; equal to matched set: True; matched boxes not certified unimodular: 0; unimodular boxes with no stored point: 0
-    PASS  (10 s)
+    PASS  (9 s)
 
 === S29  supports: C31 C33 C46
     bridge theorem: 5,000 Haar bases and 20 loss minimisations per triple, stored sets via polar factor, d=4 control
     command: (cd checks && nice -n 5 python3 check_bridge_theorem.py)
     expected line found: OK
-    PASS  (25 s)
+    PASS  (30 s)
 
 === S30  supports: C27 C28
     closed-form minimiser psi* (50 digits) and own BFGS minima on T0 and T1
     command: (cd checks && nice -n 5 python3 check_minimiser.py)
     expected line found: (a) closed form: x + y + z = 1, norm 1; E(psi_*) = 0.0387627564304, (4 - sqrt6)/40 = 0.0387627564304 (difference 2.0e-17, limited by the double-precision matrices); max deviation 0.05749
     expected line found: OK
-    PASS  (5 s)
+    PASS  (4 s)
 
 === S31  supports: C56 C57
     dimension ten in float64 with own code: unimodularity, 57,680 edges, clique sizes, 1,136 bases, margin
     command: (cd checks && nice -n 5 python3 check_d10_float.py)
     expected line found: 3. maximal cliques by size: {2: 17700, 10: 1136}
     expected line found: OK
-    PASS  (1 s)
+    PASS  (2 s)
 
 === S32  supports: C42
     purity witness: E(rho) <= tr rho^2 - 1/6 and lambda_max bound on 100,000 random states
@@ -255,7 +255,7 @@ python-flint 0.9.0 | numpy 2.5.3 | scipy 1.18.1 | mpmath 1.3.0 | cvxpy 1.9.3
 
 === S33  supports: C14
     cyclic 6-roots: heuristic search (symmetry closure, group of order 288), then Arb certification of 156 roots: 48 unimodular, 108 not, boxes disjoint, 48 stored vectors matched
-    command: (cd d6_fourier && nice -n 5 python3 -I certify_d6_roots.py find /tmp/mub_verify.LpSzSD/cyclic6_roots_new.npz 1)
+    command: (cd d6_fourier && nice -n 5 python3 -I certify_d6_roots.py find /tmp/mub_verify.Xk8DKO/cyclic6_roots_new.npz 1)
     expected line found: COUNTS: found=156 certified=156 unimodular=48 certified_non_unimodular=108 undecided=0 krawczyk_failed=0 boxes_pairwise_disjoint=True stored48_match=True; total time 0s
     expected line found: OK
     PASS  (1 s)
@@ -275,7 +275,7 @@ python-flint 0.9.0 | numpy 2.5.3 | scipy 1.18.1 | mpmath 1.3.0 | cvxpy 1.9.3
     expected line found: six-cliques: 16; edges covered: 228; vertices per clique count: [2]
     expected line found: 120 pairs of bases: smallest over pairs of the largest certified lower bound of | |<u,v>|^2 - 6 | : 6.000000 (unnormalised; = 0.166667 in probability units)
     expected line found: OK
-    PASS  (0 s)
+    PASS  (1 s)
 
 === S36  supports: C53
     partial fourth bases {5,5,b,c} at the Fourier pair re-derived from the ball enclosures: only {5,5,1,1} and {5,5,2,1}; compared with the earlier program's json
@@ -284,11 +284,11 @@ python-flint 0.9.0 | numpy 2.5.3 | scipy 1.18.1 | mpmath 1.3.0 | cvxpy 1.9.3
     expected line found: possible with c >= 1: [(1, 1), (2, 1)]
     expected line found: earlier fourier_constellations.json: constellations equal: True; orthogonal pairs 300 vs 300; unbiased pairs 144 vs 144; orthonormal sets by size {'1': 48, '2': 300, '3': 316, '4': 240, '5': 96} vs {1: 48, 2: 300, 3: 316, 4: 240, 
     expected line found: OK
-    PASS  (1 s)
+    PASS  (0 s)
 
 === S37  supports: C53
     earlier program fourier_constellations.py rerun on a copy (reads the stored 48 vectors); output equal to the stored fourier_constellations.json
-    command: (cd near_misses/repo/src/fourier && bash -c mkdir -p "$0/results/fourier" && cp ../../results/fourier/results.json "$0/results/fourier/" && mkdir -p "$0/src/fourier" && cp *.py "$0/src/fourier/" && (cd "$0/src/fourier" && nice -n 5 python3 -I fourier_constellations.py) && cmp "$0/results/fourier/fourier_constellations.json" ../../results/fourier/fourier_constellations.json && echo "fourier_constellations.json identical to the stored file: True" /tmp/mub_verify.LpSzSD/fc)
+    command: (cd near_misses/repo/src/fourier && bash -c mkdir -p "$0/results/fourier" && cp ../../results/fourier/results.json "$0/results/fourier/" && mkdir -p "$0/src/fourier" && cp *.py "$0/src/fourier/" && (cd "$0/src/fourier" && nice -n 5 python3 -I fourier_constellations.py) && cmp "$0/results/fourier/fourier_constellations.json" ../../results/fourier/fourier_constellations.json && echo "fourier_constellations.json identical to the stored file: True" /tmp/mub_verify.Xk8DKO/fc)
     expected line found: {"5,5,1,1": true, "5,5,2,1": true, "5,5,2,2": false, "5,5,3,1": false, "5,5,3,2": false, "5,5,3,3": false, "5,5,4,1": false, "5,5,4,2": false, "5,5,4,3": false, "5,5,4,4": false, "5,5,5,1": false, "5,5,5,2": false, "5,5,5,3": fals
     expected line found: min distance from 6 among non-unbiased pairs: 0.43078061834694115
     expected line found: fourier_constellations.json identical to the stored file: True
@@ -302,15 +302,15 @@ python-flint 0.9.0 | numpy 2.5.3 | scipy 1.18.1 | mpmath 1.3.0 | cvxpy 1.9.3
     expected line found:   (4, 4, 1): big seed 101: 373 of 50000; table seed 2026: 16 of 2000 -> 389 of 52000 (0.748%); strict 0 + 0
     expected line found:   (5, 3, 1): big seed 102: 671 of 50000; table seed 2026: 24 of 2000 -> 695 of 52000 (1.337%); strict 0 + 0
     expected line found: OK: every column of the 35-row table and the quoted figures agree with the raw data
-    PASS  (0 s)
+    PASS  (1 s)
 
 === S39  supports: C17
     the three explicit constellation examples of the third 2026 preprint: check_yale_examples.py rerun on a copy; output equal to the stored yale_examples_check.json
-    command: (cd near_misses/repo/src/constellations && bash -c mkdir -p "$0/results/constellations" "$0/src" && cp -r ../constellations "$0/src/" && (cd "$0/src/constellations" && nice -n 5 python3 -I -c "import sys,runpy; sys.path.insert(0,\".\"); runpy.run_path(\"check_yale_examples.py\", run_name=\"__main__\")") && cmp "$0/results/constellations/yale_examples_check.json" ../../results/constellations/yale_examples_check.json && echo "yale_examples_check.json identical to the stored file: True" /tmp/mub_verify.LpSzSD/yale)
+    command: (cd near_misses/repo/src/constellations && bash -c mkdir -p "$0/results/constellations" "$0/src" && cp -r ../constellations "$0/src/" && (cd "$0/src/constellations" && nice -n 5 python3 -I -c "import sys,runpy; sys.path.insert(0,\".\"); runpy.run_path(\"check_yale_examples.py\", run_name=\"__main__\")") && cmp "$0/results/constellations/yale_examples_check.json" ../../results/constellations/yale_examples_check.json && echo "yale_examples_check.json identical to the stored file: True" /tmp/mub_verify.Xk8DKO/yale)
     expected line found:   "misfit": "2.8352e-40"
     expected line found:   "misfit_after_polish": "3.5639e-30",
     expected line found: yale_examples_check.json identical to the stored file: True
-    PASS  (2 s)
+    PASS  (1 s)
 
 === S40  supports: C34
     stored record of the optimisation behind the explicit four-basis sets: 72 and 700 starts, best values, stored matrices
@@ -320,5 +320,13 @@ python-flint 0.9.0 | numpy 2.5.3 | scipy 1.18.1 | mpmath 1.3.0 | cvxpy 1.9.3
     expected line found: OK
     PASS  (0 s)
 
-=== SUMMARY: 40 steps passed, 0 failed.
+=== S41  supports: C70
+    structure paper, Section 13 (numerical only): cube-Gram spectrum on the seed, operator inequality on random admissible operators
+    command: (cd checks && nice -n 5 python3 check_seed_geometry.py)
+    expected line found: [PASS] seed third transition C is a phase Hadamard (unbiased to standard basis): 200 points, max residual 2.559e-15 (tol 1e-09)
+    expected line found: [PASS] 1 - tr rho^3 > 1/144: 20000 points, max residual 0.000e+00 (tol 1e-15)
+    expected line found: [NOT CHECKED] requires the 55-variable dephased gauge chart and the seed A,B (garbled in extraction); not faithfully implementable in budget.
+    PASS  (2 s)
+
+=== SUMMARY: 41 steps passed, 0 failed.
 Not re-run here (stored logs only): hide_seek/hide_seek.py, d6_fourier/run_fourier6_certs.py, d10/search_match.py, d10/energy10.py, openai_check/*, near_misses 20,000-start and 35-shape searches, near_misses/repo/src/fourier/fourier_case.py, evidence.py, the Lean build.
