@@ -11,7 +11,7 @@ A simulator repeats linear algebra and proves nothing. Its role is to turn the c
 - The test statistic is shifted by d*N*E, where E = sum over outcomes of (p - 1/d)^2. So E is the detectability per shot,
   and the minimum-energy state is the best hider.
 - d = 6: one qubit plus a qutrit stored in two qubits (level 11 unused). Settings: the canonical product triple. Hider: the
-  closed-form minimum-energy state of xinrui.pdf eq. (20). Outcomes in the unused level are discarded.
+  closed-form minimum-energy state of workstream B's working paper (first version) eq. (20). Outcomes in the unused level are discarded.
 - d = 4: two qubits, settings ZZ, XX, YY. Hider: (1, 1, i, -i)/2, which is exactly uniform in all three.
 
 ## Results
@@ -45,3 +45,26 @@ A simulator repeats linear algebra and proves nothing. Its role is to turn the c
   run on white noise.
 - Detection probabilities use the large-N chi-square form for the certified curve; the simulated points are Monte Carlo.
 - The game comparison is between two different claims. The game is about every set of four bases; hide and seek is about one triple.
+
+## Update, 15 November 2026
+
+The text above is kept as written. Four things have changed since it was written.
+
+1. **A finite-sample theorem now exists.** `finite_sample.py` (log: `finite_sample.log`) proves and checks a collision-statistic test with Cantelli bounds
+   that uses no large-sample approximation. For the canonical triple (certified E > 0.0384999) the smallest N for which some threshold meets both
+   error bounds is N = 1,936 (t = 0.38751; detection at least 95%, false alarm at most 0.1%) and N = 5,142 (t = 0.14579; detection at least 99%,
+   false alarm at most 0.1%). For the second product triple and the 16 Fourier-pair triples (E > 0.0234999) the numbers are N = 3,007 (t = 0.40853)
+   and N = 7,687 (t = 0.15978). With the unoptimised threshold t = 1/2 the same bounds need N = 2,892 and N = 14,957 for the canonical triple.
+   The variance formula is checked exactly by enumeration for N = 2, 3, 4, and the Monte Carlo at N = 1,936 had no missed detection and no false alarm
+   in 20,000 runs each. `checks/check_report_arithmetic.py` recomputes all of these shot counts and thresholds independently.
+2. **The 239 / 198 / 369 shot counts are a large-sample approximation, not a theorem.** They come from a noncentral chi-square model of Pearson's
+   statistic and are slightly optimistic below about N = 100 (model 0.108 against simulation 0.098 at N = 50). For a guaranteed detection use the
+   finite-sample numbers of item 1. The 239 shots remain the practical figure.
+3. **Correction to the table above.** The row "5 sigma false alarm: 50% / 99% detection" reads 198 / 368. The unrounded value is 368.07, so the correct
+   rounded-up figure is **369** shots per setting (198: 197.54; 239: 238.79; all rounded up).
+4. **The dimension-four control was run further than stated above.** The sentence "never caught up to 1,000 shots per setting" holds, and the stored
+   data in `hide_seek.json` (and the report) extend it to 5,000 shots per setting.
+
+Also new: `check_purity_witness.py` (log `check_purity_witness.log`) tests the purity witness (uniform statistics force the largest eigenvalue of the
+state to be at most 0.8232) on 100,000 random states. The exact bound is 0.82308. `hide_seek.py` was not re-run for this update (it needs Qiskit and
+a Monte Carlo run); the stored output `hide_seek.json` is unchanged.

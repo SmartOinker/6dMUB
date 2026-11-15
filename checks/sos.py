@@ -1,5 +1,5 @@
 """Moment (dual SOS) relaxations for min E on the unit sphere, canonical product triple.
-deg=4 : min L(E_hom)   s.t. L(N^2)=1, M_2(L) >= 0      (Xinrui Thm 7.1 claims optimum 0)
+deg=4 : min L(E_hom)   s.t. L(N^2)=1, M_2(L) >= 0      (workstream B's Theorem 7.1 claims optimum 0)
 deg=6 : min L(N*E_hom) s.t. L(N^3)=1, M_3(L) >= 0      (next level; untested in either report)
 """
 import sys, itertools, time

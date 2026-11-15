@@ -108,7 +108,7 @@ for i in range(364):
     for j in range(364):
         fro2 += R[i, j] * R[i, j]
 fro = float(fro2.sqrt().upper())
-print("(2) ||Q - tau I - L L^T||_F <= %.3e  (tau = %.0e)" % (fro, tau))
+print("(2) ||Q - tau I - L L^T||_F <= %.4e  (tau = %.0e; rounded up)" % (float(fro)*(1+1e-4), tau))
 assert fro < tau, "PSD check failed"
 bound = arb(gamma0) - S
 import math

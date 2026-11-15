@@ -1,0 +1,74 @@
+{
+ "sources_sha256": {
+  "abi-fp-probe.cpp": "1589fe5b4365a3eb1a94818c3801cfcc1509f7c88da23d06175503a4934b4c3c",
+  "atlas.cpp": "dcbf2dbe1054c01f9a7551094c1ac5f495e8c360a5ab5187ba2de30861909c5f",
+  "covout.cpp": "2a7e6bf5ca4857653d0083144a1a1e815b5109df418d7f6f3bf98c4b974fe52c",
+  "patchx.cpp": "a78a1ab171d8c7f11490f83f4fc6896f0b135a1648563c970c584210b192095a",
+  "seed.cpp": "3c6c7a7092230de231fdb23b6d1782de0dd9ef6689095763b875d90ce5ddeb44",
+  "stageB.cpp": "7e609a2f282d519a73479e6adb4f18e13202844e3ca8325135a444981e1b0c0a",
+  "stageC.cpp": "60a1b10091852809f523d4f5cc70abb28ebe8d7ed691843e7a2d73e9bbd7caae",
+  "ub.cpp": "bb031282340012e6fea15eadc073cf79a9e5a75fa0d558ccc5e1ef541e2b1e77"
+ },
+ "sources_match_extraction_json": {
+  "seed.cpp": true,
+  "covout.cpp": true,
+  "ub.cpp": true,
+  "patchx.cpp": true,
+  "atlas.cpp": true,
+  "stageB.cpp": true,
+  "stageC.cpp": true
+ },
+ "binaries_sha256": {
+  "native/covrun": "bf2d869c84cd9e999370fb46c236a1d3ca40c58b6a841c3d572b2dc75fe56c3b",
+  "native/arun": "cbf333e6f6ef81e483b8fc52778d1f33229c7c5de5154c5c24aac30884244c78",
+  "native/brun": "945c48dca8be670801d91d9f40fe756e4b0e83546bb782dc146903394b971128",
+  "native/crun": "4cc7d5066e6779e7a81540a2739b162db05c42f176ae80d9b6a299d37c5a1ee1",
+  "generic/covrun": "1727095a72de98919ffcccf108c9513cbbfafec39487c4d4e5f63395cd697c37",
+  "generic/arun": "129e742164d5e0b3033335d6f03e1b8733a1fda5acfb49cf2fd3df9673c57940",
+  "generic/brun": "147c3aa5a4e42e4c7f1d0abe8d6d6695782201725656fdd701086cd3dfe64d7f",
+  "generic/crun": "cd60efd7734e532ea6adcd04ce5ac177916b629336e062d69158d087416729be"
+ },
+ "outputs": {
+  "centers.txt": {
+   "rerun": "c48bc9a2be1eb2cdeea82ea1b030d7cb9f00a6c9563b63f0248dd115748a5789",
+   "saved": "c48bc9a2be1eb2cdeea82ea1b030d7cb9f00a6c9563b63f0248dd115748a5789",
+   "wall_s": 1160.3,
+   "program_reported_s": 1160.25,
+   "identical": true
+  },
+  "coarse0.bin": {
+   "rerun": "77b0cda59484ffde0654db8d6008bcaab1daf1deefd00d4dc085d3d751418cd4",
+   "saved": "77b0cda59484ffde0654db8d6008bcaab1daf1deefd00d4dc085d3d751418cd4",
+   "wall_s": 2080.1,
+   "identical": true
+  },
+  "bad0.txt(A0)": {
+   "rerun": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "saved": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "identical": true
+  },
+  "C.batch0 bad0.bin native": {
+   "rerun": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc",
+   "saved": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc",
+   "exit": 0,
+   "wall_s": 41.2,
+   "identical": true
+  },
+  "C.batch3 bad3.bin native": {
+   "rerun": "9a9593704f38a71b303b6fc194bc5d763ff6916cb02a057b72ba143556dcf6c9",
+   "saved": "9a9593704f38a71b303b6fc194bc5d763ff6916cb02a057b72ba143556dcf6c9",
+   "exit": 1,
+   "counters": "done256 bad2 cap2",
+   "identical": true
+  },
+  "C.batch0 bad0.bin generic": {
+   "rerun": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc",
+   "exit": 0
+  },
+  "C.batch3 bad3.bin generic": {
+   "rerun": "9a9593704f38a71b303b6fc194bc5d763ff6916cb02a057b72ba143556dcf6c9",
+   "exit": 1,
+   "counters": "done256 bad2 cap2"
+  }
+ }
+}

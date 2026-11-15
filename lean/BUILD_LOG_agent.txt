@@ -1,0 +1,90 @@
+Date: Sun Nov 15 12:05:52 UTC 2026
+== lean --version
+Lean (version 4.35.0, x86_64-unknown-linux-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)
+== Mathlib rev (tag v4.35.0): 56a005855ea17e0b0958f73ec801ae140b0a1679
+== Build command
+cd /home/claude/lean_build/bridge && export PATH=/root/.elan/bin:$PATH && nice -n 5 lake build 2>&1 | tail -60
+== Build output
+⚠ [1553/1556] Built MUB6Bridge.FiniteSample (7.6s)
+warning: MUB6Bridge/FiniteSample.lean: imports `Mathlib.Analysis.Real.Sqrt` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: MUB6Bridge/FiniteSample.lean: imports `Mathlib.Algebra.Order.BigOperators.Group.Finset` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: MUB6Bridge/FiniteSample.lean: imports `Mathlib.Algebra.BigOperators.Fin` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: MUB6Bridge/FiniteSample.lean: imports `Mathlib.Tactic.Linarith` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: MUB6Bridge/FiniteSample.lean: imports `Mathlib.Tactic.Positivity` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: MUB6Bridge/FiniteSample.lean: imports `Mathlib.Tactic.FieldSimp` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: MUB6Bridge/FiniteSample.lean: imports `Mathlib.Tactic.LinearCombination` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: MUB6Bridge/FiniteSample.lean: imports `Mathlib.Tactic.NormNum` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: MUB6Bridge/FiniteSample.lean: imports `Mathlib.Tactic.Ring` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: MUB6Bridge/FiniteSample.lean: imports `Mathlib.Tactic.NthRewrite` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: MUB6Bridge/FiniteSample.lean: imports `Mathlib.Tactic.Push` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: MUB6Bridge/FiniteSample.lean:73:42: Variable name `hsum` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hsum
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+info: MUB6Bridge/FiniteSample.lean:128:0: 'MUB6Bridge.pearson_eq_collision' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUB6Bridge/FiniteSample.lean:129:0: 'MUB6Bridge.zeta1_le_second_moment' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUB6Bridge/FiniteSample.lean:130:0: 'MUB6Bridge.second_moment_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUB6Bridge/FiniteSample.lean:131:0: 'MUB6Bridge.shots_T0' depends on axioms: [propext, Classical.choice, Quot.sound]
+⚠ [1554/1556] Built MUB6Bridge.BridgeLemma (8.1s)
+warning: MUB6Bridge/BridgeLemma.lean: imports `Mathlib.Analysis.Real.Sqrt` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: MUB6Bridge/BridgeLemma.lean: imports `Mathlib.Algebra.Order.BigOperators.Group.Finset` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: MUB6Bridge/BridgeLemma.lean: imports `Mathlib.Algebra.BigOperators.Fin` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: MUB6Bridge/BridgeLemma.lean: imports `Mathlib.Tactic.Linarith` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: MUB6Bridge/BridgeLemma.lean: imports `Mathlib.Tactic.Positivity` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: MUB6Bridge/BridgeLemma.lean: imports `Mathlib.Tactic.FieldSimp` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: MUB6Bridge/BridgeLemma.lean: imports `Mathlib.Tactic.LinearCombination` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: MUB6Bridge/BridgeLemma.lean: imports `Mathlib.Tactic.NormNum` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: MUB6Bridge/BridgeLemma.lean: imports `Mathlib.Tactic.Ring` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: MUB6Bridge/BridgeLemma.lean: imports `Mathlib.Tactic.NthRewrite` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: MUB6Bridge/BridgeLemma.lean: imports `Mathlib.Tactic.Push` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+info: MUB6Bridge/BridgeLemma.lean:218:0: 'MUB6Bridge.sqrt6_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUB6Bridge/BridgeLemma.lean:219:0: 'MUB6Bridge.sqrt6_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUB6Bridge/BridgeLemma.lean:220:0: 'MUB6Bridge.sqrt6_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUB6Bridge/BridgeLemma.lean:221:0: 'MUB6Bridge.cstar_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUB6Bridge/BridgeLemma.lean:222:0: 'MUB6Bridge.cstar_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUB6Bridge/BridgeLemma.lean:223:0: 'MUB6Bridge.sqrt_le_quadratic_cap' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUB6Bridge/BridgeLemma.lean:224:0: 'MUB6Bridge.bias_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUB6Bridge/BridgeLemma.lean:225:0: 'MUB6Bridge.pair_sum_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUB6Bridge/BridgeLemma.lean:226:0: 'MUB6Bridge.game_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUB6Bridge/BridgeLemma.lean:227:0: 'MUB6Bridge.numbers_T0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUB6Bridge/BridgeLemma.lean:228:0: 'MUB6Bridge.numbers_T1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUB6Bridge/BridgeLemma.lean:229:0: 'MUB6Bridge.cstar' depends on axioms: [propext, Classical.choice, Quot.sound]
+✔ [1555/1556] Built MUB6Bridge (2.6s)
+Build completed successfully (1556 jobs).
+== grep
+MUB6Bridge/BridgeLemma.lean:218:#print axioms MUB6Bridge.sqrt6_sq
+MUB6Bridge/BridgeLemma.lean:219:#print axioms MUB6Bridge.sqrt6_pos
+MUB6Bridge/BridgeLemma.lean:220:#print axioms MUB6Bridge.sqrt6_bounds
+MUB6Bridge/BridgeLemma.lean:221:#print axioms MUB6Bridge.cstar_pos
+MUB6Bridge/BridgeLemma.lean:222:#print axioms MUB6Bridge.cstar_eq
+MUB6Bridge/BridgeLemma.lean:223:#print axioms MUB6Bridge.sqrt_le_quadratic_cap
+MUB6Bridge/BridgeLemma.lean:224:#print axioms MUB6Bridge.bias_bound
+MUB6Bridge/BridgeLemma.lean:225:#print axioms MUB6Bridge.pair_sum_bound
+MUB6Bridge/BridgeLemma.lean:226:#print axioms MUB6Bridge.game_bound
+MUB6Bridge/BridgeLemma.lean:227:#print axioms MUB6Bridge.numbers_T0
+MUB6Bridge/BridgeLemma.lean:228:#print axioms MUB6Bridge.numbers_T1
+MUB6Bridge/BridgeLemma.lean:229:#print axioms MUB6Bridge.cstar
+MUB6Bridge/FiniteSample.lean:128:#print axioms MUB6Bridge.pearson_eq_collision
+MUB6Bridge/FiniteSample.lean:129:#print axioms MUB6Bridge.zeta1_le_second_moment
+MUB6Bridge/FiniteSample.lean:130:#print axioms MUB6Bridge.second_moment_le
+MUB6Bridge/FiniteSample.lean:131:#print axioms MUB6Bridge.shots_T0
+== Statement diff script (/home/claude/lean_build/stmt_diff.py), originals in statements_before/
+BridgeLemma bias_bound UNCHANGED
+BridgeLemma cstar UNCHANGED
+BridgeLemma cstar_eq UNCHANGED
+BridgeLemma cstar_pos UNCHANGED
+BridgeLemma game_bound UNCHANGED
+BridgeLemma numbers_T0 UNCHANGED
+BridgeLemma numbers_T1 UNCHANGED
+BridgeLemma pair_sum_bound UNCHANGED
+BridgeLemma sqrt6_bounds UNCHANGED
+BridgeLemma sqrt6_pos UNCHANGED
+BridgeLemma sqrt6_sq UNCHANGED
+BridgeLemma sqrt_le_quadratic_cap UNCHANGED
+FiniteSample pearson_eq_collision UNCHANGED
+FiniteSample second_moment_le UNCHANGED
+FiniteSample shots_T0 UNCHANGED
+FiniteSample zeta1_le_second_moment UNCHANGED
+ALL STATEMENTS UNCHANGED

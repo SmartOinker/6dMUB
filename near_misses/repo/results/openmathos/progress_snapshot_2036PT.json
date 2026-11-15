@@ -1,0 +1,6 @@
+{"read_at": "2026-11-14 20:36 PT, from the agent's reply to a status request (session 'Independent numerical search ...')",
+ "run1": {"seed_bases": [2026, 2027, 2028], "starts_total": 1050000, "converged": 0, "ended": "about 18:28 PT, shell host ended; counts survive, near-miss blocks lost"},
+ "run2": {"seed_bases": [3031, 3032, 3033], "starts_total": 1900500, "converged": 0, "workers_alive": 3, "deadline_utc": "2026-11-15T07:14:24",
+          "per_shape_starts": {"4-3-2": 272000, "4-4-1": 272000, "5-3-1": 271500, "5-4-1": 271500, "4-3-3": 271500, "4-4-2": 271000, "5-3-2": 271000},
+          "smallest_misfit": {"4-3-2": "4.988097256e-03", "4-4-1": "1.024976839e-03", "5-3-1": "7.327886563e-04", "5-4-1": "6.264942716e-02", "4-3-3": "2.022270243e-01", "4-4-2": "7.493378746e-03", "5-3-2": "6.365567066e-02"}},
+ "note": "The agent states the run-1 and run-2 random streams are disjoint (different seed bases), so the counts add: about 2.95 million starts, about 421,000 per shape, none converged."}

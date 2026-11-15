@@ -52,6 +52,7 @@
 \newcommand{\Topen}{\tg{cOpen}{conjecture / open}}
 \definecolor{cRep}{HTML}{3D6B3D}
 \newcommand{\Trep}{\tg{cRep}{reported, not re-run}}
+\newcommand{\Trepn}{{\setlength{\fboxsep}{1.4pt}\colorbox{cRep}{\textcolor{white}{\sffamily\bfseries\tiny\,reported, not re-run\,}}}}
 
 % ---------- notation ----------
 \newcommand{\C}{\mathbb{C}}
@@ -153,12 +154,12 @@ Lean & proves $N(6)\le5$ only & none & certificate $\Rightarrow$ no four MUBs; n
 \begin{frame}{We can prove structure for order-six Hadamard matrices, but the universal step toward $N(6)=3$ is still open}
 \centering
 \vspace{0.2cm}\begin{tikzpicture}[font=\scriptsize,
-  bx/.style={draw=accent,fill=soft,rounded corners=2pt,text width=2.65cm,align=center,minimum height=3.6cm,inner sep=4pt}]
+  bx/.style={draw=accent,fill=soft,rounded corners=2pt,text width=2.62cm,align=center,minimum height=3.6cm,inner sep=4pt}]
  \node[bx] (a) at (0,0) {\textbf{Cube-rank criterion}\\ $\operatorname{rank}\hcube{H}\le2$ iff Fourier family, transpose or Tao class; uses the cited subblock classification\\[3pt]\Tproved\ \Tcited};
- \node[bx] (b) at (2.95,0) {\textbf{Cubic norm cap}\\ $\norm{\hcube{H}}^2\le18$ outside the Tao class; $\operatorname{tr}\le648$, equality iff cube rank two; identities checked numerically\\[3pt]\Tproved\ \Tnum};
- \node[bx] (c) at (5.9,0) {\textbf{Six-phase bound}\\ $\abs{\sum_j z_j^3}\le7\sqrt6/3$ for six unit phases with sum $\sqrt6$; written proof, numerically confirmed\\[3pt]\Trep\ \Tnum};
- \node[bx] (d) at (8.85,0) {\textbf{Quartic SOS obstruction}\\ degree-four optimum is exactly $0$, exact arithmetic, rank $63$; our functional certified, workstream B's reported\\[3pt]\Tcert\ \Trep};
- \node[bx,dashed,draw=hl] (e) at (11.8,0) {\textbf{Universal step}\\ residual products vanish on all compatible triples\\[3pt]\Topen};
+ \node[bx] (b) at (2.92,0) {\textbf{Cubic norm cap}\\ $\norm{\hcube{H}}^2\le18$ outside the Tao class; $\operatorname{tr}\le648$, equality iff cube rank two; identities checked numerically\\[3pt]\Tproved\ \Tnum};
+ \node[bx] (c) at (5.84,0) {\textbf{Six-phase bound}\\ $\abs{\sum_j z_j^3}\le7\sqrt6/3$ for six unit phases with sum $\sqrt6$; written proof, numerically confirmed\\[3pt]\Trepn\ \Tnum};
+ \node[bx] (d) at (8.76,0) {\textbf{Quartic SOS obstruction}\\ degree-four optimum is exactly $0$, exact arithmetic, rank $63$; our functional certified, workstream B's reported\\[3pt]\Tcert\ \Trepn};
+ \node[bx,dashed,draw=hl] (e) at (11.68,0) {\textbf{Universal step}\\ residual products vanish on all compatible triples\\[3pt]\Topen};
 \end{tikzpicture}\\[0.25cm]
 \raggedright\small
 \hspace{0.2cm}Equality in the trace bound holds iff the cube rank is two; ``norm $18$ implies cube rank two'' is \Topen. Nothing here yet bounds the number of MUBs.

@@ -1,0 +1,8 @@
+{
+ "mixed_volume_float": 155.99999999987244,
+ "mixed_volume_rounded": 156,
+ "integrality_error": 1.2755663192365319e-10,
+ "max_volume_times_720_rounding_error": 7.82310962677002e-08,
+ "method": "qhull floating point volumes, inclusion-exclusion",
+ "seconds": 7.713111639022827
+}

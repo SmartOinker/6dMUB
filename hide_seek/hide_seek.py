@@ -40,7 +40,7 @@ C = Dg @ Dg @ F
 
 
 def hider_d6():
-    """Closed-form minimum-energy state of xinrui.pdf eq. (20); E = (4 - sqrt 6)/40."""
+    """Closed-form minimum-energy state of workstream B's working paper (first version) eq. (20); E = (4 - sqrt 6)/40."""
     h = np.sqrt((3 + np.sqrt(3)) / 6); l = np.sqrt((3 - np.sqrt(3)) / 6); eta = (1 + 1j) / np.sqrt(2)
     qm = np.array([l, eta * h]); qp = np.array([-h, eta * l])
     u = np.sqrt(3) / 2; v = np.sqrt((11 - 4 * np.sqrt(6)) / 20)

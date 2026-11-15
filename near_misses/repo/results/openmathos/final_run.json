@@ -1,0 +1,20 @@
+{
+ "fetched_utc": "2026-11-15T09:19:40Z",
+ "source": "Open Math OS project machine, results/constellations/{final_summary.md,run_manifest.json,progress.log}, read through the platform API",
+ "shape_notation": "the agent writes (a,b,c) for the constellation {5,a,b,c}_6",
+ "converged_threshold_misfit": 1e-11,
+ "run_1": {"window_utc": "2026-11-15T01:24:26 to 02:28:29", "seed_bases": [2026, 2027, 2028], "starts": 1050000, "converged": 0, "ended": "host interrupted; counts from progress.log only"},
+ "run_2": {"window_utc": "2026-11-15T02:31:11 to 07:14:24", "seed_bases": [3031, 3032, 3033], "starts": 5485041, "converged": 0, "ended": "deadline reached, all three workers exit status 0",
+   "worker_starts": {"1": 1823801, "2": 1831296, "3": 1829944},
+   "per_shape": {
+     "{5,4,3,2}": {"starts": 784301, "converged": 0, "smallest_misfit": 4.9880972555e-03},
+     "{5,4,3,3}": {"starts": 783500, "converged": 0, "smallest_misfit": 2.0222702427e-01},
+     "{5,4,4,1}": {"starts": 783796, "converged": 0, "smallest_misfit": 1.0249768385e-03},
+     "{5,4,4,2}": {"starts": 783444, "converged": 0, "smallest_misfit": 7.4933787457e-03},
+     "{5,5,3,1}": {"starts": 783500, "converged": 0, "smallest_misfit": 7.3278865630e-04},
+     "{5,5,3,2}": {"starts": 783000, "converged": 0, "smallest_misfit": 6.3655670663e-02},
+     "{5,5,4,1}": {"starts": 783500, "converged": 0, "smallest_misfit": 6.2649427163e-02}}},
+ "total": {"starts": 6535041, "converged": 0},
+ "optimizer": "scipy.optimize.least_squares, method lm, analytic Jacobian, max_nfev 400, numpy 2.5.3, scipy 1.18.1, python 3.12.14",
+ "structured_search_agentB": {"session": "research-task-for-parallel-eh95", "ended_utc": "2026-11-15T05:16:43", "outcome": "no candidate; seven accepted no-candidate reports; post-swarm hemisphere search best 0.02750 ({5,4,3,2}), 0.004194 ({5,4,4,1}), 0.03892 ({5,4,3,3})"}
+}

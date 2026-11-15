@@ -24,7 +24,7 @@ def run(Us, name):
         return sum(((abs(U.conj().T@psi)**2-1/6)**2).sum() for U in Us)
     vals = np.array([minimize(E, rng.normal(size=12), method="BFGS", options={"gtol":1e-12}).fun for _ in range(300)])
     print(name, "min E =", vals.min(), "; distinct minima:", np.unique(np.round(vals,6))[:6])
-run([U0,U1,U2a], "T0 (canonical, Xinrui's)")
+run([U0,U1,U2a], "T0 (canonical product triple)")
 run([U0,U1,U2b], "T1 (third basis |0_y>B2, |1_y>B3)")
 c = 3*np.sqrt(6)/(np.sqrt(6)+1)**2
 print("c =", c, "(21*sqrt6-36)/25 =", (21*np.sqrt(6)-36)/25)

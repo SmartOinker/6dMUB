@@ -12,6 +12,28 @@ Each script ends by printing `OK` or raises.
 | `check_phase_ball.py` | phase-ball radius s* = sqrt6 arccos(1/sqrt6)/(4 pi) = 0.2242139: no orthogonal or MU pair in one ball below s*; MU pair at s*; proof ingredients | s* in 40 digits and chain of inequalities; 175,000 random/antipodal pairs; SLSQP minimization of abs(S) with 300 starts at 6 radii; witness in 40 digits; convexity of cos(sqrt u) on a 2,000,001-point grid; 200,000 Jensen tests | s* = 0.22421389884043780; witness squared overlap 1/6 (error 1e-41); minimum of abs(S) equals 6cos(4 pi s/sqrt6) to 4e-8 and exceeds sqrt6 for s < s*; at s* it equals sqrt6 (to 1e-8), and at s* + 1e-3 it is 2.4214 < sqrt6, so the radius is sharp; f'' >= 0.0253 on (0, pi]. No discrepancy | 125 s |
 | `check_quartic_sos.py` | Proposition prop:quartic: pseudomoment matrix PSD of exact rank 63, L(E_hom) = 0, L(N^2) = 1 | exact over Q(sqrt3), one concrete functional (`quartic_L_moments.json`, 1,365 moments, built by `build_quartic_functional.py`) | 1,404 equations M c_l = 0 hold exactly; L(N^2) = 1 and L(E_hom) = 0 exactly; exact LDL^T has 63 strictly positive pivots and an exactly zero 15x15 Schur block; exact rank of the 18 quadratics is 15 and rank M + 15 = 78, so kernel M = span of the deviation quadratics. The source does not print its 342 moments, so this is an independent reconstruction (693 nonzero moments), not a check of that file; the source's moments, its sparsity (342) and its claim of rank 63 over Q(sqrt3) remain unverified directly, but our functional shows the claimed properties are attainable with exactly rank 63 | 12 s (builder 35 s, float SDP heuristic plus exact solve) |
 
+## Further audit scripts (added with `docs/verification_matrix.md` and `verify_all.sh`)
+
+Written separately from the programs they check; each prints `OK` as its last line. Claim ids refer to `docs/verification_matrix.md`.
+
+| script | claim checked | runtime |
+|---|---|---|
+| `check_cert_pointwise.py` | second implementation of the degree-six identity for T0, T1 and the 16 Fourier-pair Gram matrices, at 4,000 random points (C25, C36) | 2 s |
+| `check_report_arithmetic.py` | recomputation of derived numbers (bridge numbers, finite-sample shot counts N = 1936 / 5142 / 3007 / 7687 and 2892, 239 / 198 / 369, noise totals, game rounds) and comparison of stored results with the report (C9, C12, C32, C35, C40, C43, C47 to C52, C60, C61) | 2 s |
+| `check_bridge_theorem.py` | vector-to-basis theorem on 5,000 Haar bases, stored four-basis sets via the polar factor, dimension-four control (C31, C33, C34, C46) | 33 s |
+| `check_minimiser.py` | closed-form minimiser in 50 digits and own minimisations on T0 and T1 (C27, C28) | 6 s |
+| `check_sqrt_lemma.py` | square-root lemma on 1.8 million points and a grid (C30) | 2 s |
+| `check_fourier6_graph.py` | Fourier funnel 156 -> 48 -> 16 -> 0 in floating point, own Newton search and graph code (C14, C15, C16, C37). The ball-arithmetic counterparts are `../d6_fourier/certify_d6_roots.py`, `certify_graph.py` and `check_partial_bases.py` (C14, C15, C16, C53) | 34 s |
+| `check_d10_float.py` | dimension ten in float64: unimodularity, 57,680 edges, clique sizes, 1,136 bases, margin 4.17807 (C56, C57) | 1 s |
+
+## Where the other checks live
+
+The scripts that check the Fourier pair in ball arithmetic are in `../d6_fourier/` (`certify_d6_roots.py`, `certify_graph.py`,
+`check_partial_bases.py`), those that check the 2008-table numbers against the raw search output are in `../near_misses/`
+(`check_table.py`, `check_visibility_records.py`). The scripts in this folder are numerical (double precision) unless a row says exact.
+Measured runtimes in the tables above are from different sessions on a shared 2-core machine; the authoritative recent ones are in
+`../docs/verify_all.log`. Expected-output lines are in `../verify_all.sh` and `../docs/verification_matrix.md`.
+
 ## Notes
 - `build_quartic_functional.py` uses a floating-point SDP (Clarabel) only to choose a strictly interior point
   (minimum eigenvalue 2.5e-3 on the 63-dimensional complement of the kernel) and then solves the linear constraints exactly over

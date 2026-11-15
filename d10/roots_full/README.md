@@ -26,9 +26,11 @@ Final numbers: found 34,940; certified 34,940; unimodular 3,040; certified non-u
 - `run.log`, `growth_run1_sigma0.4-1.log`, `growth_run2_sigma2-4.log`: logs (count against starts).
 
 ## Commands (from this folder; 2 shared cores)
-    SIGS=2.0,3.0,4.0 nice -n 10 python3 find_roots.py 900 2 roots_found.npy      # ~100 s: 34,940 roots after 56,000 starts
-    nice -n 10 python3 certify_roots.py roots_found.npy cyclic10_roots.npz ../upstream_mub10/data/exact/bu10hp_unimod.txt 2   # ~35 s
-Re-verification from the shipped data only: `python3 certify_roots.py cyclic10_roots.npz out.npz ../upstream_mub10/data/exact/bu10hp_unimod.txt 2` (~35 s).
+    SIGS=2.0,3.0,4.0 nice -n 10 python3 find_roots.py 900 2 roots_found.npy      # ~100 s on an idle machine (not re-run in the last audit): 34,940 roots after 56,000 starts
+    nice -n 10 python3 certify_roots.py roots_found.npy cyclic10_roots.npz ../upstream_mub10/data/exact/bu10hp_unimod.txt 2   # 18 to 35 s (2 shared cores)
+Re-verification from the shipped data only: `python3 certify_roots.py cyclic10_roots.npz out.npz ../upstream_mub10/data/exact/bu10hp_unimod.txt 2` (18 to 25 s; 18 s in `verify_all.sh` step S28).
+All paths are relative to this folder or given on the command line; the only script of `d10/` with an absolute path is `../energy10.py`.
+The same pair of scripts, adapted to n = 6 (156 roots, group of order 288), is `../../d6_fourier/certify_d6_roots.py`.
 
 ## Search log notes
 - Run 1 (default sigmas 0.4/0.7/1.0, seed 1) stalled at 33,940 roots for 100k+ starts (later 34,340): moderate starting radii miss some orbits.

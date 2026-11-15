@@ -1,0 +1,153 @@
+STATUS: all 7 theorems in Bases.lean proved; no sorry left.
+Sun Nov 15 12:57:49 UTC 2026
+Lean (version 4.35.0, x86_64-unknown-linux-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)
+cmd: nice -n 5 lake build MUB6Bridge.Bases
+⚠ [2485/2486] Replayed MUB6Bridge.BridgeLemma
+warning: MUB6Bridge/BridgeLemma.lean: imports `Mathlib.Analysis.Real.Sqrt` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: MUB6Bridge/BridgeLemma.lean: imports `Mathlib.Algebra.Order.BigOperators.Group.Finset` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: MUB6Bridge/BridgeLemma.lean: imports `Mathlib.Algebra.BigOperators.Fin` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: MUB6Bridge/BridgeLemma.lean: imports `Mathlib.Tactic.Linarith` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: MUB6Bridge/BridgeLemma.lean: imports `Mathlib.Tactic.Positivity` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: MUB6Bridge/BridgeLemma.lean: imports `Mathlib.Tactic.FieldSimp` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: MUB6Bridge/BridgeLemma.lean: imports `Mathlib.Tactic.LinearCombination` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: MUB6Bridge/BridgeLemma.lean: imports `Mathlib.Tactic.NormNum` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: MUB6Bridge/BridgeLemma.lean: imports `Mathlib.Tactic.Ring` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: MUB6Bridge/BridgeLemma.lean: imports `Mathlib.Tactic.NthRewrite` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: MUB6Bridge/BridgeLemma.lean: imports `Mathlib.Tactic.Push` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+info: MUB6Bridge/BridgeLemma.lean:218:0: 'MUB6Bridge.sqrt6_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUB6Bridge/BridgeLemma.lean:219:0: 'MUB6Bridge.sqrt6_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUB6Bridge/BridgeLemma.lean:220:0: 'MUB6Bridge.sqrt6_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUB6Bridge/BridgeLemma.lean:221:0: 'MUB6Bridge.cstar_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUB6Bridge/BridgeLemma.lean:222:0: 'MUB6Bridge.cstar_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUB6Bridge/BridgeLemma.lean:223:0: 'MUB6Bridge.sqrt_le_quadratic_cap' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUB6Bridge/BridgeLemma.lean:224:0: 'MUB6Bridge.bias_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUB6Bridge/BridgeLemma.lean:225:0: 'MUB6Bridge.pair_sum_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUB6Bridge/BridgeLemma.lean:226:0: 'MUB6Bridge.game_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUB6Bridge/BridgeLemma.lean:227:0: 'MUB6Bridge.numbers_T0' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUB6Bridge/BridgeLemma.lean:228:0: 'MUB6Bridge.numbers_T1' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUB6Bridge/BridgeLemma.lean:229:0: 'MUB6Bridge.cstar' depends on axioms: [propext, Classical.choice, Quot.sound]
+⚠ [2486/2486] Replayed MUB6Bridge.Bases
+warning: MUB6Bridge/Bases.lean: imports `Mathlib.Analysis.InnerProductSpace.PiL2` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+info: MUB6Bridge/Bases.lean:117:0: 'MUB6Bridge.sq_overlap_le_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUB6Bridge/Bases.lean:118:0: 'MUB6Bridge.sq_overlap_row_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUB6Bridge/Bases.lean:119:0: 'MUB6Bridge.sq_overlap_total' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUB6Bridge/Bases.lean:120:0: 'MUB6Bridge.pairSum_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUB6Bridge/Bases.lean:121:0: 'MUB6Bridge.bridge_bias' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUB6Bridge/Bases.lean:122:0: 'MUB6Bridge.bridge_three_pairs' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUB6Bridge/Bases.lean:123:0: 'MUB6Bridge.bridge_game' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUB6Bridge/Bases.lean:124:0: 'MUB6Bridge.energy' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUB6Bridge/Bases.lean:125:0: 'MUB6Bridge.pairSum' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUB6Bridge/Bases.lean:126:0: 'MUB6Bridge.gameScore' depends on axioms: [propext, Classical.choice, Quot.sound]
+Build completed successfully (2486 jobs).
+--- grep
+117:#print axioms MUB6Bridge.sq_overlap_le_one
+118:#print axioms MUB6Bridge.sq_overlap_row_sum
+119:#print axioms MUB6Bridge.sq_overlap_total
+120:#print axioms MUB6Bridge.pairSum_le
+121:#print axioms MUB6Bridge.bridge_bias
+122:#print axioms MUB6Bridge.bridge_three_pairs
+123:#print axioms MUB6Bridge.bridge_game
+124:#print axioms MUB6Bridge.energy
+125:#print axioms MUB6Bridge.pairSum
+126:#print axioms MUB6Bridge.gameScore
+--- stmt_diff
+BridgeLemma bias_bound UNCHANGED
+BridgeLemma cstar UNCHANGED
+BridgeLemma cstar_eq UNCHANGED
+BridgeLemma cstar_pos UNCHANGED
+BridgeLemma game_bound UNCHANGED
+BridgeLemma numbers_T0 UNCHANGED
+BridgeLemma numbers_T1 UNCHANGED
+BridgeLemma pair_sum_bound UNCHANGED
+BridgeLemma sqrt6_bounds UNCHANGED
+BridgeLemma sqrt6_pos UNCHANGED
+BridgeLemma sqrt6_sq UNCHANGED
+BridgeLemma sqrt_le_quadratic_cap UNCHANGED
+FiniteSample pearson_eq_collision UNCHANGED
+FiniteSample second_moment_le UNCHANGED
+FiniteSample shots_T0 UNCHANGED
+FiniteSample zeta1_le_second_moment UNCHANGED
+Bases Basis6 UNCHANGED
+Bases H6 UNCHANGED
+Bases bridge_bias UNCHANGED
+Bases bridge_game UNCHANGED
+Bases bridge_three_pairs UNCHANGED
+Bases energy UNCHANGED
+Bases gameScore UNCHANGED
+Bases pairSum UNCHANGED
+Bases pairSum_le UNCHANGED
+Bases sq_overlap_le_one UNCHANGED
+Bases sq_overlap_row_sum UNCHANGED
+Bases sq_overlap_total UNCHANGED
+ALL STATEMENTS UNCHANGED
+--- diff vs before (def bodies included; only proof lines and #print lines should differ)
+50c50,54
+<   sorry
+---
+>   have h1 : ‖inner ℂ (e i) (g j)‖ ≤ 1 := by
+>     have := norm_inner_le_norm (𝕜 := ℂ) (e i) (g j)
+>     rwa [e.norm_eq_one, g.norm_eq_one, mul_one] at this
+>   have h0 : 0 ≤ ‖inner ℂ (e i) (g j)‖ := norm_nonneg _
+>   nlinarith
+54c58
+<   sorry
+---
+>   rw [e.sum_sq_norm_inner_right (g j), g.norm_eq_one, one_pow]
+58c62,64
+<   sorry
+---
+>   rw [Finset.sum_comm]
+>   simp only [sq_overlap_row_sum, Finset.sum_const, Finset.card_univ, Fintype.card_fin, nsmul_eq_mul]
+>   norm_num
+62c68,77
+<   sorry
+---
+>   have h := pair_sum_bound (fun i j => ‖inner ℂ (e i) (g j)‖ ^ 2) (fun i j => by positivity)
+>     (fun i j => sq_overlap_le_one e g i j) (sq_overlap_total e g)
+>   have hnn : 0 ≤ cstar * ∑ i, ∑ j, (‖inner ℂ (e i) (g j)‖ ^ 2 - 1 / 6) ^ 2 := by
+>     have := cstar_pos
+>     positivity
+>   have heq : pairSum e g = ∑ i, ∑ j, Real.sqrt (‖inner ℂ (e i) (g j)‖ ^ 2) := by
+>     unfold pairSum
+>     simp only [Real.sqrt_sq (norm_nonneg _)]
+>   rw [heq]
+>   linarith
+68c83,85
+<   sorry
+---
+>   have h := hγ (F j) (F.norm_eq_one j)
+>   unfold energy at h
+>   exact bias_bound (fun r k => ‖inner ℂ (B r k) (F j)‖ ^ 2) γ h
+74c91,100
+<   sorry
+---
+>   have h := game_bound (fun r k j => ‖inner ℂ (B r k) (F j)‖ ^ 2) γ (fun r k j => by positivity)
+>     (fun r k j => sq_overlap_le_one (B r) F k j) (fun r => sq_overlap_total (B r) F)
+>     (fun j => hγ (F j) (F.norm_eq_one j))
+>   have heq : ∀ r, pairSum (B r) F = ∑ k, ∑ j, Real.sqrt (‖inner ℂ (B r k) (F j)‖ ^ 2) := by
+>     intro r
+>     unfold pairSum
+>     simp only [Real.sqrt_sq (norm_nonneg _)]
+>   simp only [Fin.sum_univ_three] at h
+>   rw [heq 0, heq 1, heq 2]
+>   linarith
+81c107,112
+<   sorry
+---
+>   have h1 := pairSum_le (B 0) (B 1)
+>   have h2 := pairSum_le (B 0) (B 2)
+>   have h3 := pairSum_le (B 1) (B 2)
+>   have h4 := bridge_three_pairs B γ hγ F
+>   unfold gameScore
+>   linarith
+85a117,126
+> #print axioms MUB6Bridge.sq_overlap_le_one
+> #print axioms MUB6Bridge.sq_overlap_row_sum
+> #print axioms MUB6Bridge.sq_overlap_total
+> #print axioms MUB6Bridge.pairSum_le
+> #print axioms MUB6Bridge.bridge_bias
+> #print axioms MUB6Bridge.bridge_three_pairs
+> #print axioms MUB6Bridge.bridge_game
+> #print axioms MUB6Bridge.energy
+> #print axioms MUB6Bridge.pairSum
+> #print axioms MUB6Bridge.gameScore

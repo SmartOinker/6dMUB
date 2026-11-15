@@ -1,0 +1,49 @@
+{
+ "5333": {
+  "shape": [
+   3,
+   3,
+   3
+  ],
+  "max_modulus_error": "1.1479e-41",
+  "misfit": "2.8352e-40"
+ },
+ "5431": {
+  "shape": [
+   4,
+   3,
+   1
+  ],
+  "per_cube_root": [
+   {
+    "max_modulus_error": "8.0356e-41",
+    "misfit": "2.8318e-40"
+   },
+   {
+    "max_modulus_error": "3.4438e-41",
+    "misfit": "4.6909e-40"
+   },
+   {
+    "max_modulus_error": "2.2959e-41",
+    "misfit": "2.7048e-40"
+   }
+  ]
+ },
+ "5522": {
+  "shape": [
+   5,
+   2,
+   2
+  ],
+  "max_modulus_error": "1.1479e-41",
+  "misfit_at_box_centre": "2.2221e-7",
+  "misfit_after_polish": "3.5639e-30",
+  "max_phase_shift_from_box_centre": "7.2906e-8",
+  "smallest_singular_values": [
+   0.17852232924398062,
+   0.10612819353559944,
+   4.693703366732099e-16
+  ],
+  "nvar": 40
+ }
+}

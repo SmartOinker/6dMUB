@@ -72,8 +72,33 @@ for (gs, beta), want in exp.items():
     print("[C-finite] gamma = %s: smallest N with miss <= %s is %d; false alarm there = %.3e" % (gs, float(beta), N, float(false_alarm(g, N))))
 assert float(false_alarm(Fr("0.038499999998"), 2892)) < 2.7e-4 and float(false_alarm(Fr("0.038499999998"), 14957)) < 1.1e-5
 fa = float(false_alarm(Fr("0.038499999998"), 14957)); assert abs(fa - 1.01e-5) < 5e-8, fa           # report says 1.1e-5: see matrix (disagreement)
-print("[C-finite] N = 14,957: false alarm bound = %.4e (the report text says 1.1e-5; the exact value is 1.01e-5, so the report's statement 'at most 1.1e-5' is true but loose)" % fa)
-assert 3*239 == 717 and 3*2892 == 8676
+print("[C-finite] with the unoptimised threshold t = 1/2 (report: N = 2,892 for T0, false alarm <= 2.7e-4); at N = 14,957 the false-alarm bound is %.4e" % fa)
+# optimised threshold: smallest N for which SOME t in (0,1) gives false alarm <= alpha and miss <= beta (Theorem finite-sample, i) and (ii)
+def t_interval(g, N, alpha, beta):
+    g = mp.mpf(g); N = mp.mpf(N)
+    V = 4/N*g*(mp.mpf(1)/6 + mp.sqrt(g)) + 3/(2*N*(N - 1))
+    tmin = mp.sqrt((1/mp.mpf(alpha) - 1)/(mp.mpf(6)/5*g*g*N*(N - 1)))          # false alarm (1 + 6/5 t^2 g^2 N(N-1))^-1 <= alpha
+    tmax = 1 - mp.sqrt(V*(1/mp.mpf(beta) - 1))/g                               # miss V/(V + (1-t)^2 g^2) <= beta
+    return tmin, tmax
+def smallest_N_opt(g, alpha, beta):
+    lo, hi = 2, 2
+    while (lambda a, b: a > b)(*t_interval(g, hi, alpha, beta)): hi *= 2
+    while lo < hi:
+        mid = (lo + hi)//2
+        a, b = t_interval(g, mid, alpha, beta)
+        if a <= b: hi = mid
+        else: lo = mid + 1
+    return lo
+for gs, beta, want, trep in (("0.0384999", "0.05", 1936, "0.38751"), ("0.0384999", "0.01", 5142, "0.14579"), ("0.0234999", "0.05", 3007, "0.40853"), ("0.0234999", "0.01", 7687, "0.15978")):
+    N = smallest_N_opt(gs, "0.001", beta); assert N == want, (gs, beta, N, want)
+    a, b = t_interval(gs, N, "0.001", beta); a1, b1 = t_interval(gs, N - 1, "0.001", beta)
+    assert a1 > b1 and a <= mp.mpf(trep) <= b, (a, trep, b)
+    print("[C-finite-opt] gamma = %s, false alarm <= 0.001, miss <= %s: smallest N = %d; feasible t in [%s, %s] contains the report's t = %s; N-1 infeasible" % (gs, beta, N, mp.nstr(a, 6), mp.nstr(b, 6), trep))
+# purity witness constant
+g = mp.mpf("0.0384999"); lam = mp.sqrt(mp.mpf(5)/6)/(mp.sqrt(g) + mp.sqrt(mp.mpf(5)/6)); assert lam < mp.mpf("0.8232")
+print("[C-purity] bound at E(rho) = 0: sqrt(5/6)/(sqrt(0.0384999) + sqrt(5/6)) = %s < 0.8232 (report: 0.91287/(0.19621 + 0.91287))" % mp.nstr(lam, 8))
+assert 3*5142 == 15426
+assert 3*239 == 717
 # uniform variance 5/(6N(N-1)) and Cantelli constant 3/10 (algebra)
 N = Fr(2892); var_u = 3*Fr(2, 1)/(N*(N - 1))*Fr(5, 36); assert var_u == Fr(5, 6)/(N*(N - 1))
 g = Fr("0.038499999998"); assert (g*g/4)/var_u == Fr(3, 10)*g*g*N*(N - 1)

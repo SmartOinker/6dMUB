@@ -1,0 +1,127 @@
+{
+ "pairwise_values_unnormalised": [
+  [
+   0.0,
+   300
+  ],
+  [
+   0.861561,
+   18
+  ],
+  [
+   1.607695,
+   72
+  ],
+  [
+   3.21539,
+   72
+  ],
+  [
+   4.823085,
+   72
+  ],
+  [
+   5.569219,
+   72
+  ],
+  [
+   6.0,
+   144
+  ],
+  [
+   10.392305,
+   288
+  ],
+  [
+   12.0,
+   90
+  ]
+ ],
+ "orthogonal_pairs": 300,
+ "unbiased_pairs": 144,
+ "min_distance_from_6_of_non_unbiased_pairs": 0.43078061834694115,
+ "orthonormal_sets_by_size": {
+  "1": 48,
+  "2": 300,
+  "3": 316,
+  "4": 240,
+  "5": 96
+ },
+ "constellations": {
+  "5,5,1,1": {
+   "exists": true,
+   "witness": {
+    "B": [
+     0
+    ],
+    "C": [
+     1
+    ]
+   }
+  },
+  "5,5,2,1": {
+   "exists": true,
+   "witness": {
+    "B": [
+     0,
+     20
+    ],
+    "C": [
+     1
+    ]
+   }
+  },
+  "5,5,2,2": {
+   "exists": false,
+   "witness": null
+  },
+  "5,5,3,1": {
+   "exists": false,
+   "witness": null
+  },
+  "5,5,3,2": {
+   "exists": false,
+   "witness": null
+  },
+  "5,5,3,3": {
+   "exists": false,
+   "witness": null
+  },
+  "5,5,4,1": {
+   "exists": false,
+   "witness": null
+  },
+  "5,5,4,2": {
+   "exists": false,
+   "witness": null
+  },
+  "5,5,4,3": {
+   "exists": false,
+   "witness": null
+  },
+  "5,5,4,4": {
+   "exists": false,
+   "witness": null
+  },
+  "5,5,5,1": {
+   "exists": false,
+   "witness": null
+  },
+  "5,5,5,2": {
+   "exists": false,
+   "witness": null
+  },
+  "5,5,5,3": {
+   "exists": false,
+   "witness": null
+  },
+  "5,5,5,4": {
+   "exists": false,
+   "witness": null
+  },
+  "5,5,5,5": {
+   "exists": false,
+   "witness": null
+  }
+ }
+}

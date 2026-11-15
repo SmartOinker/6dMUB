@@ -8,6 +8,11 @@ ctx.prec = 160
 def load(path):
     B = np.load(path); assert B.shape == (4, 6, 6)
     return [[[acb(float(B[k][i][j].real), float(B[k][i][j].imag)) for j in range(6)] for i in range(6)] for k in range(4)]
+import math
+def up(x, d):    # decimal rounded UP to d places (for printed upper bounds)
+    return math.ceil(x * 10**d + 1e-6) / 10**d
+def down(x, d):  # decimal rounded DOWN to d places (for printed lower bounds)
+    return math.floor(x * 10**d - 1e-6) / 10**d
 def study(path):
     Bs = load(path); eps = []
     for B in Bs:
@@ -36,11 +41,11 @@ def study(path):
     mu = arb(1) / 2 + 1 / (2 * arb(6).sqrt())
     print(path.split("/")[-1])
     print("  unitarity defects eps <= %.2e" % float(emax.upper()))
-    print("  exact set has worst-case bias delta <= %.9f" % float(delta.upper()))
-    print("  exact set has game score P_4 >= %.10f, i.e. shortfall <= %.6e" % (float(P4.lower()), float((mu - P4).upper())))
+    print("  exact set has worst-case bias delta <= %.9f   (rounded up)" % up(float(delta.upper()), 9))
+    print("  exact set has game score P_4 >= %.10f (rounded down), i.e. shortfall <= %.10f (rounded up)" % (down(float(P4.lower()), 10), up(float((mu - P4).upper()), 10)))
 for p in sys.argv[1:]:
     study(p)
 c = 3 * arb(6).sqrt() / (arb(6).sqrt() + 1) ** 2
 # g = certified energy bounds rounded down: verify.py proves E > 0.03849999999 (T0) and E > 0.02349999999 (T1).
 for nm, g in (("T0", arb("0.03849999999")), ("T1", arb("0.02349999999"))):
-    print("%s: any 4 bases containing it:  delta >= sqrt(g/18) > %.6f ;  game shortfall >= c*g/72 > %.6e" % (nm, float((g / 18).sqrt().lower()), float((c * g / 72).lower())))
+    print("%s: any 4 bases containing it:  delta >= sqrt(g/18) > %.6f ;  game shortfall >= c*g/72 > %.10f   (both rounded down)" % (nm, down(float((g / 18).sqrt().lower()), 6), down(float((c * g / 72).lower()), 10)))

@@ -1,4 +1,14 @@
-import Mathlib
+import Mathlib.Analysis.Real.Sqrt
+import Mathlib.Algebra.Order.BigOperators.Group.Finset
+import Mathlib.Algebra.BigOperators.Fin
+import Mathlib.Tactic.Linarith
+import Mathlib.Tactic.Positivity
+import Mathlib.Tactic.FieldSimp
+import Mathlib.Tactic.LinearCombination
+import Mathlib.Tactic.NormNum
+import Mathlib.Tactic.Ring
+import Mathlib.Tactic.NthRewrite
+import Mathlib.Tactic.Push
 
 /-!
 # From a vector to a basis: the bridge lemma (Problem 124, mutually unbiased bases in dimension six)
@@ -20,9 +30,9 @@ Consequences, stated here for arrays of real numbers (the squared overlaps `p = 
 
 Difference from the paper statement: the paper speaks about orthonormal bases of `ℂ^6`; the facts
 `0 ≤ |⟨e,g⟩|^2 ≤ 1` and `∑_{i,j} |⟨e_i,g_j⟩|^2 = 6` (Parseval) are proved on paper, not here, unless the
-optional section `Bases` at the end is completed.
+file `Bases.lean` is part of the built project.
 
-STATUS: see the README next to this file. Do not cite this file as Lean-verified unless the README says it built.
+STATUS: this file builds with Lean v4.35.0 and Mathlib v4.35.0 (see `lean/README.md` and `lean/BUILD_LOG.txt`).
 -/
 
 namespace MUB6Bridge
@@ -103,7 +113,7 @@ theorem bias_bound (x : Fin 3 → Fin 6 → ℝ) (γ : ℝ)
     (hE : γ ≤ ∑ r, ∑ k, (x r k - 1 / 6) ^ 2) :
     ∃ r k, Real.sqrt (γ / 18) ≤ |x r k - 1 / 6| := by
   by_contra hcon
-  push_neg at hcon
+  push Not at hcon
   have hlt : ∀ r k, (x r k - 1 / 6) ^ 2 < γ / 18 := by
     intro r k
     have h := hcon r k
@@ -142,8 +152,9 @@ theorem pair_sum_bound (p : Fin 6 → Fin 6 → ℝ) (h0 : ∀ i j, 0 ≤ p i j)
         (1 / Real.sqrt 6 + Real.sqrt 6 / 2 * (p i j - 1 / 6) - cstar * (p i j - 1 / 6) ^ 2)
       = 36 * (1 / Real.sqrt 6) + Real.sqrt 6 / 2 * ((∑ i, ∑ j, p i j) - 6)
         - cstar * ∑ i, ∑ j, (p i j - 1 / 6) ^ 2 := by
-    simp only [Finset.sum_sub_distrib, Finset.sum_add_distrib, Finset.mul_sum, Finset.sum_const,
+    simp only [Finset.sum_sub_distrib, Finset.sum_add_distrib, ← Finset.mul_sum, Finset.sum_const,
       Finset.card_univ, Fintype.card_fin, nsmul_eq_mul]
+    push_cast
     ring
   rw [hexp, hsum, h1a] at hle
   linarith
@@ -163,9 +174,10 @@ theorem game_bound (q : Fin 3 → Fin 6 → Fin 6 → ℝ) (γ : ℝ)
   -- exchange the order of summation: total energy = ∑_j E(f_j) ≥ 6 γ
   have hswap : ∑ r : Fin 3, ∑ k : Fin 6, ∑ j : Fin 6, (q r k j - 1 / 6) ^ 2
       = ∑ j : Fin 6, ∑ r : Fin 3, ∑ k : Fin 6, (q r k j - 1 / 6) ^ 2 := by
-    rw [Finset.sum_comm]
-    refine Finset.sum_congr rfl fun r _ => ?_
-    rw [Finset.sum_comm]
+    calc ∑ r : Fin 3, ∑ k : Fin 6, ∑ j : Fin 6, (q r k j - 1 / 6) ^ 2
+        = ∑ r : Fin 3, ∑ j : Fin 6, ∑ k : Fin 6, (q r k j - 1 / 6) ^ 2 :=
+          Finset.sum_congr rfl fun r _ => Finset.sum_comm
+      _ = ∑ j : Fin 6, ∑ r : Fin 3, ∑ k : Fin 6, (q r k j - 1 / 6) ^ 2 := Finset.sum_comm
   have htot : 6 * γ ≤ ∑ r : Fin 3, ∑ k : Fin 6, ∑ j : Fin 6, (q r k j - 1 / 6) ^ 2 := by
     rw [hswap]
     calc 6 * γ = ∑ _j : Fin 6, γ := by simp
@@ -180,9 +192,9 @@ theorem game_bound (q : Fin 3 → Fin 6 → Fin 6 → ℝ) (γ : ℝ)
   have := mul_le_mul_of_nonneg_left htot cstar_pos.le
   linarith
 
-/-- Numbers for the canonical product triple (certified `γ = 0.038499999998`, quoted as 0.0385). -/
-theorem numbers_T0 : (0.046248 : ℝ) < Real.sqrt (0.038499999998 / 18) ∧
-    (3.302e-4 : ℝ) < cstar * 0.038499999998 / 72 := by
+/-- Numbers for the canonical product triple (certified `γ = 0.03849999999`, quoted as 0.0385). -/
+theorem numbers_T0 : (0.046248 : ℝ) < Real.sqrt (0.03849999999 / 18) ∧
+    (3.302e-4 : ℝ) < cstar * 0.03849999999 / 72 := by
   constructor
   · rw [show (0.046248 : ℝ) = Real.sqrt (0.046248 ^ 2) from (Real.sqrt_sq (by norm_num)).symm]
     exact Real.sqrt_lt_sqrt (by norm_num) (by norm_num)
@@ -190,9 +202,9 @@ theorem numbers_T0 : (0.046248 : ℝ) < Real.sqrt (0.038499999998 / 18) ∧
     have := sqrt6_bounds.1
     linarith
 
-/-- Numbers for the second product triple (certified `γ = 0.023499999997`, quoted as 0.0235). -/
-theorem numbers_T1 : (0.036132 : ℝ) < Real.sqrt (0.023499999997 / 18) ∧
-    (2.015e-4 : ℝ) < cstar * 0.023499999997 / 72 := by
+/-- Numbers for the second product triple (certified `γ = 0.02349999999`, quoted as 0.0235). -/
+theorem numbers_T1 : (0.036132 : ℝ) < Real.sqrt (0.02349999999 / 18) ∧
+    (2.015e-4 : ℝ) < cstar * 0.02349999999 / 72 := by
   constructor
   · rw [show (0.036132 : ℝ) = Real.sqrt (0.036132 ^ 2) from (Real.sqrt_sq (by norm_num)).symm]
     exact Real.sqrt_lt_sqrt (by norm_num) (by norm_num)
@@ -203,3 +215,15 @@ theorem numbers_T1 : (0.036132 : ℝ) < Real.sqrt (0.023499999997 / 18) ∧
 end
 
 end MUB6Bridge
+#print axioms MUB6Bridge.sqrt6_sq
+#print axioms MUB6Bridge.sqrt6_pos
+#print axioms MUB6Bridge.sqrt6_bounds
+#print axioms MUB6Bridge.cstar_pos
+#print axioms MUB6Bridge.cstar_eq
+#print axioms MUB6Bridge.sqrt_le_quadratic_cap
+#print axioms MUB6Bridge.bias_bound
+#print axioms MUB6Bridge.pair_sum_bound
+#print axioms MUB6Bridge.game_bound
+#print axioms MUB6Bridge.numbers_T0
+#print axioms MUB6Bridge.numbers_T1
+#print axioms MUB6Bridge.cstar
