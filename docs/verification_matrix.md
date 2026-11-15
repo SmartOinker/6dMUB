@@ -1,5 +1,8 @@
 # Verification matrix
 
+> Slide numbers in this matrix refer to the 13-slide deck of the previous revision. The final deck has 15 content slides: old 1 is now 1 and 2, old 2 is 3, old 3 is 4 and 5, and old 4 to 13 are 6 to 15.
+
+
 One row per claim of the report (`report/report.tex`, 50 pages in the compiled `report/report.pdf`) and of the slides (`slides/`). The team rule is that every claim must have
 been independently re-verified at least once by something shipped in this repository, and that this repository says exactly how. This file says,
 for each claim, what that something is, how to run it, what it printed today (15 November 2026), and whether the rule is met.

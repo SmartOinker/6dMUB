@@ -7,22 +7,24 @@ Caltech x SAIR Mathathon, Problem 124. This file contains the speaker script for
 | Slide | Headline | Time | Words in script | Words at 130 wpm |
 |---|---|---|---|---|
 | Title | The missing fourth basis in dimension six: what is verified, how far away it is, and how to see it | 0:40 | 85 | 87 |
-| 1 | In dimension six only three complementary bases are known, so state determination gets 15 of the 35 numbers it needs | 1:40 | 216 | 217 |
-| 2 | Three 2026 computer proofs say N(6)=3; to our knowledge none is formally verified end to end, and they share a method | 1:20 | 164 | 173 |
-| 3 | The OpenAI record checker misses every consistent in-range change we tried; a full rerun reproduces the files | 1:30 | 192 | 195 |
-| 4 | A 10^-7 threshold in the 2008 table admitted two certified near-misses, so "found numerically" is not "proved" | 1:20 | 177 | 173 |
-| 5 | No pure state is unbiased to the local triple T0: its energy exceeds 0.0384999, 99.3% of the exact minimum | 2:00 | 257 | 260 |
-| 6 | A one-vector bound becomes a bound on every fourth basis; Lean checks it as inequalities, given the energy bound | 2:00 | 243 | 260 |
-| 7 | One explicit quadruple beats every completion of the local triple on both measures; another reaches bias 0.030224 | 1:30 | 190 | 195 |
-| 8 | Hide and seek: 1,936 shots per setting expose every pure state, with 95% detection and at most 0.1% false alarm | 2:20 | 302 | 303 |
-| 9 | In simulation, three local settings and modest gate noise suffice, while the game route needs about 10^8 rounds | 1:30 | 197 | 195 |
-| 10 | Additional result: structure for order-six Hadamard matrices is proved, but the universal step toward N(6)=3 is open | 0:50 | 107 | 108 |
-| 11 | Additional result: if a cited root count (H) holds, no four MUBs of C^10 contain the standard and Fourier bases | 1:00 | 129 | 130 |
-| 12 | Every claim has a status; AI did most of the computing and first drafts, and we claim no line-by-line human refereeing | 1:20 | 173 | 173 |
-| 13 | To our knowledge nothing is formal end to end, but the missing basis now has certified numbers and a laboratory test | 1:00 | 130 | 130 |
-| **Total** | | **20:00** | 2562 | 2600 |
+| 1 | Unbiased bases are complementary measurements: certainty in one means pure chance in every other | 0:55 | 123 | 119 |
+| 2 | In dimension six only three complementary bases are known, so state determination gets 15 of the 35 numbers it needs | 0:45 | 102 | 98 |
+| 3 | Three 2026 computer proofs say N(6)=3; to our knowledge none is formally verified end to end, and they share a method | 1:20 | 171 | 173 |
+| 4 | The OpenAI record checker misses every consistent in-range value change we tried | 1:00 | 130 | 130 |
+| 5 | A full native rerun of the OpenAI pipeline reproduces its eight output files byte for byte | 0:30 | 68 | 65 |
+| 6 | A 10^-7 threshold in the 2008 table admitted two certified near-misses, so "found numerically" is not "proved" | 1:20 | 177 | 173 |
+| 7 | No pure state is unbiased to the local triple T0: its energy exceeds 0.0384999, 99.3% of the exact minimum | 2:00 | 257 | 260 |
+| 8 | A one-vector bound becomes a bound on every fourth basis; Lean checks it as inequalities, given the energy bound | 2:00 | 243 | 260 |
+| 9 | One explicit quadruple beats every completion of the local triple on both measures; another reaches bias 0.030224 | 1:30 | 190 | 195 |
+| 10 | Hide and seek: 1,936 shots per setting expose every pure state, with 95% detection and at most 0.1% false alarm | 2:20 | 302 | 303 |
+| 11 | In simulation, three local settings and modest gate noise suffice, while the game route needs about 10^8 rounds | 1:30 | 197 | 195 |
+| 12 | Additional result: structure for order-six Hadamard matrices is proved, but the universal step toward N(6)=3 is open | 0:50 | 106 | 108 |
+| 13 | Additional result: if a cited root count (H) holds, no four MUBs of C^10 contain the standard and Fourier bases | 1:00 | 129 | 130 |
+| 14 | Every claim has a status; AI did most of the computing and first drafts, and we claim no line-by-line human refereeing | 1:20 | 176 | 173 |
+| 15 | To our knowledge nothing is formal end to end, but the missing basis now has certified numbers and a laboratory test | 1:00 | 130 | 130 |
+| **Total** | | **20:00** | 2586 | 2599 |
 
-Sum of the per-slide times: 20:00 exactly. Check: 0:40 + 1:40 + 1:20 + 1:30 + 1:20 + 2:00 + 2:00 + 1:30 + 2:20 + 1:30 + 0:50 + 1:00 + 1:20 + 1:00 = 20:00. Title plus slides 1 to 9 take 15:50 (79 percent of the talk); the two additional results take 1:50. Backup slides are untimed and used only for questions.
+Sum of the per-slide times: 20:00 exactly. Check: 0:40 + 0:55 + 0:45 + 1:20 + 1:00 + 0:30 + 1:20 + 2:00 + 2:00 + 1:30 + 2:20 + 1:30 + 0:50 + 1:00 + 1:20 + 1:00 = 20:00. Title plus slides 1 to 11 take 15:50 (79 percent of the talk); the two additional results take 1:50. Backup slides are untimed and used only for questions. Slides 1 to 13 each carry a diagram or a chart; slides 14 and 15 are the status table and the summary.
 
 ## Title slide
 
@@ -34,37 +36,57 @@ Good morning. We are Ren Jie Tee, Xinrui Li and Raymond Fong, and this is our ta
 
 **If asked:** Q: Did you prove that N(6) is 3? A: No. We did not prove it and we did not verify the three 2026 proofs. We checked parts of them and turned their conclusion into numbers.
 
-## Slide 1. The question and why it matters
+## Slide 1. What unbiased means
+
+**Headline on slide:** Unbiased bases are complementary measurements: certainty in one means pure chance in every other
+
+**Time:** 0:55
+
+Two orthonormal bases of six-dimensional space are mutually unbiased, or unbiased for short, if every overlap between a vector of one and a vector of the other has squared modulus one sixth. The picture shows what that means: prepare a vector of the first basis and measure in that basis, and the outcome is certain; measure in the second or the third, and all six outcomes are equally likely. In a prime power dimension you can always find d plus one such bases. Six is the smallest dimension that is not a prime power. Three are easy to build there, no fourth was ever found, and Zauner conjectured in 1999 that three is the maximum. In 2026 three computer-assisted preprints claimed exactly this.
+
+**If asked:** Q: Why is six special? A: It is the smallest dimension that is not a prime power; the standard constructions of d plus one bases use a finite field with d elements, and there is none with six.
+
+## Slide 2. Why it matters: fifteen of thirty-five
 
 **Headline on slide:** In dimension six only three complementary bases are known, so state determination gets 15 of the 35 numbers it needs
 
-**Time:** 1:40
+**Time:** 0:45
 
-Two orthonormal bases of six-dimensional space are mutually unbiased, or unbiased for short, if every overlap between a vector of one and a vector of the other has squared modulus one sixth. Physically they are complementary measurements: certainty in one means complete randomness in the other. In a prime power dimension you can always find d plus one such bases. Six is the smallest dimension that is not a prime power. Three are easy to build there, no fourth was ever found, and Zauner conjectured in 1999 that three is the maximum. In 2026 three computer-assisted preprints claimed exactly this. Why should anyone outside the field care? Count parameters. A state of a six-level system has thirty-six minus one, so thirty-five, real parameters. Measuring in one basis gives six probabilities that sum to one, so five independent numbers. A complete set of seven unbiased bases would give seven times five, exactly thirty-five, with no redundancy. That is why such sets give optimal state determination. Three bases give only fifteen. So in dimension six this route to optimal tomography is closed, and so are protocols that use d plus one bases in their standard form. All of this is cited background. Our three questions: how do we know, by how much, and what would a laboratory see?
+Why should anyone outside the field care? Count parameters. A state of a six-level system has thirty-six minus one, so thirty-five, real parameters. Measuring in one basis gives six probabilities that sum to one, so five independent numbers. A complete set of seven unbiased bases would give seven times five, exactly thirty-five, with no redundancy. That is why such sets give optimal state determination. Three bases give only fifteen. So in dimension six this route to optimal tomography is closed. All of this is cited background. Our three questions: how do we know, by how much, and what would a laboratory see?
 
 **If asked:** Q: Why not just trust three independent proofs? A: They are not independent in method. One re-implements another, all three were AI-assisted according to their authors, and none is formal end to end. That is the next slide.
 
-## Slide 2. What was proved: the trust map
+## Slide 3. What was proved: the trust map
 
 **Headline on slide:** Three 2026 computer proofs say N(6)=3; to our knowledge none is formally verified end to end, and they share a method
 
 **Time:** 1:20
 
-This table is a trust map of the three preprints. Everything in it is cited. We read the documents during the event, and reading is not verification: we did not re-derive any of the mathematics. All three are proofs by exhaustive cases. OpenAI covers the space with two hundred forty-nine thousand eight hundred seventy-eight seed centers and a graph search, in double precision with safety margins. By its own scope note its Lean part proves only that N of six is at most five; we read that note and did not rebuild the proof. Jaswal re-implements the same method with binary64 intervals and has no Lean; our description rests on a summary. Cardenes Wuttig and Tindall use two thousand seven hundred seventy-five balls plus one at the Fourier matrix, in Arb ball arithmetic, and their Lean theorem takes the numerical certificate as a hypothesis. To our knowledge, then, nothing is formal end to end, and the proofs share a method and a trusted base.
+This picture is a trust map of the three preprints, one column each: the computation in the middle, the Lean part at the bottom. Everything in it is cited, and reading is not verification: we did not re-derive any of the mathematics. All three are proofs by exhaustive cases. OpenAI covers the space with two hundred forty-nine thousand eight hundred seventy-eight seed centers and a graph search, in double precision with safety margins. By its own scope note its Lean part proves only that N of six is at most five; we read that note and did not rebuild the proof. Jaswal re-implements the same method with binary64 intervals and has no Lean; our description rests on a summary. Cardenes Wuttig and Tindall use two thousand seven hundred seventy-five balls plus one at the Fourier matrix, in Arb ball arithmetic, and their Lean theorem takes the numerical certificate as a hypothesis. To our knowledge, then, nothing is formal end to end, and the proofs share a method and a trusted base.
 
 **If asked:** Q: Are you saying the proofs are wrong? A: No. We say what each rests on. We found no error, and we did not verify them.
 
-## Slide 3. What we checked
+## Slide 4. What we checked: the record checker
 
-**Headline on slide:** The OpenAI record checker misses every consistent in-range change we tried; a full rerun reproduces the files
+**Headline on slide:** The OpenAI record checker misses every consistent in-range value change we tried
 
-**Time:** 1:30
+**Time:** 1:00
 
-So we checked what an outsider can check. OpenAI publishes its saved records and a checker. We ran the checker unmodified: it passes in four seconds. To learn what that pass means, we made twenty-six small corruptions of the saved records, one at a time. It caught seventeen and missed nine: two harmless, seven scope gaps. The misses include every in-range change of a stored value that we applied consistently, such as a phase, a radius, a stored bound or a seed center. The checker confirms bookkeeping and ranges and recomputes no inequality. We ran the test twice, with identical verdicts. The corruptions are our own choice, so seventeen of twenty-six is not a quality grade, and the misses concern the checker, not the theorem. Second, a partial rebuild: the seed cover, one stage-A shard and two stage-C batches are bit-identical, most stages not rerun, and on the preprint's own compiler, so independence is weak. Third, a full native rerun: one hundred invocations, eight principal files byte-identical, and the 27,188 root records re-certified at 128 bits. The logs and the checkers are in the repository. Byte agreement shows reproducibility, not that the covering lemmas are right.
+So we checked what an outsider can check. OpenAI publishes its saved records and a checker. We ran the checker unmodified: it passes in four seconds. To learn what that pass means, we made twenty-six small corruptions of the saved records, one at a time: the squares on the slide. It caught seventeen and missed nine: two harmless, seven scope gaps. The misses include every in-range change of a stored value that we applied consistently, such as a phase, a radius, a stored bound or a seed center. The checker confirms bookkeeping and ranges and recomputes no inequality. We ran the test twice, with identical verdicts. The corruptions are our own choice, so seventeen of twenty-six is not a quality grade, and the misses concern the checker, not the theorem.
 
 **If asked:** Q: Does 17 of 26 mean the proof is 65 percent right? A: No. The mutations were ours, not from the real run. They show what the checker does not check.
 
-## Slide 4. The 2008 table: two certified near-misses
+## Slide 5. What we checked: the full rerun
+
+**Headline on slide:** A full native rerun of the OpenAI pipeline reproduces its eight output files byte for byte
+
+**Time:** 0:30
+
+Then we reran the computation itself. The boxes are the stages of OpenAI's pipeline. A partial rebuild covers the blue segments and is bit-identical. The green bar is a full native rerun: one hundred invocations, and all eight principal files are byte-identical to the released ones. A separate program re-certified the 27,188 root records at 128 bits. Byte agreement shows reproducibility, not that the covering lemmas are right.
+
+**If asked:** Q: Does the rerun verify the proof? A: No. It shows that the published programs reproduce the published files on a different processor and compiler version. The mathematics of the covering is not checked by it. The native run was done once; its accounting check and the root re-certification were repeated on a second machine.
+
+## Slide 6. The 2008 table: two certified near-misses
 
 **Headline on slide:** A 10^-7 threshold in the 2008 table admitted two certified near-misses, so "found numerically" is not "proved"
 
@@ -74,7 +96,7 @@ Before 2026 the evidence against a fourth basis was numerical, chiefly a table o
 
 **If asked:** Q: So are those two shapes empty? A: We do not know. We certified that the points we found are not solutions. The misfit might vanish elsewhere.
 
-## Slide 5. The energy and its certificates
+## Slide 7. The energy and its certificates
 
 **Headline on slide:** No pure state is unbiased to the local triple T0: its energy exceeds 0.0384999, 99.3% of the exact minimum
 
@@ -84,7 +106,7 @@ Now the number. Write six as two times three, a qubit and a qutrit. The local tr
 
 **If asked:** Q: Is 0.0385 new? A: No. Erlwein has the exact value (4 - sqrt 6)/40 = 0.03876. Ours is an independent certificate at degree six. What is new is the same certificate for the second product triple and the 16 Fourier-pair triples.
 
-## Slide 6. From a vector to a basis, Lean-checked
+## Slide 8. From a vector to a basis, Lean-checked
 
 **Headline on slide:** A one-vector bound becomes a bound on every fourth basis; Lean checks it as inequalities, given the energy bound
 
@@ -94,7 +116,7 @@ A bound on one vector is not yet a statement about a measurement, which uses a w
 
 **If asked:** Q: Does this show that no fourth basis exists? A: No. It concerns fourth bases added to triples whose one-vector bound is certified. For all quadruples we have no certified lower bound, and that is open.
 
-## Slide 7. The design lesson
+## Slide 9. The design lesson
 
 **Headline on slide:** One explicit quadruple beats every completion of the local triple on both measures; another reaches bias 0.030224
 
@@ -104,7 +126,7 @@ Now compare with explicit sets. A quadruple is four bases. We found two quadrupl
 
 **If asked:** Q: Does this say anything about all quadruples? A: Only that explicit quadruples beat every completion of the triples we examined: one on both measures for T0, and the bias-optimal one on bias. A certified lower bound over all quadruples is open.
 
-## Slide 8. Hide and seek
+## Slide 10. Hide and seek
 
 **Headline on slide:** Hide and seek: 1,936 shots per setting expose every pure state, with 95% detection and at most 0.1% false alarm
 
@@ -114,7 +136,7 @@ What would this look like in a laboratory? Play hide and seek. A hider prepares 
 
 **If asked:** Q: Is the detection test new? A: No, the test is classical. What is new is feeding it the certified energy gap, which gives a finite-sample guarantee for every pure state with three fixed local settings, assuming ideal measurements and independent identical copies.
 
-## Slide 9. Circuits, noise, control and the game
+## Slide 11. Circuits, noise, control and the game
 
 **Headline on slide:** In simulation, three local settings and modest gate noise suffice, while the game route needs about 10^8 rounds
 
@@ -124,7 +146,7 @@ Four more facts about the experiment, all from simulation. First, a purity witne
 
 **If asked:** Q: Why should a quantum-information person care? A: Because it turns an abstract no-go claim into a test that needs three local measurements and a few thousand shots, and tells them how much gate noise it tolerates, while the game route needs about 10^8 rounds.
 
-## Slide 10. Additional result: structure theory
+## Slide 12. Additional result: structure theory
 
 **Headline on slide:** Additional result: structure for order-six Hadamard matrices is proved, but the universal step toward N(6)=3 is open
 
@@ -134,7 +156,7 @@ Additional result, unused by the three answers. For an order-six Hadamard matrix
 
 **If asked:** Q: Does the cubic norm cap prove N(6)=3? A: No. Whether norm 18 forces cube rank two is not proved, and neither is the universal step. Nothing in this section yet bounds the number of MUBs.
 
-## Slide 11. Additional result: dimension ten
+## Slide 13. Additional result: dimension ten
 
 **Headline on slide:** Additional result: if a cited root count (H) holds, no four MUBs of C^10 contain the standard and Fourier bases
 
@@ -144,7 +166,7 @@ Also additional. Vectors unbiased to the standard and the Fourier basis of dimen
 
 **If asked:** Q: Is dimension ten a theorem? A: Yes, as a computer-assisted theorem conditional only on H, the cited count, which we did not verify. The roots themselves are certified in the repository, and the theorem says nothing about N(10).
 
-## Slide 12. Claims, status, AI use and how it was checked
+## Slide 14. Claims, status, AI use and how it was checked
 
 **Headline on slide:** Every claim has a status; AI did most of the computing and first drafts, and we claim no line-by-line human refereeing
 
@@ -154,7 +176,7 @@ The whole talk, by status. Proved here: the bridge theorem, the detection guaran
 
 **If asked:** Q: Which claims are Lean-verified? A: See the table: the lemma's inequality and the bridge theorem, in the root project, and E above 1/72, in the structure project; both have their build logs in the repository. The energy certificates and dimension ten are not formalized.
 
-## Slide 13. Summary
+## Slide 15. Summary
 
 **Headline on slide:** To our knowledge nothing is formal end to end, but the missing basis now has certified numbers and a laboratory test
 
@@ -166,7 +188,7 @@ To summarize. How do we know? To our knowledge nothing is formal end to end. The
 
 ## Backup slides (untimed)
 
-B1 proof of the square-root lemma; B2 the finite-sample theorem, statement and proof sketch; B3 the degree-six certificate method and what the checker trusts (E > 0.03849999999 from the nominal level 0.0385 minus S <= 2.189e-12); B4 what is Lean-checked, by whom, and what is not; B5 the second product triple and the 16 Fourier-pair triples (E > 0.0323999 for 12, E > 0.0234999 for 2, E > 0.0384999 for 2; every fourth basis added to any of them has bias above 0.036132, above 0.030224); B6 phase-ball radius; B7 six-phase bound and quartic obstruction; B8 mutation-test table.
+B1 proof of the square-root lemma; B2 the finite-sample theorem, statement and proof sketch; B3 the degree-six certificate method and what the checker trusts (E > 0.03849999999 from the nominal level 0.0385 minus S <= 2.189e-12); B4 what is Lean-checked and what is not; B5 the second product triple and the 16 Fourier-pair triples (E > 0.0323999 for 12, E > 0.0234999 for 2, E > 0.0384999 for 2; every fourth basis added to any of them has bias above 0.036132, above 0.030224); B6 phase-ball radius; B7 six-phase bound and quartic obstruction; B8 mutation-test table.
 
 ## Q&A preparation
 
@@ -182,7 +204,7 @@ Guarantee versus approximation. 1,936 shots per setting come from the finite-sam
 
 No. The exact minimum (4 - sqrt6)/40 = 0.03876 on the canonical triple is prior work of Erlwein, with a degree-eight certificate. Our certified inequality E > 0.0384999 (nominal level 0.0385) is an independent degree-six certificate, 99.3 percent of his value, not a new bound on that triple. What the same pipeline adds, to our knowledge: certified bounds E > 0.0234999 for the second product triple and for all 16 triples containing the standard and Fourier bases (given the classical count of 156 cyclic 6-roots), the bridge from one vector to a whole basis, and the detection guarantee.
 
-**4. What exactly is Lean-verified, and by whom?**
+**4. What exactly is Lean-verified?**
 
 Two Lean developments. (1) We built the project MUB6Bridge (four files, 45 declarations) locally with Lean v4.35.0 and Mathlib v4.35.0, with no sorry and only the axioms propext, Classical.choice and Quot.sound: the inequality of the square-root lemma (sqrt_le_quadratic_cap, not its equality cases), the bridge theorem for orthonormal bases of C^6 (bridge_bias, bridge_game), the numerical corollary as an implication (corollary_T0, corollary_T1: if every unit vector has energy at least 0.03849999999 then deviation above 0.046248 and game loss above 3.302e-4), gameScore_le (no four bases score above 1/2 + sqrt6/12), the arithmetic of the bias and game numbers, the identity X^2 = 15 + 6(N-1)T, four elementary inequalities of the variance bound and the arithmetic of all five shot counts (shots_T0 and others). In Lean the game score is defined by its formula; that the formula is the optimal success probability is cited. The competition's automated build has not been run by us. (2) The structure project lean_structure (46 modules, 394 theorems, Lean v4.35.0, same Mathlib) contains E > 1/72 and the structure declarations; its build log, axiom log and source hashes are in the repository, and a script checks them against the sources. It is separate from the root project, so a build of the repository root does not compile it. Not formalized: the energy certificates, the probability statements (variance formula, Cantelli), the purity witness, the dimension-ten theorem, the certificate checker. The Lean part of the OpenAI proof covers N(6) <= 5 only; nothing is formal end to end.
 

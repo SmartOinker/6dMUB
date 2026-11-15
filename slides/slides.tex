@@ -99,13 +99,42 @@
 
 \setcounter{framenumber}{0}
 % ======================= 1 =======================
+\begin{frame}{Unbiased bases are complementary measurements: certainty in one means pure chance in every other}
+\centering
+\begin{tikzpicture}[font=\footnotesize]
+\foreach \k/\lab in {0/basis 1,1/basis 2,2/basis 3,3/basis 4?} {
+ \begin{scope}[xshift=\k*3.6cm]
+  \draw[black!50] (0,0)--(2.95,0); \draw[black!50] (0,0)--(0,2.35);
+  \draw[black!50] (-0.06,2.0)--(0,2.0); \node[anchor=east,font=\scriptsize] at (-0.05,2.0) {1};
+  \draw[black!50] (-0.06,0.333)--(0,0.333); \node[anchor=east,font=\scriptsize] at (-0.05,0.36) {$\tfrac16$};
+  \node at (1.5,-0.32) {measure in \lab};
+ \end{scope}}
+\foreach \j in {0,...,5} {\draw[black!25] (0.3+0.43*\j,0) rectangle (0.6+0.43*\j,0.02);}
+\fill[accent] (0.3+0.43*2,0) rectangle (0.6+0.43*2,2.0);
+\node[font=\scriptsize,accent,anchor=west] at (1.55,1.8) {certain};
+\foreach \j in {0,...,5} {\fill[accent!70] (3.6+0.3+0.43*\j,0) rectangle (3.6+0.6+0.43*\j,0.333);
+                          \fill[accent!70] (7.2+0.3+0.43*\j,0) rectangle (7.2+0.6+0.43*\j,0.333);
+                          \draw[hl,dashed] (10.8+0.3+0.43*\j,0) rectangle (10.8+0.6+0.43*\j,0.333);}
+\node[font=\scriptsize,accent] at (3.6+1.5,0.75) {six outcomes, each $\tfrac16$};
+\node[font=\scriptsize,accent] at (7.2+1.5,0.75) {six outcomes, each $\tfrac16$};
+\node[font=\Huge\bfseries,hl] at (10.8+1.5,1.35) {?};
+\node[font=\footnotesize,anchor=west] at (0,2.75) {Prepare a vector of basis 1, then measure:};
+\end{tikzpicture}\\[0.25cm]
+\raggedright\small
+\begin{itemize}\setlength\itemsep{4pt}
+\item Bases $e,f$ are \emph{unbiased} if every $\abs{\ip{e_i}{f_j}}^2=\tfrac16$. Prime-power dimension $d$: $d+1$ such bases exist. \Tcited
+\item Six is the first dimension that is not a prime power: three are easy, no fourth was ever found. Zauner (1999): $N(6)=3$. Three 2026 computer-assisted preprints claim it. \Tcited
+\end{itemize}
+\end{frame}
+
+% ======================= 2 =======================
 \begin{frame}{In dimension six only three complementary bases are known, so state determination gets 15 of the 35 numbers it needs}
 \begin{columns}[T]
 \begin{column}{0.5\textwidth}
 \small
 \begin{itemize}\setlength\itemsep{6pt}
-\item Bases $e,f$ are \emph{unbiased} if every $\abs{\ip{e_i}{f_j}}^2=\tfrac16$: certainty in one means pure chance in the other. \Tcited
-\item Zauner (1999): at most three exist, $N(6)=3$. Three 2026 computer-assisted preprints claim it. \Tcited
+\item A six-level state has $36-1=35$ real parameters; one basis measures 5 of them. \Tcited
+\item A complete set of seven unbiased bases would give exactly 35: optimal state determination. Three give 15.
 \item We ask: how do we know, by how much, and what would a laboratory see?
 \end{itemize}
 \end{column}
@@ -124,56 +153,103 @@
 \end{columns}
 \end{frame}
 
-% ======================= 2 =======================
+% ======================= 3 =======================
 \begin{frame}{Three 2026 computer proofs say $N(6)=3$; to our knowledge none is formally verified end to end, and they share a method}
-\centering\small
-\renewcommand{\arraystretch}{1.3}
-\begin{tabular}{@{}>{\raggedright\arraybackslash}p{1.6cm}>{\raggedright\arraybackslash}p{3.9cm}>{\raggedright\arraybackslash}p{3.4cm}>{\raggedright\arraybackslash}p{4.4cm}@{}}
-\toprule
- & OpenAI & Jaswal & C\'ardenes Wuttig, Tindall\\
-\midrule
-Method & 249,878 seed centers, then graph search & same method, re-implemented & 2,775 balls plus one at the Fourier matrix\\
-Arithmetic & binary64 with margins & binary64 intervals & Arb balls\\
-Lean & $N(6)\le5$ by its own scope note; read, not rebuilt by us & none & certificate $\Rightarrow$ no four MUBs; numbers outside Lean\\
-\bottomrule
-\end{tabular}\\[0.4cm]
+\centering
+\begin{tikzpicture}[font=\footnotesize,bx/.style={draw=black!35,rounded corners=2pt,align=center,text width=3.75cm,inner sep=3.5pt,minimum height=1.25cm}]
+\foreach \x/\nm in {0/OpenAI,4.35/Jaswal,8.7/{C\'ardenes Wuttig, Tindall}} {\node[font=\small\bfseries,accent] at (\x,4.55) {\nm};
+  \node[bx,fill=black!8,minimum height=0.6cm] at (\x,3.85) {headline: $N(6)=3$};
+  \draw[-{Stealth},black!50] (\x,2.45+0.68)--(\x,3.5); \draw[-{Stealth},black!50] (\x,0.75+0.68)--(\x,1.75);}
+\node[bx,fill=cCert!14] at (0,2.45) {249,878 seed centers, then graph search; binary64 with margins};
+\node[bx,fill=cCert!14] at (4.35,2.45) {same method, re-implemented; binary64 intervals};
+\node[bx,fill=cCert!14] at (8.7,2.45) {2,775 balls plus one at the Fourier matrix; Arb balls};
+\node[bx,fill=cLeanH!18] at (0,0.75) {Lean: $N(6)\le5$ only, by its own scope note (read, not rebuilt)};
+\node[bx,draw=hl,dashed] at (4.35,0.75) {Lean: none};
+\node[bx,fill=cLeanH!18] at (8.7,0.75) {Lean: certificate $\Rightarrow$ no four MUBs; the numbers stay outside Lean};
+\node[anchor=east,align=right,font=\scriptsize,black!60] at (-2.15,2.45) {computation,\\ not formal};
+\node[anchor=east,align=right,font=\scriptsize,black!60] at (-2.15,0.75) {formal\\ part};
+\end{tikzpicture}\\[0.2cm]
 \raggedright\small\hspace{0.2cm}\Tcited\ Reading is not verification: we did not check their mathematics, and our map of Jaswal rests on a summary.
 \end{frame}
 
-% ======================= 3 =======================
-\begin{frame}{The OpenAI record checker misses every consistent in-range value change we tried; a full rerun reproduces the files}
-\centering\small
-\renewcommand{\arraystretch}{1.45}
-\begin{tabular}{@{}>{\raggedright\arraybackslash}p{2.7cm}>{\raggedright\arraybackslash}p{6.9cm}>{\raggedright\arraybackslash}p{3.5cm}@{}}
-\toprule
-Check & Result & Status\\
-\midrule
-Mutation test & 26 corruptions of the saved records: 17 caught. Consistent in-range value changes pass. & \Tcomp\\
-Partial rebuild & seed cover, one stage-A shard and two stage-C batches bit-identical, on the preprint's own toolchain; most stages not rerun & \Tcomp\\
-Full native rerun & 100 invocations, 8 principal files byte-identical; 27{,}188 root records re-certified at 128 bits & \Tcomp\\
-\bottomrule
-\end{tabular}\\[0.4cm]
+% ======================= 4 =======================
+\begin{frame}{The OpenAI record checker misses every consistent in-range value change we tried}
+\begin{columns}[T]
+\begin{column}{0.52\textwidth}
+\centering
+\begin{tikzpicture}[font=\footnotesize]
+\node[anchor=west] at (0,2.55) {26 deliberate corruptions, one at a time:};
+\foreach \i in {0,...,25} {
+  \pgfmathtruncatemacro{\r}{\i/13} \pgfmathtruncatemacro{\c}{mod(\i,13)}
+  \ifnum\i<17 \fill[cProved] (0.52*\c,1.5-0.62*\r) rectangle +(0.42,0.5);
+  \else\ifnum\i<19 \fill[black!35] (0.52*\c,1.5-0.62*\r) rectangle +(0.42,0.5);
+  \else \fill[cOpen] (0.52*\c,1.5-0.62*\r) rectangle +(0.42,0.5);\fi\fi}
+\fill[cProved] (0,0.15) rectangle +(0.3,0.3); \node[anchor=west] at (0.35,0.3) {17 caught};
+\fill[black!35] (2.2,0.15) rectangle +(0.3,0.3); \node[anchor=west] at (2.55,0.3) {2 missed, harmless};
+\fill[cOpen] (0,-0.35) rectangle +(0.3,0.3); \node[anchor=west] at (0.35,-0.2) {7 missed: scope gaps of the checker};
+\end{tikzpicture}\\[0.2cm]
+\raggedright\small\Tcomp\ Run twice, identical verdicts for all 26.
+\end{column}
+\begin{column}{0.46\textwidth}
+\begin{itemize}\small\setlength\itemsep{6pt}
+\item The published checker passes on the saved run in four seconds.
+\item It confirms bookkeeping and ranges; it recomputes no inequality. Missed: consistent changes of a phase, a radius, a stored bound, a seed center.
+\item The corruptions are our choice: 17 of 26 is not a grade, and the misses concern the checker, not the theorem.
+\end{itemize}
+\end{column}
+\end{columns}
+\vspace{0.25cm}
 \raggedright\small\hspace{0.2cm}The checker confirms bookkeeping, not mathematics. We did not verify the 2026 proofs.
 \end{frame}
 
-% ======================= 4 =======================
-\begin{frame}{A $10^{-7}$ threshold in the 2008 table admitted two certified near-misses, so ``found numerically'' is not ``proved''}
-\centering\small
-\renewcommand{\arraystretch}{1.4}\setlength{\tabcolsep}{3pt}
-\begin{tabular}{@{}lccc@{}}
-\toprule
-Shape (group sizes) & misfit at certified strict local minimum & 2008 function there & 2008 threshold\\
-\midrule
-$\{5,4,4,1\}_6$ & $1.02497683851953\times10^{-3}$ & $2.9\times10^{-8}$ & $10^{-7}$\\
-$\{5,5,3,1\}_6$ & $7.32788656303688\times10^{-4}$ & $1.5\times10^{-8}$ & $10^{-7}$\\
-\bottomrule
-\end{tabular}\\[0.3cm]
+% ======================= 5 =======================
+\begin{frame}{A full native rerun of the OpenAI pipeline reproduces its eight output files byte for byte}
+\centering
+\vspace{0.25cm}
+\begin{tikzpicture}[font=\footnotesize,st/.style={draw=accent,fill=soft,rounded corners=2pt,align=center,minimum height=1.05cm,text width=1.75cm,inner sep=2pt}]
+\node[st] (s) at (0,0) {seed cover\\ 249,878 centers};
+\node[st] (a) at (2.4,0) {stage A\\ 4 shards};
+\node[st] (b) at (4.8,0) {stage B};
+\node[st] (c) at (7.2,0) {stage C\\ 88 batches};
+\node[st] (f) at (9.6,0) {fallback\\ 163 left over};
+\node[st,fill=cProved!15,draw=cProved] (z) at (12.0,0) {final pass\\ 0 unresolved};
+\foreach \u/\v in {s/a,a/b,b/c,c/f,f/z} {\draw[-{Stealth},thick,accent] (\u)--(\v);}
+\draw[cCert,line width=2.2pt] (-0.95,-0.95)--(0.95,-0.95); \draw[cCert,line width=2.2pt] (1.45,-0.95)--(1.95,-0.95);
+\draw[cCert,line width=2.2pt] (6.3,-0.95)--(6.5,-0.95);
+\node[anchor=west,cCert!80!black] at (-0.95,-1.3) {partial rebuild, bit-identical: seed cover, 1 of 4 shards, 2 of 88 batches};
+\draw[cProved,line width=2.2pt] (-0.95,-1.9)--(12.95,-1.9);
+\node[anchor=west,cProved!80!black] at (-0.95,-2.25) {full native rerun: 100 invocations, all 8 principal files byte-identical to the released ones};
+\end{tikzpicture}\\[0.35cm]
 \raggedright\small
-\hspace{0.2cm}\Tcert\ Both pass the 2008 test without being partial fourth bases, so the two entries become \emph{undecided, not refuted}.\\[3pt]
+\begin{itemize}\setlength\itemsep{4pt}
+\item A separate program re-certifies the 27,188 distinct Root records in 128-bit ball arithmetic. \Tcomp
+\item Different processor vendor and compiler version from the preprint; logs of every invocation are in the repository.
+\item Byte agreement shows reproducibility. It does not prove the analytic covering lemmas.
+\end{itemize}
+\end{frame}
+
+% ======================= 6 =======================
+\begin{frame}{A $10^{-7}$ threshold in the 2008 table admitted two certified near-misses, so ``found numerically'' is not ``proved''}
+\centering
+\begin{tikzpicture}[font=\footnotesize,x=1.55cm]
+\draw[->,thick] (-9.3,0)--(-1.6,0);
+\foreach \e in {-9,-8,-7,-6,-5,-4,-3,-2} {\draw (\e,0.08)--(\e,-0.08) node[below=1pt] {$10^{\e}$};}
+\fill[hl!12] (-9.3,0.2) rectangle (-7,3.35);
+\draw[hl,dashed,thick] (-7,-0.1)--(-7,3.5);
+\node[hl,anchor=west,align=left] at (-6.9,2.95) {2008 threshold $10^{-7}$: left of this line\\ a shape counts as ``found''};
+\node[anchor=west,align=left] at (-9.25,2.9) {2008 function\\ at our two points};
+\fill[accent] (-7.82,2.1) circle (3pt); \fill[accent] (-7.54,2.1) circle (3pt);
+\node[accent] at (-7.95,1.7) {$1.5\times10^{-8}$,\ \ $2.9\times10^{-8}$};
+\fill[cCert] (-3.135,0.95) circle (3pt); \fill[cCert] (-2.989,0.95) circle (3pt);
+\node[cCert!85!black] at (-3.06,1.35) {$7.33\times10^{-4}$,\ \ $1.02\times10^{-3}$};
+\node[anchor=east,align=right] at (-1.75,2.1) {certified misfit at the same two points:\\ strict local minima, not zero \Tcert};
+\end{tikzpicture}\\[0.15cm]
+\raggedright\small
+\hspace{0.2cm}Shapes $\{5,4,4,1\}_6$ and $\{5,5,3,1\}_6$ pass the 2008 test without being partial fourth bases: the two entries become \emph{undecided, not refuted}.\\[3pt]
 \hspace{0.2cm}\Tcomp\ Conversely $\{5,3,3,3\}_6$ exists, yet one start in 20,000 finds it.
 \end{frame}
 
-% ======================= 5 =======================
+% ======================= 7 =======================
 \begin{frame}{No pure state is unbiased to the local triple $T_0$: its energy exceeds $0.0384999$, 99.3\% of the exact minimum}
 \small
 $T_0$: qubit $Z,X,Y$ bases tensor qutrit $I_3,F_3,DF_3$ bases, all local. $E(\psi)=\sum_{18\text{ outcomes}}(p-\tfrac16)^2$.\\[0.15cm]
@@ -194,22 +270,39 @@ $T_0$: qubit $Z,X,Y$ bases tensor qutrit $I_3,F_3,DF_3$ bases, all local. $E(\ps
 \hspace{0.2cm}Same method: $E>0.0234999$ for the second product triple and, given the classical count 156, for all 16 triples containing the standard and Fourier bases. \Tcert\ \Tcited\ (the count)
 \end{frame}
 
-% ======================= 6 =======================
+% ======================= 8 =======================
 \begin{frame}{A one-vector bound becomes a bound on every fourth basis; Lean checks it as inequalities, given the energy bound}
 \small
-\begin{beamercolorbox}[wd=\textwidth,sep=4pt,rounded=true]{soft}
+\begin{beamercolorbox}[wd=\textwidth,sep=3pt,rounded=true]{soft}
 \centering
 $\displaystyle\sqrt p\le\tfrac1{\sqrt6}+\tfrac{\sqrt6}2\bigl(p-\tfrac16\bigr)-\cstar\bigl(p-\tfrac16\bigr)^2$ on $[0,1]$, $\cstar=\tfrac{3\sqrt6}{(\sqrt6+1)^2}=0.61757\ldots$ \Tproved\ \Tleanh
 \end{beamercolorbox}
-\vspace{0.2cm}
-\begin{itemize}\setlength\itemsep{5pt}
+\vspace{0.1cm}
+\begin{columns}[T]
+\begin{column}{0.56\textwidth}
+\begin{itemize}\setlength\itemsep{4pt}
 \item \textbf{Theorem.} If $E\ge\gamma$ on every unit vector, any fourth basis has bias $\ge\sqrt{\gamma/18}$ and game loss $\ge\cstar\gamma/72$. \Tproved
 \item \emph{Bias:} largest deviation of a squared overlap from $\tfrac16$. \emph{Game loss:} shortfall in a random-access-code game.
-\item Lean 4, our local build (\texttt{MUB6Bridge}: 4 files, 45 declarations, no \texttt{sorry}): inequalities about orthonormal bases of $\C^6$, the energy bound a hypothesis; the game score is \emph{defined} by its formula. Not in Lean: the energy bounds, optimality of the formula (cited). Competition build not run by us.
+\item Lean 4 (\texttt{MUB6Bridge}, 45 declarations, no \texttt{sorry}): inequalities about orthonormal bases of $\C^6$, the energy bound a hypothesis. Not in Lean: the energy bounds, optimality of the score formula (cited).
 \end{itemize}
+\end{column}
+\begin{column}{0.42\textwidth}
+\centering
+\begin{tikzpicture}[font=\scriptsize,y=11cm,x=0.72cm]
+\draw[black!50] (0,0)--(7,0); \draw[black!50] (0,0)--(0,0.27);
+\foreach \j/\h in {1/0.180,3/0.150,4/0.140,5/0.160,6/0.157} {\fill[accent!55] (\j-0.35,0) rectangle (\j+0.35,\h);}
+\fill[hl] (2-0.35,0) rectangle (2+0.35,0.2129);
+\draw[dashed,thick] (0,0.1667)--(7,0.1667) node[right] {$\tfrac16$};
+\draw[<->,thick,hl] (2.6,0.1667)--(2.6,0.2129);
+\node[hl,anchor=west,align=left] at (2.75,0.222) {$\ge\sqrt{\gamma/18}=0.0462$\\ for the triple $T_0$};
+\node[anchor=north] at (3.5,-0.01) {six outcomes of one basis of the triple};
+\node[anchor=south,align=center] at (3.5,0.275) {a fourth-basis vector, measured in $T_0$};
+\end{tikzpicture}
+\end{column}
+\end{columns}
 \end{frame}
 
-% ======================= 7 =======================
+% ======================= 9 =======================
 \begin{frame}{One explicit quadruple beats every completion of the local triple on both measures; another reaches bias $0.030224$}
 \small
 A quadruple is four bases; smaller is closer to four unbiased bases. Shaded: impossible for any fourth basis added to $T_0$.\\[0.1cm]
@@ -232,26 +325,48 @@ A quadruple is four bases; smaller is closer to four unbiased bases. Shaded: imp
 \raggedright\hspace{0.2cm}Quadruple 2 (game-optimized) wins on both measures; quadruple 1 (bias-optimized) has the lowest bias found. So no bias-optimal and no game-optimal quadruple contains $T_0$. For the second product triple the bias claim holds and the game comparison is inconclusive.
 \end{frame}
 
-% ======================= 8 =======================
+% ======================= 10 =======================
 \begin{frame}{Hide and seek: 1,936 shots per setting expose every pure state, with 95\% detection and at most 0.1\% false alarm}
 \small
-A hider repeats one pure state; a referee counts equal-outcome pairs among $N$ shots per local setting (ideal measurements, independent copies). The statistic $T$ estimates $E$.\\[0.25cm]
+A hider repeats one pure state; a referee counts equal-outcome pairs among $N$ shots per local setting (ideal measurements, independent copies). The statistic $T$ estimates $E$.\\[0.1cm]
+\begin{columns}[T]
+\begin{column}{0.47\textwidth}
 \centering
-\renewcommand{\arraystretch}{1.35}
-\begin{tabular}{@{}lcccl@{}}
+\begin{tikzpicture}[font=\scriptsize,x=1.12cm,y=1.2cm]
+\fill[hl!35] plot[domain=1.25:2.0,samples=20] (\x,{1.5*exp(-(\x*\x)/0.5)}) -- (2.0,0) -- (1.25,0) -- cycle;
+\fill[accent!30] (-0.2,0)--plot[domain=-0.2:1.25,samples=30] (\x,{1.5*exp(-((\x-2.6)*(\x-2.6))/0.6)}) -- (1.25,0) -- cycle;
+\draw[thick,hl] plot[domain=-1.4:2.0,samples=50] (\x,{1.5*exp(-(\x*\x)/0.5)});
+\draw[thick,accent] plot[domain=0.6:4.6,samples=60] (\x,{1.5*exp(-((\x-2.6)*(\x-2.6))/0.6)});
+\draw[->] (-1.5,0)--(4.55,0) node[above] {$T$};
+\draw[dashed,thick] (1.25,-0.1)--(1.25,1.75) node[above] {threshold};
+\draw (0,0.05)--(0,-0.07) node[below] {$0$}; \draw (2.6,0.05)--(2.6,-0.07) node[below right=0pt and -8pt] {$\ge\gamma=0.0385$};
+\node[hl,align=center] at (-0.55,1.72) {uniform statistics\\ ($E=0$)};
+\node[accent,align=center] at (3.45,1.72) {any pure state\\ ($E\ge\gamma$, certified)};
+\draw[-{Stealth},black!55] (1.75,-0.62)--(1.42,0.06); \node[anchor=west,black!70] at (1.4,-0.78) {false alarm $\le0.1\%$};
+\draw[-{Stealth},black!55] (0.75,-0.62)--(1.08,0.06); \node[anchor=east,black!70] at (1.15,-0.78) {missed $\le5\%$};
+\end{tikzpicture}
+\end{column}
+\begin{column}{0.52\textwidth}
+\centering\footnotesize
+\renewcommand{\arraystretch}{1.3}\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}lccc@{}}
 \toprule
- & shots per setting $N$ & detection & false alarm & status\\
+ & shots $N$ & detection & false alarm\\
 \midrule
-Guarantee & 1,936 & $\ge95\%$ & $\le0.1\%$ & \Tproved\ from certified inputs\\
-Guarantee & 5,142 & $\ge99\%$ & $\le0.1\%$ & \Tproved\ from certified inputs\\
-Rule of thumb & 239 & 99\% & 0.1\% & \Tcomp\ approximation\\
+\Tproved & 1,936 & $\ge95\%$ & $\le0.1\%$\\
+\Tproved & 5,142 & $\ge99\%$ & $\le0.1\%$\\
+\Tcomp & 239 & 99\% & 0.1\%\\
 \bottomrule
-\end{tabular}\\[0.25cm]
+\end{tabular}\\[0.15cm]
+\raggedright\footnotesize Guarantees are proved from certified inputs; 239 is a large-sample approximation.
+\end{column}
+\end{columns}
+\vspace{0.1cm}
 \raggedright\small
 \hspace{0.2cm}Not new: the classical collision test (Goldreich--Ron, Paninski) \Tcited. Ours: the certified gap. Lean: the identity, four variance-step inequalities and the shot arithmetic only; no probability statement.
 \end{frame}
 
-% ======================= 9 =======================
+% ======================= 11 =======================
 \begin{frame}{In simulation, three local settings and modest gate noise suffice, while the game route needs about $10^{8}$ rounds}
 \begin{columns}[T]
 \begin{column}{0.5\textwidth}
@@ -284,14 +399,14 @@ Rule of thumb & 239 & 99\% & 0.1\% & \Tcomp\ approximation\\
 \end{columns}
 \end{frame}
 
-% ======================= 10 =======================
+% ======================= 12 =======================
 \begin{frame}{Additional result: structure for order-six Hadamard matrices is proved, but the universal step toward $N(6)=3$ is open}
 \addbanner
 \small
 $H$: order-six complex Hadamard matrix; $\hcube{H}$: its entrywise cube.\\[0.1cm]
 \centering
-\renewcommand{\arraystretch}{1.0}
-\begin{tabular}{@{}>{\raggedright\arraybackslash}p{9.2cm}>{\raggedright\arraybackslash}p{4.9cm}@{}}
+\footnotesize\renewcommand{\arraystretch}{0.95}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{7.9cm}>{\raggedright\arraybackslash}p{6.3cm}@{}}
 \toprule
 Result & Status\\
 \midrule
@@ -300,34 +415,35 @@ Cubic norm cap $\norm{\hcube{H}}^2\le18$ outside the Tao class & \tg{cProved}{pr
 Degree-four SOS relaxation of $\min E$ on $T_0$ has optimum exactly $0$ & \Tcomp\ (exact arithmetic)\\
 $E>1/72$ on $T_0$, analytic & \Tlean\\
 Known family: genus-ten surface; no unknown branch attaches to it (disjoint components not excluded) & \Tproved\\
-Universal step & \Topen\\
 \bottomrule
 \end{tabular}\\[0.1cm]
-\raggedright\small\hspace{0.2cm}None of this yet bounds the number of MUBs.
+\begin{tikzpicture}[font=\scriptsize,nd/.style={draw=black!40,rounded corners=2pt,inner sep=3pt,align=center,fill=soft}]
+\node[nd] (t) at (0,0) {every MU triple};
+\node[nd] (r) at (6.6,0) {cube rank two};
+\node[nd] (n) at (12.4,0) {no fourth basis};
+\draw[-{Stealth},thick,cOpen,dashed] (t)--node[above=-1pt,cOpen] {four residual products vanish?}node[below=-1pt] {\Topen\ the universal step}(r);
+\draw[-{Stealth},thick,black!55] (r)--node[above=-1pt] {prior exclusions}node[below=-1pt] {\Tcited}(n);
+\end{tikzpicture}\\[0.05cm]
+\raggedright\footnotesize\hspace{0.2cm}None of this yet bounds the number of MUBs.
 \end{frame}
 
-% ======================= 11 =======================
+% ======================= 13 =======================
 \begin{frame}{Additional result: if a cited root count (H) holds, no four MUBs of $\C^{10}$ contain the standard and Fourier bases}
 \addbanner
 \small
 \begin{columns}[T]
-\begin{column}{0.4\textwidth}
+\begin{column}{0.42\textwidth}
 \centering
-\renewcommand{\arraystretch}{1.3}
-\begin{tabular}{@{}lrr@{}}
-\toprule
- & $d=10$ & $d=6$\\
-\midrule
-certified roots & 34,940 & 156\\
-unimodular & 3,040 & 48\\
-candidate bases & 1,136 & 16\\
-MU pairs of them & 0 & 0\\
-extending vectors & 0 & 0\\
-\bottomrule
-\end{tabular}\\[2pt]
-\footnotesize $d=6$ calibrates the pipeline.
+\begin{tikzpicture}[font=\scriptsize,x=0.6cm,y=0.72cm]
+\foreach \w/\y/\lab/\num/\six/\col in {4.54/4/certified roots/{34,940}/156/accent!30,3.48/3/unimodular/{3,040}/48/accent!45,3.06/2/candidate bases/{1,136}/16/accent!60} {
+  \fill[\col] (-\w/2,\y-0.36) rectangle (\w/2,\y+0.36); \node at (0,\y) {\num}; \node[anchor=east] at (-2.5,\y) {\lab}; \node[black!60] at (3.2,\y) {\six};}
+\foreach \y/\lab in {1/MU pairs of them,0/extending vectors} {
+  \fill[hl] (-0.3,\y-0.36) rectangle (0.3,\y+0.36); \node[white,font=\scriptsize\bfseries] at (0,\y) {0}; \node[anchor=east] at (-2.5,\y) {\lab}; \node[black!60] at (3.2,\y) {0};}
+\node[font=\scriptsize\bfseries,accent] at (0,4.8) {$d=10$}; \node[font=\scriptsize\bfseries,black!60] at (3.2,4.8) {$d=6$};
+\end{tikzpicture}\\[1pt]
+\footnotesize $d=6$ calibrates the pipeline (widths: log scale).
 \end{column}
-\begin{column}{0.6\textwidth}
+\begin{column}{0.56\textwidth}
 \begin{itemize}\small\setlength\itemsep{3pt}
 \item (H): cyclic 10-roots number at most $34{,}940$ (cited, not verified). Margin $0.04178$. \Tcond
 \item Grassl, McNulty, Mi\v{s}ta, Paterek (2017): to our reading their dimension-ten example concerns a triple of this kind, handled there without a root-count hypothesis; not reproduced by us. \Tcited
@@ -337,7 +453,7 @@ extending vectors & 0 & 0\\
 \end{columns}
 \end{frame}
 
-% ======================= 12 =======================
+% ======================= 14 =======================
 \begin{frame}{Every claim has a status; AI did most of the computing and first drafts, and we claim no line-by-line human refereeing}
 \centering\footnotesize
 \renewcommand{\arraystretch}{1.02}
@@ -355,7 +471,7 @@ extending vectors & 0 & 0\\
 \end{beamercolorbox}
 \end{frame}
 
-% ======================= 13 =======================
+% ======================= 15 =======================
 \begin{frame}{To our knowledge nothing is formal end to end, but the missing basis now has certified numbers and a laboratory test}
 \small
 \begin{columns}[T]
@@ -439,7 +555,7 @@ $N\,E_{\mathrm{hom}}-\gamma_0N^3=z^{T}Qz+r$, with $z$ the 364 cubic monomials in
 \end{frame}
 
 % ======================= B4 =======================
-\begin{frame}{Backup: what is Lean-checked, by whom, and what is not}
+\begin{frame}{Backup: what is Lean-checked and what is not}
 \footnotesize
 \begin{itemize}\setlength\itemsep{1pt}
 \item \textbf{\texttt{MUB6Bridge}:} 4 files, 45 declarations, built locally by us, Lean v4.35.0, Mathlib v4.35.0: no \texttt{sorry}, standard axioms only. Competition build not run by us. \Tleanh
