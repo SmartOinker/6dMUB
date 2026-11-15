@@ -1,0 +1,15 @@
+dephased root vectors: 30
+clique counts sizes 0..5: [1, 30, 135, 120, 60, 12]  (claimed 1,30,135,120,60,12)
+k = 1 systems: 60 nullity histogram: {1: 60}
+k = 2 systems: 120 nullity histogram: {0: 112, 1: 8}
+k = 3 systems: 1215 nullity histogram: {0: 1160, 1: 54, 3: 1}
+claimed: k=1: 60 (all nullity 1); k=2: 120 = 112 + 8; k=3: 1215 = 1160 + 54 + 1 (nullity 3)
+
+best fourth basis for the game, product triple fixed:
+  sum_r sum_ij |<u_ri,g_j>| = 43.440064244558414  (MU value 18*sqrt6 = 44.090815370097204 )
+  P_4 deficit (average over 6 pairs) = 0.0015063683461546222   proved lower bound 1/41472 = 2.4112654320987653e-05
+  with conjectured Emin: 6.729645213614679e-05
+  at that basis: sum_j E(g_j) = 0.33234312383109066  max dev = 0.08869351894903474
+min over fourth bases of sum_j E(g_j): 0.3162610102746377   6*Emin = 0.2325765385825233   6/72 = 0.08333333333333333
+  at that basis: game deficit avg = 0.001649195341329568  max dev = 0.11214573993751964
+min slack of sqrt inequality over random distributions (should be >= 0): 2.9114950712116894e-05

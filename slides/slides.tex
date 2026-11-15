@@ -1,0 +1,488 @@
+\documentclass[aspectratio=169,11pt]{beamer}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}\usepackage{array}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+\usetikzlibrary{arrows.meta,positioning,calc}
+
+% ---------- look ----------
+\definecolor{accent}{HTML}{14325A}
+\definecolor{hl}{HTML}{C8501E}
+\definecolor{soft}{HTML}{EEF2F7}
+\setbeamertemplate{navigation symbols}{}
+\setbeamercolor{background canvas}{bg=white}
+\setbeamercolor{normal text}{fg=black!85}
+\setbeamercolor{structure}{fg=accent}
+\setbeamersize{text margin left=0.6cm,text margin right=0.6cm}
+\setbeamertemplate{itemize items}[circle]
+\setbeamercolor{itemize item}{fg=hl}
+\setbeamerfont{itemize/enumerate body}{size=\small}
+\setbeamerfont{itemize/enumerate subbody}{size=\footnotesize}
+\setlength{\leftmargini}{1.1em}
+\setbeamertemplate{frametitle}{%
+  \vskip0.18cm
+  \begin{beamercolorbox}[wd=\paperwidth,leftskip=0.6cm,rightskip=0.6cm,sep=0pt]{frametitle}
+    \parbox{\dimexpr\paperwidth-1.2cm}{\raggedright\bfseries\large\color{accent}\insertframetitle\par}
+    \vskip1pt{\color{hl}\rule{2.2cm}{1.4pt}}
+  \end{beamercolorbox}\vskip-0.05cm}
+\setbeamertemplate{footline}{%
+  \leavevmode\hbox to\paperwidth{\hspace*{0.6cm}\color{black!55}\tiny Tee, Xinrui, Fong How \textbullet\ Missing fourth basis in dimension six\hfill\insertframenumber\hspace*{0.6cm}}\vskip0.18cm}
+
+% ---------- status tags ----------
+\newcommand{\tg}[2]{{\setlength{\fboxsep}{1.4pt}\colorbox{#1}{\textcolor{white}{\sffamily\bfseries\scriptsize\,#2\,}}}}
+\definecolor{cProved}{HTML}{1B7F3B}
+\definecolor{cLean}{HTML}{0E7C86}
+\definecolor{cCert}{HTML}{1F4FB5}
+\definecolor{cComp}{HTML}{5B6B7F}
+\definecolor{cNum}{HTML}{C77700}
+\definecolor{cCited}{HTML}{7A7A7A}
+\definecolor{cCond}{HTML}{7B3FA0}
+\definecolor{cOpen}{HTML}{B3262B}
+\newcommand{\Tproved}{\tg{cProved}{proved}}
+\newcommand{\Tlean}{\tg{cLean}{Lean-checked (reported)}}
+\newcommand{\Tcert}{\tg{cCert}{interval-certified}}
+\newcommand{\Tcomp}{\tg{cComp}{computed}}
+\newcommand{\Tnum}{\tg{cNum}{numerical}}
+\newcommand{\Tcited}{\tg{cCited}{cited}}
+\newcommand{\Tcond}{\tg{cCond}{conditional}}
+\newcommand{\Topen}{\tg{cOpen}{open}}
+
+% ---------- notation ----------
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\ip}[2]{\langle #1,#2\rangle}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\norm}[1]{\lVert #1\rVert}
+\newcommand{\cstar}{c_\ast}
+\newcommand{\hcube}[1]{#1^{\circ3}}
+
+\title{The missing fourth basis in dimension six}
+\author{Tee}
+\date{}
+
+\begin{document}
+
+% ======================= TITLE =======================
+\begin{frame}[plain]
+\vspace*{0.5cm}
+\begin{center}
+{\bfseries\LARGE\color{accent} The missing fourth basis in dimension six:\\[2pt] what is verified, how far away it is,\\[2pt] and how to see it\par}
+\vspace{0.35cm}
+{\color{hl}\rule{3cm}{1.6pt}}\\[0.4cm]
+{\large Ren Jie Tee (UC Berkeley), Xinrui, Raymond Fong How (Georgia Tech)\par}
+\vspace{0.35cm}
+{\normalsize Caltech $\times$ SAIR Mathathon, Problem 124\\
+Track: Computation/Applied Mathematics\par}
+\vspace{0.5cm}
+{\footnotesize Every claim carries a status tag:\ \Tproved\ \Tlean\ \Tcert\ \Tcomp\ \Tnum\ \Tcited\ \Tcond\ \Topen}
+\end{center}
+\end{frame}
+
+\setcounter{framenumber}{0}
+% ======================= 1 =======================
+\begin{frame}{In dimension six, three mutually unbiased bases are easy to build and a fourth has never been found}
+\begin{columns}[T]
+\begin{column}{0.47\textwidth}
+\small
+\begin{itemize}\setlength\itemsep{4pt}
+\item Bases $e,f$ of $\C^6$ are \emph{unbiased}: $\abs{\ip{e_i}{f_j}}^2=\tfrac16$ for all $i,j$.
+\item Zauner (1999) conjectured at most three exist, $N(6)=3$. \Tcited
+\item Three 2026 computer-assisted preprints claim it. \Tcited
+\item Dimension ten, the next case $2\times$ prime: open. \Topen
+\end{itemize}
+\vspace{0.1cm}
+\footnotesize We ask: how do we know, by how much, and what would one see in a laboratory?
+\end{column}
+\begin{column}{0.53\textwidth}
+\centering
+\begin{tikzpicture}[font=\scriptsize,
+  bx/.style={draw=accent,fill=soft,rounded corners=2pt,minimum height=0.62cm,minimum width=1.55cm,inner sep=2pt}]
+ \node[font=\footnotesize\bfseries,color=accent] at (2.1,3.05) {Local triple: qubit $\otimes$ qutrit};
+ \node[bx] (a1) at (0.8,2.25) {$Z$ basis};  \node at (1.78,2.25) {$\otimes$}; \node[bx] (b1) at (2.75,2.25) {$I_3$};
+ \node[bx] (a2) at (0.8,1.45) {$X$ basis};  \node at (1.78,1.45) {$\otimes$}; \node[bx] (b2) at (2.75,1.45) {$F_3$};
+ \node[bx] (a3) at (0.8,0.65) {$Y$ basis};  \node at (1.78,0.65) {$\otimes$}; \node[bx] (b3) at (2.75,0.65) {$DF_3$};
+ \node[right,align=left] at (3.65,1.45) {three settings,\\[-1pt]no entangling\\[-1pt]gate needed};
+ \node[bx,dashed,draw=hl,minimum width=3.9cm,minimum height=0.65cm] (q) at (1.78,-0.35) {\Large\bfseries\color{hl}?\ \ \footnotesize fourth basis, unbiased to all three};
+\end{tikzpicture}
+\end{column}
+\end{columns}
+\end{frame}
+
+% ======================= 2 =======================
+\begin{frame}{Three 2026 computer proofs say $N(6)=3$, and none is formally verified end to end}
+\centering\footnotesize
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{1.6cm}>{\raggedright\arraybackslash}p{3.7cm}>{\raggedright\arraybackslash}p{3.5cm}>{\raggedright\arraybackslash}p{4.2cm}@{}}
+\toprule
+ & OpenAI & Jaswal & C\'ardenes Wuttig, Tindall\\
+\midrule
+Method & 249,878 seed centers, graph search for two further bases & same method, re-implemented & 2,775 balls after a connectedness argument\\
+Arithmetic & binary64 with margins & binary64 intervals & Arb balls, Julia checker\\
+Lean & proves $N(6)\le5$ only & none & takes the certificate as hypothesis\\
+\bottomrule
+\end{tabular}\\[0.15cm]
+\raggedright\small\hspace{0.2cm}\Tcited\ Shared ancestry; all three AI-assisted by their authors' account. The reduction to $3$ rests on computation outside Lean.\\[0.2cm]
+\begin{beamercolorbox}[wd=\textwidth,sep=4pt,rounded=true]{soft}
+\scriptsize\textbf{Status tags used in this talk:}\ \Tproved\ \Tlean\ \Tcert\ \Tcomp\ \Tnum\ \Tcited\ \Tcond\ \Topen\\[2pt]
+\textcolor{black!70}{proved here by hand; Lean built by a teammate; ball arithmetic; computed (range stated); local minimisation only; literature; depends on a stated hypothesis; unproved.}
+\end{beamercolorbox}
+\end{frame}
+
+% ======================= 3 =======================
+\begin{frame}{We reran what an outsider can rerun: the checker catches 17 of 26 corruptions, and the rerun is byte-identical}
+\small
+\begin{itemize}\setlength\itemsep{5pt}
+\item OpenAI's record checker passes unmodified; counts match the preprint. \Tcomp
+\item \textbf{Mutation test:} 26 small corruptions of the saved records, 17 detected, 9 missed. Stored values are only range-checked. \Tcomp
+\item \textbf{Full native rerun} (workstream C, not re-run by us): 100 invocations, 8 principal files byte-identical, 27,188 root records re-certified in 128-bit Arb. \Tcomp
+\item Fourier pair $\{I,F_6\}$ redone: $156\to48\to16\to0$, given the cited count 156. \Tcond
+\end{itemize}
+\vspace{0.15cm}
+\begin{beamercolorbox}[wd=\textwidth,sep=4pt,rounded=true]{soft}
+\footnotesize A miss is a statement about the checker, not a flaw in the theorem. Byte agreement does not prove the covering lemmas.
+\end{beamercolorbox}
+\end{frame}
+
+% ======================= 4 =======================
+\begin{frame}{We can prove structure for order-six Hadamard matrices, but the universal step toward $N(6)=3$ is still open}
+\centering
+\vspace{0.3cm}\begin{tikzpicture}[font=\footnotesize,
+  bx/.style={draw=accent,fill=soft,rounded corners=2pt,text width=3.0cm,align=center,minimum height=2.6cm,inner sep=4pt}]
+ \node[bx] (a) at (0,0) {\textbf{Cube-rank criterion}\\ $\operatorname{rank}\hcube{H}\le2$ iff Fourier family, transpose or Tao class\\[2pt]\Tproved};
+ \node[bx] (b) at (3.55,0) {\textbf{Cubic norm cap}\\ $\norm{\hcube{H}}^2\le18$ outside the Tao class; $\operatorname{tr}\le648$, equality iff cube rank two\\[2pt]\Tproved};
+ \node[bx] (c) at (7.1,0) {\textbf{Quartic SOS obstruction}\\ degree-four optimum is exactly $0$; pseudomoment rank $63$\\[2pt]\Tcomp};
+ \node[bx,dashed,draw=hl] (d) at (10.65,0) {\textbf{Universal step}\\ residual products vanish on all compatible triples\\[2pt]\Topen};
+ \draw[->,thick,accent] (a)--(b); \draw[->,thick,accent] (b)--(c); \draw[->,thick,hl,dashed] (c)--(d);
+\end{tikzpicture}\\[0.25cm]
+\raggedright\small
+\hspace{0.2cm}Cube rank two forces norm $18$. Whether norm $18$ forces cube rank two is \Topen. Nothing here yet bounds the number of MUBs.
+\end{frame}
+
+% ======================= 5 =======================
+\begin{frame}{No pure state hides from the local triple: its energy is at least $0.0385$, which is 99.3\% of the exact minimum}
+\small
+$E(\psi)=\sum_{18\text{ outcomes}}(p-\tfrac16)^2$, and $E=0$ exactly for a state unbiased to all three bases.\\[0.1cm]
+\centering
+\begin{tikzpicture}[x=300cm,y=1cm,font=\scriptsize]
+ \draw[->,thick] (-0.001,0)--(0.0415,0) node[right] {$\min E$};
+ \foreach \t in {0,0.01,0.02,0.03,0.04} {\draw (\t,0.08)--(\t,-0.08) node[below=1pt] {\t};}
+ \fill[cCert!25] (0.0385,-0.12) rectangle (0.04,0.12);
+ \fill[cOpen] (0,0) circle (2.2pt);
+ \draw (0,0)--(0,0.65); \node[above right,align=left] at (0,0.6) {degree 4: $0$, no bound possible\\ \Tcomp};
+ \fill[cLean] (0.013889,0) circle (2.2pt);
+ \draw (0.013889,0)--(0.013889,-0.9); \node[below,align=center] at (0.013889,-0.85) {$1/72=0.0139$\\ \Tlean};
+ \fill[cCert] (0.0385,0) circle (2.2pt);
+ \draw (0.0385,0)--(0.0385,0.65); \node[above left,align=right] at (0.0385,0.6) {degree 6: $0.0385$\\ \Tcert};
+ \fill[cCited] (0.0387628,0) circle (2.2pt);
+ \draw (0.0387628,0)--(0.0387628,-0.9); \node[below,align=center] at (0.0393,-0.85) {degree 8: $0.03876$, exact\\ \Tcited};
+\end{tikzpicture}\\[0.25cm]
+\raggedright\footnotesize
+\hspace{0.2cm}The exact value $(4-\sqrt6)/40$ is prior work of Erlwein. Ours is an independent certificate of 99.3\% of it at lower degree, not a new bound.
+\end{frame}
+
+% ======================= 6 =======================
+\begin{frame}{A $10^{-7}$ threshold accepted two near-misses, so ``found numerically'' is not ``proved''}
+\centering\footnotesize
+\renewcommand{\arraystretch}{1.35}
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+Shape & 2008 hit rate & misfit $\mu=\norm{r}_2$ at strict local min & 2008 $F=\mu^2/36$ & 2008 threshold\\
+\midrule
+$\{5,4,4,1\}_6$ & 0.74\% & $1.02497683851953\times10^{-3}$ & $2.9\times10^{-8}$ & $10^{-7}$\\
+$\{5,5,3,1\}_6$ & 1.47\% & $7.32788656303688\times10^{-4}$ & $1.5\times10^{-8}$ & $10^{-7}$\\
+\bottomrule
+\end{tabular}\\[0.1cm]
+\raggedright\small
+\hspace{0.2cm}\Tcert\ Both are strict local minima with nonzero misfit. This does not prove the shapes empty.
+\begin{itemize}\setlength\itemsep{3pt}
+\item Converse: $\{5,3,3,3\}_6$ exists, yet one start in 20,000 finds it. \Tcomp
+\item Thirteen shapes of the 2008 table remain undecided. \Topen
+\end{itemize}
+\end{frame}
+
+% ======================= 7 =======================
+\begin{frame}{One certified vector bound forces every fourth basis to be far from unbiased, farther than explicit quadruples}
+\small
+\begin{beamercolorbox}[wd=\textwidth,sep=3pt,rounded=true]{soft}
+\centering\footnotesize\vspace{-2pt}
+$\displaystyle\sqrt p\le\tfrac1{\sqrt6}+\tfrac{\sqrt6}2\bigl(p-\tfrac16\bigr)-\cstar\bigl(p-\tfrac16\bigr)^2$ on $[0,1]$, $\cstar=\tfrac{3\sqrt6}{(\sqrt6+1)^2}$ \Tproved
+\end{beamercolorbox}
+\footnotesize
+\vspace{0.1cm}
+If $E\ge\gamma$ on all unit vectors, any fourth basis has bias $\ge\sqrt{\gamma/18}$ and game loss $\ge\cstar\gamma/72$. \Tproved\ With $\gamma=0.0385$:
+\vspace{0.15cm}
+
+\centering
+\begin{tikzpicture}[font=\scriptsize]
+ \node[anchor=east] at (-0.1,2.3) {\textbf{bias}};
+ \draw[->] (0,2.3)--(6.4,2.3);
+ \fill[hl!20] (5.54,2.15) rectangle (6.4,2.45);
+ \draw (0,2.35)--(0,2.25) node[below=0pt] {0};
+ \fill[cCert] (3.627,2.3) circle (2.2pt); \node[above,align=center] at (3.627,2.5) {explicit quadruple $\le0.0302$ \Tcert};
+ \fill[hl] (5.54,2.3) circle (2.2pt); \node[below,align=center] at (5.54,2.1) {every completion of the\\ triple $>0.0462$ \Tproved};
+ \node[anchor=east] at (-0.1,0) {\textbf{game loss}};
+ \draw[->] (0,0)--(6.4,0);
+ \fill[hl!20] (4.95,-0.15) rectangle (6.4,0.15);
+ \draw (0,0.05)--(0,-0.05) node[below=0pt] {0};
+ \fill[cCert] (3.54,0) circle (2.2pt); \node[above,align=center] at (3.54,0.2) {explicit quadruple $\le2.36\times10^{-4}$ \Tcert};
+ \fill[hl] (4.95,0) circle (2.2pt); \node[below,align=center] at (4.95,-0.2) {completions\\ $>3.3\times10^{-4}$ \Tproved};
+\end{tikzpicture}\\[0.1cm]
+\raggedright\hspace{0.2cm}\textbf{Design lesson:} the best approximate quadruples are not completions of the perfect local triple. For the second product triple the game comparison is inconclusive.
+\end{frame}
+
+% ======================= 8 =======================
+\begin{frame}{A chi-square test catches every pure state in about 239 shots per setting; the game needs about $9.4\times10^7$ rounds}
+\begin{columns}[T]
+\begin{column}{0.56\textwidth}
+\begin{tikzpicture}
+\begin{axis}[width=7.4cm,height=4.2cm,xmin=0,xmax=500,ymode=log,ymin=4e-4,ymax=1.6,
+  xlabel={shots per setting $N$},ylabel={detection probability},
+  legend style={font=\tiny,inner sep=1pt,at={(0.5,-0.32)},anchor=north,legend columns=1},grid=major,
+  tick label style={font=\tiny},label style={font=\scriptsize}]
+\addplot[thick,accent] coordinates {(10,0.0048) (25,0.0224) (50,0.1078) (75,0.2733) (100,0.4812) (125,0.6751)
+  (150,0.8197) (175,0.9102) (200,0.9594) (239,0.9901) (250,0.9935) (300,0.9992) (350,0.9999) (400,1.0) (500,1.0)};
+\addlegendentry{floor for every pure state, $E\ge0.0385$}
+\addplot[only marks,mark=o,hl] coordinates {(50,0.0957) (79,0.30025) (100,0.47565) (126,0.6884) (158,0.8604)
+  (199,0.9628) (251,0.9957) (316,0.9998)};
+\addlegendentry{simulated, best hider}
+\addplot[thick,dashed,black!70] coordinates {(0,0.001) (500,0.001)};
+\addlegendentry{dimension-four control}
+\end{axis}
+\end{tikzpicture}
+\end{column}
+\begin{column}{0.44\textwidth}
+\scriptsize
+\centering
+\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{@{}rr@{}}
+\toprule
+two-qubit error & total shots\\
+\midrule
+0 & 589\\ 0.1\% & 594\\ 1\% & 646\\ 10\% & 1,500\\
+\bottomrule
+\end{tabular}\\[1pt]
+{\tiny 50\% detection at five-sigma false alarm}\\[0.15cm]
+\raggedright\footnotesize
+$239$ shots: 99\% detection at $0.1\%$ false alarm. The dimension-four control is never caught. \Tcomp\\[0.12cm]
+Large-sample $\chi^2$ approximation plus simulation, not a finite-sample theorem. No hardware run.
+\end{column}
+\end{columns}
+\end{frame}
+
+% ======================= 9 =======================
+\begin{frame}{Dimension ten with the same method: 34,940 cyclic roots funnel down to 1,136 candidate bases, and none extends}
+\centering
+\begin{tikzpicture}[x=1cm,y=1cm,font=\scriptsize,
+  st/.style={draw=accent,fill=soft,minimum height=0.55cm,inner sep=1pt}]
+  \node[font=\small\bfseries,color=accent] at (2.2,0.95) {$d=10$};
+  \node[st,minimum width=4.54cm] at (2.2,0.3) {34,940 cyclic roots (under (H))};
+  \node[st,minimum width=3.48cm] at (2.2,-0.35) {3,040 unbiased to $I,F_{10}$};
+  \node[st,minimum width=3.06cm] at (2.2,-1.0) {1,136 candidate bases};
+  \draw[very thick,cOpen] (2.0,-1.62)--(2.4,-1.62); \node[right] at (2.45,-1.62) {0 fourth bases};
+  \node[font=\small\bfseries,color=accent] at (9.0,0.95) {$d=6$ calibration};
+  \node[st,minimum width=2.19cm] at (9.0,0.3) {156};
+  \node[st,minimum width=1.68cm] at (9.0,-0.35) {48};
+  \node[st,minimum width=1.2cm] at (9.0,-1.0) {16};
+  \draw[very thick,cOpen] (8.8,-1.62)--(9.2,-1.62); \node[right] at (9.25,-1.62) {0};
+  \node[font=\tiny,black!60] at (5.6,-2.05) {bar width proportional to $\log_{10}$ of the count};
+\end{tikzpicture}\\[0.2cm]
+\raggedright\small
+\hspace{0.2cm}Roots enclosed by Krawczyk tests; counts and margins recomputed by separate code. \Tcert\ \Tcond\\[2pt]
+\hspace{0.2cm}Dimension six reproduces the known counts $156\to48\to16$, the calibration of the pipeline. \Tcomp
+\end{frame}
+
+% ======================= 10 =======================
+\begin{frame}{In dimension ten, no four MUBs contain the standard and Fourier bases, if the cited root count holds}
+\begin{beamercolorbox}[wd=\textwidth,sep=5pt,rounded=true]{soft}
+\footnotesize
+\textbf{Hypothesis (H):} cyclic 10-roots have at most $34{,}940$ solutions (a cited Gr\"obner-basis count we did not verify).\\[2pt]
+\textbf{Theorem, assuming (H):} for every vector $v$ unbiased to $I$ and $F_{10}$ and each of the $1{,}136$ candidate bases $B$, some $b\in B$ has $\bigl|\abs{\ip bv}^2-\tfrac1{10}\bigr|\ge0.04178$ ($4.17807$ with unimodular entries). So no triple $\{I,F_{10},B\}$ extends, and no four MUBs contain $\{I,F_{10}\}$. \Tcond
+\end{beamercolorbox}
+\vspace{0.15cm}
+\small
+\textbf{Limits}
+\begin{itemize}\setlength\itemsep{2pt}
+\item Only triples containing $\{I,F_{10}\}$.
+\item The fallback ``at most 1,000 further roots'' rests on a mixed-volume value $35{,}940$ we did not verify independently.
+\item $1.2$ million random starts all land on the certified list: evidence for (H). \Tnum
+\item No certified energy bound in dimension ten. \Topen
+\end{itemize}
+\end{frame}
+
+% ======================= 11 =======================
+\begin{frame}{Claims and status, in one table}
+\centering\scriptsize
+\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{@{}p{7.8cm}p{4.0cm}l@{}}
+\toprule
+Claim & Status & Who\\
+\midrule
+No end-to-end formal proof of $N(6)=3$ exists to our reading & \Tcited & read by A, B, C\\
+Record checker detects 17 of 26 corruptions & \Tcomp & A\\
+Full native rerun, 8 files byte-identical (not re-run by us) & \Tcomp & C\\
+Cube-rank criterion; cubic norm cap $\le18$ & \Tproved & B\\
+$E>1/72$ on the canonical triple & \Tlean & B\\
+$E\ge0.0385$ and $E\ge0.0235$ for the two product triples & \Tcert & A\\
+Exact minimum $(4-\sqrt6)/40$ & \Tcited\ Erlwein & prior work\\
+Fourth basis: bias $>0.046$, game loss $>3.3\times10^{-4}$ & \Tproved\ from certified inputs & A\\
+Two 2008 entries are near-misses & \Tcert & A\\
+239 shots per setting detect every pure state & \Tcomp & A\\
+No four MUBs of $\C^{10}$ contain $\{I,F_{10}\}$ & \Tcond\ on (H) & A\\
+Universal residual step for $N(6)=3$ & \Topen & B\\
+\bottomrule
+\end{tabular}\\[0.1cm]
+{\tiny A: certificate audit, certificates, bridge, detection test, dimension ten. B: structure theory and Lean. C: explanatory audit and full rerun.}
+\end{frame}
+
+% ======================= 12 =======================
+\begin{frame}{AI did most of the computing and drafting, so every lower bound is a certificate with a short checker}
+\begin{columns}[T]
+\begin{column}{0.5\textwidth}
+\small\textbf{What checks the AI}
+\begin{itemize}\setlength\itemsep{2pt}\footnotesize
+\item Claude, Codex and open-weight agents were used; people set the questions and reviewed.
+\item Certificates in ball arithmetic, not trust.
+\item Known answers: $99.3\%$ of Erlwein's value; $156\to48\to16$; dimension-four control never caught.
+\item Separate recomputation; three rounds of hostile review.
+\end{itemize}
+\end{column}
+\begin{column}{0.5\textwidth}
+\small\textbf{What was not checked}
+\begin{itemize}\setlength\itemsep{2pt}\footnotesize
+\item We verified none of the three 2026 proofs.
+\item Checkers and dimension-ten code were not read line by line by a human.
+\item Lean: only $E>1/72$, built by a teammate; no Lean claim for the bridge lemma.
+\item No hardware run.
+\end{itemize}
+\end{column}
+\end{columns}
+\end{frame}
+
+% ======================= 13 =======================
+\begin{frame}{Three questions, three answers, and what stays open}
+\footnotesize
+\begin{columns}[T]
+\begin{column}{0.33\textwidth}
+\begin{beamercolorbox}[wd=\textwidth,sep=4pt,rounded=true]{soft}
+\textbf{\footnotesize How do we know?}\\[2pt]
+None of the three proofs is formal end to end. Checker catches 17 of 26 corruptions; rerun is byte-identical. \Tcomp\\[2pt]
+Two 2008 near-misses. \Tcert
+\end{beamercolorbox}
+\end{column}
+\begin{column}{0.33\textwidth}
+\begin{beamercolorbox}[wd=\textwidth,sep=4pt,rounded=true]{soft}
+\textbf{\footnotesize By how much?}\\[2pt]
+$E\ge0.0385$ for every pure state. \Tcert\\[2pt]
+Any fourth basis: bias $>0.046$, loss $>3.3\times10^{-4}$. \Tproved\\[2pt]
+Dimension ten, if (H). \Tcond
+\end{beamercolorbox}
+\end{column}
+\begin{column}{0.33\textwidth}
+\begin{beamercolorbox}[wd=\textwidth,sep=4pt,rounded=true]{soft}
+\textbf{\footnotesize What would one see?}\\[2pt]
+About 239 shots per setting, against $9.4\times10^7$ game rounds. \Tcomp\\[2pt]
+Large-$N$ approximation, no hardware run.
+\end{beamercolorbox}
+\end{column}
+\end{columns}
+\vspace{0.25cm}
+\small\textbf{Open:} the universal step in the structure theory; hypothesis (H); a lower bound over all quadruples; a hardware run; a formal proof of the bridge theorem. \Topen
+\end{frame}
+
+% ======================= BACKUP DIVIDER =======================
+\begin{frame}[plain]
+\centering\vspace*{2.6cm}
+{\bfseries\Huge\color{accent} Backup}\\[0.2cm]
+{\color{hl}\rule{2cm}{1.6pt}}\\[0.3cm]
+\small square-root lemma \textbullet\ degree-six certificate \textbullet\ phase-ball radius\\
+six-phase bound and quartic obstruction \textbullet\ second triple \textbullet\ mutation test
+\end{frame}
+
+% ======================= B1 =======================
+\begin{frame}{Backup: the square-root inequality has a short proof}
+\small
+Let $a=1/\sqrt6$, $s=\sqrt p\in[0,1]$, so $p-\tfrac16=(s-a)(s+a)$. \Tproved
+\vspace{0.1cm}
+\begin{enumerate}\setlength\itemsep{3pt}
+\item The tangent line at $1/6$ exceeds $\sqrt p$ by a square: $a+\dfrac{s^2-a^2}{2a}-s=\dfrac{(s-a)^2}{2a}$.
+\item So the claim is $(s-a)^2\Bigl[\dfrac1{2a}-\cstar(s+a)^2\Bigr]\ge0$.
+\item For $0\le s\le1$, $(s+a)^2\le(1+a)^2$, and $\cstar=\dfrac1{2a(1+a)^2}=\dfrac{3\sqrt6}{(\sqrt6+1)^2}$, so the bracket is $\ge0$.
+\item Equality only at $s=a$ and $s=1$, that is $p=1/6$ and $p=1$.
+\end{enumerate}
+\footnotesize Theorem, part (b): sum over the 36 overlaps of each pair of bases ($\sum_{ij}(p_{ij}-\tfrac16)=0$); the three pairs $(B_r,F)$ contribute $\sum_jE(f_j)\ge6\gamma$ to the square term. Bias, part (a): $E(f_j)\ge\gamma$ is a sum of 18 terms, so one is $\ge\gamma/18$.
+\end{frame}
+
+% ======================= B2 =======================
+\begin{frame}{Backup: the degree-six certificate is a polynomial identity checked in ball arithmetic}
+\small
+$N\,E_{\mathrm{hom}}-\gamma_0N^3=z^{T}Qz+r$, with $z$ the 364 cubic monomials in the 12 real coordinates, $Q\succeq0$ a $364\times364$ Gram matrix. \Tcert
+\begin{itemize}\setlength\itemsep{2pt}\footnotesize
+\item Checker (about 100 lines, Arb at 160 bits): Cholesky of $Q-10^{-5}I$ with error $\norm{R}_F\le9.55\times10^{-15}$ shows $Q\succeq0$.
+\item Residual coefficients summed over all $12{,}376$ degree-six monomials: $S\le2.189\times10^{-12}$.
+\item Conclusion: $E>0.038499999998$ on the whole sphere.
+\item \textbf{Trusted:} Arb and the checker itself. \textbf{Not trusted:} the solver, cvxpy, the script that built $Q$.
+\item Not done: no second person has reviewed the checker; nothing in Lean.
+\end{itemize}
+\end{frame}
+
+% ======================= B3 =======================
+\begin{frame}{Backup: two vectors in one phase ball are never orthogonal or unbiased below radius $0.2242$}
+\small
+$s_\ast=\sqrt6\,\arccos(1/\sqrt6)/(4\pi)=0.2242139\ldots$, workstream C. \Tproved\\[0.1cm]
+\begin{itemize}\setlength\itemsep{3pt}\footnotesize
+\item For $s<s_\ast$ two vectors of one ball $B(v,s)$ are neither orthogonal nor mutually unbiased. At $s=s_\ast$ an unbiased pair exists.
+\item Proof: $f(u)=\cos\sqrt u$ is convex, and Jensen gives $\abs{S}\ge6\cos(4\pi s/\sqrt6)>\sqrt6$ for $s<s_\ast$.
+\item Witness: $x=\alpha(1,1,1,-1,-1,-1)/(4\pi)$, $y=-x$, $\alpha=\arccos(1/\sqrt6)$, squared overlap $1/6$.
+\item The OpenAI source uses the sufficient radius $1/10$. We changed no search radius, and nothing else in the talk uses this.
+\end{itemize}
+\end{frame}
+
+% ======================= B4 =======================
+\begin{frame}{Backup: the six-phase bound is sharp, and degree four cannot see the obstruction}
+\footnotesize
+\textbf{Six-phase bound.} If $\abs{z_j}=1$ and $\sum_{j=1}^6z_j=\sqrt6$, then $\abs{\sum z_j^3}\le7\sqrt6/3$, with equality at three copies of $(1+i\sqrt5)/\sqrt6$ and three of its conjugate. \Tproved\ (final envelope step also \Tlean)\\[0.2cm]
+\textbf{Quartic SOS obstruction.} For the canonical triple the degree-four relaxation of $\min E$ has optimum exactly $0$.
+\begin{itemize}\setlength\itemsep{2pt}
+\item Certificate: a linear functional $L$ with $L(p^2)\ge0$ for every quadratic $p$, $L(E_{\mathrm{hom}})=0$, $L(N^2)=1$; $78\times78$ pseudomoment matrix, positive semidefinite of rank $63$.
+\item Verified in exact arithmetic over $\mathbb{Q}(\sqrt3)$ by workstream B. \Tcomp\ Our own solver gives $-2.1\times10^{-8}$ with 63 large eigenvalues. \Tnum
+\item So no degree-four certificate proves any positive bound; degree six is the first level that can.
+\end{itemize}
+\end{frame}
+
+% ======================= B5 =======================
+\begin{frame}{Backup: the second product triple and the Fourier pair give the same lesson for the bias}
+\footnotesize
+\textbf{Second product triple.} $E\ge0.0235$ on every unit vector. \Tcert\ Numerical minimum $0.0238354$, so $98.6\%$. \Tnum\\
+Every fourth basis: bias $>0.036132$, game loss $>2.015\times10^{-4}$. \Tproved\\
+Bias lesson holds ($0.0361>0.0302$); game comparison inconclusive ($2.015\times10^{-4}<2.358\times10^{-4}$).\\[0.25cm]
+\textbf{Fourier pair $\{I,F_6\}$.} There are 16 triples completing it. Interval-certified energy at least $0.0235$ for all 16 (12 triples $\ge0.0324$, 2 triples $\ge0.0235$, 2 triples $\ge0.0385$). \Tcert\\
+So every fourth basis added to any of them has bias $>0.0361>0.0302$. \Tproved\ from certified inputs
+\end{frame}
+
+% ======================= B6 =======================
+\begin{frame}{Backup: what the mutation test says about the record checker}
+\centering\scriptsize
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{@{}p{7.0cm}cp{5.1cm}@{}}
+\toprule
+Kind of corruption (number tried) & Detected & Reading\\
+\midrule
+Record deleted, duplicated, reordered, file truncated, including headers or logs edited to match (8) & 8 of 8 & counts and batch partition cross-checked\\
+Value changed in one copy of a record or in a failure file (2) & 2 of 2 & copies must be identical\\
+Value outside its declared range (3) & 3 of 3 & range checks\\
+Exit code, failure file or log altered (3) & 3 of 3 & failed batches must reappear downstream\\
+Stray file added (1) & 1 of 1 & file membership\\
+Record order or failure label changed consistently (2) & 0 of 2 & harmless\\
+Stored value changed within range: phase, radius, bound, center (6) & 0 of 6 & \textbf{scope gap}\\
+Last-stage record deleted and log counts edited to match (1) & 0 of 1 & \textbf{scope gap}\\
+\midrule
+Total (26) & 17 of 26 & \\
+\bottomrule
+\end{tabular}\\[0.1cm]
+\raggedright\footnotesize\hspace{0.2cm}\Tcomp\ Not a flaw in the theorem: the proof rests on rerunning the programs.
+\end{frame}
+
+\end{document}

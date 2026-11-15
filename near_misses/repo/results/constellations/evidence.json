@@ -1,0 +1,116 @@
+{
+ "a_basin_of_yale_5333": {
+  "converged_by_noise_std": {
+   "0.001": "20 of 20",
+   "0.01": "20 of 20",
+   "0.05": "20 of 20",
+   "0.1": "20 of 20",
+   "0.2": "19 of 20",
+   "0.4": "16 of 20"
+  },
+  "misfit_at_example": 3.3682800608137376e-15,
+  "smallest_singular_values": [
+   0.25153100020441754,
+   0.19966545082097797,
+   2.1085071318462239e-16
+  ],
+  "nvar": 40
+ },
+ "b_families": {
+  "522": {
+   "file": "random_522_seed3_400starts.jsonl",
+   "solutions": 54,
+   "nvar": 40,
+   "jacobian_ranks": {
+    "39": 54
+   },
+   "distinct_invariant_values_6dp": 54,
+   "invariant_min": 103.4574889184405,
+   "invariant_max": 140.76896251319798
+  },
+  "431": {
+   "file": "random_431_seed3_300starts.jsonl",
+   "solutions": 31,
+   "nvar": 35,
+   "jacobian_ranks": {
+    "35": 26,
+    "34": 4,
+    "33": 1
+   },
+   "distinct_invariant_values_6dp": 29,
+   "invariant_min": 46.59340218866356,
+   "invariant_max": 88.13153781610575
+  },
+  "333": {
+   "file": "symmetric_333_seed1_300starts.jsonl",
+   "solutions": 354,
+   "nvar": 40,
+   "jacobian_ranks": {
+    "39": 354
+   },
+   "distinct_invariant_values_6dp": 1,
+   "invariant_min": 161.99999999999955,
+   "invariant_max": 162.00000000000023
+  }
+ },
+ "c_levels_of_2008_hits": {
+  "441": {
+   "starts": 6000,
+   "seed": 77,
+   "hits_2008_criterion": 53,
+   "misfit_levels": [
+    [
+     0.001025,
+     14
+    ],
+    [
+     0.0016412,
+     30
+    ],
+    [
+     0.001744,
+     9
+    ]
+   ]
+  },
+  "531": {
+   "starts": 6000,
+   "seed": 77,
+   "hits_2008_criterion": 69,
+   "misfit_levels": [
+    [
+     0.0007328,
+     6
+    ],
+    [
+     0.0009885,
+     7
+    ],
+    [
+     0.0010383,
+     6
+    ],
+    [
+     0.0010567,
+     4
+    ],
+    [
+     0.0011081,
+     9
+    ],
+    [
+     0.001141,
+     9
+    ],
+    [
+     0.0011999,
+     13
+    ],
+    [
+     0.0012579,
+     15
+    ]
+   ]
+  }
+ }
+}
