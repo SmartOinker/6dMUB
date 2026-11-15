@@ -209,6 +209,9 @@ step S42 "C24, C23" "structure Lean project (lean_structure/): stored logs of it
 step S43 "C11" "full native rerun and Root re-certification: stored results of the original run and of the repeat on a second machine" "$R/openai_check/full_audit" \
   "original run: principal files byte-identical|||repeat on a second machine: Root records re-certified in Arb: read 27189, distinct certified 27188, transposed 1143, 128 bits|||100 invocations|||^OK" \
   nice -n 5 python3 -I check_recorded_evidence.py
+step S44 "C55-C61 (dimension ten)" "symmetry orbits of the 3,040 vectors (10) and 1,136 candidate bases (19); exact orthonormality of the 96 candidate bases with coordinates in Q(zeta_20)" "$R/d10" \
+  "PASS\] vector orbits: 10 orbits|||PASS\] candidate-basis orbits: 19 orbits|||PASS\] exact pairwise orthogonality inside each candidate basis made of these vectors: 96 bases, 4320 pairs|||^OK" \
+  nice -n 5 python3 -I check_orbits_exact.py
 echo
 echo "=== SUMMARY: $NPASS steps passed, $NFAIL failed.${FAILED:+ Failed steps:$FAILED}"
 echo "Not re-run here (stored logs only): hide_seek/hide_seek.py, d6_fourier/run_fourier6_certs.py, d10/search_match.py, d10/energy10.py, openai_check/* (the native rerun; its stored results are checked in S43), near_misses 20,000-start and 35-shape searches, near_misses/repo/src/fourier/fourier_case.py, evidence.py, the Lean builds (stored logs of the structure project are checked in S42)."

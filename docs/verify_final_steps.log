@@ -26,3 +26,15 @@ OK
 [PASS] second build: sorry scan empty
 OK
 
+
+=== S44 (cd d10 && python3 check_orbits_exact.py)
+[PASS] each generator permutes the 3,040 vectors: largest matching distance 6.61e-15
+[PASS] vector orbits: 10 orbits, sizes [800, 400, 400, 400, 400, 200, 200, 200, 20, 20]
+[PASS] candidate-basis orbits: 19 orbits, sizes [160, 160, 80, 80, 80, 80, 80, 80, 80, 80, 40, 40, 40, 40, 8, 2, 2, 2, 2]
+[PASS] orbit sizes agree with the stored analysis
+[PASS] coordinates recognized in Q(zeta_20), each within 1e-32 of the stored 40-digit point: 240 vectors in 3 orbits
+[PASS] exact unimodularity |z_j|^2 = 1 (unbiased to I)
+[PASS] exact unbiasedness to the Fourier basis
+[PASS] exact pairwise orthogonality inside each candidate basis made of these vectors: 96 bases, 4320 pairs
+[PASS] number of candidate bases proved to be orthonormal bases exactly: 96
+OK

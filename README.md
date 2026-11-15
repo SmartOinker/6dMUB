@@ -5,7 +5,7 @@ report: degree-six sum-of-squares energy certificates for the two product MUB tr
 bounds and their check against explicit four-basis sets, the hide-and-seek detection simulation, the rerun of the
 2008-table near-miss certificate, and the conditional dimension-ten result. Every claim of the report is mapped to the check that
 re-verifies it, with the exact command and expected output, in `docs/verification_matrix.md`; `verify_all.sh` runs all fast checks
-in one go (log: `docs/verify_all.log`, 41 steps; steps S42 and S43, added in the final revision for `lean_structure/` and `openai_check/full_audit/`, are logged in `docs/verify_final_steps.log`). `docs/verification_ledger.md` is a short pointer to the matrix. Upstream sources and commit
+in one go (log: `docs/verify_all.log`, 41 steps; steps S42 to S44, added in the final revision for `lean_structure/`, `openai_check/full_audit/` and the dimension-ten orbits and exact bases (`d10/check_orbits_exact.py`), are logged in `docs/verify_final_steps.log`). `docs/verification_ledger.md` is a short pointer to the matrix. Upstream sources and commit
 hashes are in `docs/UPSTREAM.md`.
 
     ./verify_all.sh 2>&1 | tee docs/verify_all.log     # about 11 minutes on 2 cores; works on a copy of the repository; exit status 0 = all passed
