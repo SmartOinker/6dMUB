@@ -90,6 +90,7 @@ are in `docs/verification_matrix.md`; commands and expected lines for all of the
     python3 check_minimiser.py            # 6 s. Closed-form minimiser (50 digits) and 60 own minimisations on T0 and T1
     python3 check_gap72.py                # 18 s. Steps of the proof of E > 1/72
     python3 check_hadamard_identities.py  # 10 s. Cubic cap and cube ranks on six families
+    python3 check_seed_geometry.py        # 2 s. Structure paper Sec. 13: cube-Gram spectrum on the seed, operator inequality (numerical; 8 PASS, 1 NOT CHECKED)
     python3 check_sixphase.py             # 54 s. Six-phase bound: maximum 5.7154760665 = 7 sqrt6/3
     python3 check_quartic_sos.py          # 15 s. Exact degree-four functional over Q(sqrt3): 1,404 equations, rank 63
     python3 check_phase_ball.py           # 61 s. Phase-ball radius 0.2242139

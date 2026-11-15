@@ -2,13 +2,13 @@
 
 | file | workstream | content | upstream revision |
 |---|---|---|---|
-| `workstream_B_structure_paper.pdf` | B | structure theory and Lean (cube-rank criterion, cubic norm cap, six-phase bound, quartic sum-of-squares obstruction, Lean proof of the 1/72 energy gap) | 1033fb082aa0a82ffa4708411370434dc7d9fc23 |
+| `workstream_B_structure_paper.pdf` | B | structure theory, geometry of the known family and Lean (88 pages, version of 15 Nov 2026, 08:20 PT: cube-rank criterion, cubic norm cap, six-phase bound, quartic sum-of-squares obstruction, Lean proof of the 1/72 energy gap, and, new in this version, Section 13: genus-ten seed surface, Jacobian rank 53, the known orbit is open and closed in the solution set) | pinned revision f981b6664c621dc15b256d9ef1d3623e69e997d9 (the Lean baseline listed in the report's appendix is 1033fb082aa0a82ffa4708411370434dc7d9fc23) |
 | `workstream_C_audit.pdf` | C | explanatory audit (full native rerun of the 2026 pipeline, 27,188 root records re-certified, sharp phase-ball radius) | 4360b1a5bc0211dfd8ebfc6b650c500a29dca384 |
 
 Both revisions live in the team Lean repository (link in the report title block).
 
-These are copies of the two working documents with the team members' names, one affiliation and the repository
-address on the first page blacked out, because the competition asks that team identity appear only in the title
+These are copies of the two working documents with the team members' names (and, in the audit document, one affiliation and the repository
+address) on the first page blacked out, because the competition asks that team identity appear only in the title
 block of the report. Nothing else was changed; the unredacted originals are with the team. Both documents carry
 their own status lines ("working document", "review pending"): they are working papers, and the report, not these
 documents, is the record of what the team claims.

@@ -143,7 +143,7 @@ Lean & $N(6)\le5$ by its own scope note; read, not rebuilt by us & none & certif
 \end{frame}
 
 % ======================= 3 =======================
-\begin{frame}{The OpenAI record checker misses every consistent in-range change we tried; a full rerun is by a teammate}
+\begin{frame}{The OpenAI record checker misses every consistent in-range value change we tried; a full rerun is by a teammate}
 \centering\small
 \renewcommand{\arraystretch}{1.45}
 \begin{tabular}{@{}>{\raggedright\arraybackslash}p{2.7cm}>{\raggedright\arraybackslash}p{6.9cm}>{\raggedright\arraybackslash}p{3.5cm}@{}}
@@ -151,7 +151,7 @@ Lean & $N(6)\le5$ by its own scope note; read, not rebuilt by us & none & certif
 Check & Result & Status\\
 \midrule
 Mutation test & 26 corruptions of the saved records: 17 caught. Consistent in-range value changes pass. & \Tcomp\\
-Partial rebuild & seed cover and two last-stage batches bit-identical, on the preprint's own toolchain & \Tcomp\\
+Partial rebuild & seed cover, one stage-A shard and two stage-C batches bit-identical, on the preprint's own toolchain; most stages not rerun & \Tcomp\\
 Full native rerun & 100 invocations, 8 principal files byte-identical, by a teammate & \Trep\\
 \bottomrule
 \end{tabular}\\[0.4cm]
@@ -201,7 +201,7 @@ $T_0$: qubit $Z,X,Y$ bases tensor qutrit $I_3,F_3,DF_3$ bases, all local. $E(\ps
 \small
 \begin{beamercolorbox}[wd=\textwidth,sep=4pt,rounded=true]{soft}
 \centering
-$\displaystyle\sqrt p\le\tfrac1{\sqrt6}+\tfrac{\sqrt6}2\bigl(p-\tfrac16\bigr)-\cstar\bigl(p-\tfrac16\bigr)^2$ on $[0,1]$, $\cstar=\tfrac{3\sqrt6}{(\sqrt6+1)^2}=0.6176$ \Tproved\ \Tleanh
+$\displaystyle\sqrt p\le\tfrac1{\sqrt6}+\tfrac{\sqrt6}2\bigl(p-\tfrac16\bigr)-\cstar\bigl(p-\tfrac16\bigr)^2$ on $[0,1]$, $\cstar=\tfrac{3\sqrt6}{(\sqrt6+1)^2}=0.61757\ldots$ \Tproved\ \Tleanh
 \end{beamercolorbox}
 \vspace{0.2cm}
 \begin{itemize}\setlength\itemsep{5pt}
@@ -223,13 +223,13 @@ A quadruple is four bases; smaller is closer to four unbiased bases. Shaded: imp
  \draw (0,2.1)--(0,2.0) node[below=0pt] {0};
  \fill[cCert] (3.627,2.05) circle (2.5pt); \node[above,anchor=south east,align=right] at (3.7,2.2) {quadruple 1 $\le0.030224$ \Tcert};
  \fill[cCert] (4.872,2.05) circle (2.5pt); \node[above,anchor=south west,align=left] at (4.8,2.2) {quadruple 2 $\le0.040599$ \Tcert};
- \fill[hl] (5.55,2.05) circle (2.5pt); \node[below,align=center] at (5.55,1.85) {every completion of $T_0$ $>0.046248$ \Tproved};
+ \fill[hl] (5.55,2.05) circle (2.5pt); \node[below,align=center] at (5.55,1.85) {every completion of $T_0$ $>0.046248$\\ \Tproved\ from certified inputs};
  \node[anchor=east] at (-0.15,0) {\textbf{game loss}};
  \draw[->] (0,0)--(6.9,0);
  \fill[hl!20] (0,-0.15) rectangle (4.95,0.15);
  \draw (0,0.05)--(0,-0.05) node[below=0pt] {0};
  \fill[cCert] (3.54,0) circle (2.5pt); \node[above,align=center] at (3.54,0.15) {quadruple 2 $\le2.358\times10^{-4}$ \Tcert};
- \fill[hl] (4.95,0) circle (2.5pt); \node[below,align=center] at (4.95,-0.15) {completions $>3.302\times10^{-4}$ \Tproved};
+ \fill[hl] (4.95,0) circle (2.5pt); \node[below,align=center] at (4.95,-0.15) {completions $>3.302\times10^{-4}$\\ \Tproved\ from certified inputs};
 \end{tikzpicture}\\[0.1cm]
 \raggedright\hspace{0.2cm}Quadruple 2 (game-optimized) wins on both measures; quadruple 1 (bias-optimized) has the lowest bias found. So no bias-optimal and no game-optimal quadruple contains $T_0$. For the second product triple the bias claim holds and the game comparison is inconclusive.
 \end{frame}
@@ -244,8 +244,8 @@ A hider repeats one pure state; a referee counts equal-outcome pairs among $N$ s
 \toprule
  & shots per setting $N$ & detection & false alarm & status\\
 \midrule
-Guarantee & 1,936 & $\ge95\%$ & $\le0.1\%$ & \Tproved\\
-Guarantee & 5,142 & $\ge99\%$ & $\le0.1\%$ & \Tproved\\
+Guarantee & 1,936 & $\ge95\%$ & $\le0.1\%$ & \Tproved\ from certified inputs\\
+Guarantee & 5,142 & $\ge99\%$ & $\le0.1\%$ & \Tproved\ from certified inputs\\
 Rule of thumb & 239 & 99\% & 0.1\% & \Tcomp\ approximation\\
 \bottomrule
 \end{tabular}\\[0.25cm]
@@ -277,8 +277,8 @@ Rule of thumb & 239 & 99\% & 0.1\% & \Tcomp\ approximation\\
 \end{column}
 \begin{column}{0.5\textwidth}
 \begin{itemize}\small\setlength\itemsep{6pt}
-\item Purity witness: uniform statistics force the largest eigenvalue $\le0.8232$. \Tproved
-\item No qubit-qutrit entangling gate; shots for 50\% detection: 589 ideal, 646 at 1\% gate error, 1,500 at 10\%. \Tcomp
+\item Purity witness: uniform statistics force the largest eigenvalue $\le0.8232$. \Tproved\ from certified inputs
+\item No qubit-qutrit entangling gate; shots for 50\% detection (CNOT error, five-sigma false alarm, large-sample model): 589 ideal, 646 at 1\%, 1,500 at 10\%. \Tcomp
 \item Dimension-four control: $(1,1,i,-i)/2$ is exactly uniform in $ZZ,XX,YY$, never caught. \Tproved\ \Tcomp
 \item Game: $9.37\times10^{7}$ rounds, a different question. \Tcomp
 \end{itemize}
@@ -292,8 +292,8 @@ Rule of thumb & 239 & 99\% & 0.1\% & \Tcomp\ approximation\\
 \small
 $H$: order-six complex Hadamard matrix; $\hcube{H}$: its entrywise cube.\\[0.1cm]
 \centering
-\renewcommand{\arraystretch}{1.15}
-\begin{tabular}{@{}>{\raggedright\arraybackslash}p{8.3cm}>{\raggedright\arraybackslash}p{5.8cm}@{}}
+\renewcommand{\arraystretch}{1.0}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{9.2cm}>{\raggedright\arraybackslash}p{4.9cm}@{}}
 \toprule
 Result & Status\\
 \midrule
@@ -301,6 +301,7 @@ $\operatorname{rank}\hcube{H}\le2$ iff Fourier family, transpose or Tao class & 
 Cubic norm cap $\norm{\hcube{H}}^2\le18$ outside the Tao class & \tg{cProved}{proved in supplement} + \Tcited\ ingredient\\
 Degree-four SOS relaxation of $\min E$ on $T_0$ has optimum exactly $0$ & \Tcomp\ (exact arithmetic)\\
 $E>1/72$ on $T_0$, analytic & \Tlean\\
+Known family: genus-ten surface; no unknown branch attaches to it (disjoint components not excluded) & \Trep\\
 Universal step & \Topen\\
 \bottomrule
 \end{tabular}\\[0.1cm]
@@ -349,14 +350,14 @@ extending vectors & 0 & 0\\
 \Tcert & energy bounds; 2008 near-misses; explicit quadruples; 34,940 roots\\
 \Tcomp & mutation test; partial rebuild; 239 shots (approximation)\\
 \Tlean & $E>1/72$ (teammate's Lean build; reported, not re-run by us)\\
-\Trep & full native rerun; six-phase bound\\
+\Trep & full native rerun; six-phase bound; known-family geometry\\
 \Tcited & exact minimum (Erlwein); no end-to-end formal proof of $N(6)=3$\\
 \Tcond & dimension ten, given (H)\\
 \Topen & universal step; certified bound over all triples\\
 \bottomrule
 \end{tabular}\\[0.1cm]
 \begin{beamercolorbox}[wd=\textwidth,sep=3pt,rounded=true]{soft}
-\raggedright\footnotesize\textbf{AI use.} Claude, Codex and open-weight agents did most computations and wrote the first drafts. Each certified bound has a separate checker; five logged rounds of hostile AI review (about 120 findings). Checkers not read line by line by a human.
+\raggedright\footnotesize\textbf{AI use.} Claude, Codex and open-weight agents did most computations and wrote the first drafts. Each certified bound is checked by a short certificate checker; six logged rounds of hostile AI review (about 180 findings). Checkers not reviewed by a second person.
 \end{beamercolorbox}
 \end{frame}
 
@@ -375,14 +376,14 @@ corruptions caught; two 2008 near-misses. \Tcomp\ \Tcert
 \begin{beamercolorbox}[wd=\textwidth,sep=4pt,rounded=true]{soft}
 {\color{accent}\bfseries By how much?}\\[4pt]
 {\Large\bfseries\color{accent}$E>0.0384999$}\\[3pt]
-for $T_0$. A fourth basis added to $T_0$: bias $>0.046248$. \Tproved
+for $T_0$. A fourth basis added to $T_0$: bias $>0.046248$. \Tproved\ from certified inputs
 \end{beamercolorbox}
 \end{column}
 \begin{column}{0.32\textwidth}
 \begin{beamercolorbox}[wd=\textwidth,sep=4pt,rounded=true]{soft}
 {\color{accent}\bfseries In a laboratory?}\\[4pt]
 {\Large\bfseries\color{accent}1,936}\\[3pt]
-shots per setting expose every pure state, ideal measurements. \Tproved
+shots per setting expose every pure state (95\% detection, 0.1\% false alarm), ideal measurements. \Tproved
 \end{beamercolorbox}
 \end{column}
 \end{columns}
@@ -435,7 +436,7 @@ Three six-outcome measurements, $N\ge2$ shots each, independent identical copies
 \small
 $N\,E_{\mathrm{hom}}-\gamma_0N^3=z^{T}Qz+r$, with $z$ the 364 cubic monomials in the 12 real coordinates, $Q\succeq0$ a $364\times364$ Gram matrix. \Tcert
 \begin{itemize}\setlength\itemsep{2pt}\footnotesize
-\item Checker (about 100 lines, Arb at 160 bits): Cholesky of $Q-10^{-5}I$ with error $\norm{R}_F\le9.55\times10^{-15}$ shows $Q\succeq0$.
+\item Checker (about 120 lines, Arb at 160 bits): Cholesky of $Q-10^{-5}I$ with error $\norm{R}_F\le9.56\times10^{-15}$ shows $Q\succeq0$.
 \item Residual coefficients summed over all $12{,}376$ degree-six monomials: $S\le2.189\times10^{-12}$.
 \item Conclusion: $E\ge0.0385-2.2\times10^{-12}>0.03849999999$ on the whole sphere; the nominal level $0.0385$ is not itself a certified inequality.
 \item \textbf{Trusted:} Arb and the checker itself. \textbf{Not trusted:} the solver, cvxpy, the script that built $Q$.
@@ -478,7 +479,7 @@ triples & certified $E>$ & numerical minimum & game: $2.358\times10^{-4}$ beaten
 % ======================= B6 =======================
 \begin{frame}{Backup: two vectors in one phase ball are never orthogonal or unbiased below radius $0.2242$}
 \small
-$s_\ast=\sqrt6\,\arccos(1/\sqrt6)/(4\pi)=0.2242139\ldots$, workstream C, not used elsewhere. \Tproved
+$s_\ast=\sqrt6\,\arccos(1/\sqrt6)/(4\pi)=0.2242139\ldots$, a teammate's result, not used elsewhere. \Tproved
 \begin{itemize}\setlength\itemsep{3pt}\footnotesize
 \item For $s<s_\ast$ two vectors of one ball $B(v,s)$ are neither orthogonal nor mutually unbiased. At $s=s_\ast$ an unbiased pair exists.
 \item Proof: $f(u)=\cos\sqrt u$ is convex, and Jensen gives $\abs{S}\ge6\cos(4\pi s/\sqrt6)>\sqrt6$ for $s<s_\ast$.
@@ -490,11 +491,11 @@ $s_\ast=\sqrt6\,\arccos(1/\sqrt6)/(4\pi)=0.2242139\ldots$, workstream C, not use
 % ======================= B7 =======================
 \begin{frame}{Backup: the six-phase bound is sharp, and degree four cannot see the obstruction}
 \footnotesize
-\textbf{Six-phase bound.} If $\abs{z_j}=1$ and $\sum_{j=1}^6z_j=\sqrt6$, then $\abs{\sum z_j^3}\le7\sqrt6/3$, with equality at three copies of $(1+i\sqrt5)/\sqrt6$ and three of its conjugate. Written proof of workstream B, not re-derived by us \Trep; workstream B also reports a Lean check of the final envelope step, with no fixed revision, so we make no Lean claim for it; 4,000 constrained maximizations reach $7\sqrt6/3$ \Tnum\\[0.2cm]
+\textbf{Six-phase bound.} If $\abs{z_j}=1$ and $\sum_{j=1}^6z_j=\sqrt6$, then $\abs{\sum z_j^3}\le7\sqrt6/3$, with equality at three copies of $(1+i\sqrt5)/\sqrt6$ and three of its conjugate. Written proof of a teammate, not re-derived by us \Trep; the teammate also reports a Lean check of the final envelope step, not inspected by us, so we make no Lean claim for it; 4,000 constrained maximizations reach $7\sqrt6/3$ \Tnum\\[0.2cm]
 \textbf{Quartic SOS obstruction.} For $T_0$ the degree-four relaxation of $\min E$ has optimum exactly $0$.
 \begin{itemize}\setlength\itemsep{2pt}
 \item Certificate: a linear functional $L$ with $L(p^2)\ge0$ for every quadratic $p$, $L(E_{\mathrm{hom}})=0$, $L(N^2)=1$; $78\times78$ pseudomoment matrix, positive semidefinite of rank $63$.
-\item Our functional (693 nonzero moments) is verified in exact arithmetic over $\mathbb{Q}(\sqrt3)$: 1,404 constraints. \Tcert\ Workstream B's functional is \Trep. A double-precision solver gives $-2.1\times10^{-8}$ with 63 large eigenvalues. \Tnum
+\item Our functional (693 nonzero moments) is verified in exact arithmetic over $\mathbb{Q}(\sqrt3)$: 1,404 constraints. \Tcert\ A teammate's functional is \Trep. A double-precision solver gives $-2.1\times10^{-8}$ with 63 large eigenvalues. \Tnum
 \item No degree-four certificate proves a positive bound; degree six is the first level that can.
 \end{itemize}
 \end{frame}
@@ -507,8 +508,7 @@ $s_\ast=\sqrt6\,\arccos(1/\sqrt6)/(4\pi)=0.2242139\ldots$, workstream C, not use
 \toprule
 Kind of corruption (number tried) & Detected & Reading\\
 \midrule
-Record deleted, duplicated or reordered, file truncated, three with header or log edited to match (8) & 8 of 8 & counts and batch partition are cross-checked\\
-Record copy or failure file changed (2); value out of range (3); exit code, failure file or log altered (3); stray file (1) & 9 of 9 & byte-identity, range and membership checks\\
+Record deleted, duplicated or reordered, file truncated, header or log edited, record copy or failure file changed, value out of range, exit code or log altered, stray file (17) & 17 of 17 & counts, batch partition, byte-identity, range and membership checks\\
 Records swapped in every file holding them, or failure categories relabeled (2) & 0 of 2 & harmless: neither affects coverage\\
 In-range change of a phase (also by one last-place unit), radius, certified bound or seed-center coordinate (6) & 0 of 6 & \textbf{scope gap}: only range-checked\\
 Last-stage record and log counts both deleted or edited (1) & 0 of 1 & \textbf{scope gap}: coverage by children not recomputed\\

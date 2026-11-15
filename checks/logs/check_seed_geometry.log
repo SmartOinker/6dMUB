@@ -1,0 +1,25 @@
+== Check 1a: indirect product point p of Sec 13.5 (explicit A,B; C=A*B/sqrt6) ==
+[PASS] A,B,C phase Hadamard => {I, A/sqrt6, B/sqrt6} pairwise MUB (index order 2j+a): 1 points, max residual 3.553e-15 (tol 1e-12)
+   cube residuals R(A),R(B),R(C) at p: 1.29e-14 2.40e-14 7.54e-14 (paper: all three vanish)
+[PASS] all three cube residuals vanish at p: 1 points, max residual 7.539e-14 (tol 1e-09)
+== Check 1b/2: seed third transition from the S-surface parametrization (Sec 13.6-13.7) ==
+   conj variant (u_-r conj=0, v_-r conj=0): Hadamard residual 5.01e+00
+   conj variant (u_-r conj=0, v_-r conj=1): Hadamard residual 3.82e+00
+   conj variant (u_-r conj=1, v_-r conj=0): Hadamard residual 3.96e+00
+   conj variant (u_-r conj=1, v_-r conj=1): Hadamard residual 1.49e-15
+   using variant (1, 1) (unique: True)
+[PASS] seed third transition C is a phase Hadamard (unbiased to standard basis): 200 points, max residual 2.559e-15 (tol 1e-09)
+[PASS] spec (C^3)*(C^3) = {18-12q (x2), 6q (x4)}, q=|gamma(u)|^2: 200 points, max residual 1.688e-14 (tol 1e-08)
+[PASS] deficit q(2-q)/108 and ||R_C||^2 = 2592 q(3-q^2) (eq. 50; rel. err): 200 points, max residual 9.649e-16 (tol 1e-09)
+   q range sampled [0.0071,1.3812], paper bound q <= q* = 1.392305: PASS
+   NOTE: A and B of the seed (Sec 13.2) were NOT built: their extracted formulas are garbled;
+   C was built from the Sec 13.6 block formula; full three-basis unbiasedness of the seed is not checked.
+== Check 3: physical Jacobian rank 53 ==
+[NOT CHECKED] requires the 55-variable dephased gauge chart and the seed A,B (garbled in extraction); not faithfully implementable in budget.
+== Check 4: Theorem 12.3, rho^2-rho^3 >= rho^2/144 and 1-tr rho^3 > 1/144 ==
+   canonical triple I, H2(x)F, diag(1,i)H2(x)DF with D=diag[(1+0j), (-0.5+0.866j), (-0.5+0.866j)]: MUB residual 1.4e-16
+   affine solution space dimension 20 (tr(P rho)=1/6 for all 18 outcomes; positivity NOT imposed)
+   20000 random admissible rho (tr rho^2=1); most negative eigenvalue of rho rho^... min lambda(rho) seen -0.582 (non-states included)
+[PASS] lambda_min(rho^2 - rho^3 - rho^2/144) >= 0: 20000 points, max residual 0.000e+00 (tol 1e-10)
+   smallest lambda_min observed 3.011e-11; smallest 1 - tr rho^3 - 1/144 observed 2.217e-01
+[PASS] 1 - tr rho^3 > 1/144: 20000 points, max residual 0.000e+00 (tol 1e-15)

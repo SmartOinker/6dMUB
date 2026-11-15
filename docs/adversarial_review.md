@@ -2,9 +2,9 @@
 
 ## How the review works
 
-After each full draft of the report, fresh AI reviewers (model family: Claude Sonnet) are started with the report, the team's source documents, the codebase and the competition rules, but without the drafting history. They act as hostile but fair judges for the six criteria of the panel (correctness, novelty, attribution, clarity, motivation, interest) and return numbered findings with a severity (blocker, major, minor), a question a judge would ask, what they checked, and a proposed fix. The lead author (also an AI) decides on every finding in writing; AI editor agents apply the decisions to the report and the repository and keep an edit log. No human took part in the review cycles recorded here. After the edits, the claims below were re-checked by searching the revised report and the repository (a change is marked "done" only if it was found there). Findings that were not fully fixed are marked "open".
+After each full draft of the report, fresh AI reviewers (model families: Claude Sonnet and, in cycles 5 and 6, Claude Opus) are started with the report, the team's source documents, the codebase and the competition rules, but without the drafting history. They act as hostile but fair judges for the six criteria of the panel (correctness, novelty, attribution, clarity, motivation, interest) and return numbered findings with a severity (blocker, major, minor), a question a judge would ask, what they checked, and a proposed fix. The lead author (also an AI) decides on every finding in writing; AI editor agents apply the decisions to the report and the repository and keep an edit log. No human took part in the review cycles recorded here. After the edits, the claims below were re-checked by searching the revised report and the repository (a change is marked "done" only if it was found there). Findings that were not fully fixed are marked "open".
 
-Five review cycles are recorded in this file (53 + 16 + 35 + 15 + 40 = 159, about 160 findings in total).
+Six review cycles are recorded in this file (53 + 16 + 35 + 15 + 40 = 159 findings in cycles 1 to 5; cycle 6 added 12 on the report, 16 on the slides and 5 from an outside reader: about 190 in total; the report says "about 180", counting the AI reviewers' findings on the report and slides only, to the nearest ten below).
 
 Entry format: id, severity, criterion, the attack as a question, our answer (accepted, partly accepted, rejected) with the reason, the edit made, and the status.
 
@@ -15,6 +15,7 @@ Entry format: id, severity, criterion, the attack as a question, our answer (acc
 | 3 | 2 fresh AI reviewers (P: panel-style judge who saw only the text of the PDF without the title block; F: mathematics and report-versus-repository audit) | P: 1/8/9 (18); F: 0/8/9 (17); total 1/16/18 (35) | Lean 4 project `MUB6Bridge` built (no `sorry`, standard axioms) for the square-root lemma, the array form of the vector-to-basis theorem and the deterministic steps of the finite-sample theorem; placeholders replaced by a table of declarations; report restructured (structure theory and dimension ten moved into "Additional results, not used in the three answers", main text now about 30 of 50 pages); plain-text restatement of every key formula; ranked "what is new" paragraph and a quantum-information significance paragraph; scope wording and homogeneous sum-of-squares ladder fixed; reviewer's proposed mutation-test sentence rejected as false and replaced; false claim about dimension-ten energy minima corrected; Fourier-pair funnel and 35-shape table backed by shipped scripts and raw data; `docs/verification_matrix.md`, `verify_all.sh`, `docs/verify_all.log` added and stale documents corrected; supplementary PDFs replaced by redacted copies. 12 of 35 findings remain open (see the end of Cycle 3). |
 | 4 | 1 fresh AI reviewer (panel-style judge on the PDF text; recomputed the numbers and re-derived the proofs) | Q: 0/7/8 (15) | Lean file `Corollaries.lean` added (45 declarations) and the Lean claims restated per declaration; Section 2 paragraph "verified versus headline" written from the primary OpenAI files; text-layer fixes for roots and fractions; shorter, plainer text, no new claims. 4 of 15 findings remain open or partly done (see the end of Cycle 4). |
 | 5 | 2 fresh AI reviewers (P: panel-style judge, scores 8/5/8/6/7/8; A: evidence auditor, report versus repository) | P: 0/2/13 (15); A: 0/5/20 (25); total 0/7/33 (40) | Frobenius bounds quoted rounded up; limits and scores rounded in the safe direction; two Lean rows without a fixed revision deleted and the tag "Lean-checked, as reported" defined; new tag for results proved in the supplementary structure paper; Erlwein credited in Section 9 and the conclusion; abstract and reading guide reworded; five rounds and about 160 findings stated; Lean table completed (45 declarations); stale Lean comment fixed and `lean/BUILD_LOG.txt` regenerated. 7 findings remain open (see the end of Cycle 5). |
+| 6 | 2 fresh AI reviewers (P6: panel-style judge on the final text, scores 8/6/8/7/8/7 in the order Correctness, Novelty, Attribution, Clarity, Motivation, Interest; S6: slides and notes against the report) and one outside reader's review supplied by the team | P6: 0/5/7 (12); S6: 0/5/11 (16); outside reader: 5 points | Conditions restored in headline sentences, text-layer formulas, novelty wording, independence of the three proofs, heading of the 2008 finding; new reported paragraph on the geometry of the known family with one independent numerical check |
 
 ## Cycle 1
 
@@ -1085,3 +1086,42 @@ Found NOT done by searching:
 - N8: report says "about 20 to 35 s" for `certify_roots.py`, README says 18 to 25 s.
 - X4: `docs/verification_matrix.md` rows C49 and C52 still carry the old table numbers.
 - R6: README (`check1.py` 64 s) and matrix (35 s) timings still differ.
+
+## Cycle 6 (last round; wording fixes only)
+
+Reviewers: P6 = panel-style judge on the final text (scores out of 10: Correctness 8, Clarity 7, Motivation 8,
+Interest 7, Attribution 8, Novelty 6; 0 blocker, 5 major, 7 minor); S6 = slides and speaker notes against the report
+(0 blocker, 5 major, 11 minor); X = a review by an outside reader of the third draft, supplied by the team (5 points).
+Verdict of P6: safe to submit after wording fixes.
+
+**P6-1, P6-2 | major | Correctness.** Question: are the 16 Fourier-pair triples "all" such triples unconditionally?
+Answer: accepted. Edit: abstract and conclusion now carry "given the classical count of 156 cyclic 6-roots". Status: closed.
+
+**P6-3, P6-4, P6-11 | major | Clarity (text layer).** Question: do the extracted formulas for the 2008 threshold and for c* read correctly?
+Answer: accepted. Edit: the threshold is written as "mu < 6 * sqrt(1e-7) = 1.9e-3"; c* is given in plain text in the Lean table; brackets added to the log-derivative bound; "squared norm". Status: closed.
+
+**P6-5 | major | Novelty.** Question: is the design lesson "not in the literature"? Answer: accepted. Edit: item (1) of "What is new here" now claims the proof only and says that numerically optimized quadruples in the literature already suggest the observation. Status: closed.
+
+**P6-6 | minor | Correctness.** "which makes these two shapes undecided" -> "shows that the 2008 evidence does not decide these two shapes". Status: closed.
+
+**P6-7, P6-9 | minor | Attribution.** Number of review rounds (six, about 180 findings) and model identifiers (claude-fable-5-2, claude-opus-5-5) stated. Status: closed.
+
+**P6-8, P6-10, P6-12 | minor.** "independent rerun" -> "rerun by a separate agent"; certified upper bounds are no longer written as attained values; the abstract says the detection theorem is "given the interval-certified energy bound". Status: closed.
+
+**S6-1 to S6-14, a, b, d, e | major/minor | Correctness, Clarity.** Slides and notes brought in line with the report (number of rounds and findings, the rounded-up Frobenius bound, "about 120 lines", the full list of reported items, c* = 0.61757..., qualifiers "given certified inputs" and "95% detection, 0.1% false alarm"); the internal self-review section was removed from the speaker notes; scripts trimmed to their time slots. Status: closed, see the slides commit.
+
+**X-1 | Correctness.** Question: is the "universal step" open in general or only as an independent derivation? Answer: accepted. Edit: Section 6.1 says that what is open is a derivation by this route, independent of the computer-assisted proofs; if those are accepted, N(6) = 3 is known. Status: closed.
+
+**X-2 | Correctness.** Heading "two 2008 detections are near-misses" -> "the 2008 acceptance test admits certified near-misses for two shapes". Status: closed.
+
+**X-3 | Attribution.** "share a method and a trusted base" -> the three proofs overlap in method; overlap is not a shared implementation; we did not study how independent the code bases are. (We could not re-read the third preprint during this round: the fetch was rate-limited.) Status: closed.
+
+**X-4 | Correctness.** Dimension ten: the numerical minimum 0.0202 is an upper estimate, so "off by at least about 0.026" is now conditional on its being the true minimum. Status: closed.
+
+**X-5 | Clarity.** Placeholders in the title block: filled. Removing the "In plain text" lines and status tags: rejected, because the LLM panel reads extracted text, where typeset formulas garble. Status: closed.
+
+**Scope change during cycle 6.** Workstream B delivered a new version of the structure paper (88 pages) on the morning of the deadline. Following the outside reader's advice, its main new result (the known family is a genus-ten surface to which no unknown branch of MU triples attaches) was added to Section 6.1 as a reported result with one independent numerical check (`checks/check_seed_geometry.py`: cube-Gram spectrum on the seed, operator inequality); matrix row C70, claim-table row 27, one row on slide 10. The supplementary document was replaced by the new version.
+
+### Still open after cycle 6
+
+Multi-column tables are read column by column by plain text extraction. The new geometry results are reported only: genus, Jacobian rank, open-and-closed statement, incidence counts and normalizer bound were not checked by us. No human line-by-line review. The competition's automated Lean build was not run by us. The OpenAI Lean development, workstream B's Lean build and workstream C's full rerun were not re-run by us. Hypothesis (H) is not verified. No hardware run.
