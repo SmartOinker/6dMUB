@@ -86,7 +86,7 @@ Caltech $\times$ SAIR Mathathon, Round 1, Problem 124 \quad$\cdot$\quad Track: C
 \vspace{0.4em}
 {\small
 Submission repository (code, certificates, data, Lean project, this report, slides): \texttt{https://github.com/SmartOinker/6dMUB}\\
-code-and-data commit \texttt{1898c734da7a8a6bd40db9be890698a982614c64} (this report is added by the commit after it)\\[2pt]
+code-and-data commit \texttt{6e1eb636cd7f5836e1f43ecf7c0e3fac7980d84c} (this report is added by the commit after it)\\[2pt]
 Team Lean and audit repository: \texttt{https://github.com/RaymondFongHow/caltech-mathathon-2026}\\
 structure Lean baseline \texttt{1033fb082aa0a82ffa4708411370434dc7d9fc23}, structure paper \texttt{f981b6664c621dc15b256d9ef1d3623e69e997d9}; certificate audit
 \texttt{4360b1a5bc0211dfd8ebfc6b650c500a29dca384};\\ the files used from it are copied into the submission repository (\texttt{lean\_structure/}, \texttt{openai\_check/full\_audit/})\par}
@@ -1420,7 +1420,7 @@ directly, and the first two are also checked in Lean.
 \paragraph{Lean declarations.} Two Lean 4 developments support this report.
 (1) The structure project \texttt{lean\_structure/} of the submission repository (46 modules, 394 public theorems; copied from revision \texttt{f981b666} of the team repository),
 which contains the bound $\E>1/72$; the declarations used here are listed in Table~\ref{tab:lean}
-(Appendix~\ref{app:gap}). Its build log (3{,}350 jobs, completed successfully), the axiom log of the audited theorems and the source hashes are in \texttt{lean\_structure/logs/}; \texttt{lean\_structure/check\_logs.py} checks them against the sources. That build was made once, on one machine (macOS, arm64); a second build on the event platform could not be started before the deadline.
+(Appendix~\ref{app:gap}). Its build log (3{,}350 jobs, completed successfully), the axiom log of the audited theorems and the source hashes are in \texttt{lean\_structure/logs/}; \texttt{lean\_structure/check\_logs.py} checks them against the sources. The project was built twice, with the same 3{,}350 jobs and the same axioms: on macOS (arm64) and, on 15 November, on the event platform Open Math OS (Linux x86-64, the platform's prebuilt Mathlib at the same revision; \texttt{lean\_structure/logs/rebuild\_openmathos/}); the files built there have the hashes of the manifest.
 (2) The project \texttt{MUB6Bridge} at the root of the submission repository (four files, 45 declarations), built
 with Lean v4.35.0 and Mathlib v4.35.0 (revision \texttt{56a005855ea17e0b0958f73ec801ae140b0a1679}); the build
 log with the output of \texttt{\#print axioms} for every declaration is \texttt{lean/BUILD\_LOG.txt}. No
