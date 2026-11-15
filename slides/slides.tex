@@ -401,6 +401,27 @@ A hider repeats one pure state; a referee counts equal-outcome pairs among $N$ s
 \end{frame}
 
 % ======================= 12 =======================
+\begin{frame}{The experiment in four steps: three local settings, 1,936 shots each, and a proved verdict for every pure state}
+\centering
+\begin{tikzpicture}[font=\footnotesize,st/.style={draw=accent,fill=soft,rounded corners=3pt,align=center,text width=2.95cm,minimum height=1.75cm,inner sep=3pt}]
+\node[st] (a) at (0,0) {\textbf{1. Prepare}\\ the same state on a qubit and a qutrit, again and again};
+\node[st] (b) at (3.65,0) {\textbf{2. Measure}\\ in one of three local settings\\ {\scriptsize $Z{\otimes}I_3$,\ \ $X{\otimes}F_3$,\ \ $Y{\otimes}DF_3$}};
+\node[st] (c) at (7.3,0) {\textbf{3. Repeat}\\ $N=1{,}936$ shots per setting\\ ($5{,}808$ in total)};
+\node[st] (d) at (10.95,0) {\textbf{4. Decide}\\ count equal-outcome pairs: statistic $T$\\ flag if $T\ge0.38751\,\gamma$};
+\foreach \u/\v in {a/b,b/c,c/d} {\draw[-{Stealth},very thick,accent] (\u)--(\v);}
+\node[draw=cProved,fill=cProved!12,rounded corners=3pt,align=left,text width=7.0cm,inner sep=5pt,anchor=north] (p) at (1.95,-1.25) {\textbf{Proved} \Tproved\ (theorem, with the certified gap $\gamma=0.0384999$)\\[2pt]
+$\bullet$ every pure state, entangled ones included, is flagged with probability $\ge95\%$\\
+$\bullet$ a source with uniform statistics is flagged with probability $\le0.1\%$\\
+$\bullet$ $5{,}142$ shots per setting give $99\%$};
+\node[draw=black!40,fill=black!6,rounded corners=3pt,align=left,text width=5.3cm,inner sep=5pt,anchor=north] (q) at (8.75,-1.25) {\textbf{Assumed, or not done}\\[2pt]
+$\bullet$ ideal projective measurements\\
+$\bullet$ independent, identical copies\\
+$\bullet$ gate noise: simulated only (next slide)\\
+$\bullet$ no hardware run};
+\end{tikzpicture}
+\end{frame}
+
+% ======================= 13 =======================
 \begin{frame}{In simulation, three local settings and modest gate noise suffice, and a dimension-four control is never caught}
 \begin{columns}[T]
 \begin{column}{0.5\textwidth}
@@ -430,34 +451,6 @@ A hider repeats one pure state; a referee counts equal-outcome pairs among $N$ s
 \end{itemize}
 \end{column}
 \end{columns}
-\end{frame}
-
-% ======================= 13 =======================
-\begin{frame}{Additional result: structure for order-six Hadamard matrices is proved, but the universal step toward $N(6)=3$ is open}
-\addbanner
-\small
-$H$: order-six complex Hadamard matrix; $\hcube{H}$: its entrywise cube.\\[0.1cm]
-\centering
-\footnotesize\renewcommand{\arraystretch}{0.95}
-\begin{tabular}{@{}>{\raggedright\arraybackslash}p{7.9cm}>{\raggedright\arraybackslash}p{6.3cm}@{}}
-\toprule
-Result & Status\\
-\midrule
-$\operatorname{rank}\hcube{H}\le2$ iff Fourier family, transpose or Tao class & \tg{cProved}{proved in supplement} + \Tcited\ ingredient\\
-Cubic norm cap $\norm{\hcube{H}}^2\le18$ outside the Tao class & \tg{cProved}{proved in supplement} + \Tcited\ ingredient\\
-Degree-four SOS relaxation of $\min E$ on $T_0$ has optimum exactly $0$ & \Tcomp\ (exact arithmetic)\\
-$E>1/72$ on $T_0$, analytic & \Tlean\\
-Known family: genus-ten surface; no unknown branch attaches to it (disjoint components not excluded) & \Tproved\\
-\bottomrule
-\end{tabular}\\[0.1cm]
-\begin{tikzpicture}[font=\scriptsize,nd/.style={draw=black!40,rounded corners=2pt,inner sep=3pt,align=center,fill=soft}]
-\node[nd] (t) at (0,0) {every MU triple};
-\node[nd] (r) at (6.6,0) {cube rank two};
-\node[nd] (n) at (12.4,0) {no fourth basis};
-\draw[-{Stealth},thick,cOpen,dashed] (t)--node[above=-1pt,cOpen] {four residual products vanish?}node[below=-1pt] {\Topen\ the universal step}(r);
-\draw[-{Stealth},thick,black!55] (r)--node[above=-1pt] {prior exclusions}node[below=-1pt] {\Tcited}(n);
-\end{tikzpicture}\\[0.05cm]
-\raggedright\footnotesize\hspace{0.2cm}None of this yet bounds the number of MUBs.
 \end{frame}
 
 % ======================= 14 =======================
@@ -535,6 +528,35 @@ the 16 Fourier-pair triples \textbullet\ phase-ball radius \textbullet\ six-phas
 \end{frame}
 
 % ======================= B1 =======================
+% ======================= BACKUP: structure =======================
+\begin{frame}{Backup: structure for order-six Hadamard matrices is proved, but the universal step toward $N(6)=3$ is open}
+\addbanner
+\small
+$H$: order-six complex Hadamard matrix; $\hcube{H}$: its entrywise cube.\\[0.1cm]
+\centering
+\footnotesize\renewcommand{\arraystretch}{0.95}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{7.9cm}>{\raggedright\arraybackslash}p{6.3cm}@{}}
+\toprule
+Result & Status\\
+\midrule
+$\operatorname{rank}\hcube{H}\le2$ iff Fourier family, transpose or Tao class & \tg{cProved}{proved in supplement} + \Tcited\ ingredient\\
+Cubic norm cap $\norm{\hcube{H}}^2\le18$ outside the Tao class & \tg{cProved}{proved in supplement} + \Tcited\ ingredient\\
+Degree-four SOS relaxation of $\min E$ on $T_0$ has optimum exactly $0$ & \Tcomp\ (exact arithmetic)\\
+$E>1/72$ on $T_0$, analytic & \Tlean\\
+Known family: genus-ten surface; no unknown branch attaches to it (disjoint components not excluded) & \Tproved\\
+\bottomrule
+\end{tabular}\\[0.1cm]
+\begin{tikzpicture}[font=\scriptsize,nd/.style={draw=black!40,rounded corners=2pt,inner sep=3pt,align=center,fill=soft}]
+\node[nd] (t) at (0,0) {every MU triple};
+\node[nd] (r) at (6.6,0) {cube rank two};
+\node[nd] (n) at (12.4,0) {no fourth basis};
+\draw[-{Stealth},thick,cOpen,dashed] (t)--node[above=-1pt,cOpen] {four residual products vanish?}node[below=-1pt] {\Topen\ the universal step}(r);
+\draw[-{Stealth},thick,black!55] (r)--node[above=-1pt] {prior exclusions}node[below=-1pt] {\Tcited}(n);
+\end{tikzpicture}\\[0.05cm]
+\raggedright\footnotesize\hspace{0.2cm}None of this yet bounds the number of MUBs.
+\end{frame}
+
+
 % ======================= BACKUP: dimension ten =======================
 \begin{frame}{Backup: if a cited root count (H) holds, no four MUBs of $\C^{10}$ contain the standard and Fourier bases}
 \addbanner
