@@ -1,0 +1,235 @@
+ℹ [3148/3161] Built MUBIdentities (1.0s)
+info: MUBIdentities.lean:64:0: 'MUBGap.qubit_fierz' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBIdentities.lean:65:0: 'MUBGap.joint_pair_deviation' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBIdentities.lean:66:0: 'MUBGap.three_point_parseval' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBIdentities.lean:67:0: 'MUBGap.separating_functional_no_sos' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [3149/3161] Built MUBFieldObstruction (661ms)
+info: MUBFieldObstruction.lean:28:0: 'MUBFieldObstruction.normalization_mem_of_composition' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [3150/3162] Built MUBTensorFrame (1.2s)
+info: MUBTensorFrame.lean:83:0: 'MUBTensorFrame.repetition_mul_right' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBTensorFrame.lean:84:0: 'MUBTensorFrame.repetition_adjoint_mul_left' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBTensorFrame.lean:85:0: 'MUBTensorFrame.repetition_isometry' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBTensorFrame.lean:86:0: 'MUBTensorFrame.repetition_compression_entry' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBTensorFrame.lean:87:0: 'MUBTensorFrame.repetition_compression' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBTensorFrame.lean:88:0: 'MUBTensorFrame.first_projection_defect' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBTensorFrame.lean:89:0: 'MUBTensorFrame.second_projection_defect' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBTensorFrame.lean:90:0: 'MUBTensorFrame.third_projection_defect' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [3151/3162] Built MUBResidual (1.4s)
+info: MUBResidual.lean:238:0: 'MUBResidual.residual_zero_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBResidual.lean:239:0: 'MUBResidual.residual_unitary_covariance' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBResidual.lean:240:0: 'MUBResidual.residual_adjoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBResidual.lean:241:0: 'MUBResidual.residual_transpose' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBResidual.lean:242:0: 'MUBResidual.gramProjection_hermitian' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBResidual.lean:243:0: 'MUBResidual.gram_square_of_residual_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBResidual.lean:244:0: 'MUBResidual.gramProjection_idempotent' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBResidual.lean:245:0: 'MUBResidual.trace_eq_rank_of_idempotent' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBResidual.lean:246:0: 'MUBResidual.gramProjection_rank' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBResidual.lean:247:0: 'MUBResidual.rank_two_of_residual_zero_of_trace' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBResidual.lean:248:0: 'MUBResidual.trace_gram_of_flat' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBResidual.lean:249:0: 'MUBResidual.rank_two_of_flat_residual_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBResidual.lean:250:0: 'MUBResidual.entrywiseCube_flat' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBResidual.lean:251:0: 'MUBResidual.phase_cube_residual_rank_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBResidual.lean:252:0: 'MUBResidual.rank_two_of_balanced_gram' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBResidual.lean:253:0: 'MUBResidual.normalized_cube_residual_rank_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBResidual.lean:254:0: 'MUBResidual.one_matrix_zero_of_entry_products' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBResidual.lean:255:0: 'MUBResidual.low_cube_rank_of_residual_products' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [3152/3179] Built MUBCubeCounts (1.5s)
+info: MUBCubeCounts.lean:35:0: 'MUBCubeCounts.balanced_counts_classes' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBCubeCounts.lean:36:0: 'MUBCubeCounts.balanced_counts_positive_class' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [3158/3179] Built MUBQuantum (1.1s)
+info: MUBQuantum.lean:79:0: 'MUBQuantum.probability_nonnegative' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBQuantum.lean:80:0: 'MUBQuantum.pauli_diagonal_real' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [3161/3179] Built MUBCubicGram (2.8s)
+info: MUBCubicGram.lean:271:0: 'MUBCubicGram.six_cubes_eq_three_elementary' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBCubicGram.lean:272:0: 'MUBCubicGram.third_elementary_self_conjugate' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBCubicGram.lean:273:0: 'MUBCubicGram.six_unit_cubic_moment_self_conjugate' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBCubicGram.lean:274:0: 'MUBCubicGram.six_phase_moment' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBCubicGram.lean:275:0: 'MUBCubicGram.cubic_overlap_phase' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBCubicGram.lean:276:0: 'MUBCubicGram.hadamard_cubic_gram_phase' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [3162/3179] Built MUBGap (2.4s)
+info: MUBGap.lean:142:0: 'MUBGap.scalar_gap' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBGap.lean:143:0: 'MUBGap.scalar_certificate_consistent' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBGap.lean:144:0: 'MUBGap.energy_le_of_uniform_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBGap.lean:145:0: 'MUBGap.exists_large_deviation' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBGap.lean:146:0: 'MUBGap.certificate_deviation' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBGap.lean:147:0: 'MUBGap.no_uniform_perturbation' depends on axioms: [propext, Classical.choice, Quot.sound]
+✔ [3163/3179] Built MUBSixPhasePolynomial (2.0s)
+ℹ [3164/3179] Built MUBPurityGap (1.5s)
+info: MUBPurityGap.lean:111:0: 'MUBPurityGap.trace_sandwich_zero_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBPurityGap.lean:112:0: 'MUBPurityGap.purity_gap_nonnegative' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBPurityGap.lean:113:0: 'MUBPurityGap.purity_gap_zero_iff_balanced' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBPurityGap.lean:114:0: 'MUBPurityGap.three_purity_product_zero_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+✔ [3165/3179] Built MUBAnchoredPurity (2.3s)
+ℹ [3166/3179] Built MUBGramCap (1.7s)
+info: MUBGramCap.lean:74:0: 'MUBGramCap.gram_defect_factorization' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBGramCap.lean:75:0: 'MUBGramCap.gram_cap_posSemidef' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBGramCap.lean:76:0: 'MUBGramCap.cube_gram_cap_posSemidef' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [3167/3179] Built MUBCompatibility (1.2s)
+info: MUBCompatibility.lean:102:0: 'MUBCompatibility.coupled_gram_idempotent' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBCompatibility.lean:103:0: 'MUBCompatibility.hermitian_idempotent_eq_one_of_trace' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBCompatibility.lean:104:0: 'MUBCompatibility.coupled_equations_unitary' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBCompatibility.lean:105:0: 'MUBCompatibility.trace_gram_of_normalized_flat' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBCompatibility.lean:106:0: 'MUBCompatibility.coupled_flat_unitary' depends on axioms: [propext, Classical.choice, Quot.sound]
+✔ [3168/3179] Built MUBQuantumTransport (2.7s)
+✔ [3169/3179] Built MUBResidualBounds (2.3s)
+ℹ [3170/3235] Built MUBSpectral (4.7s)
+info: MUBSpectral.lean:529:0: 'MUBSpectral.energy_gap_of_quantum_identities' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBSpectral.lean:530:0: 'MUBSpectral.qubit_relation' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBSpectral.lean:531:0: 'MUBSpectral.rank_two_small_weight' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBSpectral.lean:532:0: 'MUBSpectral.pure_bloch_length' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBSpectral.lean:533:0: 'MUBSpectral.bloch_rayleigh' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBSpectral.lean:534:0: 'MUBSpectral.frame_form_eq_quadratic' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBSpectral.lean:535:0: 'MUBSpectral.frame_rayleigh' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBSpectral.lean:536:0: 'MUBSpectral.frame_weight_complement' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBSpectral.lean:537:0: 'MUBSpectral.coefficient_rayleigh_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBSpectral.lean:538:0: 'MUBSpectral.pauli_fierz' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBSpectral.lean:539:0: 'MUBSpectral.correlation_remainder_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBSpectral.lean:540:0: 'MUBSpectral.vectorNorm_reverse_triangle' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [3219/3235] Built MUBPhaseTensor (2.6s)
+info: MUBPhaseTensor.lean:274:0: 'MUBPhaseTensor.factorization_of_anchored_boxes' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBPhaseTensor.lean:275:0: 'MUBPhaseTensor.reconstructed_phases_unit' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBPhaseTensor.lean:276:0: 'MUBPhaseTensor.phase_equations_of_line_sums' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBPhaseTensor.lean:277:0: 'MUBPhaseTensor.normalized_reconstruction_coupled' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBPhaseTensor.lean:278:0: 'MUBPhaseTensor.normalized_reconstruction_flat' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBPhaseTensor.lean:279:0: 'MUBPhaseTensor.phase_tensor_realization' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [3221/3235] Built MUBPhaseTensorConverse (1.9s)
+info: MUBPhaseTensorConverse.lean:157:0: 'MUBPhaseTensorConverse.transition_tensor_unit' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBPhaseTensorConverse.lean:158:0: 'MUBPhaseTensorConverse.transition_tensor_boxes' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBPhaseTensorConverse.lean:159:0: 'MUBPhaseTensorConverse.transition_tensor_line_sums' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBPhaseTensorConverse.lean:160:0: 'MUBPhaseTensorConverse.physical_realization_conditions' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBPhaseTensorConverse.lean:161:0: 'MUBPhaseTensorConverse.phase_tensor_equivalence' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [3223/3235] Built MUBSquarefreePhysical (4.0s)
+info: MUBSquarefreePhysical.lean:286:0: 'MUBSquarefreePhysical.squarefree_column_gram' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBSquarefreePhysical.lean:287:0: 'MUBSquarefreePhysical.squarefree_row_overlap_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBSquarefreePhysical.lean:288:0: 'MUBSquarefreePhysical.incidence_factor_gram_entry' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBSquarefreePhysical.lean:289:0: 'MUBSquarefreePhysical.squarefree_row_defect' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBSquarefreePhysical.lean:290:0: 'MUBSquarefreePhysical.physical_cube_gram_cap' depends on axioms: [propext, Classical.choice, Quot.sound]
+✔ [3224/3286] Built MUBBalancedRows (3.1s)
+✔ [3267/3287] Built MUBTetrahedral (1.5s)
+✔ [3273/3290] Built MUBLocalExhaustion (1.6s)
+⚠ [3274/3294] Built MUBQuantumFourier (14s)
+warning: MUBQuantumFourier.lean:33:39: This simp argument is unused:
+  Complex.neg_im
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Fin.sum_univ_two, pauliForm, Complex.normSq_apply, Complex.add_re, Complex.add_im, Complex.sub_re,
+    Complex.sub_im, Complex.mul_re, Complex.mul_im, Complex.star_def, Complex.conj_re, Complex.conj_im, Complex.neg_re,
+    Complex.I_re, Complex.I_im]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: MUBQuantumFourier.lean:75:38: This simp argument is unused:
+  Complex.sub_re
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [marginalProbability, amplitude, qutritCoherence, overlap, innerQ, totalNorm, weight, phase,
+    Fin.sum_univ_three, Complex.normSq_apply, Complex.add_re, Complex.add_im, Complex.sub_im, Complex.mul_re,
+    Complex.mul_im, Complex.star_def, Complex.conj_re, Complex.conj_im]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: MUBQuantumFourier.lean:75:54: This simp argument is unused:
+  Complex.sub_im
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [marginalProbability, amplitude, qutritCoherence, overlap, innerQ, totalNorm, weight, phase,
+    Fin.sum_univ_three, Complex.normSq_apply, Complex.add_re, Complex.add_im, Complex.sub_re, Complex.mul_re,
+    Complex.mul_im, Complex.star_def, Complex.conj_re, Complex.conj_im]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: MUBQuantumFourier.lean:96:33: This simp argument is unused:
+  Complex.normSq_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [signedProbability, amplitude, correlation, imbalance, pauliForm, phase, Fin.sum_univ_three,
+    Complex.add_re, Complex.add_im, Complex.sub_re, Complex.sub_im, Complex.mul_re, Complex.mul_im, Complex.star_def,
+    Complex.conj_re, Complex.conj_im, Complex.I_re, Complex.I_im]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+info: MUBQuantumFourier.lean:151:0: 'MUBQuantum.born_pair_deviation' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBQuantumFourier.lean:152:0: 'MUBQuantum.real_phase_parseval' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBQuantumFourier.lean:153:0: 'MUBQuantum.complex_three_parseval' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBQuantumFourier.lean:154:0: 'MUBQuantum.coherence_parseval' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBQuantumFourier.lean:155:0: 'MUBQuantum.marginal_eq_fourier' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBQuantumFourier.lean:156:0: 'MUBQuantum.signed_eq_fourier' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBQuantumFourier.lean:157:0: 'MUBQuantum.spectral_energy_scalars' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBQuantumFourier.lean:158:0: 'MUBQuantum.basis_energy_decomposition' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBQuantumFourier.lean:159:0: 'MUBQuantum.measurement_energy_decomposition' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBQuantumFourier.lean:160:0: 'MUBQuantum.normalized_measurement_energy' depends on axioms: [propext, Classical.choice, Quot.sound]
+✔ [3276/3294] Built MUBBalancedSpectralEnvelope (1.9s)
+✔ [3278/3295] Built MUBBalancedGram (1.8s)
+✔ [3284/3317] Built MUBLocalGermAlgebra (2.2s)
+✔ [3292/3317] Built MUBMixedTransport (1.4s)
+⚠ [3293/3317] Built MUBQuantumMeasurements (7.3s)
+warning: MUBQuantumMeasurements.lean:88:29: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: MUBQuantumMeasurements.lean:88:29: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: MUBQuantumMeasurements.lean:172:36: This simp argument is unused:
+  h4
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [hr, h3]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+info: MUBQuantumMeasurements.lean:238:0: 'MUBQuantum.probability_eq_outcome' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBQuantumMeasurements.lean:239:0: 'MUBQuantum.outcome_scale' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBQuantumMeasurements.lean:240:0: 'MUBQuantum.amplitude_row_formula' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBQuantumMeasurements.lean:241:0: 'MUBQuantum.outcome_row_formula' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBQuantumMeasurements.lean:242:0: 'MUBQuantum.qutrit_rows_orthogonal' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBQuantumMeasurements.lean:243:0: 'MUBQuantum.qubit_rows_orthogonal' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBQuantumMeasurements.lean:244:0: 'MUBQuantum.joint_rows_orthogonal' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBQuantumMeasurements.lean:245:0: 'MUBQuantum.born_pair_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBQuantumMeasurements.lean:246:0: 'MUBQuantum.phase_sum_real' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBQuantumMeasurements.lean:247:0: 'MUBQuantum.measurement_mass' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBQuantumMeasurements.lean:248:0: 'MUBQuantum.normalized_measurement_mass' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBQuantumMeasurements.lean:249:0: 'MUBQuantum.concrete_energy_decomposition' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBQuantumMeasurements.lean:250:0: 'MUBQuantum.canonical_amplitude_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBQuantumMeasurements.lean:251:0: 'MUBQuantum.canonical_factor_norm' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBQuantumMeasurements.lean:252:0: 'MUBQuantum.canonical_probability_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBQuantumMeasurements.lean:253:0: 'MUBQuantum.canonical_norm_transport' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBQuantumMeasurements.lean:254:0: 'MUBQuantum.canonical_measurement_mass' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBQuantumMeasurements.lean:255:0: 'MUBQuantum.normalized_canonical_measurement_mass' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBQuantumMeasurements.lean:256:0: 'MUBQuantum.canonical_energy_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBQuantumMeasurements.lean:257:0: 'MUBQuantum.canonical_energy_decomposition' depends on axioms: [propext, Classical.choice, Quot.sound]
+✔ [3294/3317] Built MUBFourLineForms (14s)
+ℹ [3296/3317] Built MUBBridge (1.9s)
+info: MUBBridge.lean:151:0: 'MUBBridge.overlap_energy_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBBridge.lean:152:0: 'MUBBridge.bloch_square_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBBridge.lean:153:0: 'MUBBridge.phase_normSq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBBridge.lean:154:0: 'MUBBridge.normalized_born_gap' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBBridge.lean:155:0: 'MUBBridge.no_common_unbiased_state' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBBridge.lean:156:0: 'MUBBridge.canonical_born_gap' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBBridge.lean:157:0: 'MUBBridge.canonical_energy_gap' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBBridge.lean:158:0: 'MUBBridge.canonical_probability_gap' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBBridge.lean:159:0: 'MUBBridge.canonical_no_unbiased_state' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBBridge.lean:160:0: 'MUBBridge.exists_large_probability_deviation' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBBridge.lean:161:0: 'MUBBridge.no_uniform_probability_perturbation' depends on axioms: [propext, Classical.choice, Quot.sound]
+✔ [3298/3317] Built MUBSunCubeGram (10s)
+✔ [3299/3317] Built MUBSeedGluing (9.2s)
+ℹ [3300/3317] Built MUBOperationalTV (2.4s)
+info: MUBOperationalTV.lean:175:0: 'MUBOperationalTV.variation_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBOperationalTV.lean:176:0: 'MUBOperationalTV.abs_le_variation' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBOperationalTV.lean:177:0: 'MUBOperationalTV.energy_le_two_variation_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBOperationalTV.lean:178:0: 'MUBOperationalTV.likelihood_success' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBOperationalTV.lean:179:0: 'MUBOperationalTV.decision_success_le_likelihood' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBOperationalTV.lean:180:0: 'MUBOperationalTV.canonical_deviation_sum_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBOperationalTV.lean:181:0: 'MUBOperationalTV.canonical_TV_sq_witness' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBOperationalTV.lean:182:0: 'MUBOperationalTV.canonical_TV_witness' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBOperationalTV.lean:183:0: 'MUBOperationalTV.canonical_TV_rational_witness' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBOperationalTV.lean:184:0: 'MUBOperationalTV.canonical_probability_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: MUBOperationalTV.lean:185:0: 'MUBOperationalTV.canonical_distinguishing_witness' depends on axioms: [propext, Classical.choice, Quot.sound]
+✔ [3308/3321] Built MUBUniformSubmersion (3.1s)
+✔ [3312/3340] Built MUBSunCubeSpectrum (3.6s)
+✔ [3333/3350] Built MUBCoordinateProductIdeal (1.3s)
+✔ [3336/3350] Built MUBSunDiscriminant (2.1s)
+✔ [3337/3350] Built MUBSeedDifferential (3.6s)
+✔ [3342/3350] Built MUBNormalizerObstructions (3.2s)
+✔ [3343/3350] Built MUBSeedLocalChart (2.7s)
+✔ [3344/3350] Built MUBBalancedSmallTables (26s)
+✔ [3345/3350] Built MUBMeasurementProjectors (21s)
+✔ [3346/3350] Built MUBMeasurementBessel (1.0s)
+✔ [3347/3350] Built MUBDensityGap (2.1s)
+✔ [3348/3350] Built MUBDensityTrace (1.4s)
+✔ [3349/3350] Built MUBMatchingGram (34s)
+Build completed successfully (3350 jobs).

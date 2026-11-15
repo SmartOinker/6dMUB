@@ -43,5 +43,23 @@ check("every audited theorem is declared in the sources", not missing, f"{len(de
 hits = [(f, w) for f, t in src.items() for w in ("sorry", "admit", "native_decide") if re.search(r"\b" + w + r"\b", t)]
 hits += [(f, "axiom") for f, t in src.items() if re.search(r"^\s*axiom\s", t, flags=re.M)]
 check("no sorry / admit / native_decide / axiom declarations in the sources", not hits, str(hits) if hits else f"{len(src)} files scanned")
+# ---- second build (Open Math OS, Linux x86-64), logs/rebuild_openmathos/
+R = D / "logs/rebuild_openmathos"
+b2 = (R / "BUILD_LOG.txt").read_text()
+m2 = re.search(r"Build completed successfully \((\d+) jobs\)", b2)
+check("second build: log reports success", m2 is not None and "error:" not in b2, m2.group(0) if m2 else "no success line")
+ax2 = (R / "AXIOMS_LOG.txt").read_text()
+n2 = re.findall(r"'([^']+)' depends on axioms: \[([^\]]*)\]", ax2)
+u2 = set()
+for _, a_ in n2:
+    u2 |= {x.strip() for x in a_.split(",") if x.strip()}
+check("second build: audited theorems and axioms", len(n2) == 394 and u2 <= allowed and {x for x, _ in n2} == set(names), f"{len(n2)} theorems, axioms {', '.join(sorted(u2))}")
+got = {}
+for line in (R / "LEAN_SHA256.txt").read_text().splitlines():
+    h, f = line.split(); got[f.lstrip("*").lstrip("./")] = h
+full = json.loads((D / "hash-manifest.json").read_text())["files"]
+bad2 = [f for f in got if full.get(f) != got[f]] + [f for f in full if f.endswith(".lean") and f not in got]
+check("second build: the Lean files built there have the manifest hashes", not bad2, f"{len(got)} files" + (f", problems {bad2}" if bad2 else ""))
+check("second build: sorry scan empty", (R / "SORRY_GREP.txt").read_text().strip() == "")
 print("OK" if ok else "FAILED")
 sys.exit(0 if ok else 1)

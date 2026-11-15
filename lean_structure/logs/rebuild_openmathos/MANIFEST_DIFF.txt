@@ -1,0 +1,120 @@
+1c1,2
+< {"version": "1.3.0",
+---
+> {
+>  "version": "1.3.0",
+3,4c4,6
+<  "packages":
+<  [{"url": "https://github.com/leanprover-community/mathlib4.git",
+---
+>  "packages": [
+>   {
+>    "url": "https://github.com/leanprover-community/mathlib4",
+13,14c15,18
+<    "configFile": "lakefile.lean"},
+<   {"url": "https://github.com/leanprover-community/plausible",
+---
+>    "configFile": "lakefile.lean"
+>   },
+>   {
+>    "url": "https://github.com/leanprover-community/plausible",
+21c25
+<    "inputRev": "main",
+---
+>    "inputRev": "dfa4f38190d07c37e315953e08b90fe2d95b3c24",
+23,24c27,30
+<    "configFile": "lakefile.toml"},
+<   {"url": "https://github.com/leanprover-community/LeanSearchClient",
+---
+>    "configFile": "lakefile.toml"
+>   },
+>   {
+>    "url": "https://github.com/leanprover-community/LeanSearchClient",
+31c37
+<    "inputRev": "main",
+---
+>    "inputRev": "d6b4c7be5be75ec4917c873ac50c756dc1436372",
+33,34c39,42
+<    "configFile": "lakefile.toml"},
+<   {"url": "https://github.com/leanprover-community/import-graph",
+---
+>    "configFile": "lakefile.toml"
+>   },
+>   {
+>    "url": "https://github.com/leanprover-community/import-graph",
+41c49
+<    "inputRev": "main",
+---
+>    "inputRev": "a41f0e9a4dea23188ea9cc1c41ac9f8bbafe0b93",
+43,44c51,54
+<    "configFile": "lakefile.toml"},
+<   {"url": "https://github.com/leanprover-community/ProofWidgets4",
+---
+>    "configFile": "lakefile.toml"
+>   },
+>   {
+>    "url": "https://github.com/leanprover-community/ProofWidgets4",
+51c61
+<    "inputRev": "main",
+---
+>    "inputRev": "df72b022e558978a1c50264cfc4d7fec86fa8e04",
+53,54c63,66
+<    "configFile": "lakefile.lean"},
+<   {"url": "https://github.com/leanprover-community/aesop",
+---
+>    "configFile": "lakefile.lean"
+>   },
+>   {
+>    "url": "https://github.com/leanprover-community/aesop",
+61c73
+<    "inputRev": "master",
+---
+>    "inputRev": "4a174c490d8707121c4a9290800489f105d85e07",
+63,64c75,78
+<    "configFile": "lakefile.toml"},
+<   {"url": "https://github.com/leanprover-community/quote4",
+---
+>    "configFile": "lakefile.toml"
+>   },
+>   {
+>    "url": "https://github.com/leanprover-community/quote4",
+71c85
+<    "inputRev": "master",
+---
+>    "inputRev": "dce0ad79c486cb1fb504af04f953c3466b0c6db8",
+73,74c87,90
+<    "configFile": "lakefile.toml"},
+<   {"url": "https://github.com/leanprover-community/batteries",
+---
+>    "configFile": "lakefile.toml"
+>   },
+>   {
+>    "url": "https://github.com/leanprover-community/batteries",
+81c97
+<    "inputRev": "main",
+---
+>    "inputRev": "66e469188fe07963e5cf666c7d4433f45b8131c5",
+83,84c99,102
+<    "configFile": "lakefile.toml"},
+<   {"url": "https://github.com/leanprover/lean4-cli",
+---
+>    "configFile": "lakefile.toml"
+>   },
+>   {
+>    "url": "https://github.com/leanprover/lean4-cli",
+91c109
+<    "inputRev": "v4.35.0",
+---
+>    "inputRev": "c24fe6078c630e89b489bffe59b3e20ac30d12c8",
+93c111,113
+<    "configFile": "lakefile.toml"}],
+---
+>    "configFile": "lakefile.toml"
+>   }
+>  ],
+96c116,117
+<  "fixedToolchain": false}
+---
+>  "fixedToolchain": false
+> }
+\ No newline at end of file

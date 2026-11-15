@@ -1,0 +1,10 @@
+BUILD PASS
+step3_exit: 0
+step4_exit: 0
+jobs_built: 3350 (Build completed successfully (3350 jobs); default target MUBGap, 46 roots)
+lean_version: Lean (version 4.35.0, x86_64-unknown-linux-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)
+mathlib_rev: 56a005855ea17e0b0958f73ec801ae140b0a1679
+audited_definitions: 394 declare-depends-on-axioms lines in AXIOMS_LOG.txt
+distinct_axioms: Classical.choice, Quot.sound, propext
+sorry_grep_lines: 0
+utc_date: 2026-11-15
