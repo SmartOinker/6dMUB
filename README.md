@@ -25,10 +25,10 @@ hashes are in `docs/UPSTREAM.md`.
 | `d10/roots_full/` | regenerated and certified list of all 34,940 cyclic 10-roots: `find_roots.py` (heuristic search), `certify_roots.py` (Arb certification: 3,040 unimodular, 31,900 not, none undecided), data and logs; its README states what is and is not proved |
 | `openai_check/` | second, independent rerun (by a separate agent, pinned upstream revision) of the record checker of the OpenAI proof, the 26-corruption mutation test (`mutate.py`, `mutations_rerun.json`: 17 detected, same verdict for all 26) and the partial rebuild (`build_rebuild.sh`, `cmp_records.py`, `rebuild_rerun.json`). It needs the upstream repository (80 MB, not shipped), so it is not part of `verify_all.sh`; see its README |
 | `supplementary/` | working documents of workstreams B and C (see its README) |
-| `lakefile.toml`, `lean-toolchain`, `lake-manifest.json`, `MUB6Bridge/`, `lean/` | Lean 4 project `MUB6Bridge` (square-root lemma, array form of the vector-to-basis theorem, algebra of the finite-sample theorem); built locally with Lean v4.35.0 and Mathlib v4.35.0; `lean/README.md` lists the declarations and the differences from the report, `lean/BUILD_LOG.txt` is the build log. Not run by `verify_all.sh` |
+| `lakefile.toml`, `lean-toolchain`, `lake-manifest.json`, `MUB6Bridge/`, `lean/` | Lean 4 project `MUB6Bridge`: four files (`BridgeLemma.lean`, `FiniteSample.lean`, `Bases.lean`, `Corollaries.lean`), 45 declarations; built locally with Lean v4.35.0 and Mathlib v4.35.0, no `sorry`, standard axioms only; the competition's automated build has not been run on it by us. Lean-verified: the square-root cap inequality; the vector-to-basis theorem as inequalities about orthonormal bases of C^6 with the game score defined by its formula (`bridge_bias`, `bridge_game`); the numerical corollaries as implications from an assumed energy bound (`corollary_T0`, `corollary_T1`); `gameScore_le`; the identity X^2 = 15 + 6(N-1)T (`pearson_eq_collision`, `pearson_total`); four elementary variance steps; the arithmetic of all five shot counts (`shots_*`). NOT Lean-verified: the energy bounds, the meaning of the score as an optimal success probability, every probability statement, the purity witness, dimension ten. `lean/README.md` lists the declarations and the differences from the report, `lean/BUILD_LOG.txt` is the build log. Not run by `verify_all.sh` |
 | `docs/` | `verification_matrix.md` (claim-by-claim matrix), `verify_all.log`, `verification_ledger.md` (pointer), `adversarial_review.md`, `UPSTREAM.md` |
 | `report/`, `slides/` | the report source and the slides with speaker notes |
-| `tools/`, `lean_drafts/` | `tools/` is a helper client. A `lean_drafts/` folder, where present, is an unbuilt draft and **not** a verification (the Lean build of workstream B was not run by us) |
+| `tools/` | helper client. (There is no `lean_drafts/` folder in this repository. The Lean build of workstream B was not run by us) |
 
 ## Install
 
@@ -47,15 +47,15 @@ Trusts: python-flint (Arb ball arithmetic) and the checker itself; numpy only lo
 floating Cholesky factor whose error is then bounded in balls. `build.py` (cvxpy) only searches for the matrices.
 
     python3 verify.py 0.0385 Q_T0_gamma0.0385.npy T0
-    # 1 to 2 s. Expected last lines (the bound is rounded DOWN to 11 decimals; S and ||R||_F are printed with %.3e):
+    # 1 to 2 s. Expected last lines (the bound is rounded DOWN to 11 decimals; S is printed with %.3e; ||R||_F is printed rounded up):
     # (3) residual bound S <= 2.189e-12
-    # (2) ||Q - tau I - L L^T||_F <= 9.550e-15  (tau = 1e-05)
+    # (2) ||Q - tau I - L L^T||_F <= 9.5511e-15  (tau = 1e-05; rounded up)
     # CERTIFIED (T0):  E(psi) >= 0.0385 - S  >  0.03849999999  for every unit psi
 
     python3 verify.py 0.0235 Q_T1_gamma0.0235.npy T1
     # 1 s. Expected last lines:
     # (3) residual bound S <= 2.807e-12
-    # (2) ||Q - tau I - L L^T||_F <= 7.831e-15  (tau = 1e-05)
+    # (2) ||Q - tau I - L L^T||_F <= 7.8320e-15  (tau = 1e-05; rounded up)
     # CERTIFIED (T1):  E(psi) >= 0.0235 - S  >  0.02349999999  for every unit psi
 
     python3 verify_sets.py ../near_misses/repo/results/visibility/bases_d6_delta.npy ../near_misses/repo/results/visibility/bases_d6_P4.npy
@@ -196,4 +196,4 @@ The Lean build of workstream B (including the bound E > 1/72, which is independe
 rerun by workstream C (27,188 Root records), the completeness of the 34,940 cyclic 10-roots (hypothesis H) and of the 156 cyclic 6-roots (cited
 counts), the cited literature, the Qiskit simulations (`hide_seek.py`, not run in the last session), and a full rerun of the 35-shape search
 (the raw output is shipped and recomputed by `near_misses/check_table.py`; seven of the 35 shapes and the triple {5,5,5} were rerun by hand with bit-identical output). The complete list, with what would be needed for each, is in the section "Claims without independent re-verification" of
-`docs/verification_matrix.md`. `lean_drafts/` is an unbuilt draft and not a verification. The Lean project at the repository root is separate from workstream B's Lean repository (not rebuilt here).
+`docs/verification_matrix.md`. The Lean project at the repository root (`MUB6Bridge`) is separate from workstream B's Lean repository (not rebuilt here) and from the OpenAI Lean development, whose scope note and statement file we read at the pinned revision (hashes in `openai_check/README.md`) but did not rebuild; the competition's automated Lean build has not been run on `MUB6Bridge` by us.

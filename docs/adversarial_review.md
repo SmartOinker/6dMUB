@@ -4,6 +4,8 @@
 
 After each full draft of the report, fresh AI reviewers (model family: Claude Sonnet) are started with the report, the team's source documents, the codebase and the competition rules, but without the drafting history. They act as hostile but fair judges for the six criteria of the panel (correctness, novelty, attribution, clarity, motivation, interest) and return numbered findings with a severity (blocker, major, minor), a question a judge would ask, what they checked, and a proposed fix. The lead author (also an AI) decides on every finding in writing; AI editor agents apply the decisions to the report and the repository and keep an edit log. No human took part in the review cycles recorded here. After the edits, the claims below were re-checked by searching the revised report and the repository (a change is marked "done" only if it was found there). Findings that were not fully fixed are marked "open".
 
+Five review cycles are recorded in this file (53 + 16 + 35 + 15 + 40 = 159, about 160 findings in total).
+
 Entry format: id, severity, criterion, the attack as a question, our answer (accepted, partly accepted, rejected) with the reason, the edit made, and the status.
 
 | cycle | reviewers | findings (blocker/major/minor) | main changes |
@@ -11,6 +13,8 @@ Entry format: id, severity, criterion, the attack as a question, our answer (acc
 | 1 | 2 fresh AI reviewers (correctness and consistency; novelty, attribution, clarity, motivation, interest) | R: 3/14/11 (28); S: 4/12/9 (25); total 7/26/20 (53) | New finite-sample detection theorem replaces the "guaranteed floor"; abstract, contributions table, claim table, limitations, AI-use section rewritten and a Conclusion added; introduction rewritten to motivate the problem; near-miss and dimension-ten claims restated with their conditions; status tags corrected; 20 references and a related-work paragraph added; five independent check scripts and a dimension-ten regeneration added to the repository; team-internal references removed from the body. 23 of 53 findings remain open (see the end of Cycle 1). |
 | 2 | 1 fresh AI reviewer (full read of the report, reruns of the checkers, own recomputation of the shot counts) | T: 1/7/8 (16) | Checkers print bounds with directed rounding and all quoted bounds were recomputed (E > 0.03849999999, E > 0.02349999999); all 34,940 cyclic 10-roots regenerated and certified in `d10/roots_full/`, hypothesis (L) deleted; detection test credited as the classical collision test and Theorem `thm:finite` generalized to an optimized threshold (N = 1,936 instead of 2,892); purity-witness proposition added; strongly unextendible sets credited to the cited prior paper (re-read); sections shortened and abstract rewritten; statement on the dates and status of the earlier repository added; this log file created. 5 of 16 findings remain open (see the end of Cycle 2). |
 | 3 | 2 fresh AI reviewers (P: panel-style judge who saw only the text of the PDF without the title block; F: mathematics and report-versus-repository audit) | P: 1/8/9 (18); F: 0/8/9 (17); total 1/16/18 (35) | Lean 4 project `MUB6Bridge` built (no `sorry`, standard axioms) for the square-root lemma, the array form of the vector-to-basis theorem and the deterministic steps of the finite-sample theorem; placeholders replaced by a table of declarations; report restructured (structure theory and dimension ten moved into "Additional results, not used in the three answers", main text now about 30 of 50 pages); plain-text restatement of every key formula; ranked "what is new" paragraph and a quantum-information significance paragraph; scope wording and homogeneous sum-of-squares ladder fixed; reviewer's proposed mutation-test sentence rejected as false and replaced; false claim about dimension-ten energy minima corrected; Fourier-pair funnel and 35-shape table backed by shipped scripts and raw data; `docs/verification_matrix.md`, `verify_all.sh`, `docs/verify_all.log` added and stale documents corrected; supplementary PDFs replaced by redacted copies. 12 of 35 findings remain open (see the end of Cycle 3). |
+| 4 | 1 fresh AI reviewer (panel-style judge on the PDF text; recomputed the numbers and re-derived the proofs) | Q: 0/7/8 (15) | Lean file `Corollaries.lean` added (45 declarations) and the Lean claims restated per declaration; Section 2 paragraph "verified versus headline" written from the primary OpenAI files; text-layer fixes for roots and fractions; shorter, plainer text, no new claims. 4 of 15 findings remain open or partly done (see the end of Cycle 4). |
+| 5 | 2 fresh AI reviewers (P: panel-style judge, scores 8/5/8/6/7/8; A: evidence auditor, report versus repository) | P: 0/2/13 (15); A: 0/5/20 (25); total 0/7/33 (40) | Frobenius bounds quoted rounded up; limits and scores rounded in the safe direction; two Lean rows without a fixed revision deleted and the tag "Lean-checked, as reported" defined; new tag for results proved in the supplementary structure paper; Erlwein credited in Section 9 and the conclusion; abstract and reading guide reworded; five rounds and about 160 findings stated; Lean table completed (45 declarations); stale Lean comment fixed and `lean/BUILD_LOG.txt` regenerated. 7 findings remain open (see the end of Cycle 5). |
 
 ## Cycle 1
 
@@ -699,3 +703,385 @@ Counts (35 findings: P 18, F 17): accepted 31, partly accepted 3 (P2, P9, P10), 
 - Supplementary document of workstream C still carries a "review pending" line (P17). Printed Frobenius bound in `cert/verify.py` rounded to nearest (F8).
 - Sentences of the cycle 3 list of unclear sentences not yet reworded, for example the abstract's "We do not offer a fourth proof" and "so these two entries become undecided".
 - Not open as defects but not removable by editing: hypothesis (H), the cited count of 34,940 cyclic 10-roots, is not verified; the certificate checkers have had no human review (a pointwise float second implementation exists); the identification of the second product triple with the second McNulty-Weigert class is unchecked; Theorem `thm:finite` and the probability statements are not Lean-verified; the three 2026 proofs are not verified by us. The model versions of the AI agents are not named in the AI-use list (open since cycle 1, S4).
+
+## Cycle 4
+
+One panel-style AI reviewer (one model of the LLM panel). It read the three rule files, the problem entry, the full text of the report as the panel sees it (2,834 lines, appendices included), the supplements (skimmed) and the Lean files of `MUB6Bridge` with `lean/README.md` and `lean/BUILD_LOG.txt`; it recomputed by Python c*, mu, all numbers of Corollaries 6 and 11 (including the minimal N and the thresholds t), the t = 1/2 case, the purity bound 0.8232, the 9.37e7 rounds, the large-sample figures 239/198/369, the dimension-four control state, the shape counts 17/5/13 and the energy minima of T0 and T1, and re-derived Lemma 3, Theorems 4, 10, 18 and Propositions 12 and 20; it found no mathematical error and no blocker. The lead AI agent of workstream A decided (`cycle4_decisions.md`: accept every finding unless listed otherwise; this is the last large edit round: shorter and plainer text, no new claims); AI editors applied the decisions. No human took part. Report length at the start: 50 pages. Report length after the cycle: 48 pages, although a 3-page listing of the checker was added. The Status lines below were set by searching `report/report.tex` and the compiled `report/report.pdf` for the fix, not from the decisions file. Reviewer's scores (1 to 10): correctness 7, clarity 5, motivation 7, interest 7, attribution 8, novelty 6.
+
+### Reviewer Q: panel-style reading of the PDF text (Q1 to Q15)
+
+**Q1 | major | Correctness, Attribution (Lean)**
+- Question: Is the claim "Lemma 3 and Theorem 4 are Lean-verified" wider than the Lean statements (`bridge_bias` does not define "bias"; `gameScore` is defined by a formula; `numbers_*` and `shots_T0` are bare arithmetic, one of five shot counts; the sum of `pearson_eq_collision` over three settings and three of the five elementary variance steps are missing)?
+- Answer: accepted. The reviewer's optional combining theorem was done as well.
+- Edit: Lean file `Corollaries.lean` added to the project (now four files, 45 declarations, rebuilt, see `lean/BUILD_LOG.txt`): `corollary_T0` and `corollary_T1` as implications from an assumed energy bound, all five shot counts (`shots_T0_95`, `shots_T0_99`, `shots_T0_half`, `shots_T1_95`, `shots_T1_99`), `pearson_total`, `zeta2_le`, `three_halves_le`, `gameScore_le`; `Bases.lean` carries the theorem for orthonormal bases. The Lean paragraph and Table `tab:leanA` were rewritten with an explicit list of what is and what is not Lean-verified (not: that `gameScore` is the optimal success probability, the word "bias", the energy bounds, every probability statement); differences stated per declaration.
+- Status: done (the Lean paragraph with its "What is not Lean-verified" list and the rows for the new declarations are in the report; the Lean build was done locally only).
+
+**Q2 | major | Correctness, Motivation (formally verified versus headline)**
+- Question: Does the contrast with the OpenAI Lean development rest on secondary reading, omit the Fourier-vanishing theorem, and list "a Lean proof of at most five" among things a reader can check?
+- Answer: accepted.
+- Edit: paragraph "Verified versus headline" in Section 2, written from the primary files (the scope note `lean/docs/266.md` and the statement file `MUBSix.lean` read at the pinned revision; sha256 values in `openai_check/README.md`; the OpenAI Lean development was read, not rebuilt); limitation 2 and the conclusion softened ("by its own scope note ... we did not rebuild it"); the official Lean statement of Problem 124 stated as proved by nobody.
+- Status: done.
+
+**Q3 | major | Clarity (text layer)**
+- Question: Are square roots and fractions displaced in the text the panel sees, so that key constants read wrongly?
+- Answer: accepted. Not by more "In plain text" lines: by a macro.
+- Edit: square roots of integers are typeset with a text radical that carries the replacement text "sqrt(n)" (macro `\rnum`, `\rsix`), inline fractions are written with a slash (1/2, 1/6, t = 1/2); in the compiled PDF text, for example, "sqrt(6)/12" and "7sqrt(6)/3" are now readable.
+- Status: done for the radicals and fractions found by search; the displayed sums (the game formula, the proof of Lemma 3) were not rechecked in the text layer.
+
+**Q4 | major | Clarity, Interest (focus)**
+- Question: Is the main line diluted by about 20 pages of secondary material (structure theory, dimension ten, phase-ball radius) and by six restatements?
+- Answer: accepted, with binding page budgets per fragment.
+- Edit: sections shortened (report from 50 to 48 pages although a 3-page checker listing was added); structure theory and dimension ten cut to the Section "Additional results"; proof ideas with pointers to the supplementary structure paper in place of full proofs; dimension-seven sentence deleted; phase-ball appendix shortened.
+- Status: partly done. The page budgets of the decisions file were not measured here; the abstract (about 365 words in the source) and the repeated summaries were not shortened as asked (see Q15).
+
+**Q5 | major | Correctness (evidence visible to the panel)**
+- Question: Can the panel check Proposition 2 from the text, when the checker `verify.py` and the 364 x 364 data are not among its inputs and the only external check is an unrefereed manuscript?
+- Answer: accepted.
+- Edit: the checker source (`cert/common.py` and `cert/verify.py`) and its output are printed in an appendix (B.1); one paragraph says what an independent person needs (Python 3 with python-flint and numpy, two commands); Erlwein's manuscript is called unrefereed in Section 5.1, the claim table and the appendix; `verify.py` is "about 120 lines" in the places searched.
+- Status: done.
+
+**Q6 | minor | Clarity (cross references and names)**
+- Question: Wrong section for the game (5.6 instead of 5.3); T0 "defined below" although it is defined in Section 1; "title block" pointers invisible to the panel; the letter T used for four things; "rows 1 to 5" against three questions; undefined "orbit 14"?
+- Answer: accepted.
+- Edit: game loss "defined in" the bridge section; T0 "defined in Section 1"; no "title block" text remains in `report.tex`; the near-miss tests are called C1 to C5; the reading-guide sentence is gone; "orbit 14" became "the product-basis orbit".
+- Status: done. The words "submission repository" are still used for paths without an identification (three places).
+
+**Q7 | minor | Correctness, Clarity (internal numbers)**
+- Question: 27,189 records read against 27,188 re-certified; "about 100" against "about 120" lines; 2,000 against 52,000 starts; one table of nominal / certified / quoted / Lean values; pointer for "no four bases score more than mu".
+- Answer: accepted.
+- Edit: (a) the difference of one record explained by "distinct" with the remark that the audit document does not give the reason; (b) "about 120 lines" in the places searched; (c) pooled runs explained (50,000 further starts with seeds 101 and 102, 2,000 starts, a separate 6,000-start run with seed 77); (e) the bound is tied to `pairSum_le`.
+- Status: partly done. (a) the actual reason for the missing record is not known to us; (d) there is no single table of the four value types, only the paragraph in Section 5.1 describing three forms.
+
+**Q8 | minor | Correctness (stated agreement)**
+- Question: Do the 2008 success rates "agree within sampling error" for every shape that exists?
+- Answer: accepted; the report's own table shows {5,4,2,1}: 92.92% against 99.70% and {5,5,1,1}: 95.40% against 92.85%.
+- Edit: sentence replaced by one that names the two shapes that differ by more than sampling error and says that we do not explain the difference.
+- Status: done.
+
+**Q9 | minor | Correctness (scope wording)**
+- Question: Quantifier in Theorem 4; "bias" as a standard figure of merit; rounded game loss; "every pure state" including entangled states; mixing 95% and 99% in the conclusion; explicit dimension-four state.
+- Answer: accepted.
+- Edit: "Fix gamma > 0 and suppose E(psi) >= gamma for every unit vector"; "bias" called our name; game loss defined exactly as 1/2 + sqrt(6)/12 minus the score; "entangled states included"; conclusion compares 1,936 (95%) and 5,142 (99%) and calls 239 the practical figure; the state (1,1,i,-i)/2 is named in the text.
+- Status: done.
+
+**Q10 | minor | Attribution (AI use)**
+- Question: Name the open-weight models; state the number of review rounds in the report; say who can explain each proof and reconcile "human review pending" with "reviewed outputs"; one definition of "workstream"; reference [45] never cited.
+- Answer: accepted; decided by the lead author.
+- Edit: DeepSeek V4.1 Flash and Kimi K3.1 Pro named; the review process item states "five rounds"; one definition of "workstream" used in the three places searched; a sentence says that independent human line-by-line review is not complete and that the supplements say "human review pending".
+- Status: open. The versions of the GLM and the other DeepSeek models are "not recorded"; no sentence says which human can explain which proof; two bibliography entries (`Schrijver79`, `Steel04`) are never cited.
+
+**Q11 | minor | Clarity (tags)**
+- Question: Stacked and cryptic tags ("proved here from computed, interval-certified inputs", "the second sentence also cited"); exact arithmetic called interval-certified.
+- Answer: accepted.
+- Edit: new macros `\stexact` ([computed, exact arithmetic], used for the quartic proposition) and `\stgiven` ([proved here, given certified inputs]); "the classical count 156" named in the Fourier-pair proposition.
+- Status: done for the places found by search; one-line observations losing the "proved here" tag were not checked.
+
+**Q12 | minor | Interest (simplification)**
+- Question: Does one explicit quadruple beat every completion of T0 on both measures?
+- Answer: accepted; numbers checked against `cert/verify_sets.py` output (S03).
+- Edit: Corollary 7 states that the game-optimized quadruple has bias at most 0.040598666 against more than 0.046248, and game loss at most 2.357826e-4 against more than 3.302e-4; the other quadruple has the lowest bias found (at most 0.030223873); the comparison for the second product triple stays inconclusive.
+- Status: done.
+
+**Q13 | minor | Novelty (Section 6.2)**
+- Question: The dimension-ten theorem is by the report's own reading a special case of prior work; shorten and say where (H) comes from.
+- Answer: accepted.
+- Edit: Section 6.2 shortened; (H) said to be known to us only from a table in the reference of Fuhr and Rzeszotnik, which credits Faugere, and the proof needs only an upper bound on the number of complex roots.
+- Status: done.
+
+**Q14 | minor | Motivation (mutation test)**
+- Question: Is the mutation result read as a criticism of a checker that documents its scope?
+- Answer: accepted.
+- Edit: Section 3 states the documented scope (counts, hashes and ranges) before the number and says that the result "confirms the documented scope"; one sentence says what a stronger checker would recompute.
+- Status: done.
+
+**Q15 | minor | Clarity (page 1)**
+- Question: Is the abstract of about 600 words, with terms used before they are defined?
+- Answer: accepted; the lead author's.
+- Edit: none found. The abstract in `report.tex` is about 365 words.
+- Status: open. Cut to about 150 words as the reviewer asked.
+
+### Unclear sentences (24 listed by the reviewer)
+
+Searched in `report.tex`: reworded or removed: the radical and fraction items (2, 3, 5, 6 by Q3), 7, 8, 9, 10, 11, 12, 13, 15, 16, 17, 19, 20, 21, 22, 23, 24. Not verified: 1 (stray glyph after "Write"), 4 (game formula in the text layer), 14 (reason for the lost record unknown), 18 (the paths sentence; "submission repository" still occurs).
+
+### Still open after cycle 4
+
+Counts (15 findings): done 11 (Q1, Q2, Q3, Q5, Q6, Q8, Q9, Q11, Q12, Q13, Q14), partly done 2 (Q4, Q7), open 2 (Q10, Q15); accepted 15, rejected 0.
+
+Found NOT done by searching `report/report.tex`:
+- Abstract still about 365 words (Q15); the repeated summaries and page budgets of Q4 not measured.
+- Q7: no single table of nominal, certified, quoted and Lean values; the reason for 27,189 against 27,188 records unknown.
+- Q10: model versions of GLM and the other DeepSeek models not recorded; no sentence says who can explain which proof; `Schrijver79` and `Steel04` uncited.
+- "We do not offer a fourth proof" (abstract, open since cycle 3) still present; "submission repository" used without identification (Q6, item 18).
+- Text layer of displayed sums (game formula, Lemma 3 proof) not rechecked (Q3).
+
+Known open items:
+- Title-block fields (repository link, commit, author field) to be filled at submission.
+- No human line-by-line review of the proofs, checkers or Lean statements.
+- The competition's automated Lean build has not been run by us on `MUB6Bridge`.
+- The OpenAI Lean development was read (scope note, statement file) but not rebuilt.
+
+## Cycle 5
+
+Two fresh AI reviewers: P, a panel-style judge (scores out of 10: correctness 8, novelty 5, attribution 8, clarity 6, motivation 7, interest 8), and A, an evidence auditor (report versus repository, with reruns of the checkers); the lead AI agent of workstream A decided (`cycle5_decisions.md`) and AI editors applied the decisions, with no human involved. They logged 40 findings (P1 to P15; A: N1 to N15, X1 to X5, L1, L2, R1 to R6, where R3, R4 and R5 repeat N1, X4/X5 and N7 and are not counted twice): 0 blockers, 7 major (P1, P2, N1, N2, N3, N4, R1) and 33 minor. The Status lines were set by grepping `report/report.tex`, `README.md`, `docs/` and `docs/verify_all.log`, not from the decisions file.
+
+### Reviewer P: panel-style judge (P1 to P15)
+
+**P1 | major | Correctness (Lean claims)**
+- Question: Do two Lean tags (cap with Fourier premise, phase-polynomial envelope) point to code with no fixed revision?
+- Answer: accepted.
+- Edit: the two rows deleted from Table `tab:lean`; text now says "we make no Lean claim for it" (tag reported).
+- Status: closed (found at report.tex lines 1536 and 1621; `physical_cube_gram_cap` and `MUBSixPhasePolynomial` no longer occur).
+
+**P2 | major | Correctness, Clarity (Lean tag)**
+- Question: Does "Lean-checked, as reported" hide that the code is in a separate repository the automated check does not build?
+- Answer: accepted.
+- Edit: tag defined in the reading guide (separate repository at a fixed revision, not rebuilt, not covered by the automated check); "Lean proves it" became "workstream B reports a Lean proof".
+- Status: closed (report.tex lines 127 to 129 and 1592).
+
+**P3 | minor | Correctness (status tag)**
+- Question: Is Proposition 13 tagged [proved here] with only a proof idea in the report?
+- Answer: accepted.
+- Edit: new tag `\stsupp` "proved in the supplementary structure paper; outlined here" for the cube-rank criterion and the cubic cap (claim-table rows 20, 21).
+- Status: closed (lines 44, 1223, 1226).
+
+**P4 | minor | Attribution (OpenAI Lean)**
+- Question: Is the Lean claim of [5] stated as fact though we did not build it?
+- Answer: accepted.
+- Edit: "according to their PROOF.md (not built by us), Lean proves ...".
+- Status: closed (line 285).
+
+**P5 | minor | Clarity (dimension ten)**
+- Question: Does "a special case of Theorem 17 that does not use (H)" blur the conditionality?
+- Answer: accepted.
+- Edit: sentence rewritten: the example of [24] concerns a triple of the kind treated in Theorem 17, handled there without a root-count hypothesis; not reproduced by us.
+- Status: closed (line 233).
+
+**P6 | minor | Clarity (dimension ten)**
+- Question: Is the "fallback statement" a drafting leftover?
+- Answer: accepted.
+- Edit: replaced by a sentence on the unverified mixed-volume value 35,940 and up to 1,000 further isolated roots.
+- Status: closed (lines 1278 to 1279).
+
+**P7 | minor | Clarity, Attribution (Proposition on the Fourier-pair triples)**
+- Question: Is the second sentence a leftover and its consequence tagged [cited]?
+- Answer: accepted.
+- Edit: second sentence rewritten with the tag "proved here, given certified inputs", the input being the cited count 156.
+- Status: closed (lines 402 to 405; the exact wording of the reviewer was not used).
+
+**P8 | minor | Correctness (large-sample wording)**
+- Question: Is the nominal level 0.0385 called "certified" in the 239-shot model?
+- Answer: accepted.
+- Edit: "nominal level 0.0385 (the certified bound is 0.0384999; the shot count is the same)".
+- Status: closed (lines 926, 974).
+
+**P9 | minor | Attribution**
+- Question: Is the unrefereed manuscript of Erlwein called "published" in Section 9(ii)?
+- Answer: accepted.
+- Edit: Erlwein credited as an unrefereed manuscript there.
+- Status: closed (lines 1350, 1264).
+
+**P10 | minor | Attribution**
+- Question: Does the conclusion quote the T0 energy number without Erlwein?
+- Answer: accepted.
+- Edit: clause added: exact minimum (4 - sqrt 6)/40 is due to Erlwein, our certificate cross-checks it.
+- Status: closed (line 1483).
+
+**P11 | minor | Correctness, Clarity (list of reported items)**
+- Question: Is the list of "reported" exceptions in Section 9 incomplete?
+- Answer: accepted and extended.
+- Edit: item (iii) lists rows 4, 10, 22, 23, the closed form of the minimizer and the mixed volume and gives the matrix totals (69 statements: 32 re-verified, 24 partly, 13 not).
+- Status: closed (line 1355; totals in `docs/verification_ledger.md`).
+
+**P12 | minor | Clarity (workstream names)**
+- Question: Does "B = structure theory and Lean" suggest that B built MUB6Bridge?
+- Answer: accepted.
+- Edit: "B = structure theory and its separate Lean development; A = ... and the Lean project MUB6Bridge".
+- Status: closed (line 1143).
+
+**P13 | minor | Correctness (abstract overstatement)**
+- Question: Does "the 2008 evidence no longer shows" claim more than the near-misses show?
+- Answer: accepted.
+- Edit: abstract: that test cannot tell these two shapes from near-misses, and the two shapes are undecided.
+- Status: closed (line 107).
+
+**P14 | minor | Correctness (tomography route)**
+- Question: Does the closing of the tomography route rest on the unverified N(6) = 3?
+- Answer: accepted.
+- Edit: clause added: it needs only that no seven MU bases exist, which follows from the exact certificate of [2].
+- Status: closed (line 186).
+
+**P15 | minor | Clarity (stale Lean comment)**
+- Question: Does `BridgeLemma.lean` still say the facts are proved on paper only?
+- Answer: accepted.
+- Edit: comment fixed, all four files rebuilt, `lean/BUILD_LOG.txt` regenerated (45 declarations, standard axioms).
+- Status: closed (the phrase "proved on paper" no longer occurs in any `.lean` file; the log has 45 axiom lines; hashes not recomputed by me).
+
+Also listed by P: garbled text-layer sentences (minus signs ending a line, carets, lost square roots, scrambled multi-column tables). Fixed by ASCII signs, `sqrt(.)` replacement text and added plain-text lines after the square-root lemma and the vector-to-basis theorem; multi-column tables are still read column by column (open, see below). P's question (g) on focus: Section 6 kept at about 1.4 pages, not cut further (open).
+
+### Reviewer A: evidence auditor (N1 to N15, X1 to X5, L1, L2, R1 to R6)
+
+**N1 | major | Correctness (untraceable number)**
+- Question: Does Appendix B quote the Frobenius bounds rounded down (9.55e-15, 7.83e-15) when the script prints 9.5511e-15 and 7.8320e-15?
+- Answer: accepted.
+- Edit: report now quotes 9.56e-15 and 7.84e-15; README, matrix rows S01, S02, C25 and the matrix note updated; `verify_all.sh` patterns updated.
+- Status: closed (report line 1721; matrix line 254; README lines 52, 58).
+
+**N2 | major | Correctness (rounding direction)**
+- Question: Is "bias 0.0302" a valid upper bound when the certified value is 0.030223873?
+- Answer: accepted.
+- Edit: "bias at most 0.0303" (limitation 4) and 0.0303 in the conclusion.
+- Status: closed (lines 1269, 1487).
+
+**N3 | major | Correctness (untraceable number)**
+- Question: Is "400,000 states (identity error 1.6e-15)" in Appendix A backed by any file?
+- Answer: REJECTED: `checks/logs/check_gap72.log` shows 200,000 Haar states (10 chunks of 20,000) plus 200,000 targeted states = 400,000, with largest identity residual 1.554e-15, so the sentence is correct.
+- Edit: none.
+- Status: closed (rejected; the sentence is unchanged at line 1591; I did not rerun the log).
+
+**N4 | major | Correctness (Section 3 claim)**
+- Question: Is it true that single-file in-range changes are caught by the OpenAI check (M05, M13, M14, M16, M26 are not)?
+- Answer: accepted.
+- Edit: sentence rewritten: in-range changes pass whether made in one file or consistently, unless they break a count, a hash or a file equality; abstract and reading guide aligned.
+- Status: closed (lines 105, 143, 368).
+
+**N5 | minor | Clarity (quoted output)**
+- Question: Is the printed format of `verify_sets.py` quoted wrongly?
+- Answer: accepted.
+- Edit: quoted exactly (`> 0.0003302291`, `> 0.0002015684`).
+- Status: closed (line 1768).
+
+**N6 | minor | Correctness (count of rounds)**
+- Question: Is "five rounds, about 120 findings" consistent with this log (cycles 1 to 4 only)?
+- Answer: accepted.
+- Edit: report says five rounds, about 160 findings; this file now logs cycles 4 and 5 (159 findings).
+- Status: closed (report line 1364; this file; the ledger lists no cycles).
+
+**N7 | minor | Correctness (count)**
+- Question: Is "67 statements" right when the matrix has 69 rows?
+- Answer: accepted.
+- Edit: 69 statements.
+- Status: closed ("67 statements" no longer occurs; 69 in ledger and line 1355).
+
+**N8 | minor | Clarity (timings)**
+- Question: Are timings of `certify_roots.py` (35 s) and others inconsistent with the README?
+- Answer: accepted.
+- Edit: timings aligned.
+- Status: open: the report still says "about 20 to 35 s" (lines 2064, 2171) while the README says 18 to 25 s.
+
+**N9 | minor | Correctness (status tag)**
+- Question: Are the 96 exact orthogonality proofs and orbit counts 10 and 19 tagged more strongly than their source (an earlier session)?
+- Answer: accepted.
+- Edit: tagged "reported" (earlier session, not re-run).
+- Status: closed (line 2095; orbit counts at line 2105).
+
+**N10 | minor | Correctness (status tag)**
+- Question: Is the minimum 0.0089515 tagged certified though computed in float64?
+- Answer: accepted.
+- Edit: tagged computed, "in double precision".
+- Status: closed (line 2092).
+
+**N11 | minor | Clarity (symmetry group)**
+- Question: Does the order-1600 group list mix actions on roots and on vectors?
+- Answer: not changed (minor).
+- Edit: none.
+- Status: open.
+
+**N12 | minor | Correctness (rounding direction)**
+- Question: Is the score 0.7038884 read as a lower bound while the checker gives >= 0.7038883627?
+- Answer: accepted.
+- Edit: "at least 0.7038883".
+- Status: closed (line 724).
+
+**N13 | minor | Clarity (traceability)**
+- Question: Does Appendix F name the two independent programs per step?
+- Answer: not changed (minor).
+- Edit: none.
+- Status: open.
+
+**N14 | minor | Attribution (non-shipped numbers)**
+- Question: Are the 2008 column, 2,775 balls and 27,189 records traceable?
+- Answer: no edit needed (cited or reported tags are acceptable).
+- Edit: none.
+- Status: closed (no change required).
+
+**N15 | minor | Clarity (title block)**
+- Question: Are the title-block placeholders still unfilled?
+- Answer: accepted: repository link, names and baseline commits filled.
+- Edit: title block filled except one field.
+- Status: open: `COMMIT-PLACEHOLDER` for the code-and-data commit is still at report.tex line 89.
+
+**X1 | minor | Correctness (cross-reference)**
+- Question: Does "all five shot counts of Corollary 11" overcount (the corollary states four)?
+- Answer: accepted.
+- Edit: "the four of the corollary and the count 2,892 for t = 1/2".
+- Status: closed (lines 809 to 810, 1212).
+
+**X2 | minor | Attribution (bibliography)**
+- Question: Are `Schrijver79` and `Steel04` uncited?
+- Answer: accepted.
+- Edit: both removed from the bibliography.
+- Status: closed (neither key occurs in report.tex).
+
+**X3 | minor | Clarity (cross-reference)**
+- Question: Are Tables `tab:trust` and `tab:ten` never referenced?
+- Answer: accepted.
+- Edit: a reference added to each.
+- Status: closed (lines 256, 1098).
+
+**X4 | minor | Correctness (matrix numbering)**
+- Question: Does the matrix cite old table and appendix numbers (C49, C52, C20)?
+- Answer: accepted in the matrix (numbering caveat added).
+- Edit: caveat added; numbers not all renumbered.
+- Status: open: C49 still says "Table 6 and App. H Table" and C52 "Sec. 7, Table 4" (matrix lines 137, 140).
+
+**X5 | minor | Clarity (matrix note)**
+- Question: Does the matrix still mention removed placeholders?
+- Answer: accepted.
+- Edit: note deleted.
+- Status: closed (no `PLACEHOLDER` in the matrix).
+
+**L1 | minor | Correctness (Lean table)**
+- Question: Are five auxiliary declarations missing from the Lean table?
+- Answer: accepted.
+- Edit: row "auxiliary numeric facts" added (`sqrt6_sq`, `sqrt6_pos`, `sqrt6_bounds`, `sqrt_T0_le`, `sqrt_T1_le`).
+- Status: closed (line 1430).
+
+**L2 | minor | Clarity (Lean table)**
+- Question: Do `shots_T0` and `shots_T0_95` state the same case without saying so?
+- Answer: accepted.
+- Edit: note added in the row.
+- Status: closed (line 1467).
+
+**R1 | major | Correctness (stale log)**
+- Question: Does `docs/verify_all.log` (04:48) still show the old checker output and predate the last edits?
+- Answer: accepted: `verify_all.sh` to be re-run after the last edit and the log replaced.
+- Edit: none found.
+- Status: open: the log still has mtime 04:48 and still contains `9.550e-15`; `verify_all.sh` is dated 09:04 and the report 09:19.
+
+**R2 | minor | Clarity (README)**
+- Question: Does the README directory row omit `Bases.lean`, `Corollaries.lean` and the count?
+- Answer: accepted.
+- Edit: README row updated (four files, 45 declarations).
+- Status: closed (README line 28).
+
+**R6 | minor | Clarity (README timings)**
+- Question: Do README and matrix give different timings (`check1.py` 64 s against 35 s)?
+- Answer: accepted: one set of timings to be stated.
+- Edit: documentation pass.
+- Status: open: README line 76 says 64 s, matrix S15 says 35 s. (R3 repeats N1, R4 repeats X4 and X5, R5 repeats N7; R3 and R5 closed, R4 open as X4.)
+
+### Still open after cycle 5
+
+Counts (40 findings: P 15, A 25): accepted 38 (P1 to P15; N1, N2, N4 to N10, N12, N15, X1 to X5, L1, L2, R1, R2, R6; N14 needed no edit, N11 and N13 not changed), rejected 1 (N3), not changed 2 (N11, N13); closed 33, open 7 by my grep (N8, N11, N13, N15, X4, R1, R6); the focus item below is a decided open point, not a finding.
+
+From the decisions file:
+- Tables in the text layer (multi-column tables are still read column by column); N11, N13; further cuts for focus (Section 6 kept at about 1.4 pages).
+- No human line-by-line review; the competition's automated Lean build not run by us; the OpenAI Lean development not rebuilt; workstream B's Lean build and workstream C's full rerun not re-run by us; hypothesis (H) not verified; no hardware run.
+
+Found NOT done by searching:
+- N15: `COMMIT-PLACEHOLDER` (code-and-data commit) is still in the title block (`report/report.tex` line 89).
+- R1: `docs/verify_all.log` was not regenerated (it predates the last edits and still prints 9.550e-15), although the decisions file says it was.
+- N8: report says "about 20 to 35 s" for `certify_roots.py`, README says 18 to 25 s.
+- X4: `docs/verification_matrix.md` rows C49 and C52 still carry the old table numbers.
+- R6: README (`check1.py` 64 s) and matrix (35 s) timings still differ.

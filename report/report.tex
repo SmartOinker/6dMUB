@@ -22,6 +22,7 @@
 % replacement text "sqrt(n)", so that the PDF reads correctly as plain text
 \newcommand{\rnum}[1]{\BeginAccSupp{method=escape,ActualText=sqrt(#1)}\text{\textsurd}#1\EndAccSupp{}}
 \newcommand{\rsix}{\rnum{6}}
+\newcommand{\rsym}[2]{\BeginAccSupp{method=escape,ActualText=sqrt(#2)}\text{\textsurd}#1\EndAccSupp{}}
 \newcommand{\half}{1/2}
 \newcommand{\sixth}{1/6}
 % ---------- notation ----------
@@ -40,6 +41,7 @@
 \newcommand{\st}[1]{\textsc{[#1]}}
 \newcommand{\stproved}{\st{proved here}}
 \newcommand{\stlean}{\st{Lean-checked, as reported}}
+\newcommand{\stsupp}{\st{proved in the supplementary structure paper; outlined here}}
 \newcommand{\stleanA}{\st{Lean-checked here}}
 \newcommand{\stexact}{\st{computed, exact arithmetic}}
 \newcommand{\stgiven}{\st{proved here, given certified inputs}}
@@ -76,14 +78,14 @@
 {\LARGE\bfseries The missing fourth basis in dimension six:\\[2pt] what is verified, how far away it is, and how to see it\par}
 \vspace{0.8em}
 {\large Ren Jie Tee (University of California, Berkeley)\\
-Xinrui \textit{[full name and affiliation: to be completed by the team]}\\
-Raymond Fong How (Georgia Institute of Technology)\par}
+Xinrui Li (California Institute of Technology)\\
+Raymond Fong (Georgia Institute of Technology)\par}
 \vspace{0.5em}
 Caltech $\times$ SAIR Mathathon, Round 1, Problem 124 \quad$\cdot$\quad Track: Computation/Applied Mathematics\\
 15 November 2026\par
 \vspace{0.4em}
 {\small
-Submission repository (code, certificates, data, this report, slides): \texttt{REPOLINK-PLACEHOLDER}\\
+Submission repository (code, certificates, data, Lean project, this report, slides): \texttt{https://github.com/SmartOinker/6dMUB}\\
 code-and-data commit \texttt{COMMIT-PLACEHOLDER}\\[2pt]
 Team Lean and audit repository: \texttt{https://github.com/RaymondFongHow/caltech-mathathon-2026}\\
 workstream B baseline \texttt{1033fb082aa0a82ffa4708411370434dc7d9fc23}; workstream C audit
@@ -99,10 +101,10 @@ the claim, and tag every statement as proved, Lean-checked, computed, cited, con
 
 \emph{How do we know?} None of the three proofs is formal end to end: by its own scope note, the Lean part of the
 first proves ``at most five'' and not three. Its record checker documents that it checks counts, hashes and ranges;
-our mutation test confirms that scope ($17$ of $26$ deliberate corruptions of the saved records are caught, and no
-consistent in-range change of a stored value is). For two entries of the 2008 numerical table of partial fourth
-bases, interval arithmetic certifies near-misses that pass the 2008 acceptance test, so the 2008 evidence no
-longer shows that these two shapes exist.
+our mutation test confirms that scope ($17$ of $26$ deliberate corruptions of the saved records are caught;
+in-range changes of stored values pass unless they break a count, a hash or an equality between files). For two entries of the 2008 numerical table of partial fourth
+bases, interval arithmetic certifies near-misses that pass the 2008 acceptance test, so that test cannot tell
+these two shapes from near-misses, and the two shapes are undecided.
 
 \emph{By how much does a fourth basis fail to exist?} The \emph{energy} $\E$ of a pure state is the squared
 distance of its $18$ outcome probabilities (three measurements, six outcomes each) from $1/6$; a vector of a fourth
@@ -123,7 +125,9 @@ exactly uniform in the settings $ZZ$, $XX$, $YY$.
 \subsection*{Reading guide: contributions and their status}
 
 Status tags: \stproved; \stgiven; \stleanA; \stlean; \stcert; \stexact; \stcomp; \stnum; \stcited; \stcond;
-\stconj; \streported. Provenance tags: \event\ for work done during the 40-hour event, \prior\ for everything else.
+\stsupp; \stconj; \streported. The tag \stlean\ means: formalized by workstream B in the team Lean repository at a fixed
+revision, which is separate from the submitted Lean project; not rebuilt by us and not covered by the competition's
+automated check; not claimed as Lean-verified in the sense of the competition rules. Provenance tags: \event\ for work done during the 40-hour event, \prior\ for everything else.
 The team worked in three workstreams, called A, B and C; a workstream is one team member working with AI agents
 (Section~\ref{sec:event}). The table below lists the contributions: rows 1 and 2 answer the first question, rows 3
 and 4 the second, row 5 the third; rows 6 and 7 are additional results that the three answers do not use
@@ -136,7 +140,7 @@ and 4 the second, row 5 the third; rows 6 and 7 are additional results that the 
  & Contribution (event work unless marked) & Status & Section\\
 \midrule
 1 & Trust map of the three 2026 proofs, with what is Lean-verified separated from the headline; mutation test of
-    the saved records ($17$ of $26$ corruptions caught; consistent in-range value changes are not); a full native rerun by workstream C & read; computed; reported &
+    the saved records ($17$ of $26$ corruptions caught; in-range value changes mostly are not); a full native rerun by workstream C & read; computed; reported &
     \ref{sec:trust}, \ref{sec:checks}\\
 2 & Two entries of the 2008 table of partial fourth bases: certified strict local minima with nonzero misfit that
     pass the 2008 test & interval-certified & \ref{sec:const}\\
@@ -179,11 +183,11 @@ to be unbiased to three given bases, or which parts of the proofs a reader can r
 matrix of trace one, which has $36-1=35$ real parameters. Measuring in one orthonormal basis gives six outcome
 probabilities that sum to one, so five independent numbers. A complete set of $7=d+1$ MU bases would give exactly
 $7\times5=35$ numbers with no redundancy, which is why it gives optimal state determination \cite{Ivanovic81,WF}. Three MU
-bases give only $3\times5=15$, so in dimension six this route to optimal tomography is closed, as are protocols that
+bases give only $3\times5=15$, so in dimension six this route to optimal tomography is closed (this needs only that no seven MU bases exist, which follows from the exact certificate of \cite{OAI} according to \cite{Sheet} and does not depend on the headline $N(6)=3$), as are protocols that
 use $d+1$ MU bases in their standard form \stcited \prior. Section~\ref{sec:number} supplies a measurable quantity for
 ``how far'' a fourth basis is from mutual unbiasedness.
 
-\paragraph{The local qubit--qutrit triple $\Tz$.} We write $6=2\times3$: a qubit (two-level system) and a qutrit (three-level
+\paragraph{The local qubit--qutrit triple $\Tz$.} The dimension factors as $6=2\cdot3$: a qubit (two-level system) and a qutrit (three-level
 system). With $H_2=\tfrac1{\rnum{2}}\begin{pmatrix}1&1\\1&-1\end{pmatrix}$, $A_0=I_2$, $A_1=H_2$,
 $A_2=\mathrm{diag}(1,i)H_2$ (the eigenbases of the Pauli operators $Z,X,Y$), $\omega=e^{2\pi i/3}$,
 $(F_3)_{jk}=\omega^{jk}/\rnum{3}$, $D=\mathrm{diag}(1,\omega,\omega)$ and $B_0=I_3$, $B_1=F_3$, $B_2=DF_3$, the
@@ -200,7 +204,7 @@ the columns of $A_2$ \cite[eq.~7.19]{MWreview}, \cite{MW12}; neither extends to 
 {\raggedright \paragraph{Terms.} \emph{Energy:} for a triple with $18$ vectors $v_{r,k}$, the energy of a unit vector $\psi$ is
 $\E(\psi)=\sum_{r,k}\bigl(\abs{\ip{v_{r,k}}{\psi}}^2-\tfrac16\bigr)^2$; it is $0$ exactly when $\psi$ is unbiased to all
 three bases, so a fourth basis needs six vectors of energy $0$. In plain text:
-\texttt{E(psi) = sum over r,k of (p\_{r,k} - 1/6)\^{}2}, with \texttt{p\_{r,k} = |<v\_{r,k}, psi>|\^{}2} the probability of outcome $k$ in
+\texttt{E(psi) = sum over r,k of (p\_{r,k} -~1/6)\textasciicircum{}2}, with \texttt{p\_{r,k} = |<v\_{r,k}, psi>|\textasciicircum{}2} the probability of outcome $k$ in
 measurement $r$. \emph{Bias:} our name for the largest deviation
 $\bigl|\abs{\ip ef}^2-1/6\bigr|$ over vectors $e,f$ from different bases of a family; it is $0$ exactly for an MU family.
 \emph{Game loss:} the game is that of \cite{ABMP}: a pair of the four bases is drawn at random and announced, and the
@@ -226,18 +230,25 @@ MUBs were introduced for state determination \cite{Ivanovic81,WF}; \cite{DEBZ,MW
 for $\Tz$, are due to Erlwein \cite{Erlwein}. The detection test is the classical collision test for uniformity
 \cite{GR00,Paninski08} with Hoeffding's variance formula \cite{Hoeffding48} and Cantelli's inequality; that a strongly
 unextendible set (no single vector is unbiased to all its vectors) helps to witness purity is due to \cite{GMMP17}, whose
-dimension-ten example is, to our reading, a special case of Theorem~\ref{thm:ten} that does not use our hypothesis (H). The constellation table is from \cite{BW08}; cyclic roots in dimension ten are classical \cite{Bjorck90,BS95,Haagerup96,Haagerup08}.
+dimension-ten example concerns, to our reading, a triple of the kind treated in Theorem~\ref{thm:ten}, which \cite{GMMP17} handle without a root-count hypothesis; we did not reproduce it. The constellation table is from \cite{BW08}; cyclic roots in dimension ten are classical \cite{Bjorck90,BS95,Haagerup96,Haagerup08}.
 
-\paragraph{What is new here, in order of strength.} (1) Interval-certified lower bounds on the energy against $\To$ and, given
-the classical count of $156$ cyclic $6$-roots, against $16$ triples containing the standard and Fourier basis: a certified
-computation, not a new method; for $\Tz$ we only cross-check Erlwein's exact value \stcert.
-(2) Interval-certified near-misses for two entries of the 2008 constellation table: the 2008 evidence for these two shapes
-no longer supports their existence (Section~\ref{sec:const}) \stcert. (3) The conversion, with explicit constants, of a
-one-vector energy bound into bias and game-loss bounds for a whole fourth basis (Section~\ref{sec:number}): the inequality
-is elementary, the value is in the numbers; the lemma and the theorem, for orthonormal bases of $\C^6$, are Lean-checked
-by workstream~A (Section~\ref{sec:event}) \stleanA. (4) A finite-sample guarantee for the collision test using the
-certified gap (Theorem~\ref{thm:finite}) \stproved. (5) The mutation test of the OpenAI record checker, which shows what
-its ``pass'' covers (Section~\ref{sec:checks}) \stcomp. The structure results and dimension ten
+\paragraph{What is new here.} To our knowledge the following are not in the literature; none is a new method for
+$N(6)=3$ itself.
+(1) \emph{A design lesson with a proof}: the best four bases of $\C^6$, for the bias and for the random-access game, do
+not contain the local triple $\Tz$, because one explicit quadruple beats every completion of $\Tz$ on both measures
+(Corollary~\ref{cor:design}) \stgiven. It rests on the conversion, with explicit constants, of a one-vector energy
+bound into bounds for a whole fourth basis (Theorem~\ref{thm:bridge}); the inequality is elementary, and the lemma and
+the theorem, for orthonormal bases of $\C^6$, are Lean-checked by workstream~A (Section~\ref{sec:event}) \stleanA.
+(2) \emph{Certified energy bounds beyond the local triple}: for the second product triple $\To$, which
+\cite{Erlwein} lists as open, and, given the classical count of $156$ cyclic $6$-roots, for all $16$ triples
+containing the standard and Fourier bases \stcert. These are certified computations, not a new method; for $\Tz$
+we only cross-check Erlwein's exact value.
+(3) \emph{A finite-sample guarantee} for detecting every pure state with three local settings
+(Theorem~\ref{thm:finite}) \stgiven, with a dimension-four control; the test itself is classical.
+(4) \emph{Interval-certified near-misses} for two entries of the 2008 constellation table, which makes these two
+shapes undecided (Section~\ref{sec:const}) \stcert.
+(5) \emph{The mutation test} of the OpenAI record checker, which shows what its ``pass'' covers
+(Section~\ref{sec:checks}) \stcomp. The structure results and dimension ten
 (Section~\ref{sec:additional}) bound nothing about $N(6)$.
 
 \paragraph{Roadmap.} Sections~\ref{sec:trust} and~\ref{sec:checks}: what the three proofs rest on and what was re-run.
@@ -249,6 +260,7 @@ Section~\ref{sec:additional}: structure and dimension ten. Sections~\ref{sec:sup
 
 \noindent This section describes other people's proofs, so its contents are \prior\ (tagged \stcited). We read the
 documents during the event; reading is not verification, and we did not re-check any of the mathematics described here.
+Table~\ref{tab:trust} summarizes the three proofs.
 
 \paragraph{What kind of proof these are.} All three are proofs by exhaustive cases. After a unitary change of
 coordinates any four MU bases start with $I$ and $H/\rsix$, $H$ a complex Hadamard matrix (a $6\times6$ matrix with
@@ -277,7 +289,7 @@ preprint and the scope and comparator files. Our description of Jaswal \cite{Jas
 preprint's abstract and an AI-prepared summary and was not verified; the author states that no person has read the code. For C\'ardenes Wuttig
 and Tindall \cite{CWT} we read \texttt{PROOF.md}, \texttt{VERIFY.md}, \texttt{ROUNDING.md} and parts of the paper: the space
 of non-Tao Hadamard matrices is proved connected (the \emph{cubic Tao matrix}, an isolated matrix with cube-root entries
-\cite{Tao04}, is treated separately) and covered by $2{,}775$ balls plus one at the Fourier matrix; Lean proves that their
+\cite{Tao04}, is treated separately) and covered by $2{,}775$ balls plus one at the Fourier matrix; according to their \texttt{PROOF.md} (not built by us), Lean proves that their
 ``atlas certificate'' (the finite list of balls with the bounds the local test needs) implies no four MU bases, while the
 numbers and the triple classification are outside Lean \stcited.
 
@@ -360,9 +372,10 @@ Total (26) & 17 of 26 & \\
 
 \noindent Two of the nine misses are harmless and seven are scope gaps. The checker recomputes
 no inequality and does not check that the balls cover the parameter space \stcomp, as its documentation says \cite{OAI}
-\stcited: every in-range change of a stored value that we applied consistently across copies (a stored phase, a
-radius, a certified bound, a seed-center coordinate), and the consistent deletion of a last-stage record, passes
-undetected; out-of-range values and changes made in only one copy are caught. The corruptions are our own choice, so 17 of
+\stcited: an in-range change of a stored value (a stored phase, a radius, a certified bound, a seed-center coordinate)
+passes undetected whether it is made in one file or consistently in several, unless it breaks a count, a hash or
+an equality between files that the checker compares; so does the consistent deletion of a last-stage record.
+Out-of-range values are caught. The corruptions are our own choice, so 17 of
 26 is not a quality grade. These misses concern the checker, \emph{not} the theorem: no corruption came from the real run,
 and the proof rests on rerunning the C++ programs. A stronger checker would recompute the Root inequalities and the
 covering of the parameter space from the stored balls; workstream~C's Arb check below does the first for the Root records.
@@ -421,7 +434,7 @@ one, so the shapes that exist form a down-set.
 {\raggedright \paragraph{The 2008 search and our misfit.} Brierley and Weigert minimized
 \[F_{\mathrm{BW}}=\sum_{\text{pairs }\psi,\psi'}\bigl(\abs{\ip{\psi}{\psi'}}-\chi\bigr)^2,\qquad \chi=0\ \text{in the
 same group},\quad \chi=1/\rnum{6}\ \text{across groups},\]
-over normalized vectors. In plain text: \texttt{F\_BW = sum over pairs of (|<psi,psi'>| - chi)\^{}2}, where \texttt{chi = 0} for two vectors in the same group
+over normalized vectors. In plain text: \texttt{F\_BW = sum over pairs of (|<psi,psi'>| -~chi)\textasciicircum{}2}, where \texttt{chi = 0} for two vectors in the same group
 and \texttt{chi = 1/sqrt(6)} for two vectors in different groups. Brierley and Weigert searched from 10{,}000 random starts per shape, called a constellation found when $F_{\mathrm{BW}}<10^{-7}$,
 and reported 18 of the 35 shapes as found \cite{BW08} \stcited. We use the residual vector $r(x)$ of the phases
 $x\in\R^{n}$, $n=5(m-1)$ for $m=a+b+c$ vectors, with entries $\mathrm{Re}\ip uv$ and $\mathrm{Im}\ip uv$ for each pair in
@@ -430,7 +443,7 @@ $(1,\dots,1)$. The \emph{misfit} is $\mu(x)=\norm{r(x)}_2$; it vanishes
 exactly on constellations. In plain text: \texttt{mu(x) = sqrt(sum of the squares of all entries of the residual vector r(x))}, so
 \texttt{mu = 0} if and only if every same-group pair is orthogonal and every cross-group pair is unbiased. A same-group pair contributes $\abs{\ip uv}^2/36$ to $F_{\mathrm{BW}}$ exactly; for a
 cross-group pair with residual $\rho$, $\abs{\ip uv}/6-1/\rsix=\rho/6+O(\rho^2)$. Hence
-$F_{\mathrm{BW}}=\mu^2/36+O(\mu^3)$ near a solution (in plain text: \texttt{F\_BW = mu\^{}2/36 + O(mu\^{}3)}) \stproved, and the 2008
+$F_{\mathrm{BW}}=\mu^2/36+O(\mu^3)$ near a solution (in plain text: \texttt{F\_BW = mu\textasciicircum{}2/36 + O(mu\textasciicircum{}3)}) \stproved, and the 2008
 criterion corresponds to a misfit below about $6\sqrt{10^{-7}}\approx1.9\times10^{-3}$.\par}
 
 \paragraph{The rerun.} Workstream~A wrote a Levenberg--Marquardt search (analytic Jacobian) and reran all 35
@@ -535,7 +548,7 @@ $p_{r,k}(\psi)=\abs{\ip{v_{r,k}}{\psi}}^2$, and the \emph{energy} of $\psi$ is
 \[
   \E(\psi)=\sum_{r=1}^{3}\sum_{k=1}^{6}\Bigl(p_{r,k}(\psi)-\frac16\Bigr)^2 .
 \]
-In plain text: \texttt{E(psi) = sum over the 18 vectors v of the triple of (|<v,psi>|\textasciicircum2 - 1/6)\textasciicircum2}.
+In plain text: \texttt{E(psi) = sum over the 18 vectors v of the triple of (|<v,psi>|\textasciicircum2 -~1/6)\textasciicircum2}.
 A unit vector with $\E(\psi)=0$ is unbiased to all three bases, as each vector of a fourth mutually
 unbiased basis would have to be; so ``no fourth basis vector'' means ``$\E>0$ on the unit
 sphere'', and $\min\E$ measures how far the triple is from admitting one. We work with the local qubit-qutrit triple $\Tz$ (defined in Section~\ref{sec:question}) and the second product triple $\To$,
@@ -561,7 +574,7 @@ For every unit vector $\psi\in\C^6$,
 \stcert\ \event
 \end{proposition}
 
-{\raggedright In plain text: \texttt{E\_T0(psi) >= 0.0385 - 2.2e-12} and \texttt{E\_T1(psi) >= 0.0235 - 2.9e-12} for every unit vector
+{\raggedright In plain text: \texttt{E\_T0(psi) >= 0.0385 -~2.2e-12} and \texttt{E\_T1(psi) >= 0.0235 -~2.9e-12} for every unit vector
 \texttt{psi} in C\textasciicircum6, so both exceed the rounded-down values \texttt{0.03849999999} and \texttt{0.02349999999}.
 The same bound appears in three forms: the certificate is built for the nominal levels $0.0385$ and $0.0235$; the
 checker certifies the nominal level minus a residual bound, which rounded down is $0.03849999999$ and
@@ -575,8 +588,8 @@ $N\E_{\mathrm{hom}}-\gamma_0N^3=z^{T}Qz+r$, where $z$ lists the $364$ cubic mono
 residual form with rigorously bounded coefficients. The checker \texttt{verify.py} evaluates this in Arb \emph{ball
 arithmetic} (midpoint-radius arithmetic in which every number carries an error radius guaranteed to contain the true
 value) at 160 bits; we re-ran it \stcert. For $\Tz$ it prints \texttt{residual bound S <= 2.189e-12} and
-\texttt{E(psi) >= 0.0385 - S > 0.03849999999}; for $\To$ it prints \texttt{S <= 2.807e-12} and
-\texttt{E(psi) >= 0.0235 - S > 0.02349999999}. The nominal levels $0.0385$ and $0.0235$ are not themselves certified
+\texttt{E(psi) >= 0.0385 -~S > 0.03849999999}; for $\To$ it prints \texttt{S <= 2.807e-12} and
+\texttt{E(psi) >= 0.0235 -~S > 0.02349999999}. The nominal levels $0.0385$ and $0.0235$ are not themselves certified
 inequalities. In running text we write $\E>0.0384999$ and $\E>0.0234999$; the bridge numbers use the rounded-down
 $0.03849999999$ and $0.02349999999$ (denoted $\gamma$ below).
 
@@ -625,15 +638,15 @@ four bases score more (Lemma~\ref{lem:sqrt} summed over a pair gives $\sum_{i,j}
 \begin{lemma}[A quadratic cap on the square root]\label{lem:sqrt}
 Let $a=1/\rsix$ and $\cstar=3\rsix/(\rsix+1)^2=(21\rsix-36)/25=0.617571\ldots$ Then for every $p\in[0,1]$
 \[
-  \sqrt p\;\le\;1/\rsix+(\rsix/2)\,(p-1/6)-\cstar\,(p-1/6)^{2},
+  \rsym{p}{p}\;\le\;1/\rsix+(\rsix/2)\,(p-1/6)-\cstar\,(p-1/6)^{2},
 \]
 with equality exactly at $p=1/6$ and $p=1$. \stproved\ \event
 
-In plain text: \texttt{sqrt(p) <= 1/sqrt(6) + (sqrt(6)/2)(p - 1/6) - c*(p - 1/6)\textasciicircum2} for \texttt{0 <= p <= 1},
+In plain text: \texttt{sqrt(p) <= 1/sqrt(6) + (sqrt(6)/2)(p -~1/6) -~c*(p -~1/6)\textasciicircum2} for \texttt{0 <= p <= 1},
 with \texttt{c* = 3 sqrt(6)/(sqrt(6)+1)\textasciicircum2 = 0.617571...}
 \end{lemma}
 \begin{proof}
-Write $s=\sqrt p\in[0,1]$, so $p-1/6=s^2-a^2=(s-a)(s+a)$. The tangent line of the square root at $1/6$
+Write $s=\rsym{p}{p}\in[0,1]$, so $p-1/6=s^2-a^2=(s-a)(s+a)$. The tangent line of the square root at $1/6$
 exceeds it by a perfect square:
 \[
   a+(s^2-a^2)/(2a)-s=(s-a)^2/(2a).
@@ -643,6 +656,11 @@ $(s+a)^2\le(1+a)^2$, and $\cstar$ was chosen as
 $\cstar=1/\bigl(2a(1+a)^2\bigr)=(\rsix/2)/(1+1/\rsix)^2=3\rsix/(\rsix+1)^2$,
 so the bracket is nonnegative and vanishes only at $s=1$. The first factor vanishes only at $s=a$.
 \end{proof}
+
+{\raggedright \noindent In plain text, with \texttt{a = 1/sqrt(6)} and \texttt{s = sqrt(p)}: the tangent line minus \texttt{sqrt(p)} equals
+\texttt{(s -~a)\textasciicircum2/(2a)}, and \texttt{p -~1/6 = (s -~a)(s + a)}, so the claim is
+\texttt{(s -~a)\textasciicircum2 * (1/(2a) -~c*(s + a)\textasciicircum2) >= 0}, which holds because \texttt{s + a <= 1 + a} and
+\texttt{c* = 1/(2a(1 + a)\textasciicircum2)}.\par}
 
 \begin{theorem}[From a vector to a basis]\label{thm:bridge}
 Let $B_1,B_2,B_3$ be orthonormal bases of $\C^6$ (not assumed mutually unbiased) with vectors $v_{r,k}$.
@@ -657,8 +675,8 @@ Fix $\gamma>0$ and suppose that $\E(\psi)=\sum_{r=1}^{3}\sum_{k=1}^{6}\bigl(\abs
 \stproved\ \event
 
 In plain text: (a) if every unit vector has energy at least \texttt{gamma}, then for each \texttt{j} some probability
-\texttt{p = |<v\_\{r,k\},f\_j>|\textasciicircum2} satisfies \texttt{|p - 1/6| >= sqrt(gamma/18)}; (b) the game score is at most
-\texttt{1/2 + sqrt(6)/12 - c*gamma/72}, where \texttt{c* = 0.617571...}
+\texttt{p = |<v\_\{r,k\},f\_j>|\textasciicircum2} satisfies \texttt{|p -~1/6| >= sqrt(gamma/18)}; (b) the game score is at most
+\texttt{1/2 + sqrt(6)/12 -~c*gamma/72}, where \texttt{c* = 0.617571...}
 \end{theorem}
 \begin{proof}
 (a) $\E(f_j)\ge\gamma$ is a sum of $18$ nonnegative terms, so one of them is at least $\gamma/18$.
@@ -676,6 +694,10 @@ $6\rsix$. The score is $1/2+(1/72)(1/6)\sum_{\text{6 pairs}}\sum_{i,j}\abs{\ip{e
   \text{score}\;\le\;1/2+(1/72)\bigl(6\cdot6\rsix-6\cstar\gamma\bigr)/6=1/2+\rsix/12-\cstar\gamma/72.\qedhere
 \]
 \end{proof}
+
+{\raggedright \noindent In plain text: for each pair of bases, \texttt{sum over i,j of |<e\_i,g\_j>| <= 6 sqrt(6) -~c* * (sum over i,j of
+(p\_ij -~1/6)\textasciicircum2)}; adding the six pairs, \texttt{score <= 1/2 + (36 sqrt(6) -~6 c* gamma)/432 = 1/2 + sqrt(6)/12 -
+c* gamma/72}.\par}
 
 Lemma~\ref{lem:sqrt} (its inequality, not its equality cases) and both parts of the theorem, for orthonormal bases
 of $\C^6$, are checked in Lean~4 (project \texttt{MUB6Bridge} in the repository: declarations
@@ -706,7 +728,7 @@ Table~\ref{tab:leanA}); the energy bound itself is a hypothesis there, supplied 
 Upper bounds on the best bias or game loss come from explicit sets. Workstream A found two sets of four
 orthonormal bases of $\C^6$ by numerical optimization \stnum. \texttt{bases\_d6\_delta.npy} minimizes the bias (best
 of $72$ starts; all six pairs attain the maximal deviation; the objective differs from that of \cite{RLE}). \texttt{bases\_d6\_P4.npy} maximizes the game score
-(best of $700$ starts): its score $0.7038884$ reproduces the value
+(best of $700$ starts): its score, at least $0.7038883$ \stcert, reproduces the value
 $0.703888$ quoted in \cite{MWreview} \stcited\ \prior.
 
 \texttt{verify\_sets.py} replaces each stored matrix (unitary only to $4.4\times10^{-15}$) by its exactly unitary polar
@@ -741,8 +763,8 @@ $0.0387628$ ($2$, those of $\Tz$) \stnum.
 \begin{proposition}[Energy certificates for the triples containing the Fourier pair]\label{prop:fourier6}
 For each of the $16$ triples $\{I,F_6,B\}$, every unit vector $\psi\in\C^6$ has
 $\E(\psi)>0.0323999$ ($12$ triples), $\E(\psi)>0.0234999$ ($2$ triples), or $\E(\psi)>0.0384999$ ($2$ triples).
-\stcert\ \event\ The second sentence uses the classical count $156$ \cite{BF91}: given it, $\E\ge0.0234999$ for every
-mutually unbiased triple that contains $\{I,F_6\}$ \stcited.
+\stcert\ \event\ Given the classical count $156$ \cite{BF91}, these $16$ are all the mutually unbiased triples that
+contain $\{I,F_6\}$, so $\E>0.0234999$ for every such triple \stgiven\ (here the given input is the cited count).
 
 In plain text: \texttt{E > 0.0323999} for 12 of the 16 triples, \texttt{E > 0.0234999} for 2 and \texttt{E > 0.0384999}
 for 2.
@@ -792,7 +814,7 @@ This is the classical collision test for uniformity of a discrete distribution \
 analysis below (Hoeffding's variance formula for U-statistics \cite{Hoeffding48} and Cantelli's inequality, the
 one-sided form of Chebyshev's inequality) is standard. Some deterministic ingredients are checked in Lean 4: the identity
 $X^2=15+6(N-1)T$, four of the elementary inequalities of the variance bound in part (ii), and the arithmetic of the
-five shot counts of Corollary~\ref{cor:finite}. The variance formula, Cantelli's inequality and hence the theorem
+five shot counts (the four of Corollary~\ref{cor:finite} and the count $2{,}892$ for $t=1/2$). The variance formula, Cantelli's inequality and hence the theorem
 itself are not (Section~\ref{sec:event}, Table~\ref{tab:leanA}). The only ingredient specific to this report is the certified energy gap, which turns the test into a
 guarantee for every pure state with three fixed local settings.
 
@@ -806,14 +828,14 @@ $X^2\ge15+6(N-1)t\gamma$).
       $\displaystyle\Pr[T\ge t\gamma]\le\Bigl(1+\tfrac{6}{5}\,t^2\gamma^2N(N-1)\Bigr)^{-1}$.
 \item (\emph{Missed detection.}) If $\E\ge\gamma$, then
       $\displaystyle\Pr[T<t\gamma]\le\frac{V}{V+(1-t)^2\gamma^2}$ with
-      $\displaystyle V=\frac4N\,\gamma\Bigl(\frac16+\sqrt\gamma\Bigr)+\frac{3}{2N(N-1)}$.
+      $\displaystyle V=\frac4N\,\gamma\Bigl(\frac16+\rsym{\gamma}{gamma}\Bigr)+\frac{3}{2N(N-1)}$.
 \end{enumerate}
 No large-sample approximation is used. \stproved\ \event
 \end{theorem}
 
-{\raggedright \noindent\emph{In plain text.} (i) If the outcomes are uniform, \texttt{Pr[T >= t*gamma] <= 1 / (1 + (6/5) * t\^{}2 *
-gamma\^{}2 * N * (N-1))}. (ii) If the energy is at least gamma, \texttt{Pr[T < t*gamma] <= V / (V + (1-t)\^{}2 *
-gamma\^{}2)}, where \texttt{V = (4/N) * gamma * (1/6 + sqrt(gamma)) + 3 / (2 * N * (N-1))}.\par}
+{\raggedright \noindent\emph{In plain text.} (i) If the outcomes are uniform, \texttt{Pr[T >= t*gamma] <= 1 / (1 + (6/5) * t\textasciicircum{}2 *
+gamma\textasciicircum{}2 * N * (N-1))}. (ii) If the energy is at least gamma, \texttt{Pr[T < t*gamma] <= V / (V + (1-t)\textasciicircum{}2 *
+gamma\textasciicircum{}2)}, where \texttt{V = (4/N) * gamma * (1/6 + sqrt(gamma)) + 3 / (2 * N * (N-1))}.\par}
 
 \begin{proof}
 \emph{Moments.} In one setting let $X_1,\dots,X_N$ be the outcomes, independent with distribution $p=(p_k)$, and
@@ -844,8 +866,8 @@ the three settings, and using $\sum_r\varepsilon_r^{3/2}\le\E^{3/2}$ and $(N-2)/
 Cantelli's inequality for the lower tail gives
 $\Pr[T<t\gamma]\le\Pr[T-\E\le-(\E-t\gamma)]\le V(\E)/\bigl(V(\E)+(\E-t\gamma)^2\bigr)$. It remains to see
 that this is largest at $\E=\gamma$, that is, that $V(\E)/(\E-t\gamma)^2$ does not increase for $\E\ge\gamma$. The
-second term of $V$ is constant. For the first, the logarithmic derivative of $\E(1/6+\sqrt\E)$ is
-$\bigl(1/6+(3/2)\sqrt\E\bigr)/\bigl(\E(1/6+\sqrt\E)\bigr)\le2/\E$, which is at most the logarithmic
+second term of $V$ is constant. For the first, the logarithmic derivative of $\E(1/6+\rsym{\E}{E})$ is
+$\bigl(1/6+(3/2)\rsym{\E}{E}\bigr)/\bigl(\E(1/6+\rsym{\E}{E})\bigr)\le2/\E$, which is at most the logarithmic
 derivative $2/(\E-t\gamma)$ of $(\E-t\gamma)^2$. Hence the bound at $\E=\gamma$, which is the statement.
 \end{proof}
 
@@ -897,7 +919,7 @@ $\E(\rho)\le\operatorname{tr}X^2=\operatorname{tr}\rho^2-1/6\le5/6$ (a standard 
 bases; we include the argument for completeness). Write
 $\rho=\lambda\,|\psi\rangle\langle\psi|+(1-\lambda)\sigma$ with $\psi$ an eigenvector for $\lambda$ and $\sigma$ a
 state. The vector of deviations $(p_{r,k}-1/6)$ is affine in the state, so by the triangle inequality
-$\sqrt{\E(\rho)}\ge\lambda\sqrt{\E(\psi)}-(1-\lambda)\sqrt{\E(\sigma)}\ge\lambda\sqrt\gamma-(1-\lambda)\sqrt{5/6}$,
+$\sqrt{\E(\rho)}\ge\lambda\sqrt{\E(\psi)}-(1-\lambda)\sqrt{\E(\sigma)}\ge\lambda\rsym{\gamma}{gamma}-(1-\lambda)\sqrt{5/6}$,
 which is the claim. For $\E(\rho)=0$ and $\gamma=0.0384999$ the right-hand side is
 $0.91287/(0.19621+0.91287)<0.8232$.
 \end{proof}
@@ -908,7 +930,7 @@ not optimize it), and in dimension four no such statement holds for $ZZ$, $XX$, 
 
 \paragraph{The large-sample rule of thumb.} An experimentalist will use the chi-square threshold instead. If the
 Pearson statistic is modelled as a noncentral chi-square variable with $15$ degrees of freedom and noncentrality
-$6N\E$, the bound $\E\ge0.0385$ gives $239$ shots per setting for $99\%$ detection at false-alarm rate $0.1\%$
+$6N\E$, the nominal level $\E=0.0385$ gives $239$ shots (the certified bound is $0.0384999$; the shot count is the same) per setting for $99\%$ detection at false-alarm rate $0.1\%$
 (against $5{,}142$ with the guarantee), and at a one-sided five-sigma false-alarm rate $198$ shots for $50\%$
 detection and $369$ for $99\%$ \stcomp\ \event.
 \textbf{This is an approximation, not a theorem}: for a fixed (not vanishing) deviation from uniformity the
@@ -956,7 +978,7 @@ setting. The dashed line is the false-alarm rate itself, which is where the dime
 
 \noindent\emph{Figure~\ref{fig:hide} in words.} The vertical axis is the detection probability (logarithmic, from
 $4\times10^{-4}$ to $1$); the horizontal axis is the number $N$ of shots per setting ($0$ to $500$); the false-alarm
-rate is $0.1\%$. The solid curve is the large-sample model with the certified energy $0.0385$: it rises from $0.005$
+rate is $0.1\%$. The solid curve is the large-sample model with the nominal energy level $0.0385$: it rises from $0.005$
 at $N=10$ through $0.11$ at $N=50$, $0.48$ at $N=100$ and $0.96$ at $N=200$ to $0.99$ at $N=239$. The circles are
 simulated detection rates for the minimum-energy state $\psi_\ast$; they lie slightly below the curve for $N\le100$
 ($0.096$ against $0.108$ at $N=50$) and on or above it from $N=126$ on. The dashed horizontal line at $0.001$ is the
@@ -1020,7 +1042,7 @@ $\operatorname{rank}\hcube{H}$. Proof ideas are in Appendix~\ref{app:gap}.
 
 \begin{proposition}[Cube-rank criterion]\label{prop:cuberank}
 An order-six phase Hadamard matrix has $\operatorname{rank}\hcube{H}\le2$ if and only if, up to equivalence, it is
-a Fourier-family matrix, the transpose of one, or the cubic Tao matrix. \stproved\ \event\ The reduction to a
+a Fourier-family matrix, the transpose of one, or the cubic Tao matrix. \stsupp\ \event\ The reduction to a
 $3\times3$ Fourier subblock is ours; the final classification of Hadamard matrices with an order-three subblock is
 \cite{CWT} \stcited\ \prior. Workstream A reproduced the counts of a computational route \stcomp.
 \end{proposition}
@@ -1029,7 +1051,7 @@ $3\times3$ Fourier subblock is ours; the final classification of Hadamard matric
 If $H$ satisfies the complementary-row Fourier condition (true for every $H$ not equivalent to the Tao matrix, by
 \cite{CWT}), then $\norm{\hcube{H}}_{\mathrm{op}}^2\le18$ and
 $\operatorname{tr}\bigl(((\hcube{H})^\ast\hcube{H})^2\bigr)\le648$, with equality in the second if and only if the cube
-rank is two. \stproved\ \event\ In plain text: \texttt{(largest singular value of cube(H))\textasciicircum2 <= 18} and
+rank is two. \stsupp\ \event\ In plain text: \texttt{(largest singular value of cube(H))\textasciicircum2 <= 18} and
 \texttt{trace((cube(H)* cube(H))\textasciicircum2) <= 648}. The converse ``norm $18$ implies cube rank
 two'' is not proved \stconj.
 \end{proposition}
@@ -1080,7 +1102,7 @@ in $\C^{10}$.}}
 \noindent Without (H), a mixed-volume bound of $35{,}940$ (reported to us from a PHCpack run, not recomputed by us)
 would leave room for further roots \streported. We certified that $34{,}940$ disjoint boxes each contain exactly one
 root (Krawczyk test, 128-bit Arb ball arithmetic), of which $3{,}040$ are unimodular \stcert. Details are in
-Appendix~\ref{app:ten}.
+Appendix~\ref{app:ten}; Table~\ref{tab:ten} lists the stages, with dimension six as a calibration.
 
 \begin{table}[ht]
 \centering
@@ -1112,7 +1134,7 @@ mutually unbiased bases of $\C^{10}$ contains the pair $\{I,F_{10}\}$. \stcond
 \end{theorem}
 
 {\raggedright \noindent In plain text: if (H) holds, then for each of the 1,136 candidate bases $B$ and every unit vector $v$
-unbiased to $I$ and $F_{10}$, \texttt{max over b in B of | |<b,v>|\textasciicircum2 - 1/10 | >= 0.04178}.\par}
+unbiased to $I$ and $F_{10}$, \texttt{max over b in B of | |<b,v>|\textasciicircum2 -~1/10 | >= 0.04178}.\par}
 
 \noindent Grassl, McNulty, Mista and Paterek \cite{GMMP17} treat unextendible sets of at most three MU bases up to
 dimension $16$; we did not reproduce their dimension-ten example. There is \textbf{no certified energy bound in
@@ -1123,9 +1145,9 @@ dimension ten}: the numerical minimum is $0.0202$ for the Weyl--Heisenberg produ
 \section{How each main claim is supported}\label{sec:support}
 
 One row per main claim, with its status, what supports it, and where the independent re-check is. Paths such as \texttt{cert/verify.py} are files of the code and data submitted with this report; the file
-\texttt{docs/verification\_matrix.md} there lists, for each of 67 statements, the command that re-checks it and
+\texttt{docs/verification\_matrix.md} there lists, for each of 69 statements, the command that re-checks it and
 the expected output. Workstreams: A = certificate audit, energy certificates, vector-to-basis theorem,
-detection test, dimension ten; B = structure theory and Lean; C = explanatory audit and full rerun.
+detection test, dimension ten; B = structure theory and its separate Lean development (the bound $\E>1/72$); C = explanatory audit and full rerun. The Lean project \texttt{MUB6Bridge} is by A.
 
 {\small
 \begin{longtable}{@{}p{0.04\textwidth}>{\raggedright\arraybackslash}p{0.36\textwidth}>{\raggedright\arraybackslash}p{0.15\textwidth}>{\raggedright\arraybackslash}p{0.37\textwidth}@{}}
@@ -1194,7 +1216,7 @@ detection test, dimension ten; B = structure theory and Lean; C = explanatory au
   inputs & A. Proof in the text (collision statistic, exact variance, Cantelli). Variance formula checked exactly
   by enumeration for $N\le4$; shot counts and Monte Carlo in \texttt{hide\_seek/finite\_sample.py}. In
   Lean (Table~\ref{tab:leanA}): the identity between Pearson's statistic and $T$, four elementary steps of the
-  variance bound, and the arithmetic of all five shot counts. Not in Lean: every probability statement, hence not
+  variance bound, and the arithmetic of the five shot counts (the four of Corollary~\ref{cor:finite} and the count $2{,}892$ for $t=1/2$). Not in Lean: every probability statement, hence not
   the theorem.\\
 17 & Purity witness: uniform statistics in the three settings force $\lambda_{\max}(\rho)\le0.8232$
   (Proposition~\ref{prop:purity}) & proved here, from certified inputs & A. Proof in the text; tested on
@@ -1205,11 +1227,11 @@ detection test, dimension ten; B = structure theory and Lean; C = explanatory au
 19 & The game needs $9.37\times10^{7}$ rounds to resolve the loss of the explicit quadruple
   (Section~\ref{sec:game}) & computed & A. \texttt{hide\_seek/RESULTS.md}.\\
 20 & Cube-rank criterion: $\operatorname{rank}\hcube{H}\le2$ iff Fourier family, transpose, or Tao class
-  (Proposition~\ref{prop:cuberank}) & proved, with one cited ingredient & B. Reduction to the subblock
+  (Proposition~\ref{prop:cuberank}) & proved in the supplementary structure paper, with one cited ingredient; outlined here & B. Reduction to the subblock
   classification of \cite{CWT}. Enumeration counts reproduced by A (\texttt{checks/check2.py}); cube ranks by
   family checked numerically (\texttt{checks/check\_hadamard\_identities.py}).\\
-21 & Cubic norm cap $\norm{\hcube{H}}^2\le18$ outside the Tao class (Proposition~\ref{prop:cubiccap}) & proved,
-  with one cited ingredient & B. Proof in Appendix~\ref{app:gap}. Identities and cap checked numerically by A on
+21 & Cubic norm cap $\norm{\hcube{H}}^2\le18$ outside the Tao class (Proposition~\ref{prop:cubiccap}) & proved in the supplementary structure paper,
+  with one cited ingredient; outlined here & B. Proof outline in Appendix~\ref{app:gap}. Identities and cap checked numerically by A on
   six families (\texttt{checks/check\_hadamard\_identities.py}). Whether equality forces cube rank two is open.\\
 22 & Six-phase bound $\abs{\sum z_j^3}\le7\rsix/3$ (Remark~\ref{prop:sixphase}) & reported; numerical & B's
   written proof is outlined only. A: $4{,}000$ constrained maximizations reach $7\rsix/3=5.7154760665$ and no more
@@ -1251,7 +1273,7 @@ independent prior result \cite{Erlwein}, itself an unrefereed manuscript, to $0.
 $16$ triples that contain $\{I,F_6\}$ (four of which have the numerical minima of the two product triples) and
 the two product triples themselves. Mutually unbiased triples in $\C^6$
 form continuous families, and we have no certified energy bound over all of them. For all quadruples the only
-certified statements here are the two explicit upper bounds (bias $0.0302$, game loss $2.36\times10^{-4}$).
+certified statements here are the two explicit upper bounds (bias at most $0.0303$, game loss at most $2.36\times10^{-4}$).
 \item \textbf{The detection guarantee is conservative and concerns ideal measurements of independent, identically
 prepared pure states.} Theorem~\ref{thm:finite} uses Chebyshev-type bounds: it needs $5{,}142$ shots per setting for $99\%$
 detection at $0.1\%$ false alarm, where the large-sample rule and simulation suggest about $239$ for the same two
@@ -1260,8 +1282,8 @@ not a theorem. Mixed states can have small energy; Proposition~\ref{prop:purity}
 be, but not tightly. No hardware run was performed; the repository contains only a rehearsal on a simulated noise
 model, which is not evidence.
 \item \textbf{Dimension ten is conditional} on the cited count of cyclic 10-roots, and covers only triples
-containing the pair $\{I,F_{10}\}$. The fallback statement (at most $1{,}000$ further isolated roots) rests on a
-mixed-volume value of $35{,}940$ that we did not verify, and does not exclude positive-dimensional solution sets.
+containing the pair $\{I,F_{10}\}$. Without (H), the unverified mixed-volume value $35{,}940$ would allow up to
+$1{,}000$ further isolated roots, and it does not exclude positive-dimensional solution sets.
 There is no certified energy bound in dimension ten.
 \item \textbf{The structure theory stops before the universal step.} The cube-rank criterion and the cubic cap
 are theorems about Hadamard matrices; they do not yet bound the number of MUBs.
@@ -1332,20 +1354,23 @@ no result used here.
 \paragraph{How AI output was checked.}
 (i) \emph{Certificates instead of trust}: every lower bound we call certified is the output of a short checker in
 ball arithmetic, separate from the program that found the certificate.
-(ii) \emph{Calibration on known answers}: the energy certificate reproduces $99.3\%$ of the published exact
+(ii) \emph{Calibration on known answers}: the energy certificate reproduces $99.3\%$ of Erlwein's exact
 value; the dimension-ten pipeline, run in dimension six, returns the known counts $48$ and $16$; the
 dimension-four control is never caught by the detection test, as it must be.
-(iii) \emph{Independent recomputation}: every claim in Table~\ref{tab:support} that is not a citation was
-recomputed at least once by a program other than the one that produced it, or by a certificate checker, with the
-exceptions marked ``reported'' (rows 4 and 10, which need the environment of another workstream) and the
-single-run records of rows 7 and 19. The matrix \texttt{docs/verification\_matrix.md} records which program, which
-command and which output.
+(iii) \emph{Independent recomputation}: the claims of Table~\ref{tab:support} that are not citations were
+recomputed by a program other than the one that produced them, or by a certificate checker, with these exceptions:
+the items marked ``reported'' (rows 4, 10, 22 and 23, the closed form of the minimizer in Section~\ref{sec:gap},
+the mixed-volume value and the orbit counts in dimension ten) and the single-run records of rows 7 and 19. The
+matrix \texttt{docs/verification\_matrix.md} records, for each of its 69 statements, which program, which command
+and which output; it marks 32 statements as independently re-verified, 24 as partly re-verified (some numbers of
+the statement, or a numerical second implementation of a rigorous claim) and 13 as not re-verified (citations and
+reported items).
 (iv) \emph{Cross-reading}: the proofs of $\E>1/72$, of the cubic cap and of the phase-ball radius were re-derived
 step by step by an AI agent working for a different workstream than the one that wrote them, and their
 intermediate inequalities were tested numerically (\texttt{checks/}).
 (v) \emph{Hostile review}: five rounds in which fresh AI reviewers, given the report, the sources and the code
 but not the drafting history, attacked correctness, novelty, attribution, clarity, motivation and interest (about
-120 findings in total; each was answered by an edit or a recorded reason, logged in
+160 findings in total; each was answered by an edit or a recorded reason, logged in
 \texttt{docs/adversarial\_review.md}). Among the changes they forced: a false rounding in a printed certificate bound, the
 replacement of an approximate detection claim by Theorem~\ref{thm:finite}, and the regeneration of the full
 dimension-ten root list inside the repository.
@@ -1384,7 +1409,7 @@ exceeds $0.046248$ ($0.036132$) and the game loss exceeds $3.302\times10^{-4}$ (
 \item that no four orthonormal bases of $\C^6$ have game score above $1/2+\rsix/12$;
 \item for Theorem~\ref{thm:finite}: the identity $X^2=15+6(N-1)T$, four elementary inequalities used in the
 variance bound, and the arithmetic showing that the two closed-form bounds of the theorem are below the stated
-error levels for all five shot counts of Corollary~\ref{cor:finite}.
+error levels for the five shot counts (the four of Corollary~\ref{cor:finite} and the count $2{,}892$ for $t=1/2$).
 \end{itemize}
 \emph{What is not Lean-verified:} that \texttt{gameScore} is the optimal success probability of the random-access
 code (cited \cite{ABMP}); the word ``bias'' (not defined in Lean; statement (a) implies the bound on it); the
@@ -1409,6 +1434,9 @@ Declaration & Claim it supports & Difference from the text\\
 \bottomrule
 \endfoot
 \texttt{cstar}, \texttt{cstar\_pos}, \texttt{cstar\_eq} & $\cstar=3\rsix/(\rsix+1)^2=(21\rsix-36)/25$ & none\\
+\texttt{sqrt6\_sq}, \texttt{sqrt6\_pos}, \texttt{sqrt6\_bounds}, \texttt{sqrt\_T0\_le}, \texttt{sqrt\_T1\_le} & auxiliary
+  numerical facts: $2.449<\rsix<2.45$; $\sqrt{0.0384999}\le0.196214$; $\sqrt{0.0234999}\le0.153297$ & used only inside
+  the proofs of the rows below\\
 \texttt{sqrt\_le\_quadratic\_cap} & Lemma~\ref{lem:sqrt}, the inequality on $[0,1]$ & the equality cases
   ($p=1/6$, $p=1$) are not formalized\\
 \texttt{bias\_bound} & Theorem~\ref{thm:bridge}(a) & stated for $18$ real numbers $x_{r,k}$ with
@@ -1438,11 +1466,12 @@ Declaration & Claim it supports & Difference from the text\\
   settings) & counts are real numbers with sum $N\notin\{0,1\}$ in each setting\\
 \texttt{zeta1\_le\_second\_moment}, \texttt{second\_moment\_le}, \texttt{zeta2\_le}, \texttt{three\_halves\_le} &
   four steps of the variance bound in the proof of Theorem~\ref{thm:finite}(ii) & inequalities between algebraic
-  expressions; $\zeta_1$, $\zeta_2$ are not defined in Lean as covariances; $x^{3/2}$ is written $x\sqrt x$. The
+  expressions; $\zeta_1$, $\zeta_2$ are not defined in Lean as covariances; $x^{3/2}$ is written $x\rsym{x}{x}$. The
   steps $(N-2)/(N-1)<1$ and monotonicity in the energy are not formalized\\
 \texttt{missBound}, \texttt{faBound}, \texttt{shots\_of}, \texttt{shots\_T0}, \texttt{shots\_T0\_95},
   \texttt{shots\_T0\_99}, \texttt{shots\_T0\_half}, \texttt{shots\_T1\_95}, \texttt{shots\_T1\_99} &
-  Corollary~\ref{cor:finite}: all five triples $(\gamma,N,t)$ give the stated error levels & arithmetic only: the
+  Corollary~\ref{cor:finite} and the paragraph after it: all five triples $(\gamma,N,t)$ give the stated error
+  levels (\texttt{shots\_T0} and \texttt{shots\_T0\_95} state the same case in two forms) & arithmetic only: the
   two closed-form bounds are defined as real functions; that they bound probabilities, and the minimality of each
   $N$, are not formalized\\
 \end{longtable}
@@ -1458,10 +1487,11 @@ of 26 deliberate corruptions), reruns of parts of the computation, and certifica
 evidence was a numerical table, and two of its entries turned out to be undecided.
 
 \emph{By how much does a fourth basis fail to exist?} For the local qubit--qutrit triple, by an energy of more than
-$0.0384999$ per state; for every triple containing the standard and Fourier bases, by more than $0.0234999$.
+$0.0384999$ per state (the exact minimum $(4-\rsix)/40=0.0387628$ is due to Erlwein \cite{Erlwein}; our certificate
+cross-checks it); for every triple containing the standard and Fourier bases, by more than $0.0234999$.
 Theorem~\ref{thm:bridge} converts this into the figures of merit used for whole bases: a fourth basis added to the
 local triple misses unbiasedness by more than $0.046$ in some outcome probability and loses more than
-$3.3\times10^{-4}$ in the random-access game. One explicit quadruple reaches $0.041$ and $2.36\times10^{-4}$ (another reaches bias $0.030$), so keeping
+$3.3\times10^{-4}$ in the random-access game. One explicit quadruple reaches $0.041$ and $2.36\times10^{-4}$ (another reaches bias $0.0303$), so keeping
 three perfect local measurements and adding the best possible fourth is provably not the best design.
 
 \emph{What would it look like in a laboratory?} A fourth basis vector would be a pure state that looks like white
@@ -1509,16 +1539,16 @@ counts $[1,30,135,120,60,12]$ and nullities $0/1/3$ in numbers $1272/122/1$, as 
 identities give $V^\ast V=18I+\tfrac13M^\ast M$ for $M=\hcube{H}$ and the $20\times6$ matrix $V$ of products over
 three-element row sets. A Schur-product argument gives $VV^\ast\preceq24I$, hence $M^\ast M\preceq18I$. Since
 $\operatorname{tr}M^\ast M=36$, $\sum\lambda_i^2\le18\sum\lambda_i=648$ with equality exactly when the rank is two.
-The cap with the Fourier condition as a premise is reported checked in Lean (\texttt{physical\_cube\_gram\_cap},
-Table~\ref{tab:lean}) \stlean. Workstream A checked both identities and the cap numerically on the Fourier family,
+Workstream B reports a Lean formalization of the cap with the Fourier condition as a premise; it has no fixed
+revision and is not part of the submitted Lean project, so we make no Lean claim for it \streported. Workstream A checked both identities and the cap numerically on the Fourier family,
 Tao's matrix, Dita's matrix and 700 numerically found Hadamard matrices (\texttt{checks/check\_hadamard\_identities.py};
 violations at most $6\times10^{-14}$) \stnum. The converse ``norm $18$ implies cube rank two'' is not proved
 (supplementary structure paper, Section 11.3) \stconj.
 
 \emph{Six-phase bound (Remark~\ref{prop:sixphase}; Section 12.7).} At a maximizer Lagrange multipliers give a cubic
 in $z_j^2$, so at most three phase values occur; a case analysis over the multiplicity patterns leaves only $(3,3)$,
-the stated extremal pair. Lean is reported to check the final polynomial envelope step (\texttt{MUBSixPhasePolynomial})
-\stlean; the case reduction is a written proof not re-derived by workstream A \streported. Workstream A's
+the stated extremal pair. Workstream B reports a Lean check of the final polynomial envelope step; it has no fixed revision, so we make no
+Lean claim for it \streported; the case reduction is a written proof not re-derived by workstream A \streported. Workstream A's
 \texttt{checks/check\_sixphase.py} gave $5.7154760665=7\rsix/3$ from 4,000 maximizations \stnum.
 
 \emph{Quartic certificate (Proposition~\ref{prop:quartic}; Section 4).} If a linear functional $L$ on quartics is
@@ -1566,7 +1596,7 @@ $(Q\pm\Delta)/2$, and $(\tfrac{Q+\Delta}2-\tfrac16)^2+(\tfrac{Q-\Delta}2-\tfrac1
 Three-point Parseval turns the sums over $j$ into $\tfrac23\abs{q_r}^2$ and $\tfrac13(a_r^2+2\abs{t_r}^2)$ with
 $q_r=\sum_k\omega^{rk}v_{k+1}^\ast v_k$, and $\sum_r\abs{q_r}^2=3s$. Workstream A checked the identity numerically on
 2,000 random states and each step below on 400,000 states (identity error $1.6\times10^{-15}$;
-\texttt{check1.py}, \texttt{checks/check\_gap72.py}) \stnum; Lean proves it in Weyl coordinates \stlean.
+\texttt{check1.py}, \texttt{checks/check\_gap72.py}) \stnum; workstream B reports a Lean proof in Weyl coordinates \stlean.
 
 \emph{Proof outline of Theorem~\ref{thm:gap72}} (the full proof is the supplementary structure paper, Section 6; the
 rational comparisons below were rechecked by workstream A in exact fractions \stcomp). Suppose $\E\le1/72$. All three terms
@@ -1593,9 +1623,13 @@ environment as Lean 4.35.0 and Mathlib v4.35.0 at commit \texttt{56a005855ea17e0
 axiom dependencies limited to \texttt{propext}, \texttt{Classical.choice} and \texttt{Quot.sound}, and no
 \texttt{sorry}, extra axioms or native-decision proofs. The baseline source revision of the team Lean repository
 (commit \texttt{1033fb082aa0a82ffa4708411370434dc7d9fc23}) contains 129 declarations in twelve modules, and every
-row of Table~\ref{tab:lean} except the last two belongs to it; the last two come from a later local integration
-(199 public theorems in 25 modules) with no commit hash given. The build was run by workstream B and not re-run by
-workstream A, so every Lean claim here carries the tag ``Lean-checked, as reported''. \stlean
+row of Table~\ref{tab:lean} belongs to it. (Workstream B also reports a later local integration, 199 public theorems
+in 25 modules, with formalizations related to Proposition~\ref{prop:cubiccap} and Remark~\ref{prop:sixphase}; it has no
+fixed revision, so it is not listed and we make no Lean claim from it.) The build was run by workstream B and not
+re-run by workstream A. This development is in the team Lean repository, which is separate from the submitted Lean
+project \texttt{MUB6Bridge}: the competition's automated check does not build it, and we do not claim its statements
+as Lean-verified in the sense of the competition rules. That is the meaning of the tag ``Lean-checked, as
+reported''. \stlean
 
 {\footnotesize
 \begin{longtable}{@{}>{\raggedright\arraybackslash}p{5.6cm}>{\raggedright\arraybackslash}p{4.2cm}>{\raggedright\arraybackslash}p{5.6cm}@{}}
@@ -1638,12 +1672,6 @@ selection and the cited classification are not formalized.\\
 \texttt{MUBResidual.}\allowbreak\texttt{normalized\_cube\_residual\_rank\_two} & Residual vanishing implies cube rank two
 (Section~\ref{sec:structure}, open step) & Conditional: universal vanishing is a premise; the four-type
 reduction and the classification are not formalized.\\
-\texttt{physical\_cube\_gram\_cap} (module \texttt{MUBSquarefreePhysical}; namespace not printed) &
-Proposition~\ref{prop:cubiccap}, the cap & The complementary-row Fourier condition for all three-sets is a
-premise; the cited non-Tao implication is external. Equality statements not included.\\
-Three theorems of package \texttt{MUBSixPhasePolynomial} (names not printed) &
-Remark~\ref{prop:sixphase}, final step & Only the polynomial positivity decompositions and the envelope
-bound $f+\sqrt g\le98/3$ on $[1,9]$; the case reduction is written.\\
 \bottomrule
 \end{longtable}}
 
@@ -1697,14 +1725,14 @@ python-flint) at $160$ bits of precision, where every quantity is a midpoint wit
       $\norm{R}_F<\tau$ then $\tau I+R$ is positive semidefinite (its eigenvalues are at least
       $\tau-\norm{R}_2\ge\tau-\norm R_F$), so $Q=LL^{T}+(\tau I+R)$ is positive semidefinite. This argument uses that $R$ is symmetric, which holds because $Q$ is
 exactly symmetric; the checker asserts this entry by entry before anything else. Observed:
-      $\norm{R}_F\le9.55\times10^{-15}$ for $\Tz$ and $\le7.83\times10^{-15}$ for $\To$.
+      $\norm{R}_F\le9.56\times10^{-15}$ for $\Tz$ and $\le7.84\times10^{-15}$ for $\To$.
 \item \emph{Residual.} It expands the left side of \eqref{eq:certid} and $z^{T}Qz$ coefficient by coefficient over
       all $12{,}376$ monomials of degree six, in balls, and bounds $S=\sum_m\abs{r_m}$ from above: $S\le2.189\times10^{-12}$
       for $\Tz$ and $S\le2.807\times10^{-12}$ for $\To$.
 \item \emph{Conclusion.} It prints the lower end of $\gamma_0-S$ rounded down to eleven decimals. The checker prints the residual bound on one line (\texttt{(3) residual bound S <= 2.189e-12} for $\Tz$,
       \texttt{S <= 2.807e-12} for $\To$) and ends, for $\Tz$, with
-      \texttt{CERTIFIED (T0): E(psi) >= 0.0385 - S > 0.03849999999 for every unit psi}, and for
-      $\To$ with \texttt{CERTIFIED (T1): E(psi) >= 0.0235 - S > 0.02349999999 for every unit psi}.
+      \texttt{CERTIFIED (T0): E(psi) >= 0.0385 -~S > 0.03849999999 for every unit psi}, and for
+      $\To$ with \texttt{CERTIFIED (T1): E(psi) >= 0.0235 -~S > 0.02349999999 for every unit psi}.
       Hence $\E_{\Tz}\ge0.0385-2.2\times10^{-12}>0.03849999999$ and $\E_{\To}\ge0.0235-2.9\times10^{-12}>0.02349999999$
       (Proposition~\ref{prop:cert6}); the nominal levels $0.0385$ and $0.0235$ are the certified values to within
       $3\times10^{-12}$ and are not certified inequalities.
@@ -1744,8 +1772,8 @@ $t\bigl(2(1+\varepsilon_{\max})^2+t\bigr)$; these amounts are added to every upp
 subtracted from every overlap modulus entering the game score. All other arithmetic is in Arb balls at $160$ bits
 \stcert. The bridge numbers of Corollary~\ref{cor:numbers} are evaluated in the same script with the rounded-down
 certified values $g=0.03849999999$ ($\Tz$) and $g=0.02349999999$ ($\To$), which it prints as
-\texttt{delta >= sqrt(g/18) > 0.046248}, \texttt{game shortfall >= c*g/72 > 3.302291e-04} for $\Tz$ and
-$0.036132$, $2.015684\times10^{-4}$ for $\To$.
+\texttt{delta >= sqrt(g/18) > 0.046248}, \texttt{game shortfall >= c*g/72 > 0.0003302291} for $\Tz$ and
+$0.036132$, $0.0002015684$ for $\To$.
 
 \paragraph{General triples.} The script \texttt{sos\_general.py} contains the same builder and checker for an
 arbitrary set of $18$ unit vectors in $\C^6$, where the vectors themselves may be given as complex balls (rigorous
@@ -2011,7 +2039,7 @@ confirmation, not an interval proof.
 Let $s_\ast=\rsix\arccos(1/\rsix)/(4\pi)=0.2242139\ldots$ For $0\le s<s_\ast$, two vectors in the same ball $\mathcal B(v,s)$ are neither orthogonal nor mutually unbiased. At $s=s_\ast$ there is a mutually unbiased pair in one ball. \stproved
 \end{proposition}
 
-\noindent\emph{Proof idea.} The overlap of two vectors of the ball is $\abs S/6$ with $S=\sum_je^{2\pi iz_j}$, $\sum_jz_j=0$, $\norm z\le2s$. Since $s_\ast<1/4$, all $\abs{2\pi z_j}\le\pi$; the function $u\mapsto\cos\sqrt u$ is convex on $[0,\pi^2]$, so Jensen's inequality gives $\abs S\ge\mathrm{Re}\,S\ge6\cos(4\pi s/\rsix)$, which exceeds $\rsix$ exactly when $s<s_\ast$ (orthogonality needs $\abs S=0$, unbiasedness $\abs S=\rsix$). For sharpness take $\alpha=\arccos(1/\rsix)$, $x=\alpha(1,1,1,-1,-1,-1)/(4\pi)$ and $y=-x$: the overlap is $\cos\alpha=1/\rsix$.
+\noindent\emph{Proof idea.} The overlap of two vectors of the ball is $\abs S/6$ with $S=\sum_je^{2\pi iz_j}$, $\sum_jz_j=0$, $\norm z\le2s$. Since $s_\ast<1/4$, all $\abs{2\pi z_j}\le\pi$; the function $u\mapsto\cos\rsym{u}{u}$ is convex on $[0,\pi^2]$, so Jensen's inequality gives $\abs S\ge\mathrm{Re}\,S\ge6\cos(4\pi s/\rsix)$, which exceeds $\rsix$ exactly when $s<s_\ast$ (orthogonality needs $\abs S=0$, unbiasedness $\abs S=\rsix$). For sharpness take $\alpha=\arccos(1/\rsix)$, $x=\alpha(1,1,1,-1,-1,-1)/(4\pi)$ and $y=-x$: the overlap is $\cos\alpha=1/\rsix$.
 
 \section{The Fourier-pair redo in detail}\label{app:fourierredo}
 
@@ -2040,7 +2068,7 @@ orthogonality in binary64 \stcomp.
 \section{Dimension ten: method}\label{app:ten}
 
 \noindent This appendix describes the computations behind Section~\ref{sec:ten}, all workstream~A. The repository
-re-runs every step: \texttt{d10/roots\_full/certify\_roots.py} (35 s) certifies all $34{,}940$ roots, and
+re-runs every step: \texttt{d10/roots\_full/certify\_roots.py} (about 20 to 35 s) certifies all $34{,}940$ roots, and
 \texttt{d10/check\_d10.py} and \texttt{d10/margin\_arb.py} handle the $3{,}040$ unimodular ones. The only hypothesis of
 Theorem~\ref{thm:ten} is (H).
 
@@ -2068,21 +2096,21 @@ $34{,}940$ boxes are decided: $3{,}040$ unimodular and $31{,}900$ not (undecided
 the stored list of $3{,}040$ points \stcert.
 
 \paragraph{Graph, cliques, margin.} For each pair of the $3{,}040$ enclosures the inner product was enclosed in Arb;
-exactly $57{,}680$ pairs are possibly orthogonal, and every other pair has $\abs{\ip uv}\ge0.0089515$ \stcert. All
+exactly $57{,}680$ pairs are possibly orthogonal, and every other pair has $\abs{\ip uv}\ge0.0089515$ in double precision \stcomp. All
 maximal cliques of this graph were enumerated exactly: $1{,}136$ of size $10$ and $17{,}700$ of size $2$, none larger
 \stcomp. These $1{,}136$ are \emph{candidates}: an enclosure containing $0$ does not prove orthogonality (for $96$ of
-them orthogonality was proved exactly in $\mathbb{Q}(\zeta_{20})$ \stcomp), and the theorem does not need it. For the
+them orthogonality was proved exactly in $\mathbb{Q}(\zeta_{20})$ in an earlier session of workstream A, not re-run for this report \streported), and the theorem does not need it. For the
 margin, in double precision the minimum over $(B,v)$ of the largest defect $\bigl|\abs{\ip uv}^2-10\bigr|$ over $u\in B$
 is $4.1780746$. To make this rigorous, for each $(B,v)$ we chose the maximizing $u$ ($1{,}272{,}177$ distinct pairs) and
 re-evaluated the defect in Arb with every coordinate widened to radius $10^{-15}$, which covers the true roots
 (within $10^{-30}$ of the 40-digit centers, and double rounding moves a coordinate by less than $1.2\times10^{-16}$).
 The certified lower bound is $4.1780746$, that is $0.04178$ after dividing by $\norm u^2\norm v^2=100$ \stcert\
-(\texttt{d10/margin\_arb.py}, 11 s).
+(\texttt{d10/margin\_arb.py}, about 12 s).
 
 \paragraph{Symmetry.} The group of order $1600$ is generated by cyclic shift, modulation, index dilation
 $x_j\mapsto x_{aj}$ with $a\in(\mathbb{Z}/10)^\times$, complex conjugation and the Fourier transform. Each map preserves
-$\{I,F_{10}\}$, so it permutes the $3{,}040$ vectors (10 orbits) and the $1{,}136$ candidate bases (19 orbits)
-\stcomp; matching images to list members was done numerically.
+$\{I,F_{10}\}$, so it permutes the $3{,}040$ vectors (10 orbits) and the $1{,}136$ candidate bases (19 orbits; the orbit counts are
+from the earlier session and were not re-run, except that the energy computation finds 19 classes of bases) \streported; matching images to list members was done numerically.
 
 \paragraph{What the re-check re-implemented.} \texttt{d10/check\_d10.py} was written separately: it re-implements the
 Krawczyk operator (200-bit Arb, half-width $10^{-30}$), the $\sigma$ test, the inner-product screen, the clique
@@ -2147,7 +2175,7 @@ cd near_misses && python3 indep.py
 # Expected last line: Build completed successfully
 lake exe cache get && lake build
 
-# Dimension ten (row 25): 35 s, then about 2 minutes
+# Dimension ten (row 25): about 20 to 35 s, then under 1 minute
 cd d10/roots_full
 python3 certify_roots.py cyclic10_roots.npz out.npz \
         ../upstream_mub10/data/exact/bu10hp_unimod.txt 2
@@ -2180,7 +2208,6 @@ cd .. && python3 check_d10.py upstream_mub10 && python3 margin_arb.py
 \bibitem{FR15} H.~F\"uhr and Z.~Rzeszotnik, \emph{On biunimodular vectors for unitary matrices}, Linear Algebra Appl.\ \textbf{484}, 86--129 (2015), arXiv:1506.06738.
 \bibitem{Tao04} T.~Tao, \emph{Fuglede's conjecture is false in 5 and higher dimensions}, Math.\ Res.\ Lett.\ \textbf{11}, 251--258 (2004).
 \bibitem{GMMP17} M.~Grassl, D.~McNulty, L.~Mi\v{s}ta and T.~Paterek, \emph{Small sets of complementary observables}, Phys.\ Rev.\ A \textbf{95}, 012118 (2017), arXiv:1611.08962.
-\bibitem{Schrijver79} A.~Schrijver, \emph{A comparison of the Delsarte and Lov\'asz bounds}, IEEE Trans.\ Inform.\ Theory \textbf{25}, 425--429 (1979).
 \bibitem{Sarkar26} S.~Sarkar, \emph{Degree-four vector-coordinate SoS cannot detect the MUB upper bound}, arXiv:2606.13903 (2026).
 \bibitem{Ivanovic81} I.~D.~Ivanovi\'c, \emph{Geometrical description of quantal state determination}, J.\ Phys.\ A \textbf{14}, 3241--3245 (1981).
 \bibitem{BBELTZ07} I.~Bengtsson, W.~Bruzda, \AA.~Ericsson, J.-\AA.~Larsson, W.~Tadej and K.~\.Zyczkowski, \emph{Mutually unbiased bases and Hadamard matrices of order six}, J.\ Math.\ Phys.\ \textbf{48}, 052106 (2007), arXiv:quant-ph/0610161.
@@ -2200,7 +2227,6 @@ cd .. && python3 check_d10.py upstream_mub10 && python3 margin_arb.py
 \bibitem{Bjorck90} G.~Bj\"orck, \emph{Functions of modulus $1$ on $\mathbb{Z}_n$ whose Fourier transforms have constant modulus, and ``cyclic $n$-roots''}, in \emph{Recent Advances in Fourier Analysis and its Applications}, NATO Adv.\ Sci.\ Inst.\ Ser.\ C Math.\ Phys.\ Sci.\ \textbf{315}, Kluwer, 1990, pp.~131--140.
 \bibitem{BS95} G.~Bj\"orck and B.~Saffari, \emph{New classes of finite unimodular sequences with unimodular Fourier transforms. Circulant Hadamard matrices with complex entries}, C.\ R.\ Acad.\ Sci.\ Paris S\'er.\ I Math.\ \textbf{320}, 319--324 (1995).
 \bibitem{Faugere02} J.-C.~Faug\`ere, \emph{A new efficient algorithm for computing Gr\"obner bases without reduction to zero ($F_5$)}, Proc.\ 2002 Int.\ Symp.\ Symbolic and Algebraic Computation (ISSAC), ACM, 2002, pp.~75--83, doi:10.1145/780506.780516.
-\bibitem{Steel04} A.~Steel, \emph{Gr\"obner basis timings page} (entry ``Cyclic 10''; quotient of dimension $34940$ over a prime field; computation of August 2004), \texttt{magma.maths.usyd.edu.au/users/allan/gb/}, web page, accessed 15 November 2026.
 \bibitem{GR00} O.~Goldreich and D.~Ron, \emph{On testing expansion in bounded-degree graphs}, Electronic Colloquium on Computational Complexity, Report TR00-020 (2000).
 \bibitem{Paninski08} L.~Paninski, \emph{A coincidence-based test for uniformity given very sparsely sampled discrete data}, IEEE Trans.\ Inform.\ Theory \textbf{54}, 4750--4755 (2008).
 \bibitem{Hoeffding48} W.~Hoeffding, \emph{A class of statistics with asymptotically normal distribution}, Ann.\ Math.\ Statist.\ \textbf{19}, 293--325 (1948).

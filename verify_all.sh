@@ -63,10 +63,10 @@ step() {
 
 # ---------------------------------------------------------------------------------------------------- certificates
 step S01 "C4 C5 C23 C25" "degree-six interval certificate, canonical triple T0 (Arb checker)" "$R/cert" \
-  "CERTIFIED \(T0\):  E\(psi\) >= 0.0385 - S  >  0.03849999999|||residual bound S <= 2.189e-12|||\|\|Q - tau I - L L\^T\|\|_F <= 9.550e-15" \
+  "CERTIFIED \(T0\):  E\(psi\) >= 0.0385 - S  >  0.03849999999|||residual bound S <= 2.189e-12|||\|\|Q - tau I - L L\^T\|\|_F <= 9.55" \
   nice -n 5 python3 verify.py 0.0385 Q_T0_gamma0.0385.npy T0
 step S02 "C4 C5 C25" "degree-six interval certificate, second product triple T1 (Arb checker)" "$R/cert" \
-  "CERTIFIED \(T1\):  E\(psi\) >= 0.0235 - S  >  0.02349999999|||residual bound S <= 2.807e-12|||\|\|Q - tau I - L L\^T\|\|_F <= 7.831e-15" \
+  "CERTIFIED \(T1\):  E\(psi\) >= 0.0235 - S  >  0.02349999999|||residual bound S <= 2.807e-12|||\|\|Q - tau I - L L\^T\|\|_F <= 7.83" \
   nice -n 5 python3 verify.py 0.0235 Q_T1_gamma0.0235.npy T1
 step S03 "C32 C33 C35" "bias and game bounds for any fourth basis, and the two explicit four-basis sets (Arb; upper bounds rounded up, lower bounds rounded down)" "$R/cert" \
   "exact set has worst-case bias delta <= 0.030223873   \(rounded up\)|||shortfall <= 0.0002357826 \(rounded up\)|||exact set has worst-case bias delta <= 0.040598666|||shortfall <= 0.0006180870 \(rounded up\)|||T0: any 4 bases containing it:  delta >= sqrt\(g/18\) > 0.046248 ;  game shortfall >= c\*g/72 > 0.0003302291   \(both rounded down\)|||T1: any 4 bases containing it:  delta >= sqrt\(g/18\) > 0.036132 ;  game shortfall >= c\*g/72 > 0.0002015684   \(both rounded down\)" \

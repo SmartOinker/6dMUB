@@ -1,4 +1,4 @@
-\documentclass[aspectratio=169,11pt]{beamer}
+\documentclass[aspectratio=169,11pt,t]{beamer}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{lmodern}
@@ -17,6 +17,7 @@
 \setbeamercolor{background canvas}{bg=white}
 \setbeamercolor{normal text}{fg=black!85}
 \setbeamercolor{structure}{fg=accent}
+\setbeamercolor{soft}{bg=soft}
 \setbeamersize{text margin left=0.6cm,text margin right=0.6cm}
 \setbeamertemplate{itemize items}[circle]
 \setbeamercolor{itemize item}{fg=hl}
@@ -27,10 +28,10 @@
   \vskip0.18cm
   \begin{beamercolorbox}[wd=\paperwidth,leftskip=0.6cm,rightskip=0.6cm,sep=0pt]{frametitle}
     \parbox{\dimexpr\paperwidth-1.2cm}{\raggedright\bfseries\large\color{accent}\insertframetitle\par}
-    \vskip1pt{\color{hl}\rule{2.2cm}{1.4pt}}
-  \end{beamercolorbox}\vskip-0.05cm}
+    \vskip3pt{\color{hl}\rule{1.6cm}{1.2pt}}
+  \end{beamercolorbox}\vskip-0.2cm}
 \setbeamertemplate{footline}{%
-  \leavevmode\hbox to\paperwidth{\hspace*{0.6cm}\color{black!55}\tiny Tee, Xinrui, Fong How \textbullet\ Missing fourth basis in dimension six\hfill\insertframenumber\hspace*{0.6cm}}\vskip0.18cm}
+  \leavevmode\hbox to\paperwidth{\hspace*{0.6cm}\color{black!50}\scriptsize Tee, Li, Fong \textbullet\ Missing fourth basis in dimension six\hfill{\color{accent}\bfseries\insertframenumber}\hspace*{0.6cm}}\vskip0.18cm}
 
 % ---------- status tags (the report's vocabulary) ----------
 \newcommand{\tg}[2]{{\setlength{\fboxsep}{1.2pt}\colorbox{#1}{\textcolor{white}{\sffamily\bfseries\footnotesize\,#2\,}}}}
@@ -38,12 +39,12 @@
 \definecolor{cLean}{HTML}{0E7C86}
 \definecolor{cLeanH}{HTML}{0A5C63}
 \definecolor{cCert}{HTML}{1F4FB5}
-\definecolor{cComp}{HTML}{5B6B7F}
+\definecolor{cComp}{HTML}{4C6280}
 \definecolor{cNum}{HTML}{C77700}
-\definecolor{cCited}{HTML}{7A7A7A}
+\definecolor{cCited}{HTML}{6F6F6F}
 \definecolor{cCond}{HTML}{7B3FA0}
 \definecolor{cOpen}{HTML}{B3262B}
-\definecolor{cRep}{HTML}{3D6B3D}
+\definecolor{cRep}{HTML}{8A5A2B}
 \newcommand{\Tproved}{\tg{cProved}{proved here}}
 \newcommand{\Tleanh}{\tg{cLeanH}{Lean-checked here}}
 \newcommand{\Tlean}{\tg{cLean}{Lean-checked, as reported}}
@@ -74,19 +75,20 @@
 
 % ======================= TITLE =======================
 \begin{frame}[plain]
-\vspace*{0.3cm}
+\vspace*{0.2cm}
 \begin{center}
 {\bfseries\LARGE\color{accent} The missing fourth basis in dimension six:\\[2pt] what is verified, how far away it is,\\[2pt] and how to see it\par}
 \vspace{0.2cm}
 {\color{hl}\rule{3cm}{1.6pt}}\\[0.25cm]
-{\large Ren Jie Tee (UC Berkeley), Xinrui, Raymond Fong How (Georgia Tech)\par}
+{\large Ren Jie Tee (UC Berkeley), Xinrui Li (Caltech), Raymond Fong (Georgia Tech)\par}
 \vspace{0.15cm}
 {\normalsize Caltech $\times$ SAIR Mathathon, Problem 124 \textbullet\ Track: Computation/Applied Mathematics\par}
 \vspace{0.3cm}
-\begin{beamercolorbox}[wd=0.97\textwidth,sep=3pt,rounded=true]{soft}
-\raggedright\footnotesize
-\textbf{Every claim carries a status tag.}\\[2pt]
-\begin{tabular}{@{}l@{\ }l@{\ }l@{\ }l@{}}
+\begin{beamercolorbox}[wd=0.97\textwidth,sep=4pt,rounded=true]{soft}
+\centering\footnotesize
+{\color{accent}\bfseries Every claim carries a status tag.}\\[4pt]
+\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{@{}l@{\hspace{5pt}}l@{\hspace{0.45cm}}l@{\hspace{5pt}}l@{}}
 \Tproved & proof in the report & \Tcond & needs a hypothesis\\[1pt]
 \Tleanh & Lean build by us & \Topen & unproved\\[1pt]
 \Tlean & Lean build by teammate & \Tcited & from the literature\\[1pt]
@@ -111,13 +113,13 @@
 \end{column}
 \begin{column}{0.5\textwidth}
 \centering
-\begin{tikzpicture}[font=\footnotesize,x=0.125cm]
+\begin{tikzpicture}[font=\footnotesize,x=0.14cm,y=1.1cm]
  \node[anchor=west] at (0,3.75) {a six-level state: 35 real parameters};
- \fill[black!30] (0,3.0) rectangle (35,3.4);
+ \fill[black!30] (0,3.0) rectangle (35,3.4); \node[anchor=west,font=\small\bfseries,black!60] at (35,3.2) {35};
  \node[anchor=west] at (0,2.45) {complete set, 7 bases $\times$ 5 = 35};
- \fill[hl!20] (0,1.7) rectangle (35,2.1); \draw[hl,dashed] (0,1.7) rectangle (35,2.1);
+ \fill[hl!20] (0,1.7) rectangle (35,2.1); \draw[hl,dashed] (0,1.7) rectangle (35,2.1); \node[anchor=west,font=\small\bfseries,hl] at (35,1.9) {35};
  \node[anchor=west] at (0,1.15) {three bases, 3 $\times$ 5 = 15};
- \fill[accent] (0,0.4) rectangle (15,0.8);
+ \fill[accent] (0,0.4) rectangle (15,0.8); \node[anchor=west,font=\Large\bfseries,accent] at (15,0.6) {15};
  \node[anchor=west,font=\footnotesize] at (0,-0.15) {each basis gives 5 independent probabilities \Tcited};
 \end{tikzpicture}
 \end{column}
@@ -134,7 +136,7 @@
 \midrule
 Method & 249,878 seed centers, then graph search & same method, re-implemented & 2,775 balls plus one at the Fourier matrix\\
 Arithmetic & binary64 with margins & binary64 intervals & Arb balls\\
-Lean & proves $N(6)\le5$ only & none & certificate $\Rightarrow$ no four MUBs; numbers outside Lean\\
+Lean & $N(6)\le5$ by its own scope note; read, not rebuilt by us & none & certificate $\Rightarrow$ no four MUBs; numbers outside Lean\\
 \bottomrule
 \end{tabular}\\[0.4cm]
 \raggedright\small\hspace{0.2cm}\Tcited\ Reading is not verification: we did not check their mathematics, and our map of Jaswal rests on a summary.
@@ -178,11 +180,11 @@ $\{5,5,3,1\}_6$ & $7.32788656303688\times10^{-4}$ & $1.5\times10^{-8}$ & $10^{-7
 \small
 $T_0$: qubit $Z,X,Y$ bases tensor qutrit $I_3,F_3,DF_3$ bases, all local. $E(\psi)=\sum_{18\text{ outcomes}}(p-\tfrac16)^2$.\\[0.15cm]
 \centering
-\begin{tikzpicture}[x=250cm,y=1cm,font=\footnotesize]
+\begin{tikzpicture}[x=270cm,y=1.05cm,font=\footnotesize]
  \draw[->,thick] (-0.001,0)--(0.0455,0) node[right] {$E$};
- \foreach \t in {0,0.01,0.02,0.03,0.04} {\draw (\t,0.08)--(\t,-0.08) node[below=1pt] {\t};}
- \fill[cCert!25] (0,-0.14) rectangle (0.0385,0.14);
- \node[align=center] at (0.0192,0.62) {no pure state here};
+ \foreach \t in {0.01,0.02,0.03} {\draw (\t,-0.2)--(\t,-0.28) node[below=0pt,black!60] {\t};}
+ \fill[cCert!18] (0,-0.2) rectangle (0.0385,0.2);
+ \node[align=center,font=\small,cCert!70!black] at (0.0192,0) {no pure state here};
  \fill[hl] (0,0) circle (2.5pt); \draw (0,0)--(0,-0.8);
  \node[below right,align=left,inner sep=1pt] at (0,-0.75) {$E=0$: what a fourth-basis\\ vector would need};
  \fill[cCert] (0.0385,0) circle (2.5pt); \draw (0.0385,0)--(0.0385,0.85);
@@ -195,7 +197,7 @@ $T_0$: qubit $Z,X,Y$ bases tensor qutrit $I_3,F_3,DF_3$ bases, all local. $E(\ps
 \end{frame}
 
 % ======================= 6 =======================
-\begin{frame}{A one-vector bound becomes a bound on every fourth basis, and this bridge is Lean-checked}
+\begin{frame}{A one-vector bound becomes a bound on every fourth basis; Lean checks it as inequalities, given the energy bound}
 \small
 \begin{beamercolorbox}[wd=\textwidth,sep=4pt,rounded=true]{soft}
 \centering
@@ -203,32 +205,33 @@ $\displaystyle\sqrt p\le\tfrac1{\sqrt6}+\tfrac{\sqrt6}2\bigl(p-\tfrac16\bigr)-\c
 \end{beamercolorbox}
 \vspace{0.2cm}
 \begin{itemize}\setlength\itemsep{5pt}
-\item \textbf{Theorem.} If $E\ge\gamma$ on every unit vector, any fourth basis has bias $\ge\sqrt{\gamma/18}$ and game loss $\ge\cstar\gamma/72$. \Tproved\ \Tleanh
+\item \textbf{Theorem.} If $E\ge\gamma$ on every unit vector, any fourth basis has bias $\ge\sqrt{\gamma/18}$ and game loss $\ge\cstar\gamma/72$. \Tproved
 \item \emph{Bias:} largest deviation of a squared overlap from $\tfrac16$. \emph{Game loss:} shortfall in a random-access-code game.
-\item Lean 4, our local build: for orthonormal bases of $\C^6$; the game score is defined by its formula.
+\item Lean 4, our local build (\texttt{MUB6Bridge}: 4 files, 45 declarations, no \texttt{sorry}): inequalities about orthonormal bases of $\C^6$, the energy bound a hypothesis; the game score is \emph{defined} by its formula. Not in Lean: the energy bounds, optimality of the formula (cited). Competition build not run by us.
 \end{itemize}
 \end{frame}
 
 % ======================= 7 =======================
-\begin{frame}{The best quadruples are not completions of the local triple: bias $0.030224$ beats every completion of $T_0$ ($>0.046248$)}
+\begin{frame}{One explicit quadruple beats every completion of the local triple on both measures; another reaches bias $0.030224$}
 \small
 A quadruple is four bases; smaller is closer to four unbiased bases. Shaded: impossible for any fourth basis added to $T_0$.\\[0.1cm]
 \centering
-\begin{tikzpicture}[font=\footnotesize]
- \node[anchor=east] at (-0.15,1.75) {\textbf{bias}};
- \draw[->] (0,1.75)--(6.9,1.75);
- \fill[hl!20] (0,1.6) rectangle (5.55,1.9);
- \draw (0,1.8)--(0,1.7) node[below=0pt] {0};
- \fill[cCert] (3.627,1.75) circle (2.5pt); \node[above,align=center] at (3.627,1.9) {explicit quadruple 1 $\le0.030224$ \Tcert};
- \fill[hl] (5.55,1.75) circle (2.5pt); \node[below,align=center] at (5.55,1.55) {every completion of $T_0$ $>0.046248$ \Tproved};
+\begin{tikzpicture}[font=\footnotesize,x=1.15cm]
+ \node[anchor=east] at (-0.15,2.05) {\textbf{bias}};
+ \draw[->] (0,2.05)--(6.9,2.05);
+ \fill[hl!20] (0,1.9) rectangle (5.55,2.2);
+ \draw (0,2.1)--(0,2.0) node[below=0pt] {0};
+ \fill[cCert] (3.627,2.05) circle (2.5pt); \node[above,anchor=south east,align=right] at (3.7,2.2) {quadruple 1 $\le0.030224$ \Tcert};
+ \fill[cCert] (4.872,2.05) circle (2.5pt); \node[above,anchor=south west,align=left] at (4.8,2.2) {quadruple 2 $\le0.040599$ \Tcert};
+ \fill[hl] (5.55,2.05) circle (2.5pt); \node[below,align=center] at (5.55,1.85) {every completion of $T_0$ $>0.046248$ \Tproved};
  \node[anchor=east] at (-0.15,0) {\textbf{game loss}};
  \draw[->] (0,0)--(6.9,0);
  \fill[hl!20] (0,-0.15) rectangle (4.95,0.15);
  \draw (0,0.05)--(0,-0.05) node[below=0pt] {0};
- \fill[cCert] (3.54,0) circle (2.5pt); \node[above,align=center] at (3.54,0.15) {explicit quadruple 2 $\le2.358\times10^{-4}$ \Tcert};
+ \fill[cCert] (3.54,0) circle (2.5pt); \node[above,align=center] at (3.54,0.15) {quadruple 2 $\le2.358\times10^{-4}$ \Tcert};
  \fill[hl] (4.95,0) circle (2.5pt); \node[below,align=center] at (4.95,-0.15) {completions $>3.302\times10^{-4}$ \Tproved};
 \end{tikzpicture}\\[0.1cm]
-\raggedright\hspace{0.2cm}No bias-optimal and no game-optimal quadruple contains $T_0$. For the second product triple the bias claim holds and the game comparison is inconclusive.
+\raggedright\hspace{0.2cm}Quadruple 2 (game-optimized) wins on both measures; quadruple 1 (bias-optimized) has the lowest bias found. So no bias-optimal and no game-optimal quadruple contains $T_0$. For the second product triple the bias claim holds and the game comparison is inconclusive.
 \end{frame}
 
 % ======================= 8 =======================
@@ -247,16 +250,16 @@ Rule of thumb & 239 & 99\% & 0.1\% & \Tcomp\ approximation\\
 \bottomrule
 \end{tabular}\\[0.25cm]
 \raggedright\small
-\hspace{0.2cm}Not new: the classical collision test (Goldreich--Ron, Paninski) \Tcited. Ours: the certified gap. Lean: identity and arithmetic only.
+\hspace{0.2cm}Not new: the classical collision test (Goldreich--Ron, Paninski) \Tcited. Ours: the certified gap. Lean: the identity, four variance-step inequalities and the shot arithmetic only; no probability statement.
 \end{frame}
 
 % ======================= 9 =======================
 \begin{frame}{In simulation, three local settings and modest gate noise suffice, while the game route needs about $10^{8}$ rounds}
 \begin{columns}[T]
-\begin{column}{0.47\textwidth}
+\begin{column}{0.5\textwidth}
 \centering
 \begin{tikzpicture}
-\begin{axis}[width=5.9cm,height=4.2cm,xmin=0,xmax=500,ymode=log,ymin=4e-4,ymax=1.6,
+\begin{axis}[width=7.0cm,height=5.0cm,xmin=0,xmax=500,ymode=log,ymin=4e-4,ymax=1.6,
   xlabel={shots per setting $N$},ylabel={detection probability},grid=major,
   tick label style={font=\footnotesize},label style={font=\footnotesize},xlabel style={yshift=2pt},ylabel style={yshift=-3pt}]
 \addplot[thick,accent] coordinates {(10,0.0048) (25,0.0224) (50,0.1078) (75,0.2733) (100,0.4812) (125,0.6751)
@@ -264,15 +267,19 @@ Rule of thumb & 239 & 99\% & 0.1\% & \Tcomp\ approximation\\
 \addplot[only marks,mark=o,hl] coordinates {(50,0.0957) (79,0.30025) (100,0.47565) (126,0.6884) (158,0.8604)
   (199,0.9628) (251,0.9957) (316,0.9998)};
 \addplot[thick,dashed,black!70] coordinates {(0,0.001) (500,0.001)};
+\node[font=\footnotesize,accent,anchor=west] at (axis cs:330,0.35) {model};
+\node[font=\footnotesize,hl,anchor=west,fill=white,inner sep=1pt] at (axis cs:150,0.025) {simulation};
+\draw[hl] (axis cs:155,0.035)--(axis cs:126,0.55);
+\node[font=\footnotesize,black!70,anchor=south east] at (axis cs:495,0.0011) {$d=4$ control};
 \end{axis}
 \end{tikzpicture}\\[1pt]
-\footnotesize line: model; circles: simulation; dashed: $d=4$ control. \Tcomp\ No hardware run.
+\small\Tcomp\ No hardware run.
 \end{column}
-\begin{column}{0.53\textwidth}
-\begin{itemize}\small\setlength\itemsep{4pt}
+\begin{column}{0.5\textwidth}
+\begin{itemize}\small\setlength\itemsep{6pt}
 \item Purity witness: uniform statistics force the largest eigenvalue $\le0.8232$. \Tproved
 \item No qubit-qutrit entangling gate; shots for 50\% detection: 589 ideal, 646 at 1\% gate error, 1,500 at 10\%. \Tcomp
-\item Dimension four: a hiding state exists, never caught. \Tcomp
+\item Dimension-four control: $(1,1,i,-i)/2$ is exactly uniform in $ZZ,XX,YY$, never caught. \Tproved\ \Tcomp
 \item Game: $9.37\times10^{7}$ rounds, a different question. \Tcomp
 \end{itemize}
 \end{column}
@@ -290,9 +297,9 @@ $H$: order-six complex Hadamard matrix; $\hcube{H}$: its entrywise cube.\\[0.1cm
 \toprule
 Result & Status\\
 \midrule
-$\operatorname{rank}\hcube{H}\le2$ iff Fourier family, transpose or Tao class & \Tproved\ + \Tcited\ ingredient\\
-Cubic norm cap $\norm{\hcube{H}}^2\le18$ outside the Tao class & \Tproved\ + \Tcited\ ingredient\\
-Degree-four SOS relaxation of $\min E$ on $T_0$ has optimum exactly $0$ & \Tcert\ (exact arithmetic)\\
+$\operatorname{rank}\hcube{H}\le2$ iff Fourier family, transpose or Tao class & \tg{cProved}{proved in supplement} + \Tcited\ ingredient\\
+Cubic norm cap $\norm{\hcube{H}}^2\le18$ outside the Tao class & \tg{cProved}{proved in supplement} + \Tcited\ ingredient\\
+Degree-four SOS relaxation of $\min E$ on $T_0$ has optimum exactly $0$ & \Tcomp\ (exact arithmetic)\\
 $E>1/72$ on $T_0$, analytic & \Tlean\\
 Universal step & \Topen\\
 \bottomrule
@@ -324,7 +331,7 @@ extending vectors & 0 & 0\\
 \begin{column}{0.6\textwidth}
 \begin{itemize}\small\setlength\itemsep{3pt}
 \item (H): cyclic 10-roots number at most $34{,}940$ (cited, not verified by us). Margin $0.04178$. \Tcond
-\item Grassl, McNulty, Mi\v{s}ta, Paterek (2017): to our reading their dimension-ten example, where it contains $I$ and $F_{10}$, is a special case of our theorem, independent of (H); not reproduced. \Tcited
+\item Grassl, McNulty, Mi\v{s}ta, Paterek (2017): to our reading their dimension-ten example concerns a triple of this kind, handled there without a root-count hypothesis; not reproduced by us. \Tcited
 \item Energy: no certified bound; numerical minimum $0.0202$. \Tnum
 \end{itemize}
 \end{column}
@@ -334,22 +341,22 @@ extending vectors & 0 & 0\\
 % ======================= 12 =======================
 \begin{frame}{Every claim has a status; AI did most of the computing and first drafts, and we claim no line-by-line human refereeing}
 \centering\footnotesize
-\renewcommand{\arraystretch}{1.2}
+\renewcommand{\arraystretch}{1.02}
 \begin{tabular}{@{}>{\raggedright\arraybackslash}p{4.6cm}>{\raggedright\arraybackslash}p{9.5cm}@{}}
 \toprule
 \Tproved & bridge theorem; detection guarantee; purity witness\\
-\Tleanh & square-root lemma; bridge theorem; shot-count arithmetic. Not the energy certificates, probability statements, purity witness or dimension ten\\
+\Tleanh & cap inequality; bridge theorem \emph{as inequalities about orthonormal bases of $\C^6$, given the energy bound as a hypothesis}; corollary as an implication; shot arithmetic. Not: energy bounds, score optimality, ``bias'', probabilities, purity, dimension ten\\
 \Tcert & energy bounds; 2008 near-misses; explicit quadruples; 34,940 roots\\
 \Tcomp & mutation test; partial rebuild; 239 shots (approximation)\\
-\Tlean & $E>1/72$ (teammate's Lean build)\\
+\Tlean & $E>1/72$ (teammate's Lean build; reported, not re-run by us)\\
 \Trep & full native rerun; six-phase bound\\
 \Tcited & exact minimum (Erlwein); no end-to-end formal proof of $N(6)=3$\\
 \Tcond & dimension ten, given (H)\\
 \Topen & universal step; certified bound over all triples\\
 \bottomrule
-\end{tabular}\\[0.15cm]
-\begin{beamercolorbox}[wd=\textwidth,sep=4pt,rounded=true]{soft}
-\raggedright\footnotesize\textbf{AI use.} Claude, Codex and open-weight agents did most computations and wrote the first drafts. Each certified bound has a separate checker; hostile AI review rounds are logged. Checkers not read line by line by a human.
+\end{tabular}\\[0.1cm]
+\begin{beamercolorbox}[wd=\textwidth,sep=3pt,rounded=true]{soft}
+\raggedright\footnotesize\textbf{AI use.} Claude, Codex and open-weight agents did most computations and wrote the first drafts. Each certified bound has a separate checker; five logged rounds of hostile AI review (about 120 findings). Checkers not read line by line by a human.
 \end{beamercolorbox}
 \end{frame}
 
@@ -357,26 +364,29 @@ extending vectors & 0 & 0\\
 \begin{frame}{To our knowledge nothing is formal end to end, but the missing basis now has certified numbers and a laboratory test}
 \small
 \begin{columns}[T]
-\begin{column}{0.33\textwidth}
+\begin{column}{0.32\textwidth}
 \begin{beamercolorbox}[wd=\textwidth,sep=4pt,rounded=true]{soft}
-\textbf{How do we know?}\\[3pt]
-17 of 26 corruptions caught; two 2008 near-misses. \Tcomp\ \Tcert
+{\color{accent}\bfseries How do we know?}\\[4pt]
+{\Large\bfseries\color{accent}17 of 26}\\[3pt]
+corruptions caught; two 2008 near-misses. \Tcomp\ \Tcert
 \end{beamercolorbox}
 \end{column}
-\begin{column}{0.33\textwidth}
+\begin{column}{0.32\textwidth}
 \begin{beamercolorbox}[wd=\textwidth,sep=4pt,rounded=true]{soft}
-\textbf{By how much?}\\[3pt]
-$E>0.0384999$ for $T_0$. A fourth basis added to $T_0$: bias $>0.046248$. \Tproved
+{\color{accent}\bfseries By how much?}\\[4pt]
+{\Large\bfseries\color{accent}$E>0.0384999$}\\[3pt]
+for $T_0$. A fourth basis added to $T_0$: bias $>0.046248$. \Tproved
 \end{beamercolorbox}
 \end{column}
-\begin{column}{0.33\textwidth}
+\begin{column}{0.32\textwidth}
 \begin{beamercolorbox}[wd=\textwidth,sep=4pt,rounded=true]{soft}
-\textbf{In a laboratory?}\\[3pt]
-1,936 shots per setting expose every pure state, ideal measurements. \Tproved
+{\color{accent}\bfseries In a laboratory?}\\[4pt]
+{\Large\bfseries\color{accent}1,936}\\[3pt]
+shots per setting expose every pure state, ideal measurements. \Tproved
 \end{beamercolorbox}
 \end{column}
 \end{columns}
-\vspace{0.3cm}
+\vspace{0.5cm}
 \raggedright\small\textbf{Open:} bound over all triples and quadruples; universal step; (H); hardware run. \Topen
 \end{frame}
 
@@ -385,7 +395,7 @@ $E>0.0384999$ for $T_0$. A fourth basis added to $T_0$: bias $>0.046248$. \Tprov
 \centering\vspace*{2.4cm}
 {\bfseries\Huge\color{accent} Backup}\\[0.2cm]
 {\color{hl}\rule{2cm}{1.6pt}}\\[0.3cm]
-\small square-root lemma \textbullet\ finite-sample theorem \textbullet\ degree-six certificate \textbullet\ Lean declarations\\
+\footnotesize\color{black!70} square-root lemma \textbullet\ finite-sample theorem \textbullet\ degree-six certificate \textbullet\ Lean declarations\\[2pt]
 the 16 Fourier-pair triples \textbullet\ phase-ball radius \textbullet\ six-phase bound and quartic obstruction \textbullet\ mutation test
 \end{frame}
 
@@ -436,12 +446,12 @@ $N\,E_{\mathrm{hom}}-\gamma_0N^3=z^{T}Qz+r$, with $z$ the 364 cubic monomials in
 % ======================= B4 =======================
 \begin{frame}{Backup: what is Lean-checked, by whom, and what is not}
 \footnotesize
-\begin{itemize}\setlength\itemsep{3pt}
-\item \textbf{Project \texttt{MUB6Bridge}}, built by workstream A with Lean v4.35.0 and Mathlib v4.35.0: no \texttt{sorry}, no \texttt{native\_decide}, only the axioms \texttt{propext}, \texttt{Classical.choice}, \texttt{Quot.sound}; the automated competition build has not been run by us. \Tleanh
-\item \textbf{Checked:} \texttt{sqrt\_le\_quadratic\_cap} (the inequality, not its equality cases); \texttt{bridge\_bias}; \texttt{bridge\_game}; \texttt{numbers\_T0}, \texttt{numbers\_T1} given the certified energy bounds; \texttt{pearson\_eq\_collision}, \texttt{zeta1\_le\_second\_moment}, \texttt{second\_moment\_le}, \texttt{shots\_T0} (arithmetic only).
-\item \textbf{The game score is defined in Lean by its formula;} that the formula is the optimal success probability is cited, not formalized.
-\item \textbf{Not formalized:} the energy certificates, the probability statements (variance formula, Cantelli), the purity witness, the dimension-ten theorem, the certificate checker.
-\item \textbf{$E>1/72$:} workstream B's Lean project, built by B and not rebuilt by A. \Tlean
+\begin{itemize}\setlength\itemsep{1pt}
+\item \textbf{\texttt{MUB6Bridge}:} 4 files, 45 declarations, built locally by us, Lean v4.35.0, Mathlib v4.35.0: no \texttt{sorry}, standard axioms only. Competition build not run by us. \Tleanh
+\item \textbf{Checked:} \texttt{sqrt\_le\_quadratic\_cap} (the cap inequality, not its equality cases); \texttt{bridge\_bias}, \texttt{bridge\_game} as inequalities about orthonormal bases of $\C^6$, the energy bound a hypothesis; \texttt{corollary\_T0}, \texttt{corollary\_T1} as an implication (\emph{if} every unit vector has $E\ge0.03849999999$, \emph{then} bias $>0.046248$ and game loss $>3.302\times10^{-4}$); \texttt{gameScore\_le} (no four bases score above $\tfrac12+\tfrac{\sqrt6}{12}$); for the finite-sample theorem only the identity $X^2=15+6(N-1)T$, four elementary variance-step inequalities and the arithmetic of all five shot counts.
+\item \textbf{The game score is defined in Lean by its formula;} that it is the optimal success probability is cited, not formalized.
+\item \textbf{Not Lean-verified:} the energy bounds (interval arithmetic outside Lean); ``bias'' as a defined notion; every probability statement, so not the finite-sample theorem; the purity witness; dimension ten.
+\item \textbf{$E>1/72$:} a teammate's Lean project, built by that teammate; reported, not re-run by us. \Tlean
 \end{itemize}
 \end{frame}
 
@@ -480,11 +490,11 @@ $s_\ast=\sqrt6\,\arccos(1/\sqrt6)/(4\pi)=0.2242139\ldots$, workstream C, not use
 % ======================= B7 =======================
 \begin{frame}{Backup: the six-phase bound is sharp, and degree four cannot see the obstruction}
 \footnotesize
-\textbf{Six-phase bound.} If $\abs{z_j}=1$ and $\sum_{j=1}^6z_j=\sqrt6$, then $\abs{\sum z_j^3}\le7\sqrt6/3$, with equality at three copies of $(1+i\sqrt5)/\sqrt6$ and three of its conjugate. Written proof of workstream B, not re-derived by us \Trep; Lean is reported to check the final envelope step \Tlean; 4,000 constrained maximizations reach $7\sqrt6/3$ \Tnum\\[0.2cm]
+\textbf{Six-phase bound.} If $\abs{z_j}=1$ and $\sum_{j=1}^6z_j=\sqrt6$, then $\abs{\sum z_j^3}\le7\sqrt6/3$, with equality at three copies of $(1+i\sqrt5)/\sqrt6$ and three of its conjugate. Written proof of workstream B, not re-derived by us \Trep; workstream B also reports a Lean check of the final envelope step, with no fixed revision, so we make no Lean claim for it; 4,000 constrained maximizations reach $7\sqrt6/3$ \Tnum\\[0.2cm]
 \textbf{Quartic SOS obstruction.} For $T_0$ the degree-four relaxation of $\min E$ has optimum exactly $0$.
 \begin{itemize}\setlength\itemsep{2pt}
 \item Certificate: a linear functional $L$ with $L(p^2)\ge0$ for every quadratic $p$, $L(E_{\mathrm{hom}})=0$, $L(N^2)=1$; $78\times78$ pseudomoment matrix, positive semidefinite of rank $63$.
-\item Our functional (693 nonzero moments) is verified in exact arithmetic over $\mathbb{Q}(\sqrt3)$: 1,404 equations. \Tcert\ Workstream B's functional (342 nonzero moments) is \Trep. A double-precision solver gives $-2.1\times10^{-8}$ with 63 large eigenvalues. \Tnum
+\item Our functional (693 nonzero moments) is verified in exact arithmetic over $\mathbb{Q}(\sqrt3)$: 1,404 constraints. \Tcert\ Workstream B's functional is \Trep. A double-precision solver gives $-2.1\times10^{-8}$ with 63 large eigenvalues. \Tnum
 \item No degree-four certificate proves a positive bound; degree six is the first level that can.
 \end{itemize}
 \end{frame}

@@ -28,9 +28,9 @@ Consequences, stated here for arrays of real numbers (the squared overlaps `p = 
           total 6 for each `r`, and energy `γ ≤ ∑_{r,k} (q r k j - 1/6)^2` for each `j`, then
           `∑ √q ≤ 18 √6 - 6 c* γ`.
 
-Difference from the paper statement: the paper speaks about orthonormal bases of `ℂ^6`; the facts
-`0 ≤ |⟨e,g⟩|^2 ≤ 1` and `∑_{i,j} |⟨e_i,g_j⟩|^2 = 6` (Parseval) are proved on paper, not here, unless the
-file `Bases.lean` is part of the built project.
+Difference from the paper statement: the paper speaks about orthonormal bases of `ℂ^6`; this file is about arrays
+of real numbers. The facts `0 ≤ |⟨e,g⟩|^2 ≤ 1` and `∑_{i,j} |⟨e_i,g_j⟩|^2 = 6` (Parseval) that connect the two are
+proved in `Bases.lean` (`sq_overlap_le_one`, `sq_overlap_total`), which is part of the built project.
 
 STATUS: this file builds with Lean v4.35.0 and Mathlib v4.35.0 (see `lean/README.md` and `lean/BUILD_LOG.txt`).
 -/
