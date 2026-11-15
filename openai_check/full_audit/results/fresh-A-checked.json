@@ -1,0 +1,21 @@
+{
+  "coarse_outputs": {
+    "coarse0.bin": {
+      "sha256": "77b0cda59484ffde0654db8d6008bcaab1daf1deefd00d4dc085d3d751418cd4",
+      "exact_released_bytes": true
+    },
+    "coarse1.bin": {
+      "sha256": "48ca7775dba57a87a10d154da8b172074b29c9a65b32e44ee169f23a48d24b8a",
+      "exact_released_bytes": true
+    },
+    "coarse2.bin": {
+      "sha256": "418b6d9cf338187c63635d26050940a13177515050a057b2bc67fd11a163e43e",
+      "exact_released_bytes": true
+    },
+    "coarse3.bin": {
+      "sha256": "8c23427e63e31cd18abbb80838e3289e646fd108fa850687ca7b857471376535",
+      "exact_released_bytes": true
+    }
+  },
+  "cover_sha256": "c48bc9a2be1eb2cdeea82ea1b030d7cb9f00a6c9563b63f0248dd115748a5789"
+}

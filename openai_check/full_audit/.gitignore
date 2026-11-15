@@ -1,0 +1,8 @@
+build/
+src/__pycache__/
+upstream/saved-run/
+upstream/paper.pdf
+upstream/paper.txt
+results/**/*.bin
+results/fresh/centers.txt
+results/replay/centers.txt

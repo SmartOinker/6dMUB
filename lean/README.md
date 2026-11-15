@@ -4,7 +4,7 @@ Status: **builds** with Lean v4.35.0 and Mathlib tag v4.35.0 (revision 56a005855
 no `sorry`, no `native_decide`, no axioms beyond `propext`, `Classical.choice`, `Quot.sound`
 (`#print axioms` for every declaration is at the end of each file; output in `BUILD_LOG.txt`).
 
-How it was built: locally by workstream A, from Mathlib sources (the Mathlib binary cache was not reachable from the
+How it was built: locally, from Mathlib sources (the Mathlib binary cache was not reachable from the
 event workspace, so the files import only the Mathlib modules they need instead of `import Mathlib`). With the
 cache available, `lake exe cache get && lake build` from the repository root should take a few minutes.
 `BUILD_LOG.txt` is the log of a rebuild of all four project files (45 `#print axioms` lines); `BUILD_LOG_agent.txt` is the log of the helper
@@ -41,5 +41,5 @@ the finite-sample theorem as a whole; the purity witness; the energy certificate
 `Bases.lean` carries the vector-to-basis theorem from arrays to orthonormal bases of C^6 and is part of the built
 project (it needs `Mathlib.Analysis.InnerProductSpace.PiL2`).
 
-The analytic bound E > 1/72 is formalized in a different Lean project (workstream B, team Lean repository), which
-was not rebuilt here.
+The analytic bound E > 1/72 is formalized in a different Lean project, `lean_structure/` of this repository, with its own build log
+and axiom log (`lean_structure/check_logs.py`).

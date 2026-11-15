@@ -1,0 +1,553 @@
+module
+public import MUBBridge
+public import MUBResidual
+public import MUBTensorFrame
+public import MUBFieldObstruction
+public import MUBOperationalTV
+public import MUBCubeCounts
+public import MUBCubicGram
+public import MUBGramCap
+public import MUBPurityGap
+public import MUBSquarefreePhysical
+public import MUBCompatibility
+public import MUBPhaseTensor
+public import MUBPhaseTensorConverse
+public import MUBResidualBounds
+public import MUBQuantumTransport
+public import MUBAnchoredPurity
+public import MUBSixPhasePolynomial
+public import MUBTetrahedral
+public import MUBLocalExhaustion
+public import MUBMeasurementProjectors
+public import MUBMeasurementBessel
+public import MUBDensityGap
+public import MUBDensityTrace
+public import MUBBalancedGram
+public import MUBBalancedSpectralEnvelope
+public import MUBBalancedSmallTables
+public import MUBFourLineForms
+public import MUBMatchingGram
+public import MUBLocalGermAlgebra
+public import MUBCoordinateProductIdeal
+public import MUBMixedTransport
+public import MUBSunCubeSpectrum
+public import MUBSeedGluing
+public import MUBUniformSubmersion
+public import MUBSeedLocalChart
+public import MUBSunDiscriminant
+public import MUBNormalizerObstructions
+
+#print axioms MUBGap.joint_pair_deviation
+#print axioms MUBGap.three_point_parseval
+#print axioms MUBGap.qubit_fierz
+#print axioms MUBGap.separating_functional_no_sos
+#print axioms MUBGap.scalar_certificate_consistent
+#print axioms MUBGap.scalar_gap
+#print axioms MUBGap.energy_le_of_uniform_bound
+#print axioms MUBGap.exists_large_deviation
+#print axioms MUBGap.certificate_deviation
+#print axioms MUBGap.no_uniform_perturbation
+#print axioms MUBQuantum.probability_nonnegative
+#print axioms MUBQuantum.pauli_diagonal_real
+#print axioms MUBQuantum.born_pair_deviation
+#print axioms MUBQuantum.real_phase_parseval
+#print axioms MUBQuantum.complex_three_parseval
+#print axioms MUBQuantum.coherence_parseval
+#print axioms MUBQuantum.marginal_eq_fourier
+#print axioms MUBQuantum.signed_eq_fourier
+#print axioms MUBQuantum.spectral_energy_scalars
+#print axioms MUBQuantum.basis_energy_decomposition
+#print axioms MUBQuantum.measurement_energy_decomposition
+#print axioms MUBQuantum.normalized_measurement_energy
+#print axioms MUBQuantum.probability_eq_outcome
+#print axioms MUBQuantum.outcome_scale
+#print axioms MUBQuantum.amplitude_row_formula
+#print axioms MUBQuantum.outcome_row_formula
+#print axioms MUBQuantum.qutrit_rows_orthogonal
+#print axioms MUBQuantum.qubit_rows_orthogonal
+#print axioms MUBQuantum.joint_rows_orthogonal
+#print axioms MUBQuantum.born_pair_sum
+#print axioms MUBQuantum.phase_sum_real
+#print axioms MUBQuantum.measurement_mass
+#print axioms MUBQuantum.normalized_measurement_mass
+#print axioms MUBQuantum.concrete_energy_decomposition
+#print axioms MUBQuantum.canonical_amplitude_eq
+#print axioms MUBQuantum.canonical_factor_norm
+#print axioms MUBQuantum.canonical_probability_eq
+#print axioms MUBQuantum.canonical_norm_transport
+#print axioms MUBQuantum.canonical_measurement_mass
+#print axioms MUBQuantum.normalized_canonical_measurement_mass
+#print axioms MUBQuantum.canonical_energy_eq
+#print axioms MUBQuantum.canonical_energy_decomposition
+#print axioms MUBSpectral.weight_nonneg
+#print axioms MUBSpectral.innerQ_self
+#print axioms MUBSpectral.innerQ_swap
+#print axioms MUBSpectral.norm_innerQ_swap
+#print axioms MUBSpectral.normSq_innerQ_swap
+#print axioms MUBSpectral.qubit_relation
+#print axioms MUBSpectral.relation_innerQ
+#print axioms MUBSpectral.diagonal_row_bound
+#print axioms MUBSpectral.rank_two_small_weight
+#print axioms MUBSpectral.pure_bloch_length
+#print axioms MUBSpectral.real_cauchy_three
+#print axioms MUBSpectral.quadratic_bloch
+#print axioms MUBSpectral.bloch_rayleigh
+#print axioms MUBSpectral.frame_trace
+#print axioms MUBSpectral.frame_form_eq_quadratic
+#print axioms MUBSpectral.frame_rayleigh
+#print axioms MUBSpectral.innerQ_cauchy
+#print axioms MUBSpectral.weight_perp
+#print axioms MUBSpectral.innerQ_perp
+#print axioms MUBSpectral.frame_perp_upper
+#print axioms MUBSpectral.frame_weight_complement
+#print axioms MUBSpectral.frame_at_coefficient_upper
+#print axioms MUBSpectral.coefficient_rayleigh_bound
+#print axioms MUBSpectral.vectorNorm_nonneg
+#print axioms MUBSpectral.vectorNorm_sq
+#print axioms MUBSpectral.vectorNorm_reverse_triangle
+#print axioms MUBSpectral.normSq_add_le_two
+#print axioms MUBSpectral.vectorNorm_add_sq_le
+#print axioms MUBSpectral.pauli_fierz
+#print axioms MUBSpectral.phasePair_sq
+#print axioms MUBSpectral.phasePair_sq_upper
+#print axioms MUBSpectral.correlation_remainder_bound
+#print axioms MUBSpectral.overlapSum_nonneg
+#print axioms MUBSpectral.energy_gap_of_quantum_identities
+#print axioms MUBBridge.overlap_energy_eq
+#print axioms MUBBridge.bloch_square_identity
+#print axioms MUBBridge.phase_normSq
+#print axioms MUBBridge.correlation_phases_unit
+#print axioms MUBBridge.correlation_eq
+#print axioms MUBBridge.normalized_born_gap
+#print axioms MUBBridge.no_common_unbiased_state
+#print axioms MUBBridge.canonical_born_gap
+#print axioms MUBBridge.canonical_energy_gap
+#print axioms MUBBridge.canonical_probability_gap
+#print axioms MUBBridge.canonical_no_unbiased_state
+#print axioms MUBBridge.exists_large_probability_deviation
+#print axioms MUBBridge.no_uniform_probability_perturbation
+#print axioms MUBResidual.residual_zero_iff
+#print axioms MUBResidual.residual_unitary_covariance
+#print axioms MUBResidual.residual_adjoint
+#print axioms MUBResidual.residual_transpose
+#print axioms MUBResidual.gramProjection_hermitian
+#print axioms MUBResidual.gram_square_of_residual_zero
+#print axioms MUBResidual.gramProjection_idempotent
+#print axioms MUBResidual.trace_eq_rank_of_idempotent
+#print axioms MUBResidual.gramProjection_rank
+#print axioms MUBResidual.rank_two_of_residual_zero_of_trace
+#print axioms MUBResidual.trace_gram_of_flat
+#print axioms MUBResidual.rank_two_of_flat_residual_zero
+#print axioms MUBResidual.entrywiseCube_flat
+#print axioms MUBResidual.phase_cube_residual_rank_two
+#print axioms MUBResidual.rank_two_of_balanced_gram
+#print axioms MUBResidual.normalized_cube_residual_rank_two
+#print axioms MUBResidual.one_matrix_zero_of_entry_products
+#print axioms MUBResidual.low_cube_rank_of_residual_products
+#print axioms MUBTensorFrame.repetition_mul_right
+#print axioms MUBTensorFrame.repetition_adjoint_mul_left
+#print axioms MUBTensorFrame.repetition_isometry
+#print axioms MUBTensorFrame.repetition_compression_entry
+#print axioms MUBTensorFrame.repetition_compression
+#print axioms MUBTensorFrame.first_projection_defect
+#print axioms MUBTensorFrame.second_projection_defect
+#print axioms MUBTensorFrame.third_projection_defect
+#print axioms MUBFieldObstruction.normalization_mem_of_composition
+#print axioms MUBOperationalTV.variation_nonneg
+#print axioms MUBOperationalTV.abs_le_variation
+#print axioms MUBOperationalTV.energy_le_two_variation_sq
+#print axioms MUBOperationalTV.likelihood_success
+#print axioms MUBOperationalTV.decision_success_le_likelihood
+#print axioms MUBOperationalTV.canonical_deviation_sum_zero
+#print axioms MUBOperationalTV.canonical_TV_sq_witness
+#print axioms MUBOperationalTV.canonical_TV_witness
+#print axioms MUBOperationalTV.canonical_TV_rational_witness
+#print axioms MUBOperationalTV.canonical_probability_nonneg
+#print axioms MUBOperationalTV.canonical_distinguishing_witness
+#print axioms MUBCubeCounts.balanced_counts_classes
+#print axioms MUBCubeCounts.balanced_counts_positive_class
+#print axioms MUBCubicGram.six_cubes_eq_three_elementary
+#print axioms MUBCubicGram.third_elementary_self_conjugate
+#print axioms MUBCubicGram.six_unit_cubic_moment_self_conjugate
+#print axioms MUBCubicGram.six_phase_moment
+#print axioms MUBCubicGram.cubic_overlap_phase
+#print axioms MUBCubicGram.hadamard_cubic_gram_phase
+#print axioms MUBGramCap.gram_defect_factorization
+#print axioms MUBGramCap.gram_cap_posSemidef
+#print axioms MUBGramCap.cube_gram_cap_posSemidef
+#print axioms MUBPurityGap.trace_sandwich_zero_iff
+#print axioms MUBPurityGap.purity_gap_nonnegative
+#print axioms MUBPurityGap.purity_gap_zero_iff_balanced
+#print axioms MUBPurityGap.three_purity_product_zero_iff
+#print axioms MUBSquarefreePhysical.squarefree_column_gram
+#print axioms MUBSquarefreePhysical.squarefree_row_overlap_two
+#print axioms MUBSquarefreePhysical.incidence_factor_gram_entry
+#print axioms MUBSquarefreePhysical.squarefree_row_defect
+#print axioms MUBSquarefreePhysical.physical_cube_gram_cap
+#print axioms MUBCompatibility.coupled_gram_idempotent
+#print axioms MUBCompatibility.hermitian_idempotent_eq_one_of_trace
+#print axioms MUBCompatibility.coupled_equations_unitary
+#print axioms MUBCompatibility.trace_gram_of_normalized_flat
+#print axioms MUBCompatibility.coupled_flat_unitary
+#print axioms MUBPhaseTensor.factorization_of_anchored_boxes
+#print axioms MUBPhaseTensor.reconstructed_phases_unit
+#print axioms MUBPhaseTensor.phase_equations_of_line_sums
+#print axioms MUBPhaseTensor.normalized_reconstruction_coupled
+#print axioms MUBPhaseTensor.normalized_reconstruction_flat
+#print axioms MUBPhaseTensor.phase_tensor_realization
+#print axioms MUBPhaseTensorConverse.transition_tensor_unit
+#print axioms MUBPhaseTensorConverse.transition_tensor_boxes
+#print axioms MUBPhaseTensorConverse.transition_tensor_line_sums
+#print axioms MUBPhaseTensorConverse.physical_realization_conditions
+#print axioms MUBPhaseTensorConverse.phase_tensor_equivalence
+#print axioms MUBResidualBounds.residual_purity_square_identity
+#print axioms MUBResidualBounds.residual_purity_cap_identity
+#print axioms MUBResidualBounds.residual_purity_lower_bound
+#print axioms MUBResidualBounds.residual_purity_upper_bound
+#print axioms MUBQuantumTransport.repeated_frame_isometry
+#print axioms MUBQuantumTransport.partial_trace_repetition_frame
+#print axioms MUBQuantumTransport.overlap_square_factorization
+#print axioms MUBQuantumTransport.physical_partial_trace
+#print axioms MUBQuantumTransport.transport_gram_trace
+#print axioms MUBQuantumTransport.transport_cube
+#print axioms MUBQuantumTransport.overlap_residual_identity
+#print axioms MUBQuantumTransport.traceless_overlap_trace
+#print axioms MUBQuantumTransport.residual_energy_decomposition
+#print axioms MUBAnchoredPurity.anchored_square_identity
+#print axioms MUBAnchoredPurity.anchor_projection_properties
+#print axioms MUBAnchoredPurity.anchored_distance_identity
+#print axioms MUBAnchoredPurity.anchored_defect_zero_iff
+#print axioms MUBAnchoredPurity.anchored_defect_nonnegative
+#print axioms MUBAnchoredPurity.anchored_distance_weighted_bound
+#print axioms MUBAnchoredPurity.aggregate_defect_nonpositive_iff
+#print axioms MUBAnchoredPurity.anchored_minor_identity
+#print axioms MUBAnchoredPurity.anchored_minor_sum_eq_neg_defect
+#print axioms MUBAnchoredPurity.aggregate_minor_nonnegative_iff
+#print axioms MUBSixPhasePolynomial.positive_polynomial_certificate
+#print axioms MUBSixPhasePolynomial.rational_gap_identities
+#print axioms MUBSixPhasePolynomial.sharp_envelope_bound
+#print axioms MUBTetrahedral.phase_edges_factorization
+#print axioms MUBTetrahedral.phase_edges_unit
+#print axioms MUBTetrahedral.factorized_face_realization
+#print axioms MUBTetrahedral.tetrahedral_realization
+#print axioms MUBTetrahedral.physical_quartet_conditions
+#print axioms MUBTetrahedral.physical_quartet_is_unbiased
+#print axioms MUBTetrahedral.tetrahedral_equivalence
+#print axioms MUBTetrahedral.fourth_face_conditions
+#print axioms MUBLocalExhaustion.local_graph_exhaustion
+#print axioms MUBLocalExhaustion.local_property_transfer
+#print axioms MUBMeasurementProjectors.projector_positive
+#print axioms MUBMeasurementProjectors.projector_trace_idempotent
+#print axioms MUBMeasurementProjectors.projector_born_probability
+#print axioms MUBMeasurementProjectors.canonical_projector_born
+#print axioms MUBMeasurementProjectors.projector_gram
+#print axioms MUBMeasurementProjectors.canonical_projector_gram
+#print axioms MUBMeasurementProjectors.canonical_projector_complete
+#print axioms MUBMeasurementProjectors.centered_projector_gram
+#print axioms MUBMeasurementBessel.measurement_square_certificate
+#print axioms MUBMeasurementBessel.canonical_measurement_bessel
+#print axioms MUBMeasurementBessel.hermitian_coefficient
+#print axioms MUBMeasurementBessel.canonical_uniform_comparison
+#print axioms MUBDensityGap.pure_state_trace
+#print axioms MUBDensityGap.uniform_density_trace
+#print axioms MUBDensityGap.canonical_density_distance_gap
+#print axioms MUBDensityGap.canonical_density_rayleigh_gap
+#print axioms MUBDensityGap.canonical_density_homogeneous_gap
+#print axioms MUBDensityGap.canonical_density_vector_defect_gap
+#print axioms MUBDensityGap.canonical_density_operator_gap
+#print axioms MUBDensityGap.canonical_density_cubic_operator_bound
+#print axioms MUBDensityGap.canonical_density_cubic_kernel
+#print axioms MUBDensityGap.canonical_density_cubic_strict
+#print axioms MUBDensityTrace.canonical_density_trace_deficit
+#print axioms MUBBalancedRows.row_sum
+#print axioms MUBBalancedRows.row_dot_values
+#print axioms MUBBalancedRows.sign_square
+#print axioms MUBBalancedRows.row_dot_self
+#print axioms MUBBalancedRows.row_dot_square
+#print axioms MUBBalancedRows.balanced_sign_iff
+#print axioms MUBBalancedRows.balanced_row_count
+#print axioms MUBBalancedGram.phase_entry_formula
+#print axioms MUBBalancedGram.phase_entry_unit
+#print axioms MUBBalancedGram.phase_row_sum
+#print axioms MUBBalancedGram.phase_gram_entry
+#print axioms MUBBalancedGram.row_dot_total_square
+#print axioms MUBBalancedGram.gram_defect_entry
+#print axioms MUBBalancedGram.balanced_gram_separation
+#print axioms MUBBalancedGram.balanced_matrix_not_hadamard
+#print axioms MUBBalancedSpectralEnvelope.majorant_factorization
+#print axioms MUBBalancedSpectralEnvelope.sqrt_majorant
+#print axioms MUBBalancedSpectralEnvelope.regular_distance_constant_gt_two
+#print axioms MUBBalancedSpectralEnvelope.gram_error_scalar_gap
+#print axioms MUBBalancedSmallTables.graph_inverse_certificate
+#print axioms MUBBalancedSmallTables.positive_extension_certificate
+#print axioms MUBBalancedSmallTables.table_bound_lt
+#print axioms MUBBalancedSmallTables.positive_extension_counts
+#print axioms MUBBalancedSmallTables.total_positive_extensions
+#print axioms MUBBalancedSmallTables.one_edge_moment_rows
+#print axioms MUBBalancedSmallTables.moment_majorant_identity
+#print axioms MUBBalancedSmallTables.actual_moment_majorant_bound
+#print axioms MUBBalancedSmallTables.majorant_sum_of_moments
+#print axioms MUBBalancedSmallTables.sqrt_sum_lt_of_actual_moments
+#print axioms MUBFourLineForms.antipodal_representative_count
+#print axioms MUBFourLineForms.tight_frame_entry
+#print axioms MUBFourLineForms.eight_gram_characteristic_polynomials
+#print axioms MUBFourLineForms.normal_form_counts
+#print axioms MUBFourLineForms.star_gram_singular
+#print axioms MUBMatchingGram.balanced_witness
+#print axioms MUBMatchingGram.witness_gram
+#print axioms MUBMatchingGram.signed_null_polynomial
+#print axioms MUBMatchingGram.signed_projection_certificate
+#print axioms MUBMatchingGram.signed_kernel_characterization
+#print axioms MUBMatchingGram.all_orientation_imbalances
+#print axioms MUBMatchingGram.nonzero_orientation_gap
+#print axioms MUBLocalGermAlgebra.span_mulVec_le
+#print axioms MUBLocalGermAlgebra.span_mulVec_eq_of_unit_det
+#print axioms MUBLocalGermAlgebra.mixed_determinant
+#print axioms MUBLocalGermAlgebra.actual_mixed_determinant_nonzero
+#print axioms MUBLocalGermAlgebra.powerSeries_unit_det
+#print axioms MUBLocalGermAlgebra.powerSeries_generators_eq
+#print axioms MUBCoordinateProductIdeal.coordinate_product_monomials
+#print axioms MUBCoordinateProductIdeal.coordinate_product_eq_inf
+#print axioms MUBCoordinateProductIdeal.coordinate_ideal_eq_kernel
+#print axioms MUBCoordinateProductIdeal.coordinate_ideal_prime
+#print axioms MUBCoordinateProductIdeal.actual_cross_product
+#print axioms MUBCoordinateProductIdeal.actual_cross_intersection
+#print axioms MUBCoordinateProductIdeal.actual_cross_radical
+#print axioms MUBCoordinateProductIdeal.actual_cross_quotient_reduced
+#print axioms MUBCoordinateProductIdeal.prime_over_cross_contains_plane
+#print axioms MUBMixedTransport.repeated_frame_overlap
+#print axioms MUBMixedTransport.mixed_projector_factorization
+#print axioms MUBMixedTransport.mixed_partial_trace
+#print axioms MUBMixedTransport.mixed_trace
+#print axioms MUBMixedTransport.centered_mixed_transport
+#print axioms MUBMixedTransport.centered_mixed_norm
+#print axioms MUBSunCubeGram.actual_block_gram
+#print axioms MUBSunCubeGram.correlation_from_unitarity
+#print axioms MUBSunCubeGram.gamma_cube
+#print axioms MUBSunCubeGram.cube_correlation_cancellation
+#print axioms MUBSunCubeGram.cube_block_formula
+#print axioms MUBSunCubeGram.actual_cube_gram
+#print axioms MUBSunCubeGram.actual_parameter_range
+#print axioms MUBSunCubeGram.model_quadratic_identity
+#print axioms MUBSunCubeGram.actual_cube_quadratic_identity
+#print axioms MUBSunCubeGram.model_trace_square
+#print axioms MUBSunCubeGram.frobenius_trace
+#print axioms MUBSunCubeGram.residual_square_identity
+#print axioms MUBSunCubeGram.model_residual_trace
+#print axioms MUBSunCubeGram.actual_deficit_formula
+#print axioms MUBSunCubeGram.actual_residual_energy
+#print axioms MUBSunCubeGram.frobenius_zero_iff
+#print axioms MUBSunCubeGram.actual_deficit_zero_iff
+#print axioms MUBSunCubeGram.actual_residual_zero_iff
+#print axioms MUBSunCubeGram.actual_deficit_maximum
+#print axioms MUBSunCubeGram.actual_energy_maximum
+#print axioms MUBSunCubeGram.actual_maximum_witness
+#print axioms MUBSunCubeGram.actual_witness_values
+#print axioms MUBSunCubeGram.actual_block_entries_unit
+#print axioms MUBSunCubeGram.actual_normalization_identity
+#print axioms MUBSunCubeSpectrum.actual_parity_split
+#print axioms MUBSunCubeSpectrum.ternary_characteristic_polynomial
+#print axioms MUBSunCubeSpectrum.model_characteristic_polynomial
+#print axioms MUBSunCubeSpectrum.actual_cube_characteristic_polynomial
+#print axioms MUBSeedGluing.face_count
+#print axioms MUBSeedGluing.edge_involution
+#print axioms MUBSeedGluing.adjacent_steps_commute
+#print axioms MUBSeedGluing.actual_orbit_sizes
+#print axioms MUBSeedGluing.actual_cell_counts
+#print axioms MUBSeedGluing.two_root_letters_cover
+#print axioms MUBSeedGluing.letters_are_edge_moves
+#print axioms MUBSeedGluing.cell_euler_characteristic
+#print axioms MUBSeedGluing.gluing_graph_connected
+#print axioms MUBUniformSubmersion.ratio_unit
+#print axioms MUBUniformSubmersion.ratio_square_sum
+#print axioms MUBUniformSubmersion.projected_trace
+#print axioms MUBUniformSubmersion.projected_anisotropy
+#print axioms MUBUniformSubmersion.actual_projected_trace
+#print axioms MUBUniformSubmersion.actual_projected_anisotropy
+#print axioms MUBUniformSubmersion.actual_coefficient_gram
+#print axioms MUBUniformSubmersion.gram_characteristic_polynomial
+#print axioms MUBUniformSubmersion.gram_quadratic_identity
+#print axioms MUBUniformSubmersion.actual_uniform_lower_bound
+#print axioms MUBUniformSubmersion.actual_coefficient_characteristic_polynomial
+#print axioms MUBUniformSubmersion.projected_action_on_mean_zero
+#print axioms MUBUniformSubmersion.coefficient_action_on_mean_zero
+#print axioms MUBUniformSubmersion.gram_determinant
+#print axioms MUBUniformSubmersion.actual_gram_determinant_positive
+#print axioms MUBUniformSubmersion.actual_right_inverse
+#print axioms MUBUniformSubmersion.actual_coefficient_surjective
+#print axioms MUBUniformSubmersion.projected_sum_zero
+#print axioms MUBUniformSubmersion.coefficient_transpose_mean_zero
+#print axioms MUBUniformSubmersion.actual_right_inverse_mean_zero
+#print axioms MUBUniformSubmersion.actual_right_inverse_energy
+#print axioms MUBUniformSubmersion.actual_right_inverse_bound
+#print axioms MUBUniformSubmersion.actual_bounded_mean_zero_preimage
+#print axioms MUBSeedDifferential.phase_hasStrictFDerivAt
+#print axioms MUBSeedDifferential.raw_seed_hasStrictFDerivAt
+#print axioms MUBSeedDifferential.seed_hasStrictFDerivAt
+#print axioms MUBSeedDifferential.actual_seed_zero
+#print axioms MUBSeedDifferential.raw_differential_apply
+#print axioms MUBSeedDifferential.actual_seed_differential_coefficient
+#print axioms MUBSeedDifferential.actual_seed_bounded_preimage
+#print axioms MUBSeedDifferential.actual_seed_differential_surjective
+#print axioms MUBSeedDifferential.actual_seed_strict_submersion
+#print axioms MUBSeedDifferential.phase_unit
+#print axioms MUBSeedDifferential.ratio_product_one
+#print axioms MUBSeedDifferential.perturbed_ratios_unit
+#print axioms MUBSeedDifferential.perturbed_ratios_product_one
+#print axioms MUBSeedDifferential.seed_equation_is_torus_sum
+#print axioms MUBSeedDifferential.varied_triple_unit
+#print axioms MUBSeedDifferential.varied_triple_ratios
+#print axioms MUBSeedDifferential.seed_equation_is_varied_correlation
+#print axioms MUBSeedDifferential.actual_seed_zero_iff_varied_block_unitary
+#print axioms MUBSeedLocalChart.angle_domain_finrank
+#print axioms MUBSeedLocalChart.actual_derivative_range
+#print axioms MUBSeedLocalChart.actual_kernel_finrank
+#print axioms MUBSeedLocalChart.actual_chart_source
+#print axioms MUBSeedLocalChart.actual_chart_origin
+#print axioms MUBSeedLocalChart.actual_chart_first_coordinate
+#print axioms MUBSeedLocalChart.actual_chart_target_origin
+#print axioms MUBSeedLocalChart.actual_zero_set_chart
+#print axioms MUBSeedLocalChart.actual_eventual_zero_set_chart
+#print axioms MUBSeedLocalChart.actual_implicit_function_strict_derivative
+#print axioms MUBSunDiscriminant.ratio_product
+#print axioms MUBSunDiscriminant.ratio_second_symmetric
+#print axioms MUBSunDiscriminant.vandermonde_square
+#print axioms MUBSunDiscriminant.vandermonde_conjugate
+#print axioms MUBSunDiscriminant.actual_discriminant_slack
+#print axioms MUBSunDiscriminant.actual_parameter_quadratic_bound
+#print axioms MUBSunDiscriminant.actual_parameter_stronger_bound
+#print axioms MUBSunDiscriminant.actual_parameter_strict_bound
+#print axioms MUBSunDiscriminant.actual_discriminant_sum
+#print axioms MUBSunDiscriminant.actual_quadratic_boundary_iff
+#print axioms MUBSunDiscriminant.actual_cube_gram_determinant
+#print axioms MUBSunDiscriminant.actual_cube_determinant_nonzero
+#print axioms MUBSunDiscriminant.actual_cube_full_rank
+#print axioms MUBSunDiscriminant.actual_zero_parameter_rank_two
+#print axioms MUBSunDiscriminant.actual_cube_rank_dichotomy
+#print axioms MUBNormalizerObstructions.omega_square
+#print axioms MUBNormalizerObstructions.omega_primitive
+#print axioms MUBNormalizerObstructions.actual_fourier_parseval
+#print axioms MUBNormalizerObstructions.shifted_unit_energy
+#print axioms MUBNormalizerObstructions.actual_shared_chirp_obstruction
+#print axioms MUBNormalizerObstructions.actual_qubit_welch_identity
+#print axioms MUBNormalizerObstructions.actual_qubit_three_ray_obstruction
+#check MUBNormalizerObstructions.actual_shared_chirp_obstruction
+#check MUBNormalizerObstructions.actual_qubit_three_ray_obstruction
+#check MUBNormalizerObstructions.actual_fourier_parseval
+#check MUBNormalizerObstructions.actual_qubit_welch_identity
+#print MUBNormalizerObstructions.fourier3
+#print MUBNormalizerObstructions.qubitGram
+#print MUBNormalizerObstructions.qubitFrame
+#check MUBSeedDifferential.actual_seed_strict_submersion
+#check MUBSeedDifferential.actual_seed_zero_iff_varied_block_unitary
+#print MUBSeedDifferential.seedEquation
+#print MUBSeedDifferential.angleDomain
+#check MUBSeedLocalChart.angle_domain_finrank
+#check MUBSeedLocalChart.actual_kernel_finrank
+#check MUBSeedLocalChart.actual_eventual_zero_set_chart
+#check MUBSunDiscriminant.actual_discriminant_slack
+#check MUBSunDiscriminant.actual_parameter_stronger_bound
+#check MUBSunDiscriminant.actual_cube_rank_dichotomy
+#print MUBSunDiscriminant.vandermonde
+#check MUBUniformSubmersion.actual_coefficient_gram
+#check MUBUniformSubmersion.actual_coefficient_characteristic_polynomial
+#check MUBUniformSubmersion.actual_uniform_lower_bound
+#check MUBUniformSubmersion.coefficient_action_on_mean_zero
+#check MUBUniformSubmersion.actual_bounded_mean_zero_preimage
+#print MUBUniformSubmersion.coefficientMatrix
+#print MUBUniformSubmersion.MeanZeroPair
+#print MUBUniformSubmersion.canonicalRightInverse
+#check MUBSunCubeGram.actual_cube_gram
+#check MUBSunCubeGram.actual_parameter_range
+#check MUBSunCubeGram.actual_normalization_identity
+#check MUBSunCubeGram.actual_residual_energy
+#check MUBSunCubeGram.actual_maximum_witness
+#check MUBSunCubeSpectrum.actual_cube_characteristic_polynomial
+#print MUBSunCubeGram.blockMatrix
+#print MUBSunCubeGram.UnitTriple
+#print MUBSeedGluing.step
+#check MUBSeedGluing.actual_cell_counts
+#check MUBSeedGluing.gluing_graph_connected
+#check MUBLocalGermAlgebra.powerSeries_generators_eq
+#print MUBLocalGermAlgebra.mixedMatrix
+#check MUBCoordinateProductIdeal.actual_cross_intersection
+#check MUBCoordinateProductIdeal.actual_cross_quotient_reduced
+#print MUBCoordinateProductIdeal.crossIdeal
+#check MUBMixedTransport.mixed_projector_factorization
+#check MUBMixedTransport.centered_mixed_norm
+#print MUBMixedTransport.mixedOperator
+#check MUBBalancedSmallTables.actual_moment_majorant_bound
+#check MUBBalancedSmallTables.sqrt_sum_lt_of_actual_moments
+#print MUBBalancedSmallTables.moment
+#print MUBBalancedSmallTables.extension
+#print MUBBalancedSmallTables.centeringWeight
+#print MUBBalancedSmallTables.schur
+#check MUBFourLineForms.eight_gram_characteristic_polynomials
+#check MUBMatchingGram.signed_kernel_characterization
+#print MUBMatchingGram.nullPolynomial
+#check MUBBalancedGram.balanced_gram_separation
+#check MUBBalancedGram.balanced_matrix_not_hadamard
+#print MUBBalancedRows.Row
+#print MUBBalancedGram.phaseMatrix
+#print MUBBalancedGram.gramDefect
+#print MUBBalancedGram.frobeniusSq
+#check MUBBalancedSpectralEnvelope.sqrt_majorant
+#check MUBBalancedSpectralEnvelope.gram_error_scalar_gap
+#check MUBDensityTrace.canonical_density_trace_deficit
+#check MUBDensityGap.canonical_density_operator_gap
+#check MUBDensityGap.canonical_density_cubic_operator_bound
+#check MUBDensityGap.canonical_density_cubic_kernel
+#check MUBDensityGap.canonical_density_cubic_strict
+#check MUBMeasurementBessel.canonical_measurement_bessel
+#print MUBMeasurementProjectors.canonicalProjector
+#print MUBMeasurementProjectors.expectation
+#print MUBMeasurementProjectors.pureState
+#print MUBMeasurementBessel.reconstruction
+#print MUBMeasurementBessel.energy
+
+#check MUBBridge.canonical_probability_gap
+#check MUBBridge.canonical_no_unbiased_state
+#check MUBSquarefreePhysical.physical_cube_gram_cap
+#check MUBCompatibility.coupled_equations_unitary
+#check MUBCompatibility.coupled_flat_unitary
+#check MUBPhaseTensorConverse.phase_tensor_equivalence
+#print MUBPhaseTensor.UnitTensor
+#print MUBPhaseTensor.AnchoredBoxes
+#print MUBPhaseTensor.LineSums
+#print MUBPhaseTensor.PhysicalRealization
+#check MUBResidualBounds.residual_purity_lower_bound
+#check MUBResidualBounds.residual_purity_upper_bound
+#check MUBQuantumTransport.physical_partial_trace
+#check MUBQuantumTransport.residual_energy_decomposition
+#print MUBQuantumTransport.transport
+#print MUBQuantumTransport.partialTrace12
+#print MUBQuantumTransport.overlapSquare
+#print MUBQuantumTransport.normalizedResidual
+#print MUBQuantumTransport.normalizedGap
+#print MUBQuantumTransport.tracelessOverlap
+#check MUBAnchoredPurity.anchored_square_identity
+#check MUBAnchoredPurity.anchored_distance_identity
+#check MUBAnchoredPurity.anchored_defect_zero_iff
+#check MUBAnchoredPurity.anchored_distance_weighted_bound
+#check MUBAnchoredPurity.anchored_minor_identity
+#check MUBAnchoredPurity.aggregate_minor_nonnegative_iff
+#print MUBAnchoredPurity.anchorDefect
+#print MUBAnchoredPurity.anchorProjection
+#print MUBAnchoredPurity.anchoredMinorSum
+#check MUBSixPhasePolynomial.positive_polynomial_certificate
+#check MUBSixPhasePolynomial.rational_gap_identities
+#check MUBSixPhasePolynomial.sharp_envelope_bound
+#print MUBSixPhasePolynomial.polynomialP
+#print MUBSixPhasePolynomial.polynomialQ
+#print MUBSixPhasePolynomial.envelopeCenter
+#print MUBSixPhasePolynomial.envelopeVariance
+#print MUBSixPhasePolynomial.targetGap
+#check MUBTetrahedral.tetrahedral_equivalence
+#check MUBTetrahedral.physical_quartet_is_unbiased
+#check MUBTetrahedral.fourth_face_conditions
+#print MUBTetrahedral.Cocycle
+#print MUBTetrahedral.TetrahedralConditions
+#print MUBTetrahedral.PhysicalQuartet
+#print MUBTetrahedral.UnbiasedQuartet
+#check MUBLocalExhaustion.local_graph_exhaustion
+#check MUBLocalExhaustion.local_property_transfer

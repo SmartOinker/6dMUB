@@ -1,0 +1,23 @@
+{
+  "result": "PASS",
+  "children": 100,
+  "centers": 249878,
+  "coarse": 3083,
+  "mid": 600,
+  "fine": 22379,
+  "batches": 88,
+  "initial_unresolved": 163,
+  "fallback": 1127,
+  "final_unresolved": 0,
+  "principal_files_match_released_sha256": {
+    "centers.txt": true,
+    "coarse0.bin": true,
+    "coarse1.bin": true,
+    "coarse2.bin": true,
+    "coarse3.bin": true,
+    "mid.bin": true,
+    "fine.bin": true,
+    "fb.bin": true
+  },
+  "scope": "Complete new-run parsing, stage counts, batch-root identity/radius enlargement, ordered failures, actual fallback operands and final modulo partition."
+}

@@ -11,7 +11,7 @@ A simulator repeats linear algebra and proves nothing. Its role is to turn the c
 - The test statistic is shifted by d*N*E, where E = sum over outcomes of (p - 1/d)^2. So E is the detectability per shot,
   and the minimum-energy state is the best hider.
 - d = 6: one qubit plus a qutrit stored in two qubits (level 11 unused). Settings: the canonical product triple. Hider: the
-  closed-form minimum-energy state of workstream B's working paper (first version) eq. (20). Outcomes in the unused level are discarded.
+  closed-form minimum-energy state of the structure paper (first version) eq. (20). Outcomes in the unused level are discarded.
 - d = 4: two qubits, settings ZZ, XX, YY. Hider: (1, 1, i, -i)/2, which is exactly uniform in all three.
 
 ## Results

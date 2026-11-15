@@ -1,0 +1,19 @@
+{
+  "result": "PASS",
+  "scope": "All Root inequalities certified with a separately reconstructed inverse-like map and Arb enclosures",
+  "precision_bits": 128,
+  "python_flint": "0.9.0",
+  "records_read": 27189,
+  "unique_roots_checked": 27188,
+  "transposed_orientation_certificates": 1143,
+  "seconds": 434.7528614997864,
+  "files": [
+    "upstream/saved-run/execution/data/coarse0.bin",
+    "upstream/saved-run/execution/data/coarse1.bin",
+    "upstream/saved-run/execution/data/coarse2.bin",
+    "upstream/saved-run/execution/data/coarse3.bin",
+    "upstream/saved-run/execution/data/mid.bin",
+    "upstream/saved-run/execution/data/fine.bin",
+    "upstream/saved-run/execution/data/fb1.bin"
+  ]
+}

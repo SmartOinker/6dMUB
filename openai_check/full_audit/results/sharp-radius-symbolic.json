@@ -1,0 +1,6 @@
+{
+  "result": "PASS",
+  "second_derivative_identity": "(-sqrt(u)*cos(sqrt(u)) + sin(sqrt(u)))/(4*u**(3/2))",
+  "endpoint_second_derivative": "1/12",
+  "equality_witness_inner_product": "cos(alpha)"
+}

@@ -1,4 +1,4 @@
-# Cyclic 10-roots: regenerated and certified list (workstream A re-verification)
+# Cyclic 10-roots: regenerated and certified list (re-verification)
 
 Purpose: make reproducible the step "the other 31,900 roots of the cyclic 10-roots system are not unimodular"
 used in the conditional theorem (no four MUBs of C^10 contain I and F_10).

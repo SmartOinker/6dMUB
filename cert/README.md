@@ -4,7 +4,7 @@ Computer-assisted lower bounds on E(psi) = sum over the 18 outcomes of (probabil
 
 | Triple | Certified | Numerical minimum |
 |---|---|---|
-| T0: Z(x)I, X(x)F, Y(x)DF (the canonical triple of workstream B's working paper (first version)) | E > 0.03849999999 (S <= 2.189e-12) | 0.0387627564 = (4 - sqrt 6)/40 |
+| T0: Z(x)I, X(x)F, Y(x)DF (the canonical triple of the structure paper (first version)) | E > 0.03849999999 (S <= 2.189e-12) | 0.0387627564 = (4 - sqrt 6)/40 |
 | T1: as T0, but third basis is 0_y (x) DF together with 1_y (x) D^2F | E > 0.02349999999 (S <= 2.807e-12) | 0.0238354 |
 
 ## Check it

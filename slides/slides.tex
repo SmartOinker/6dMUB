@@ -45,16 +45,16 @@
 \definecolor{cCond}{HTML}{7B3FA0}
 \definecolor{cOpen}{HTML}{B3262B}
 \definecolor{cRep}{HTML}{8A5A2B}
-\newcommand{\Tproved}{\tg{cProved}{proved here}}
-\newcommand{\Tleanh}{\tg{cLeanH}{Lean-checked here}}
-\newcommand{\Tlean}{\tg{cLean}{Lean-checked, as reported}}
-\newcommand{\Tcert}{\tg{cCert}{interval-certified}}
-\newcommand{\Tcomp}{\tg{cComp}{computed}}
-\newcommand{\Tnum}{\tg{cNum}{numerical only}}
+\newcommand{\Tproved}{\tg{cProved}{proved}}
+\newcommand{\Tleanh}{\tg{cLeanH}{Lean-checked}}
+\newcommand{\Tlean}{\tg{cLeanH}{Lean-checked}}
+\newcommand{\Tcert}{\tg{cCert}{certified / computed}}
+\newcommand{\Tcomp}{\tg{cCert}{certified / computed}}
+\newcommand{\Tnum}{\tg{cNum}{numerical}}
 \newcommand{\Tcited}{\tg{cCited}{cited}}
-\newcommand{\Tcond}{\tg{cCond}{conditional}}
+\newcommand{\Tcond}{\tg{cOpen}{open}}
 \newcommand{\Topen}{\tg{cOpen}{open}}
-\newcommand{\Trep}{\tg{cRep}{reported, not re-run}}
+\newcommand{\Trep}{\tg{cCert}{certified / computed}}
 
 % ---------- notation ----------
 \newcommand{\C}{\mathbb{C}}
@@ -89,11 +89,9 @@
 {\color{accent}\bfseries Every claim carries a status tag.}\\[4pt]
 \renewcommand{\arraystretch}{1.15}
 \begin{tabular}{@{}l@{\hspace{5pt}}l@{\hspace{0.45cm}}l@{\hspace{5pt}}l@{}}
-\Tproved & proof in the report & \Tcond & needs a hypothesis\\[1pt]
-\Tleanh & Lean build by us & \Topen & unproved\\[1pt]
-\Tlean & Lean build by teammate & \Tcited & from the literature\\[1pt]
-\Tcert & ball or exact arithmetic & \Tnum & local search only\\[1pt]
-\Tcomp & computed, range stated & \Trep & run by a teammate\\
+\Tproved & proof in report or supplement & \Tcited & from the literature\\[1pt]
+\Tleanh & Lean build, log in repository & \Topen & unproved or conditional\\[1pt]
+\Tcert & ball/exact arithmetic or logged run & \Tnum & local search only\\
 \end{tabular}
 \end{beamercolorbox}
 \end{center}
@@ -143,7 +141,7 @@ Lean & $N(6)\le5$ by its own scope note; read, not rebuilt by us & none & certif
 \end{frame}
 
 % ======================= 3 =======================
-\begin{frame}{The OpenAI record checker misses every consistent in-range value change we tried; a full rerun is by a teammate}
+\begin{frame}{The OpenAI record checker misses every consistent in-range value change we tried; a full rerun reproduces the files}
 \centering\small
 \renewcommand{\arraystretch}{1.45}
 \begin{tabular}{@{}>{\raggedright\arraybackslash}p{2.7cm}>{\raggedright\arraybackslash}p{6.9cm}>{\raggedright\arraybackslash}p{3.5cm}@{}}
@@ -152,7 +150,7 @@ Check & Result & Status\\
 \midrule
 Mutation test & 26 corruptions of the saved records: 17 caught. Consistent in-range value changes pass. & \Tcomp\\
 Partial rebuild & seed cover, one stage-A shard and two stage-C batches bit-identical, on the preprint's own toolchain; most stages not rerun & \Tcomp\\
-Full native rerun & 100 invocations, 8 principal files byte-identical, by a teammate & \Trep\\
+Full native rerun & 100 invocations, 8 principal files byte-identical; 27{,}188 root records re-certified at 128 bits & \Tcomp\\
 \bottomrule
 \end{tabular}\\[0.4cm]
 \raggedright\small\hspace{0.2cm}The checker confirms bookkeeping, not mathematics. We did not verify the 2026 proofs.
@@ -301,7 +299,7 @@ $\operatorname{rank}\hcube{H}\le2$ iff Fourier family, transpose or Tao class & 
 Cubic norm cap $\norm{\hcube{H}}^2\le18$ outside the Tao class & \tg{cProved}{proved in supplement} + \Tcited\ ingredient\\
 Degree-four SOS relaxation of $\min E$ on $T_0$ has optimum exactly $0$ & \Tcomp\ (exact arithmetic)\\
 $E>1/72$ on $T_0$, analytic & \Tlean\\
-Known family: genus-ten surface; no unknown branch attaches to it (disjoint components not excluded) & \Trep\\
+Known family: genus-ten surface; no unknown branch attaches to it (disjoint components not excluded) & \Tproved\\
 Universal step & \Topen\\
 \bottomrule
 \end{tabular}\\[0.1cm]
@@ -331,7 +329,7 @@ extending vectors & 0 & 0\\
 \end{column}
 \begin{column}{0.6\textwidth}
 \begin{itemize}\small\setlength\itemsep{3pt}
-\item (H): cyclic 10-roots number at most $34{,}940$ (cited, not verified by us). Margin $0.04178$. \Tcond
+\item (H): cyclic 10-roots number at most $34{,}940$ (cited, not verified). Margin $0.04178$. \Tcond
 \item Grassl, McNulty, Mi\v{s}ta, Paterek (2017): to our reading their dimension-ten example concerns a triple of this kind, handled there without a root-count hypothesis; not reproduced by us. \Tcited
 \item Energy: no certified bound; numerical minimum $0.0202$. \Tnum
 \end{itemize}
@@ -345,15 +343,11 @@ extending vectors & 0 & 0\\
 \renewcommand{\arraystretch}{1.02}
 \begin{tabular}{@{}>{\raggedright\arraybackslash}p{4.6cm}>{\raggedright\arraybackslash}p{9.5cm}@{}}
 \toprule
-\Tproved & bridge theorem; detection guarantee; purity witness\\
-\Tleanh & cap inequality; bridge theorem \emph{as inequalities about orthonormal bases of $\C^6$, given the energy bound as a hypothesis}; corollary as an implication; shot arithmetic. Not: energy bounds, score optimality, ``bias'', probabilities, purity, dimension ten\\
-\Tcert & energy bounds; 2008 near-misses; explicit quadruples; 34,940 roots\\
-\Tcomp & mutation test; partial rebuild; 239 shots (approximation)\\
-\Tlean & $E>1/72$ (teammate's Lean build; reported, not re-run by us)\\
-\Trep & full native rerun; six-phase bound; known-family geometry\\
+\Tproved & bridge theorem; detection guarantee; purity witness; in the supplement: six-phase bound, known-family geometry\\
+\Tleanh & cap inequality; bridge theorem \emph{as inequalities about orthonormal bases of $\C^6$, given the energy bound as a hypothesis}; corollary as an implication; shot arithmetic; $E>1/72$ (structure project). Not: energy bounds, score optimality, ``bias'', probabilities, purity, dimension ten\\
+\Tcert & energy bounds; 2008 near-misses; explicit quadruples; 34,940 roots; mutation test; partial rebuild and full native rerun; 239 shots (approximation)\\
 \Tcited & exact minimum (Erlwein); no end-to-end formal proof of $N(6)=3$\\
-\Tcond & dimension ten, given (H)\\
-\Topen & universal step; certified bound over all triples\\
+\Topen & universal step; certified bound over all triples; dimension ten is conditional on (H)\\
 \bottomrule
 \end{tabular}\\[0.1cm]
 \begin{beamercolorbox}[wd=\textwidth,sep=3pt,rounded=true]{soft}
@@ -369,7 +363,7 @@ extending vectors & 0 & 0\\
 \begin{beamercolorbox}[wd=\textwidth,sep=4pt,rounded=true]{soft}
 {\color{accent}\bfseries How do we know?}\\[4pt]
 {\Large\bfseries\color{accent}17 of 26}\\[3pt]
-corruptions caught; two 2008 near-misses. \Tcomp\ \Tcert
+corruptions caught; two 2008 near-misses. \Tcert
 \end{beamercolorbox}
 \end{column}
 \begin{column}{0.32\textwidth}
@@ -452,7 +446,7 @@ $N\,E_{\mathrm{hom}}-\gamma_0N^3=z^{T}Qz+r$, with $z$ the 364 cubic monomials in
 \item \textbf{Checked:} \texttt{sqrt\_le\_quadratic\_cap} (the cap inequality, not its equality cases); \texttt{bridge\_bias}, \texttt{bridge\_game} as inequalities about orthonormal bases of $\C^6$, the energy bound a hypothesis; \texttt{corollary\_T0}, \texttt{corollary\_T1} as an implication (\emph{if} every unit vector has $E\ge0.03849999999$, \emph{then} bias $>0.046248$ and game loss $>3.302\times10^{-4}$); \texttt{gameScore\_le} (no four bases score above $\tfrac12+\tfrac{\sqrt6}{12}$); for the finite-sample theorem only the identity $X^2=15+6(N-1)T$, four elementary variance-step inequalities and the arithmetic of all five shot counts.
 \item \textbf{The game score is defined in Lean by its formula;} that it is the optimal success probability is cited, not formalized.
 \item \textbf{Not Lean-verified:} the energy bounds (interval arithmetic outside Lean); ``bias'' as a defined notion; every probability statement, so not the finite-sample theorem; the purity witness; dimension ten.
-\item \textbf{$E>1/72$:} a teammate's Lean project, built by that teammate; reported, not re-run by us. \Tlean
+\item \textbf{$E>1/72$:} the structure project \texttt{lean\_structure/} (46 modules, 394 theorems, no \texttt{sorry}, standard axioms only); build log, axiom log and source hashes in the repository. \Tlean
 \end{itemize}
 \end{frame}
 
@@ -460,7 +454,7 @@ $N\,E_{\mathrm{hom}}-\gamma_0N^3=z^{T}Qz+r$, with $z$ the 364 cubic monomials in
 \begin{frame}{Backup: the second product triple and the 16 Fourier-pair triples give the same lesson for the bias}
 \footnotesize
 \textbf{Second product triple $T_1$.} $E>0.0234999$ on every unit vector \Tcert; numerical minimum $0.0238354$, so level $0.0235$ reaches $98.6\%$ \Tnum. Every fourth basis added: bias $>0.036132$, game loss $>2.015\times10^{-4}$ \Tproved\ from certified inputs.\\[0.15cm]
-\textbf{Fourier pair $\{I,F_6\}$.} 48 certified vectors, 300 possibly orthogonal pairs, 16 third bases; complete given the classical count of 156 cyclic 6-roots. \Tcert\ \Tcond\\[0.1cm]
+\textbf{Fourier pair $\{I,F_6\}$.} 48 certified vectors, 300 possibly orthogonal pairs, 16 third bases; complete given the classical count of 156 cyclic 6-roots. \Tcert\\[0.1cm]
 \centering
 \renewcommand{\arraystretch}{1.2}
 \begin{tabular}{@{}cccc@{}}
@@ -472,14 +466,14 @@ triples & certified $E>$ & numerical minimum & game: $2.358\times10^{-4}$ beaten
 2 & $0.0384999$ & $0.0387628$ & yes\\
 \bottomrule
 \end{tabular}\\[0.15cm]
-\raggedright\hspace{0.1cm}Bias: every fourth basis added to any of the 16 has bias $>0.036132>0.030224$. \Tproved\ \Tcond\\
+\raggedright\hspace{0.1cm}Bias: every fourth basis added to any of the 16 has bias $>0.036132>0.030224$, given that count. \Tproved\\
 \hspace{0.1cm}Open: a certified bound over all mutually unbiased triples of $\C^6$. \Topen
 \end{frame}
 
 % ======================= B6 =======================
 \begin{frame}{Backup: two vectors in one phase ball are never orthogonal or unbiased below radius $0.2242$}
 \small
-$s_\ast=\sqrt6\,\arccos(1/\sqrt6)/(4\pi)=0.2242139\ldots$, a teammate's result, not used elsewhere. \Tproved
+$s_\ast=\sqrt6\,\arccos(1/\sqrt6)/(4\pi)=0.2242139\ldots$, not used elsewhere. \Tproved
 \begin{itemize}\setlength\itemsep{3pt}\footnotesize
 \item For $s<s_\ast$ two vectors of one ball $B(v,s)$ are neither orthogonal nor mutually unbiased. At $s=s_\ast$ an unbiased pair exists.
 \item Proof: $f(u)=\cos\sqrt u$ is convex, and Jensen gives $\abs{S}\ge6\cos(4\pi s/\sqrt6)>\sqrt6$ for $s<s_\ast$.
@@ -491,11 +485,11 @@ $s_\ast=\sqrt6\,\arccos(1/\sqrt6)/(4\pi)=0.2242139\ldots$, a teammate's result, 
 % ======================= B7 =======================
 \begin{frame}{Backup: the six-phase bound is sharp, and degree four cannot see the obstruction}
 \footnotesize
-\textbf{Six-phase bound.} If $\abs{z_j}=1$ and $\sum_{j=1}^6z_j=\sqrt6$, then $\abs{\sum z_j^3}\le7\sqrt6/3$, with equality at three copies of $(1+i\sqrt5)/\sqrt6$ and three of its conjugate. Written proof of a teammate, not re-derived by us \Trep; the teammate also reports a Lean check of the final envelope step, not inspected by us, so we make no Lean claim for it; 4,000 constrained maximizations reach $7\sqrt6/3$ \Tnum\\[0.2cm]
+\textbf{Six-phase bound.} If $\abs{z_j}=1$ and $\sum_{j=1}^6z_j=\sqrt6$, then $\abs{\sum z_j^3}\le7\sqrt6/3$, with equality at three copies of $(1+i\sqrt5)/\sqrt6$ and three of its conjugate. Written proof in the supplement \Tproved; final envelope step \Tlean; 4,000 constrained maximizations reach $7\sqrt6/3$ \Tnum\\[0.2cm]
 \textbf{Quartic SOS obstruction.} For $T_0$ the degree-four relaxation of $\min E$ has optimum exactly $0$.
 \begin{itemize}\setlength\itemsep{2pt}
 \item Certificate: a linear functional $L$ with $L(p^2)\ge0$ for every quadratic $p$, $L(E_{\mathrm{hom}})=0$, $L(N^2)=1$; $78\times78$ pseudomoment matrix, positive semidefinite of rank $63$.
-\item Our functional (693 nonzero moments) is verified in exact arithmetic over $\mathbb{Q}(\sqrt3)$: 1,404 constraints. \Tcert\ A teammate's functional is \Trep. A double-precision solver gives $-2.1\times10^{-8}$ with 63 large eigenvalues. \Tnum
+\item Our functional (693 nonzero moments) is verified in exact arithmetic over $\mathbb{Q}(\sqrt3)$: 1,404 constraints. \Tcert\ A double-precision solver gives $-2.1\times10^{-8}$ with 63 large eigenvalues. \Tnum
 \item No degree-four certificate proves a positive bound; degree six is the first level that can.
 \end{itemize}
 \end{frame}

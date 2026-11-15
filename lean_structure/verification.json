@@ -1,0 +1,2499 @@
+{
+  "status": "PASS",
+  "lean_version": "4.35.0",
+  "checked_at_utc": "2026-11-15T15:15:38.723838+00:00",
+  "mathlib_commit": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+  "verification": "forty-six-module lake build; direct re-elaboration of the new actual Fourier and C2 frame obstruction module; every-public-theorem axiom audit; source provenance checks",
+  "theorem_count": 394,
+  "module_counts": {
+    "MUBIdentities": 4,
+    "MUBGap": 6,
+    "MUBQuantum": 2,
+    "MUBQuantumFourier": 10,
+    "MUBQuantumMeasurements": 20,
+    "MUBSpectral": 34,
+    "MUBBridge": 13,
+    "MUBResidual": 18,
+    "MUBTensorFrame": 8,
+    "MUBFieldObstruction": 1,
+    "MUBOperationalTV": 11,
+    "MUBCubeCounts": 2,
+    "MUBCubicGram": 6,
+    "MUBGramCap": 3,
+    "MUBPurityGap": 4,
+    "MUBSquarefreePhysical": 5,
+    "MUBCompatibility": 5,
+    "MUBPhaseTensor": 6,
+    "MUBPhaseTensorConverse": 5,
+    "MUBResidualBounds": 4,
+    "MUBQuantumTransport": 9,
+    "MUBAnchoredPurity": 10,
+    "MUBSixPhasePolynomial": 3,
+    "MUBTetrahedral": 8,
+    "MUBLocalExhaustion": 2,
+    "MUBMeasurementProjectors": 8,
+    "MUBMeasurementBessel": 4,
+    "MUBDensityGap": 10,
+    "MUBDensityTrace": 1,
+    "MUBBalancedRows": 7,
+    "MUBBalancedGram": 8,
+    "MUBBalancedSpectralEnvelope": 4,
+    "MUBBalancedSmallTables": 10,
+    "MUBFourLineForms": 5,
+    "MUBMatchingGram": 7,
+    "MUBLocalGermAlgebra": 6,
+    "MUBCoordinateProductIdeal": 9,
+    "MUBMixedTransport": 6,
+    "MUBSunCubeGram": 24,
+    "MUBSunCubeSpectrum": 4,
+    "MUBSeedGluing": 9,
+    "MUBUniformSubmersion": 23,
+    "MUBSeedDifferential": 18,
+    "MUBSeedLocalChart": 10,
+    "MUBSunDiscriminant": 15,
+    "MUBNormalizerObstructions": 7
+  },
+  "source_sha256": {
+    "MUBIdentities.lean": "549915675d0edbcb60a6fbecbdd58744dcd66530e2dbce0df77a5250a49ed511",
+    "MUBGap.lean": "a12d13ed36ee11f7de23f32d05ec2afdc8692171f4c3998b4ee6b6b58aff04e0",
+    "MUBQuantum.lean": "a308334b6a965f289c43a71cd03ace3d4a4c54b05330af0784dc4051e23f250b",
+    "MUBQuantumFourier.lean": "6854b39158b0e8df66e99cdb5b3402d4879cf7492c24c2f00ab6cc88a3ed2b12",
+    "MUBQuantumMeasurements.lean": "c9d62f37ef03bbc5475bdc356ace96a24082559b8fbf7a8791413aace7185e83",
+    "MUBSpectral.lean": "148ab0e057e20eb5b27599a85adf0486a5b51a83b92d71f1a8799a454c26f315",
+    "MUBBridge.lean": "fa291f6c4f819fb0428941573f6396d7c964d416bd54d8e35e9bde2f8a14f55a",
+    "MUBResidual.lean": "341ba4cad883b2f64458766f43ba78b2f8bcb808b10e0c9685dafb99aa460069",
+    "MUBTensorFrame.lean": "5461c23045273f2696e28712230120e8438a08c07cd1cf0457559ea8b2f5e123",
+    "MUBFieldObstruction.lean": "bd1a5d877a35fff3bea92491e463975816f65586e3ad2fba69dd20014f9534a6",
+    "MUBOperationalTV.lean": "fd8cba3165c4caec67b4c406f3f4c3af8a9929a2b7488b87293430c65971cd54",
+    "MUBCubeCounts.lean": "b3b99facbe7c4696b5209ff53453e4a97a3ec38c58cbb8697049b699d41dd717",
+    "MUBCubicGram.lean": "13a4b8102b1cdbecdf0c47fc8f875ddb5d9e7fc2f8f42caf44f2f2853ae20b67",
+    "MUBGramCap.lean": "ae2f4e22907be85c06551bd5bef4548354c94079576d1ed05bb85b1b62f5ca8e",
+    "MUBPurityGap.lean": "e5f158fd04e39238d062a6bd75e3cdf336b890f8e155fc4e82124aab6544060c",
+    "MUBSquarefreePhysical.lean": "db111364ff4487fa5e3204fa1f623f3df90a641e228a90fd043b667f61f63749",
+    "MUBCompatibility.lean": "2ed8322267725e4931ab87a89e3c1915eb16520e26bc0c68b323e495185cbbe7",
+    "MUBPhaseTensor.lean": "56553090145a21e8b8a5c26e22789eefe6a5df2c426f888d7c7304066dae2a6b",
+    "MUBPhaseTensorConverse.lean": "9e0a3484470dd09f521eb1f82ffbc36b121abdd4e596d6687b19e7fbb18136de",
+    "MUBResidualBounds.lean": "e4e4638e6b2cbd647cbaa879404c33a39a8a19f306465b8dd93b0df69c5f1471",
+    "MUBQuantumTransport.lean": "21d3082f2782468e6e417cf799c9b192236f8aa5dc3708f85c10f7dde6b475a2",
+    "MUBAnchoredPurity.lean": "8bfe10563494965b0caab1f3df05ec4fd348c6f52e5f8a464b4c667b3a8a8320",
+    "MUBSixPhasePolynomial.lean": "0ca6eed1f3591d3910f83f7d405ba3c66a7bd7f93a67be39591f9b44d4065a47",
+    "MUBTetrahedral.lean": "45ea0abd1190370610fe3c2cbb06b63dc965354633fe07f83cb9272d8cded24d",
+    "MUBLocalExhaustion.lean": "1470726d2f1c2a25e2654caac6b2a00b882a4f34528d80abdd834bc35eebaa03",
+    "MUBMeasurementProjectors.lean": "6b42c75bf5a306ec25fbf8c0f25300c452b2ab063d3d1aee25003c47da377cdf",
+    "MUBMeasurementBessel.lean": "3926b580a111c67d03fea0d9d561dc8ee5f7fbcd561dbdc6afc5354ec47cdb90",
+    "MUBDensityGap.lean": "ffeb50cb25d623d42ff3036bfa06af4c4b10154aa0969b775fdb05bbb568990e",
+    "MUBDensityTrace.lean": "a3363050b686a94878f057a201607178d05e68cd92ed5d1cc2283b36d097af89",
+    "MUBBalancedRows.lean": "366134864c1aa66a05496948f58648b9f4ebc9c19eaf8348dc55917a9df06610",
+    "MUBBalancedGram.lean": "06500042a8c40e40c944289aef6e184d5d2378723997892543ad982bdb69abaf",
+    "MUBBalancedSpectralEnvelope.lean": "9a2c23141b1082a139c91d3bb946f7505dc8ce1b2fbad4698b469490a3994170",
+    "MUBBalancedSmallTables.lean": "862cb7f30a7bf6bb1ec3ee7b1b234c406e39f20555e340cab4abff6d574f9029",
+    "MUBFourLineForms.lean": "c5517ec5762cd80df168bb00c6fb097501af88c2aa93a97dbb0b2212d3b1469a",
+    "MUBMatchingGram.lean": "8a0c84ef246f52b04ed634110706aef064a719fccfffcb40dc20e2702ffbe3bd",
+    "MUBLocalGermAlgebra.lean": "4684cbeaab16fc7e61d73e13747efc6ef1e6602ce6b9a2ac791261e3bac2a3c9",
+    "MUBCoordinateProductIdeal.lean": "81cd8e7346b6c517ba5e13b66026de34d232f7aed8c319e37d758e0371d6d551",
+    "MUBMixedTransport.lean": "840b1d64678c8fb082904a041408abcdd60ab2f15d5093bd7aefb7ea13cf56be",
+    "MUBSunCubeGram.lean": "e7b7d3f5fd6755bc8b077b8112a40020e087575c453f41c4996aab1abfddb3d5",
+    "MUBSunCubeSpectrum.lean": "308945d195dd99c33bb9b4945e50e7f99d1b00ab8d742cebf47835cca9adfcf2",
+    "MUBSeedGluing.lean": "4547f305eb1886567323538ebd550ec018f58e413209ad8c19aaf9c08e1be614",
+    "MUBUniformSubmersion.lean": "37862229ae3a98bee49965e4d2bebc8b135678aaf627da8b76c89605c18d9e87",
+    "MUBSeedDifferential.lean": "5b1816e31b2eb53d2875eb52ae40b0f6e4294c763839fab8c64d0f1ac66f8149",
+    "MUBSeedLocalChart.lean": "98ea8d599084b717ec3b3c326156ce90f77cb6f2762d69abf0c85097a2bc87e7",
+    "MUBSunDiscriminant.lean": "e180ab6c74d1414c6b791d67c8edeb47330e8a2d05be11371bc33ea28e6f1cf5",
+    "MUBNormalizerObstructions.lean": "fe933d17ae3b61dbe9d38fd807cd945288d9a70f92564ec0e0a285701c4e1808"
+  },
+  "count_convention": "The same ^theorem public-declaration convention as the frozen 387-theorem baseline.",
+  "private_theorem_helper_count": 89,
+  "private_theorem_helpers": {
+    "MUBPurityGap": [
+      "trace_gap_identity"
+    ],
+    "MUBSquarefreePhysical": [
+      "triple_card",
+      "phase_product_unit",
+      "triple_sum",
+      "column_orthogonality",
+      "cancel_common_phases",
+      "triple_inter_cases",
+      "triple_complement",
+      "incidence_dot_int",
+      "incidence_dot",
+      "squarefree_row_diagonal",
+      "incidence_sign_star"
+    ],
+    "MUBPhaseTensor": [
+      "all_anchored_boxes",
+      "phase_nonzero",
+      "phase_mul",
+      "phase_div",
+      "second_phase_identity",
+      "third_phase_identity",
+      "rootSix_nonzero",
+      "rootSix_real",
+      "rootSix_normSq",
+      "phase_normSq",
+      "normalize_unit_flat",
+      "normalize_adjoint",
+      "normalize_phase_product"
+    ],
+    "MUBPhaseTensorConverse": [
+      "rootSix_normSq",
+      "flat_phase_product",
+      "flat_tensor_entry"
+    ],
+    "MUBResidualBounds": [
+      "purityGap_star",
+      "residual_cross_trace",
+      "residual_cross_trace_reverse"
+    ],
+    "MUBQuantumTransport": [
+      "repeatedFrame_entry",
+      "repetition_mul_entry",
+      "flat_weight_norm",
+      "transport_sub",
+      "transport_smul",
+      "trace_transport",
+      "trace_square_gram_switch",
+      "cube_gram_trace",
+      "normalizedGap_star",
+      "trace_transported_residual",
+      "transport_residual_centered"
+    ],
+    "MUBAnchoredPurity": [
+      "outer_trace",
+      "outer_square",
+      "outer_cross_trace",
+      "outer_hermitian",
+      "mass_star",
+      "mass_nonnegative",
+      "mass_nonzero",
+      "diagonal_norm_le_mass"
+    ],
+    "MUBTetrahedral": [
+      "phase_ne_zero",
+      "ratio_nonzero",
+      "ratio_cocycle",
+      "unit_div",
+      "root_nonzero",
+      "root_real",
+      "phase_normSq",
+      "normalize_flat",
+      "normalize_adjoint",
+      "normalize_product",
+      "normalized_recovery",
+      "flat_nonzero"
+    ],
+    "MUBMeasurementProjectors": [
+      "denominator_pos",
+      "denominator_nonzero",
+      "trace_outer_product",
+      "row_norm",
+      "trace_projector_pure",
+      "qutrit_cross",
+      "qubit_cross",
+      "row_inner_factor",
+      "trace_projector_product",
+      "canonical_relabel_injective"
+    ],
+    "MUBMeasurementBessel": [
+      "centered_hermitian",
+      "centered_sum_zero",
+      "coefficient_sum_zero",
+      "reconstruction_pairing",
+      "adjoint_coefficient",
+      "reconstruction_trace",
+      "cross_trace"
+    ],
+    "MUBDensityGap": [
+      "pure_state_square",
+      "scaled_norm",
+      "scaled_pure_state",
+      "trace_pure_quadratic",
+      "nonzero_mass"
+    ],
+    "MUBBalancedGram": [
+      "pair_re",
+      "pair_im",
+      "real_row_sum",
+      "row_dot_total_nonnegative",
+      "gram_entry_lower_bound"
+    ]
+  },
+  "private_helper_trust": "Private helpers are kernel checked during source elaboration and their axioms are included transitively in audited public theorem dependencies.",
+  "local_proof_hashes_verified": true,
+  "baseline_preserved": true,
+  "original_baseline_verification": {
+    "path": "/Users/<user>/Documents/Codex/2026-11-13/can-https-competition-sair-foundation-competitions-3/work/openmath-api/campaign-100/lean-integration-387",
+    "status": "verified_unchanged",
+    "checked_files": 66
+  },
+  "original_added_source_verification": {
+    "MUBNormalizerObstructions.lean": {
+      "path": "/Users/<user>/Documents/Codex/2026-11-13/can-https-competition-sair-foundation-competitions-3/work/openmath-api/campaign-100/lean-normalizer-obstructions/MUBNormalizerObstructions.lean",
+      "status": "verified_unchanged"
+    }
+  },
+  "historical_baseline_verification": {
+    "status": "verified_unchanged",
+    "checked_at_utc": "2026-11-15T15:14:00.876239+00:00",
+    "checked_files": 66
+  },
+  "permitted_axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "theorem_axioms": {
+    "MUBGap.joint_pair_deviation": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBGap.three_point_parseval": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBGap.qubit_fierz": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBGap.separating_functional_no_sos": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBGap.scalar_certificate_consistent": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBGap.scalar_gap": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBGap.energy_le_of_uniform_bound": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBGap.exists_large_deviation": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBGap.certificate_deviation": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBGap.no_uniform_perturbation": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBQuantum.probability_nonnegative": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBQuantum.pauli_diagonal_real": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBQuantum.born_pair_deviation": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBQuantum.real_phase_parseval": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBQuantum.complex_three_parseval": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBQuantum.coherence_parseval": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBQuantum.marginal_eq_fourier": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBQuantum.signed_eq_fourier": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBQuantum.spectral_energy_scalars": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBQuantum.basis_energy_decomposition": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBQuantum.measurement_energy_decomposition": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBQuantum.normalized_measurement_energy": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBQuantum.probability_eq_outcome": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBQuantum.outcome_scale": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBQuantum.amplitude_row_formula": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBQuantum.outcome_row_formula": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBQuantum.qutrit_rows_orthogonal": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBQuantum.qubit_rows_orthogonal": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBQuantum.joint_rows_orthogonal": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBQuantum.born_pair_sum": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBQuantum.phase_sum_real": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBQuantum.measurement_mass": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBQuantum.normalized_measurement_mass": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBQuantum.concrete_energy_decomposition": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBQuantum.canonical_amplitude_eq": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBQuantum.canonical_factor_norm": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBQuantum.canonical_probability_eq": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBQuantum.canonical_norm_transport": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBQuantum.canonical_measurement_mass": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBQuantum.normalized_canonical_measurement_mass": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBQuantum.canonical_energy_eq": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBQuantum.canonical_energy_decomposition": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSpectral.weight_nonneg": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSpectral.innerQ_self": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSpectral.innerQ_swap": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSpectral.norm_innerQ_swap": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSpectral.normSq_innerQ_swap": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSpectral.qubit_relation": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSpectral.relation_innerQ": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSpectral.diagonal_row_bound": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSpectral.rank_two_small_weight": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSpectral.pure_bloch_length": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSpectral.real_cauchy_three": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSpectral.quadratic_bloch": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSpectral.bloch_rayleigh": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSpectral.frame_trace": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSpectral.frame_form_eq_quadratic": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSpectral.frame_rayleigh": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSpectral.innerQ_cauchy": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSpectral.weight_perp": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSpectral.innerQ_perp": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSpectral.frame_perp_upper": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSpectral.frame_weight_complement": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSpectral.frame_at_coefficient_upper": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSpectral.coefficient_rayleigh_bound": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSpectral.vectorNorm_nonneg": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSpectral.vectorNorm_sq": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSpectral.vectorNorm_reverse_triangle": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSpectral.normSq_add_le_two": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSpectral.vectorNorm_add_sq_le": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSpectral.pauli_fierz": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSpectral.phasePair_sq": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSpectral.phasePair_sq_upper": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSpectral.correlation_remainder_bound": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSpectral.overlapSum_nonneg": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSpectral.energy_gap_of_quantum_identities": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBBridge.overlap_energy_eq": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBBridge.bloch_square_identity": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBBridge.phase_normSq": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBBridge.correlation_phases_unit": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBBridge.correlation_eq": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBBridge.normalized_born_gap": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBBridge.no_common_unbiased_state": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBBridge.canonical_born_gap": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBBridge.canonical_energy_gap": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBBridge.canonical_probability_gap": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBBridge.canonical_no_unbiased_state": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBBridge.exists_large_probability_deviation": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBBridge.no_uniform_probability_perturbation": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBResidual.residual_zero_iff": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBResidual.residual_unitary_covariance": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBResidual.residual_adjoint": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBResidual.residual_transpose": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBResidual.gramProjection_hermitian": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBResidual.gram_square_of_residual_zero": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBResidual.gramProjection_idempotent": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBResidual.trace_eq_rank_of_idempotent": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBResidual.gramProjection_rank": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBResidual.rank_two_of_residual_zero_of_trace": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBResidual.trace_gram_of_flat": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBResidual.rank_two_of_flat_residual_zero": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBResidual.entrywiseCube_flat": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBResidual.phase_cube_residual_rank_two": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBResidual.rank_two_of_balanced_gram": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBResidual.normalized_cube_residual_rank_two": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBResidual.one_matrix_zero_of_entry_products": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBResidual.low_cube_rank_of_residual_products": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBTensorFrame.repetition_mul_right": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBTensorFrame.repetition_adjoint_mul_left": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBTensorFrame.repetition_isometry": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBTensorFrame.repetition_compression_entry": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBTensorFrame.repetition_compression": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBTensorFrame.first_projection_defect": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBTensorFrame.second_projection_defect": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBTensorFrame.third_projection_defect": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBFieldObstruction.normalization_mem_of_composition": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBOperationalTV.variation_nonneg": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBOperationalTV.abs_le_variation": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBOperationalTV.energy_le_two_variation_sq": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBOperationalTV.likelihood_success": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBOperationalTV.decision_success_le_likelihood": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBOperationalTV.canonical_deviation_sum_zero": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBOperationalTV.canonical_TV_sq_witness": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBOperationalTV.canonical_TV_witness": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBOperationalTV.canonical_TV_rational_witness": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBOperationalTV.canonical_probability_nonneg": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBOperationalTV.canonical_distinguishing_witness": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBCubeCounts.balanced_counts_classes": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBCubeCounts.balanced_counts_positive_class": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBCubicGram.six_cubes_eq_three_elementary": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBCubicGram.third_elementary_self_conjugate": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBCubicGram.six_unit_cubic_moment_self_conjugate": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBCubicGram.six_phase_moment": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBCubicGram.cubic_overlap_phase": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBCubicGram.hadamard_cubic_gram_phase": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBGramCap.gram_defect_factorization": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBGramCap.gram_cap_posSemidef": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBGramCap.cube_gram_cap_posSemidef": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBPurityGap.trace_sandwich_zero_iff": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBPurityGap.purity_gap_nonnegative": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBPurityGap.purity_gap_zero_iff_balanced": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBPurityGap.three_purity_product_zero_iff": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSquarefreePhysical.squarefree_column_gram": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSquarefreePhysical.squarefree_row_overlap_two": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSquarefreePhysical.incidence_factor_gram_entry": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSquarefreePhysical.squarefree_row_defect": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSquarefreePhysical.physical_cube_gram_cap": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBCompatibility.coupled_gram_idempotent": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBCompatibility.hermitian_idempotent_eq_one_of_trace": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBCompatibility.coupled_equations_unitary": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBCompatibility.trace_gram_of_normalized_flat": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBCompatibility.coupled_flat_unitary": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBPhaseTensor.factorization_of_anchored_boxes": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBPhaseTensor.reconstructed_phases_unit": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBPhaseTensor.phase_equations_of_line_sums": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBPhaseTensor.normalized_reconstruction_coupled": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBPhaseTensor.normalized_reconstruction_flat": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBPhaseTensor.phase_tensor_realization": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBPhaseTensorConverse.transition_tensor_unit": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBPhaseTensorConverse.transition_tensor_boxes": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBPhaseTensorConverse.transition_tensor_line_sums": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBPhaseTensorConverse.physical_realization_conditions": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBPhaseTensorConverse.phase_tensor_equivalence": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBResidualBounds.residual_purity_square_identity": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBResidualBounds.residual_purity_cap_identity": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBResidualBounds.residual_purity_lower_bound": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBResidualBounds.residual_purity_upper_bound": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBQuantumTransport.repeated_frame_isometry": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBQuantumTransport.partial_trace_repetition_frame": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBQuantumTransport.overlap_square_factorization": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBQuantumTransport.physical_partial_trace": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBQuantumTransport.transport_gram_trace": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBQuantumTransport.transport_cube": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBQuantumTransport.overlap_residual_identity": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBQuantumTransport.traceless_overlap_trace": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBQuantumTransport.residual_energy_decomposition": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBAnchoredPurity.anchored_square_identity": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBAnchoredPurity.anchor_projection_properties": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBAnchoredPurity.anchored_distance_identity": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBAnchoredPurity.anchored_defect_zero_iff": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBAnchoredPurity.anchored_defect_nonnegative": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBAnchoredPurity.anchored_distance_weighted_bound": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBAnchoredPurity.aggregate_defect_nonpositive_iff": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBAnchoredPurity.anchored_minor_identity": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBAnchoredPurity.anchored_minor_sum_eq_neg_defect": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBAnchoredPurity.aggregate_minor_nonnegative_iff": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSixPhasePolynomial.positive_polynomial_certificate": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSixPhasePolynomial.rational_gap_identities": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSixPhasePolynomial.sharp_envelope_bound": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBTetrahedral.phase_edges_factorization": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBTetrahedral.phase_edges_unit": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBTetrahedral.factorized_face_realization": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBTetrahedral.tetrahedral_realization": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBTetrahedral.physical_quartet_conditions": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBTetrahedral.physical_quartet_is_unbiased": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBTetrahedral.tetrahedral_equivalence": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBTetrahedral.fourth_face_conditions": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBLocalExhaustion.local_graph_exhaustion": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBLocalExhaustion.local_property_transfer": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBMeasurementProjectors.projector_positive": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBMeasurementProjectors.projector_trace_idempotent": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBMeasurementProjectors.projector_born_probability": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBMeasurementProjectors.canonical_projector_born": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBMeasurementProjectors.projector_gram": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBMeasurementProjectors.canonical_projector_gram": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBMeasurementProjectors.canonical_projector_complete": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBMeasurementProjectors.centered_projector_gram": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBMeasurementBessel.measurement_square_certificate": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBMeasurementBessel.canonical_measurement_bessel": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBMeasurementBessel.hermitian_coefficient": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBMeasurementBessel.canonical_uniform_comparison": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBDensityGap.pure_state_trace": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBDensityGap.uniform_density_trace": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBDensityGap.canonical_density_distance_gap": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBDensityGap.canonical_density_rayleigh_gap": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBDensityGap.canonical_density_homogeneous_gap": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBDensityGap.canonical_density_vector_defect_gap": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBDensityGap.canonical_density_operator_gap": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBDensityGap.canonical_density_cubic_operator_bound": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBDensityGap.canonical_density_cubic_kernel": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBDensityGap.canonical_density_cubic_strict": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBDensityTrace.canonical_density_trace_deficit": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBBalancedRows.row_sum": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBBalancedRows.row_dot_values": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBBalancedRows.sign_square": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBBalancedRows.row_dot_self": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBBalancedRows.row_dot_square": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBBalancedRows.balanced_sign_iff": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBBalancedRows.balanced_row_count": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBBalancedGram.phase_entry_formula": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBBalancedGram.phase_entry_unit": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBBalancedGram.phase_row_sum": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBBalancedGram.phase_gram_entry": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBBalancedGram.row_dot_total_square": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBBalancedGram.gram_defect_entry": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBBalancedGram.balanced_gram_separation": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBBalancedGram.balanced_matrix_not_hadamard": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBBalancedSpectralEnvelope.majorant_factorization": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBBalancedSpectralEnvelope.sqrt_majorant": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBBalancedSpectralEnvelope.regular_distance_constant_gt_two": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBBalancedSpectralEnvelope.gram_error_scalar_gap": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBBalancedSmallTables.graph_inverse_certificate": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBBalancedSmallTables.positive_extension_certificate": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBBalancedSmallTables.table_bound_lt": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBBalancedSmallTables.positive_extension_counts": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBBalancedSmallTables.total_positive_extensions": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBBalancedSmallTables.one_edge_moment_rows": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBBalancedSmallTables.moment_majorant_identity": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBBalancedSmallTables.actual_moment_majorant_bound": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBBalancedSmallTables.majorant_sum_of_moments": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBBalancedSmallTables.sqrt_sum_lt_of_actual_moments": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBFourLineForms.antipodal_representative_count": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBFourLineForms.tight_frame_entry": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBFourLineForms.eight_gram_characteristic_polynomials": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBFourLineForms.normal_form_counts": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBFourLineForms.star_gram_singular": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBMatchingGram.balanced_witness": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBMatchingGram.witness_gram": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBMatchingGram.signed_null_polynomial": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBMatchingGram.signed_projection_certificate": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBMatchingGram.signed_kernel_characterization": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBMatchingGram.all_orientation_imbalances": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBMatchingGram.nonzero_orientation_gap": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBLocalGermAlgebra.span_mulVec_le": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBLocalGermAlgebra.span_mulVec_eq_of_unit_det": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBLocalGermAlgebra.mixed_determinant": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBLocalGermAlgebra.actual_mixed_determinant_nonzero": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBLocalGermAlgebra.powerSeries_unit_det": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBLocalGermAlgebra.powerSeries_generators_eq": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBCoordinateProductIdeal.coordinate_product_monomials": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBCoordinateProductIdeal.coordinate_product_eq_inf": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBCoordinateProductIdeal.coordinate_ideal_eq_kernel": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBCoordinateProductIdeal.coordinate_ideal_prime": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBCoordinateProductIdeal.actual_cross_product": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBCoordinateProductIdeal.actual_cross_intersection": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBCoordinateProductIdeal.actual_cross_radical": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBCoordinateProductIdeal.actual_cross_quotient_reduced": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBCoordinateProductIdeal.prime_over_cross_contains_plane": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBMixedTransport.repeated_frame_overlap": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBMixedTransport.mixed_projector_factorization": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBMixedTransport.mixed_partial_trace": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBMixedTransport.mixed_trace": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBMixedTransport.centered_mixed_transport": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBMixedTransport.centered_mixed_norm": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSunCubeGram.actual_block_gram": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSunCubeGram.correlation_from_unitarity": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSunCubeGram.gamma_cube": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSunCubeGram.cube_correlation_cancellation": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSunCubeGram.cube_block_formula": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSunCubeGram.actual_cube_gram": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSunCubeGram.actual_parameter_range": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSunCubeGram.model_quadratic_identity": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSunCubeGram.actual_cube_quadratic_identity": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSunCubeGram.model_trace_square": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSunCubeGram.frobenius_trace": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSunCubeGram.residual_square_identity": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSunCubeGram.model_residual_trace": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSunCubeGram.actual_deficit_formula": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSunCubeGram.actual_residual_energy": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSunCubeGram.frobenius_zero_iff": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSunCubeGram.actual_deficit_zero_iff": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSunCubeGram.actual_residual_zero_iff": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSunCubeGram.actual_deficit_maximum": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSunCubeGram.actual_energy_maximum": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSunCubeGram.actual_maximum_witness": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSunCubeGram.actual_witness_values": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSunCubeGram.actual_block_entries_unit": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSunCubeGram.actual_normalization_identity": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSunCubeSpectrum.actual_parity_split": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSunCubeSpectrum.ternary_characteristic_polynomial": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSunCubeSpectrum.model_characteristic_polynomial": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSunCubeSpectrum.actual_cube_characteristic_polynomial": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSeedGluing.face_count": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSeedGluing.edge_involution": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSeedGluing.adjacent_steps_commute": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSeedGluing.actual_orbit_sizes": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSeedGluing.actual_cell_counts": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSeedGluing.two_root_letters_cover": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSeedGluing.letters_are_edge_moves": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSeedGluing.cell_euler_characteristic": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSeedGluing.gluing_graph_connected": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBUniformSubmersion.ratio_unit": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBUniformSubmersion.ratio_square_sum": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBUniformSubmersion.projected_trace": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBUniformSubmersion.projected_anisotropy": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBUniformSubmersion.actual_projected_trace": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBUniformSubmersion.actual_projected_anisotropy": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBUniformSubmersion.actual_coefficient_gram": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBUniformSubmersion.gram_characteristic_polynomial": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBUniformSubmersion.gram_quadratic_identity": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBUniformSubmersion.actual_uniform_lower_bound": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBUniformSubmersion.actual_coefficient_characteristic_polynomial": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBUniformSubmersion.projected_action_on_mean_zero": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBUniformSubmersion.coefficient_action_on_mean_zero": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBUniformSubmersion.gram_determinant": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBUniformSubmersion.actual_gram_determinant_positive": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBUniformSubmersion.actual_right_inverse": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBUniformSubmersion.actual_coefficient_surjective": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBUniformSubmersion.projected_sum_zero": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBUniformSubmersion.coefficient_transpose_mean_zero": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBUniformSubmersion.actual_right_inverse_mean_zero": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBUniformSubmersion.actual_right_inverse_energy": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBUniformSubmersion.actual_right_inverse_bound": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBUniformSubmersion.actual_bounded_mean_zero_preimage": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSeedDifferential.phase_hasStrictFDerivAt": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSeedDifferential.raw_seed_hasStrictFDerivAt": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSeedDifferential.seed_hasStrictFDerivAt": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSeedDifferential.actual_seed_zero": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSeedDifferential.raw_differential_apply": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSeedDifferential.actual_seed_differential_coefficient": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSeedDifferential.actual_seed_bounded_preimage": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSeedDifferential.actual_seed_differential_surjective": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSeedDifferential.actual_seed_strict_submersion": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSeedDifferential.phase_unit": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSeedDifferential.ratio_product_one": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSeedDifferential.perturbed_ratios_unit": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSeedDifferential.perturbed_ratios_product_one": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSeedDifferential.seed_equation_is_torus_sum": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSeedDifferential.varied_triple_unit": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSeedDifferential.varied_triple_ratios": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSeedDifferential.seed_equation_is_varied_correlation": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSeedDifferential.actual_seed_zero_iff_varied_block_unitary": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSeedLocalChart.angle_domain_finrank": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSeedLocalChart.actual_derivative_range": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSeedLocalChart.actual_kernel_finrank": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSeedLocalChart.actual_chart_source": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSeedLocalChart.actual_chart_origin": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSeedLocalChart.actual_chart_first_coordinate": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSeedLocalChart.actual_chart_target_origin": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSeedLocalChart.actual_zero_set_chart": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSeedLocalChart.actual_eventual_zero_set_chart": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSeedLocalChart.actual_implicit_function_strict_derivative": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSunDiscriminant.ratio_product": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSunDiscriminant.ratio_second_symmetric": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSunDiscriminant.vandermonde_square": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSunDiscriminant.vandermonde_conjugate": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSunDiscriminant.actual_discriminant_slack": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSunDiscriminant.actual_parameter_quadratic_bound": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSunDiscriminant.actual_parameter_stronger_bound": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSunDiscriminant.actual_parameter_strict_bound": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSunDiscriminant.actual_discriminant_sum": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSunDiscriminant.actual_quadratic_boundary_iff": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSunDiscriminant.actual_cube_gram_determinant": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSunDiscriminant.actual_cube_determinant_nonzero": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSunDiscriminant.actual_cube_full_rank": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSunDiscriminant.actual_zero_parameter_rank_two": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBSunDiscriminant.actual_cube_rank_dichotomy": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBNormalizerObstructions.omega_square": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBNormalizerObstructions.omega_primitive": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBNormalizerObstructions.actual_fourier_parseval": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBNormalizerObstructions.shifted_unit_energy": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBNormalizerObstructions.actual_shared_chirp_obstruction": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBNormalizerObstructions.actual_qubit_welch_identity": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "MUBNormalizerObstructions.actual_qubit_three_ray_obstruction": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  "main_result": "MUBBridge.canonical_probability_gap: arbitrary normalized complex coefficients imply canonical Born energy > 1/72",
+  "main_hypotheses": [
+    "totalNorm v = 1"
+  ],
+  "new_snapshot_public_theorem_count": 7,
+  "campaign_public_theorems_since_142": 252,
+  "new_snapshot_modules": {
+    "MUBNormalizerObstructions": 7
+  },
+  "campaign_modules": {
+    "MUBNormalizerObstructions": {
+      "public_theorems": 7,
+      "result": "Actual primitive cubic root and three-point Fourier Parseval; actual unit triple excludes all shifted Fourier squared moduli6; actual2-by-3 frame/Gram Frobenius identity excludes unit C2 vectors with pairwise squared overlaps1/6.",
+      "desired_Fourier_or_Welch_inequality_assumed": false,
+      "normalizer_spectral_gauge_reduction_and_group_classification_formalized": false
+    },
+    "MUBSeedDifferential": {
+      "public_theorems": 18,
+      "result": "Actual exponential ratio-angle seed equation on the actual mean-zero domain has a genuine strict real Frechet derivative, the verified coefficient matrix and bounded surjectivity; exact phase/product variation, explicit varied triples and seed-zero iff actual block unitarity.",
+      "derivative_or_surjectivity_assumed": false,
+      "physical_composed_Sun_transition_registration_formalized": false
+    },
+    "MUBSeedLocalChart": {
+      "public_theorems": 10,
+      "result": "Explicit actual domain equivalence with R4, actual derivative kernel dimension2, genuine strict IFT chart and full local seed zero-set exhaustion by a two-dimensional kernel.",
+      "generic_Jacobian_or_chart_premise": false,
+      "arbitrary_MUB_or_global_seed_coverage": false
+    },
+    "MUBSunDiscriminant": {
+      "public_theorems": 15,
+      "result": "Actual ratio Vandermonde slack and opposite-correlation sum give q\u00b2+18q<=27 and q<=6sqrt3-9<3/2; actual cube Gram determinant, nonzero determinant and rank6 for q!=0, rank2 for q0, and actual rank dichotomy.",
+      "sharp_attainer_or_global_geometry_claimed": false
+    },
+    "MUBUniformSubmersion": {
+      "public_theorems": 23,
+      "result": "Actual projected ratio-angle coefficient matrix Gram and characteristic polynomial; uniform quadratic coercivity 3/2; actual canonical right inverse in the mean-zero domain with squared Euclidean norm bound 2/3.",
+      "structural_hypotheses": [
+        "unit triples u and v",
+        "actual block C\u2020C=6I"
+      ],
+      "Gram_range_or_surjectivity_assumed": false,
+      "analytic_differentiation_formalized_in_MUBSeedDifferential": true,
+      "physical_seed_registration_formalized": false
+    },
+    "MUBSunCubeGram": {
+      "public_theorems": 24,
+      "result": "Actual unregistered Hankel block unitarity derives correlation cancellation and actual cube Gram; positivity gives0<=q<=3/2; literal normalization, trace/energy formulas, zero equivalences, sharp maxima and an actual attaining block are verified.",
+      "structural_hypotheses": [
+        "u and v have unit modulus",
+        "actual block C\u2020C=6I"
+      ],
+      "desired_Gram_Newton_or_range_assumed": false,
+      "composed_seed_to_block_and_registration_formalized": false
+    },
+    "MUBSunCubeSpectrum": {
+      "public_theorems": 4,
+      "result": "Explicit parity reindexing and actual3x3 determinant yield the cube Gram characteristic polynomial (X-(18-12q))\u00b2(X-6q)\u2074.",
+      "spectral_multiplicities_assumed": false
+    },
+    "MUBSeedGluing": {
+      "public_theorems": 9,
+      "result": "Explicit S3xS3 faces, six edge maps, fixed-point-free involutions, adjacent commutation, actual orbit/cell counts36/108/54, Euler-18 and actual gluing-graph connectivity.",
+      "continuous_surface_or_genus_identification_formalized": false
+    },
+    "MUBLocalGermAlgebra": {
+      "public_theorems": 6,
+      "result": "Generic invertible coefficient matrices preserve generated ideals; actual4x4 mixed matrix has determinant -4+2sqrt(3), nonzero; actual constant-matrix criterion gives real formal-power-series ideal invariance.",
+      "MUB_derivative_origin_formalized": false
+    },
+    "MUBCoordinateProductIdeal": {
+      "public_theorems": 9,
+      "result": "Actual polynomial coordinate product/intersection identity from monomial supports, coordinate-kernel identification and primality; original four-generator crossing ideal is radical with reduced quotient.",
+      "power_series_or_analytic_reducedness_formalized": false
+    },
+    "MUBMixedTransport": {
+      "public_theorems": 6,
+      "result": "Actual overlap of two repeated frames, three-projector factorization, mixed partial trace and trace, centered transport and norm-squared scale1/36.",
+      "target_factorization_assumed": false,
+      "centered_hypotheses": [
+        "B unitary",
+        "B entry norm squares1/6"
+      ],
+      "uncentered_hypotheses": []
+    },
+    "MUBBalancedSmallTables": {
+      "public_theorems": 10,
+      "result": "Actual five rational Gram inverses and all80 sign extensions,62 positive Schur cases, exact trace polynomial bounds <25/2 and an explicit three-moment conditional square-root-sum bridge.",
+      "trace_moments_are_actual_matrix_traces": true,
+      "spectral_transport_formalized": false
+    },
+    "MUBFourLineForms": {
+      "public_theorems": 5,
+      "result": "Ten balanced antipodal representatives, actual tight-frame entries, all8 actual characteristic polynomials and1/1/6 multiplicities.",
+      "arbitrary_Gram_normalization_formalized": false
+    },
+    "MUBMatchingGram": {
+      "public_theorems": 7,
+      "result": "Actual balanced sign witness and Gram matrix; all64 signed polynomial projectors, arbitrary-rational-vector kernel characterization, and nonzero imbalance >=24.",
+      "arbitrary_maximizer_classification_formalized": false
+    },
+    "MUBBalancedRows": {
+      "public_theorems": 7,
+      "result": "Kernel-checked balanced-row count20, zero sign sum and all pair dot products in {-6,-2,2,6}.",
+      "external_or_native_oracle": false
+    },
+    "MUBBalancedGram": {
+      "public_theorems": 8,
+      "result": "Actual complex two-phase formula, unit entries, row sums, Gram entries and ||SS*\u22126I||\u00b2>=160/3; direct actual non-Hadamard corollary.",
+      "hypotheses": [
+        "six rows chosen from the exactly balanced Boolean row subtype"
+      ],
+      "desired_Gram_inequality_assumed": false
+    },
+    "MUBBalancedSpectralEnvelope": {
+      "public_theorems": 4,
+      "result": "Exact cubic-majorant factorization; q(x)>=sqrt(x) for x>=0; kappa>2; separate scalar e\u00b2>7/5 conversion.",
+      "excluded_scope": [
+        "177100-case finite spectral certificate",
+        "matrix norm comparison for scalar distance conversion",
+        "regular Hadamard distance>7/2",
+        "physical tensor distance>21"
+      ]
+    },
+    "MUBDensityTrace": {
+      "public_theorems": 1,
+      "result": "The strict cubic trace deficit 1\u2212Re tr(R\u00b3)>1/144 follows directly from the actual operator/kernel bound and purity.",
+      "hypotheses": [
+        "Hermitian R",
+        "tr(R\u00b2)=1",
+        "actual canonical expectations all1/6"
+      ],
+      "spectral_input_assumed": false
+    },
+    "MUBMeasurementProjectors": {
+      "public_theorems": 8,
+      "result": "Actual canonical projectors, Born trace identities, exact Gram table and completeness.",
+      "coordinate_scope": "C=D\u00b2F coefficient coordinates and actual outcome relabeling; b=0 is not coordinate diagonal."
+    },
+    "MUBMeasurementBessel": {
+      "public_theorems": 4,
+      "result": "Exact Gram-square identity, derived Bessel bound and actual uniform-density comparison.",
+      "Bessel_or_Gram_inequality_assumed": false
+    },
+    "MUBDensityGap": {
+      "public_theorems": 10,
+      "result": "Distance >1/72 from every pure state; under purity one, (143/144)I\u2212R is positive definite and Q\u2212R\u00b2/144 is positive semidefinite with kernel ker R; strict direction iff R u is nonzero.",
+      "hypotheses": [
+        "Hermitian R",
+        "actual canonical projector expectations all 1/6",
+        "tr(R\u00b2)=1 for Rayleigh/cubic results"
+      ],
+      "positivity_of_R_assumed": false,
+      "trace_one_assumed": false,
+      "arbitrary_MUB_triples_covered": false
+    },
+    "MUBLocalExhaustion": {
+      "public_theorems": 2,
+      "result": "Generic Mathlib IFT local full-zero-set exhaustion and seed-property transfer.",
+      "hypotheses": [
+        "selected strict derivative and invertible partial derivative",
+        "selected anchor zero",
+        "full zeros imply selected zeros",
+        "continuous seed through anchor",
+        "eventually full seed equations"
+      ],
+      "uniqueness_or_exhaustion_assumed": false,
+      "concrete_Sun_instantiation_verified": false
+    },
+    "MUBTetrahedral": {
+      "public_theorems": 8,
+      "result": "Tetrahedral phase conditions are equivalent to six shared normalized flat-unitary edges realizing all four faces; the actual six basis overlaps are checked.",
+      "hypotheses": [
+        "four unit tensors",
+        "full tetrahedral cocycle",
+        "all three line-sum families on faces012,013,023"
+      ],
+      "boxes_assumed": false,
+      "fourth_face_line_sums_assumed": false,
+      "existence_or_exclusion_conclusion": false
+    },
+    "MUBSixPhasePolynomial": {
+      "public_theorems": 3,
+      "result": "P/Q positivity, exact rational gap identities, and the 3+2+1 envelope bound f+sqrt(g)\u226498/3 with equality iff L=9.",
+      "hypotheses": [
+        "t\u22650 for polynomial positivity",
+        "L\u22600 for rational identities",
+        "1\u2264L\u22649 for the sharp envelope bound"
+      ],
+      "excluded_scope": [
+        "phase-to-envelope derivation",
+        "stationary-support reduction",
+        "other multiplicity cases",
+        "the full sharp six-phase theorem"
+      ]
+    },
+    "MUBAnchoredPurity": {
+      "public_theorems": 10,
+      "result": "Exact anchored Gram/distance identities, rank-one positivity detection, actual principal-minor Newton identity, and finite-family aggregate certificate.",
+      "hypotheses": [
+        "Hermitian R and tr(R\u00b2)=1 for the square identity",
+        "add Raa\u22600 for normalized projection, detection and error bound",
+        "add tr R=1 for the aggregate principal-minor certificate"
+      ],
+      "minor_identity_scope": "The determinant identity itself holds for every square complex matrix.",
+      "no_domain_certificate_assumed_as_conclusion": true
+    },
+    "MUBResidualBounds": {
+      "public_theorems": 4,
+      "result": "Exact completed-square and Gram-cap trace identities imply W\u00b2/36\u2264E and, under the cap, E\u226418W.",
+      "hypotheses": [
+        "tr(M\u2020M)=36",
+        "the upper bound additionally assumes 18I\u2212M\u2020M PSD"
+      ]
+    },
+    "MUBQuantumTransport": {
+      "public_theorems": 9,
+      "result": "Actual repetition/tensor-cube partial trace, scaled Frobenius transport, traceless centering and energy identity ||T||\u00b2=5184||Xi||\u00b2+864delta\u00b2.",
+      "hypotheses": [
+        "U is unitary of order 6",
+        "every entry of U has squared modulus 1/6"
+      ],
+      "partial_trace_identity_assumed": false,
+      "algebraic_scope": "The partial-trace and factorization identities require no unitarity or flatness.",
+      "hermiticity": "O and Xi need not be Hermitian; energies use conjugate transpose."
+    },
+    "MUBSquarefreePhysical": {
+      "public_theorems": 5,
+      "result": "Actual squarefree/incidence constructions imply 18I\u2212(H entrywise cubed)\u2020(H entrywise cubed) is positive semidefinite.",
+      "hypotheses": [
+        "unit-modulus entries",
+        "HH\u2020=6I",
+        "explicit complementary-triple Fourier vanishing"
+      ]
+    },
+    "MUBCompatibility": {
+      "public_theorems": 5,
+      "result": "The coupled equations force A,B,C to be unitary in any finite dimension.",
+      "hypotheses": [
+        "AC=B",
+        "A\u2020B=C",
+        "BC\u2020=A",
+        "tr(A\u2020A)=dimension"
+      ],
+      "flat_corollary": "For nonempty dimension, normalized flatness of A supplies the trace; no invertibility or orthogonality premise."
+    },
+    "MUBPhaseTensor": {
+      "public_theorems": 6,
+      "result": "Constructively reconstruct normalized flat unitary matrices from unit tensor entries, non-anchor boxes, and all three line-sum families."
+    },
+    "MUBPhaseTensorConverse": {
+      "public_theorems": 5,
+      "result": "Physical transitions satisfy all tensor constraints; the complete physical existence equivalence is formalized."
+    }
+  },
+  "main_new_equivalence": {
+    "theorem": "MUBPhaseTensorConverse.phase_tensor_equivalence",
+    "tensor_side": "UnitTensor t and all125 non-anchor boxes and all three axis-line families summing to the positive sqrt(6)",
+    "physical_side": "There exist normalized flat unitary A,B,C with AC=B and t_ikj=sqrt(6)A_ik C_kj/B_ij",
+    "signature_and_predicate_definitions_checked_in": "logs/axioms-all.log",
+    "no_global_purity_conclusion": true
+  },
+  "not_formalized": [
+    "full fixed-ray common-normalizer reduction, coherent four-form equivalences and normalizer group-order corollaries",
+    "the composed physical Sun seed-to-block and registration-gauge bridges",
+    "continuous seed gluing and genus10 identification",
+    "the actual MUB analytic crossing germ and Hessian origin",
+    "coordinate product-ideal reducedness in formal or convergent power series",
+    "unrestricted global MUB exclusion",
+    "cube-rank finite classification",
+    "concrete quartic moment certificate",
+    "projector operator-norm interface",
+    "the externally cited non-Tao Fourier vanishing theorem",
+    "universal vanishing of the degree-36 three-edge purity product",
+    "paired cube-Gram spectrum or cube-product saturation",
+    "uniqueness of phase-tensor reconstruction up to common diagonal gauge",
+    "a MUB-domain proof of the aggregate anchored-minor inequality",
+    "the full sharp six-phase stationary-support theorem",
+    "the concrete Sun local-neighborhood analytic/minor instantiation",
+    "the full complex Sun component and 301-component count",
+    "the exhaustive Procrustes spectral certificate and distance>7/2",
+    "the physical tensor line distance>21"
+  ]
+}

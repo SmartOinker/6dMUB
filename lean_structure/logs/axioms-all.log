@@ -1,0 +1,919 @@
+'MUBGap.joint_pair_deviation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBGap.three_point_parseval' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBGap.qubit_fierz' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBGap.separating_functional_no_sos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBGap.scalar_certificate_consistent' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBGap.scalar_gap' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBGap.energy_le_of_uniform_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBGap.exists_large_deviation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBGap.certificate_deviation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBGap.no_uniform_perturbation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBQuantum.probability_nonnegative' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBQuantum.pauli_diagonal_real' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBQuantum.born_pair_deviation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBQuantum.real_phase_parseval' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBQuantum.complex_three_parseval' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBQuantum.coherence_parseval' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBQuantum.marginal_eq_fourier' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBQuantum.signed_eq_fourier' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBQuantum.spectral_energy_scalars' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBQuantum.basis_energy_decomposition' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBQuantum.measurement_energy_decomposition' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBQuantum.normalized_measurement_energy' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBQuantum.probability_eq_outcome' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBQuantum.outcome_scale' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBQuantum.amplitude_row_formula' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBQuantum.outcome_row_formula' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBQuantum.qutrit_rows_orthogonal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBQuantum.qubit_rows_orthogonal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBQuantum.joint_rows_orthogonal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBQuantum.born_pair_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBQuantum.phase_sum_real' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBQuantum.measurement_mass' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBQuantum.normalized_measurement_mass' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBQuantum.concrete_energy_decomposition' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBQuantum.canonical_amplitude_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBQuantum.canonical_factor_norm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBQuantum.canonical_probability_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBQuantum.canonical_norm_transport' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBQuantum.canonical_measurement_mass' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBQuantum.normalized_canonical_measurement_mass' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBQuantum.canonical_energy_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBQuantum.canonical_energy_decomposition' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSpectral.weight_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSpectral.innerQ_self' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSpectral.innerQ_swap' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSpectral.norm_innerQ_swap' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSpectral.normSq_innerQ_swap' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSpectral.qubit_relation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSpectral.relation_innerQ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSpectral.diagonal_row_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSpectral.rank_two_small_weight' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSpectral.pure_bloch_length' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSpectral.real_cauchy_three' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSpectral.quadratic_bloch' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSpectral.bloch_rayleigh' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSpectral.frame_trace' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSpectral.frame_form_eq_quadratic' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSpectral.frame_rayleigh' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSpectral.innerQ_cauchy' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSpectral.weight_perp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSpectral.innerQ_perp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSpectral.frame_perp_upper' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSpectral.frame_weight_complement' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSpectral.frame_at_coefficient_upper' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSpectral.coefficient_rayleigh_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSpectral.vectorNorm_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSpectral.vectorNorm_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSpectral.vectorNorm_reverse_triangle' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSpectral.normSq_add_le_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSpectral.vectorNorm_add_sq_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSpectral.pauli_fierz' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSpectral.phasePair_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSpectral.phasePair_sq_upper' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSpectral.correlation_remainder_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSpectral.overlapSum_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSpectral.energy_gap_of_quantum_identities' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBBridge.overlap_energy_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBBridge.bloch_square_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBBridge.phase_normSq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBBridge.correlation_phases_unit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBBridge.correlation_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBBridge.normalized_born_gap' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBBridge.no_common_unbiased_state' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBBridge.canonical_born_gap' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBBridge.canonical_energy_gap' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBBridge.canonical_probability_gap' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBBridge.canonical_no_unbiased_state' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBBridge.exists_large_probability_deviation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBBridge.no_uniform_probability_perturbation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBResidual.residual_zero_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBResidual.residual_unitary_covariance' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBResidual.residual_adjoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBResidual.residual_transpose' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBResidual.gramProjection_hermitian' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBResidual.gram_square_of_residual_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBResidual.gramProjection_idempotent' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBResidual.trace_eq_rank_of_idempotent' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBResidual.gramProjection_rank' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBResidual.rank_two_of_residual_zero_of_trace' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBResidual.trace_gram_of_flat' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBResidual.rank_two_of_flat_residual_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBResidual.entrywiseCube_flat' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBResidual.phase_cube_residual_rank_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBResidual.rank_two_of_balanced_gram' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBResidual.normalized_cube_residual_rank_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBResidual.one_matrix_zero_of_entry_products' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBResidual.low_cube_rank_of_residual_products' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBTensorFrame.repetition_mul_right' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBTensorFrame.repetition_adjoint_mul_left' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBTensorFrame.repetition_isometry' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBTensorFrame.repetition_compression_entry' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBTensorFrame.repetition_compression' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBTensorFrame.first_projection_defect' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBTensorFrame.second_projection_defect' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBTensorFrame.third_projection_defect' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBFieldObstruction.normalization_mem_of_composition' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBOperationalTV.variation_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBOperationalTV.abs_le_variation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBOperationalTV.energy_le_two_variation_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBOperationalTV.likelihood_success' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBOperationalTV.decision_success_le_likelihood' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBOperationalTV.canonical_deviation_sum_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBOperationalTV.canonical_TV_sq_witness' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBOperationalTV.canonical_TV_witness' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBOperationalTV.canonical_TV_rational_witness' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBOperationalTV.canonical_probability_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBOperationalTV.canonical_distinguishing_witness' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBCubeCounts.balanced_counts_classes' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBCubeCounts.balanced_counts_positive_class' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBCubicGram.six_cubes_eq_three_elementary' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBCubicGram.third_elementary_self_conjugate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBCubicGram.six_unit_cubic_moment_self_conjugate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBCubicGram.six_phase_moment' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBCubicGram.cubic_overlap_phase' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBCubicGram.hadamard_cubic_gram_phase' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBGramCap.gram_defect_factorization' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBGramCap.gram_cap_posSemidef' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBGramCap.cube_gram_cap_posSemidef' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBPurityGap.trace_sandwich_zero_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBPurityGap.purity_gap_nonnegative' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBPurityGap.purity_gap_zero_iff_balanced' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBPurityGap.three_purity_product_zero_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSquarefreePhysical.squarefree_column_gram' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSquarefreePhysical.squarefree_row_overlap_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSquarefreePhysical.incidence_factor_gram_entry' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSquarefreePhysical.squarefree_row_defect' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSquarefreePhysical.physical_cube_gram_cap' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBCompatibility.coupled_gram_idempotent' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBCompatibility.hermitian_idempotent_eq_one_of_trace' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBCompatibility.coupled_equations_unitary' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBCompatibility.trace_gram_of_normalized_flat' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBCompatibility.coupled_flat_unitary' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBPhaseTensor.factorization_of_anchored_boxes' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBPhaseTensor.reconstructed_phases_unit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBPhaseTensor.phase_equations_of_line_sums' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBPhaseTensor.normalized_reconstruction_coupled' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBPhaseTensor.normalized_reconstruction_flat' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBPhaseTensor.phase_tensor_realization' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBPhaseTensorConverse.transition_tensor_unit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBPhaseTensorConverse.transition_tensor_boxes' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBPhaseTensorConverse.transition_tensor_line_sums' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBPhaseTensorConverse.physical_realization_conditions' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBPhaseTensorConverse.phase_tensor_equivalence' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBResidualBounds.residual_purity_square_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBResidualBounds.residual_purity_cap_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBResidualBounds.residual_purity_lower_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBResidualBounds.residual_purity_upper_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBQuantumTransport.repeated_frame_isometry' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBQuantumTransport.partial_trace_repetition_frame' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBQuantumTransport.overlap_square_factorization' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBQuantumTransport.physical_partial_trace' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBQuantumTransport.transport_gram_trace' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBQuantumTransport.transport_cube' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBQuantumTransport.overlap_residual_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBQuantumTransport.traceless_overlap_trace' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBQuantumTransport.residual_energy_decomposition' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBAnchoredPurity.anchored_square_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBAnchoredPurity.anchor_projection_properties' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBAnchoredPurity.anchored_distance_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBAnchoredPurity.anchored_defect_zero_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBAnchoredPurity.anchored_defect_nonnegative' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBAnchoredPurity.anchored_distance_weighted_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBAnchoredPurity.aggregate_defect_nonpositive_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBAnchoredPurity.anchored_minor_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBAnchoredPurity.anchored_minor_sum_eq_neg_defect' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBAnchoredPurity.aggregate_minor_nonnegative_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSixPhasePolynomial.positive_polynomial_certificate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSixPhasePolynomial.rational_gap_identities' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSixPhasePolynomial.sharp_envelope_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBTetrahedral.phase_edges_factorization' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBTetrahedral.phase_edges_unit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBTetrahedral.factorized_face_realization' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBTetrahedral.tetrahedral_realization' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBTetrahedral.physical_quartet_conditions' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBTetrahedral.physical_quartet_is_unbiased' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBTetrahedral.tetrahedral_equivalence' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBTetrahedral.fourth_face_conditions' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBLocalExhaustion.local_graph_exhaustion' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBLocalExhaustion.local_property_transfer' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBMeasurementProjectors.projector_positive' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBMeasurementProjectors.projector_trace_idempotent' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBMeasurementProjectors.projector_born_probability' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBMeasurementProjectors.canonical_projector_born' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBMeasurementProjectors.projector_gram' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBMeasurementProjectors.canonical_projector_gram' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBMeasurementProjectors.canonical_projector_complete' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBMeasurementProjectors.centered_projector_gram' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBMeasurementBessel.measurement_square_certificate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBMeasurementBessel.canonical_measurement_bessel' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBMeasurementBessel.hermitian_coefficient' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBMeasurementBessel.canonical_uniform_comparison' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBDensityGap.pure_state_trace' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBDensityGap.uniform_density_trace' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBDensityGap.canonical_density_distance_gap' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBDensityGap.canonical_density_rayleigh_gap' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBDensityGap.canonical_density_homogeneous_gap' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBDensityGap.canonical_density_vector_defect_gap' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBDensityGap.canonical_density_operator_gap' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBDensityGap.canonical_density_cubic_operator_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBDensityGap.canonical_density_cubic_kernel' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBDensityGap.canonical_density_cubic_strict' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBDensityTrace.canonical_density_trace_deficit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBBalancedRows.row_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBBalancedRows.row_dot_values' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBBalancedRows.sign_square' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBBalancedRows.row_dot_self' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBBalancedRows.row_dot_square' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBBalancedRows.balanced_sign_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBBalancedRows.balanced_row_count' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBBalancedGram.phase_entry_formula' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBBalancedGram.phase_entry_unit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBBalancedGram.phase_row_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBBalancedGram.phase_gram_entry' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBBalancedGram.row_dot_total_square' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBBalancedGram.gram_defect_entry' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBBalancedGram.balanced_gram_separation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBBalancedGram.balanced_matrix_not_hadamard' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBBalancedSpectralEnvelope.majorant_factorization' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBBalancedSpectralEnvelope.sqrt_majorant' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBBalancedSpectralEnvelope.regular_distance_constant_gt_two' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'MUBBalancedSpectralEnvelope.gram_error_scalar_gap' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBBalancedSmallTables.graph_inverse_certificate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBBalancedSmallTables.positive_extension_certificate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBBalancedSmallTables.table_bound_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBBalancedSmallTables.positive_extension_counts' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBBalancedSmallTables.total_positive_extensions' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBBalancedSmallTables.one_edge_moment_rows' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBBalancedSmallTables.moment_majorant_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBBalancedSmallTables.actual_moment_majorant_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBBalancedSmallTables.majorant_sum_of_moments' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBBalancedSmallTables.sqrt_sum_lt_of_actual_moments' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBFourLineForms.antipodal_representative_count' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBFourLineForms.tight_frame_entry' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBFourLineForms.eight_gram_characteristic_polynomials' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBFourLineForms.normal_form_counts' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBFourLineForms.star_gram_singular' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBMatchingGram.balanced_witness' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBMatchingGram.witness_gram' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBMatchingGram.signed_null_polynomial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBMatchingGram.signed_projection_certificate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBMatchingGram.signed_kernel_characterization' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBMatchingGram.all_orientation_imbalances' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBMatchingGram.nonzero_orientation_gap' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBLocalGermAlgebra.span_mulVec_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBLocalGermAlgebra.span_mulVec_eq_of_unit_det' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBLocalGermAlgebra.mixed_determinant' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBLocalGermAlgebra.actual_mixed_determinant_nonzero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBLocalGermAlgebra.powerSeries_unit_det' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBLocalGermAlgebra.powerSeries_generators_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBCoordinateProductIdeal.coordinate_product_monomials' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBCoordinateProductIdeal.coordinate_product_eq_inf' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBCoordinateProductIdeal.coordinate_ideal_eq_kernel' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBCoordinateProductIdeal.coordinate_ideal_prime' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBCoordinateProductIdeal.actual_cross_product' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBCoordinateProductIdeal.actual_cross_intersection' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBCoordinateProductIdeal.actual_cross_radical' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBCoordinateProductIdeal.actual_cross_quotient_reduced' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBCoordinateProductIdeal.prime_over_cross_contains_plane' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBMixedTransport.repeated_frame_overlap' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBMixedTransport.mixed_projector_factorization' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBMixedTransport.mixed_partial_trace' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBMixedTransport.mixed_trace' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBMixedTransport.centered_mixed_transport' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBMixedTransport.centered_mixed_norm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSunCubeGram.actual_block_gram' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSunCubeGram.correlation_from_unitarity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSunCubeGram.gamma_cube' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSunCubeGram.cube_correlation_cancellation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSunCubeGram.cube_block_formula' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSunCubeGram.actual_cube_gram' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSunCubeGram.actual_parameter_range' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSunCubeGram.model_quadratic_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSunCubeGram.actual_cube_quadratic_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSunCubeGram.model_trace_square' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSunCubeGram.frobenius_trace' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSunCubeGram.residual_square_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSunCubeGram.model_residual_trace' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSunCubeGram.actual_deficit_formula' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSunCubeGram.actual_residual_energy' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSunCubeGram.frobenius_zero_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSunCubeGram.actual_deficit_zero_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSunCubeGram.actual_residual_zero_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSunCubeGram.actual_deficit_maximum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSunCubeGram.actual_energy_maximum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSunCubeGram.actual_maximum_witness' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSunCubeGram.actual_witness_values' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSunCubeGram.actual_block_entries_unit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSunCubeGram.actual_normalization_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSunCubeSpectrum.actual_parity_split' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSunCubeSpectrum.ternary_characteristic_polynomial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSunCubeSpectrum.model_characteristic_polynomial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSunCubeSpectrum.actual_cube_characteristic_polynomial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSeedGluing.face_count' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSeedGluing.edge_involution' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSeedGluing.adjacent_steps_commute' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSeedGluing.actual_orbit_sizes' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSeedGluing.actual_cell_counts' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSeedGluing.two_root_letters_cover' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSeedGluing.letters_are_edge_moves' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSeedGluing.cell_euler_characteristic' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSeedGluing.gluing_graph_connected' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBUniformSubmersion.ratio_unit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBUniformSubmersion.ratio_square_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBUniformSubmersion.projected_trace' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBUniformSubmersion.projected_anisotropy' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBUniformSubmersion.actual_projected_trace' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBUniformSubmersion.actual_projected_anisotropy' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBUniformSubmersion.actual_coefficient_gram' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBUniformSubmersion.gram_characteristic_polynomial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBUniformSubmersion.gram_quadratic_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBUniformSubmersion.actual_uniform_lower_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBUniformSubmersion.actual_coefficient_characteristic_polynomial' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'MUBUniformSubmersion.projected_action_on_mean_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBUniformSubmersion.coefficient_action_on_mean_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBUniformSubmersion.gram_determinant' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBUniformSubmersion.actual_gram_determinant_positive' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBUniformSubmersion.actual_right_inverse' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBUniformSubmersion.actual_coefficient_surjective' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBUniformSubmersion.projected_sum_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBUniformSubmersion.coefficient_transpose_mean_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBUniformSubmersion.actual_right_inverse_mean_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBUniformSubmersion.actual_right_inverse_energy' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBUniformSubmersion.actual_right_inverse_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBUniformSubmersion.actual_bounded_mean_zero_preimage' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSeedDifferential.phase_hasStrictFDerivAt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSeedDifferential.raw_seed_hasStrictFDerivAt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSeedDifferential.seed_hasStrictFDerivAt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSeedDifferential.actual_seed_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSeedDifferential.raw_differential_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSeedDifferential.actual_seed_differential_coefficient' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSeedDifferential.actual_seed_bounded_preimage' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSeedDifferential.actual_seed_differential_surjective' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSeedDifferential.actual_seed_strict_submersion' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSeedDifferential.phase_unit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSeedDifferential.ratio_product_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSeedDifferential.perturbed_ratios_unit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSeedDifferential.perturbed_ratios_product_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSeedDifferential.seed_equation_is_torus_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSeedDifferential.varied_triple_unit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSeedDifferential.varied_triple_ratios' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSeedDifferential.seed_equation_is_varied_correlation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSeedDifferential.actual_seed_zero_iff_varied_block_unitary' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'MUBSeedLocalChart.angle_domain_finrank' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSeedLocalChart.actual_derivative_range' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSeedLocalChart.actual_kernel_finrank' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSeedLocalChart.actual_chart_source' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSeedLocalChart.actual_chart_origin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSeedLocalChart.actual_chart_first_coordinate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSeedLocalChart.actual_chart_target_origin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSeedLocalChart.actual_zero_set_chart' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSeedLocalChart.actual_eventual_zero_set_chart' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSeedLocalChart.actual_implicit_function_strict_derivative' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'MUBSunDiscriminant.ratio_product' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSunDiscriminant.ratio_second_symmetric' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSunDiscriminant.vandermonde_square' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSunDiscriminant.vandermonde_conjugate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSunDiscriminant.actual_discriminant_slack' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSunDiscriminant.actual_parameter_quadratic_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSunDiscriminant.actual_parameter_stronger_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSunDiscriminant.actual_parameter_strict_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSunDiscriminant.actual_discriminant_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSunDiscriminant.actual_quadratic_boundary_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSunDiscriminant.actual_cube_gram_determinant' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSunDiscriminant.actual_cube_determinant_nonzero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSunDiscriminant.actual_cube_full_rank' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSunDiscriminant.actual_zero_parameter_rank_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBSunDiscriminant.actual_cube_rank_dichotomy' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBNormalizerObstructions.omega_square' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBNormalizerObstructions.omega_primitive' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBNormalizerObstructions.actual_fourier_parseval' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBNormalizerObstructions.shifted_unit_energy' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBNormalizerObstructions.actual_shared_chirp_obstruction' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBNormalizerObstructions.actual_qubit_welch_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MUBNormalizerObstructions.actual_qubit_three_ray_obstruction' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+MUBNormalizerObstructions.actual_shared_chirp_obstruction (w : MUBSunCubeGram.Triple)
+  (hw : MUBSunCubeGram.UnitTriple w) :
+  ¬∀ (j : Fin 3), Complex.normSq (MUBNormalizerObstructions.fourier3 (fun k => 1 + w k) j) = 6
+MUBNormalizerObstructions.actual_qubit_three_ray_obstruction (V : Matrix (Fin 2) (Fin 3) ℂ)
+  (hunit : ∀ (a : Fin 3), ∑ i, Complex.normSq (V i a) = 1)
+  (hcross : ∀ (a b : Fin 3), a ≠ b → Complex.normSq (MUBNormalizerObstructions.qubitGram V a b) = 1 / 6) : False
+MUBNormalizerObstructions.actual_fourier_parseval (x : MUBSunCubeGram.Triple) :
+  ∑ j, Complex.normSq (MUBNormalizerObstructions.fourier3 x j) = 3 * ∑ j, Complex.normSq (x j)
+MUBNormalizerObstructions.actual_qubit_welch_identity (V : Matrix (Fin 2) (Fin 3) ℂ) :
+  ∑ i, ∑ j, Complex.normSq (MUBNormalizerObstructions.qubitFrame V i j - if i = j then 3 / 2 else 0) =
+    ∑ a, ∑ b, Complex.normSq (MUBNormalizerObstructions.qubitGram V a b) - 3 * ∑ a, ∑ i, Complex.normSq (V i a) + 9 / 2
+@[expose] def MUBNormalizerObstructions.fourier3 : MUBSunCubeGram.Triple → MUBSunCubeGram.Triple :=
+fun x =>
+  ![x 0 + x 1 + x 2,
+    x 0 + MUBNormalizerObstructions.omega * x 1 + (starRingEnd ℂ) MUBNormalizerObstructions.omega * x 2,
+    x 0 + (starRingEnd ℂ) MUBNormalizerObstructions.omega * x 1 + MUBNormalizerObstructions.omega * x 2]
+@[expose] def MUBNormalizerObstructions.qubitGram : Matrix (Fin 2) (Fin 3) ℂ → Matrix (Fin 3) (Fin 3) ℂ :=
+fun V a b => ∑ i, (starRingEnd ℂ) (V i a) * V i b
+@[expose] def MUBNormalizerObstructions.qubitFrame : Matrix (Fin 2) (Fin 3) ℂ → Matrix (Fin 2) (Fin 2) ℂ :=
+fun V i j => ∑ a, V i a * (starRingEnd ℂ) (V j a)
+MUBSeedDifferential.actual_seed_strict_submersion (u v : MUBSunCubeGram.Triple) (hu : MUBSunCubeGram.UnitTriple u)
+  (hv : MUBSunCubeGram.UnitTriple v)
+  (hunit : Matrix.conjTranspose (MUBSunCubeGram.blockMatrix u v) * MUBSunCubeGram.blockMatrix u v = 6 • 1) :
+  MUBSeedDifferential.seedEquation u v 0 = 0 ∧
+    HasStrictFDerivAt (MUBSeedDifferential.seedEquation u v) (MUBSeedDifferential.seedDifferential u v) 0 ∧
+      Function.Surjective ⇑(MUBSeedDifferential.seedDifferential u v)
+MUBSeedDifferential.actual_seed_zero_iff_varied_block_unitary (u v : MUBSunCubeGram.Triple)
+  (hu : MUBSunCubeGram.UnitTriple u) (hv : MUBSunCubeGram.UnitTriple v) (theta : ↥MUBSeedDifferential.angleDomain) :
+  MUBSeedDifferential.seedEquation u v theta = 0 ↔
+    have a := MUBSeedDifferential.variedTriple u ![↑theta 0, ↑theta 1, ↑theta 2];
+    have b := MUBSeedDifferential.variedTriple v ![↑theta 3, ↑theta 4, ↑theta 5];
+    Matrix.conjTranspose (MUBSunCubeGram.blockMatrix a b) * MUBSunCubeGram.blockMatrix a b = 6 • 1
+@[expose] def MUBSeedDifferential.seedEquation : MUBSunCubeGram.Triple →
+  MUBSunCubeGram.Triple → ↥MUBSeedDifferential.angleDomain → ℂ :=
+fun u v theta => MUBSeedDifferential.rawSeedEquation u v ↑theta
+@[expose] def MUBSeedDifferential.angleDomain : Submodule ℝ MUBSeedDifferential.AngleSpace :=
+{ carrier := {theta | MUBUniformSubmersion.MeanZeroPair theta}, add_mem' := @MUBSeedDifferential.angleDomain._proof_1,
+  zero_mem' := MUBSeedDifferential.angleDomain._proof_3, smul_mem' := MUBSeedDifferential.angleDomain._proof_4 }
+MUBSeedLocalChart.angle_domain_finrank : Module.finrank ℝ ↥MUBSeedDifferential.angleDomain = 4
+MUBSeedLocalChart.actual_kernel_finrank (u v : MUBSunCubeGram.Triple) (hu : MUBSunCubeGram.UnitTriple u)
+  (hv : MUBSunCubeGram.UnitTriple v)
+  (hunit : Matrix.conjTranspose (MUBSunCubeGram.blockMatrix u v) * MUBSunCubeGram.blockMatrix u v = 6 • 1) :
+  Module.finrank ℝ ↥(↑(MUBSeedDifferential.seedDifferential u v)).ker = 2
+MUBSeedLocalChart.actual_eventual_zero_set_chart (u v : MUBSunCubeGram.Triple) (hu : MUBSunCubeGram.UnitTriple u)
+  (hv : MUBSunCubeGram.UnitTriple v)
+  (hunit : Matrix.conjTranspose (MUBSunCubeGram.blockMatrix u v) * MUBSunCubeGram.blockMatrix u v = 6 • 1) :
+  ∀ᶠ (theta : ↥MUBSeedDifferential.angleDomain) in nhds 0,
+    MUBSeedDifferential.seedEquation u v theta = 0 ↔
+      ∃ k,
+        (0, k) ∈ (MUBSeedLocalChart.seedChart u v hu hv hunit).target ∧
+          ↑(MUBSeedLocalChart.seedChart u v hu hv hunit).symm (0, k) = theta
+MUBSunDiscriminant.actual_discriminant_slack (u : MUBSunCubeGram.Triple) (hu : MUBSunCubeGram.UnitTriple u) :
+  Complex.normSq (MUBSunDiscriminant.vandermonde u) =
+    27 - 18 * MUBSunCubeGram.q u - MUBSunCubeGram.q u ^ 2 + 8 * (MUBSunCubeGram.gamma u ^ 3).re
+MUBSunDiscriminant.actual_parameter_stronger_bound (u v : MUBSunCubeGram.Triple) (hu : MUBSunCubeGram.UnitTriple u)
+  (hv : MUBSunCubeGram.UnitTriple v)
+  (hunit : Matrix.conjTranspose (MUBSunCubeGram.blockMatrix u v) * MUBSunCubeGram.blockMatrix u v = 6 • 1) :
+  MUBSunCubeGram.q u ≤ 6 * √3 - 9
+MUBSunDiscriminant.actual_cube_rank_dichotomy (u v : MUBSunCubeGram.Triple) (hu : MUBSunCubeGram.UnitTriple u)
+  (hv : MUBSunCubeGram.UnitTriple v)
+  (hunit : Matrix.conjTranspose (MUBSunCubeGram.blockMatrix u v) * MUBSunCubeGram.blockMatrix u v = 6 • 1) :
+  Matrix.rank (MUBSunCubeGram.entryCube (MUBSunCubeGram.blockMatrix u v)) = if MUBSunCubeGram.q u = 0 then 2 else 6
+@[expose] def MUBSunDiscriminant.vandermonde : MUBSunCubeGram.Triple → ℂ :=
+fun u =>
+  (MUBUniformSubmersion.ratios u 0 - MUBUniformSubmersion.ratios u 1) *
+      (MUBUniformSubmersion.ratios u 0 - MUBUniformSubmersion.ratios u 2) *
+    (MUBUniformSubmersion.ratios u 1 - MUBUniformSubmersion.ratios u 2)
+MUBUniformSubmersion.actual_coefficient_gram (u v : MUBSunCubeGram.Triple) (hu : MUBSunCubeGram.UnitTriple u)
+  (hv : MUBSunCubeGram.UnitTriple v)
+  (hunit : Matrix.conjTranspose (MUBSunCubeGram.blockMatrix u v) * MUBSunCubeGram.blockMatrix u v = 6 • 1) :
+  MUBUniformSubmersion.coefficientMatrix u v * (MUBUniformSubmersion.coefficientMatrix u v).transpose =
+    MUBUniformSubmersion.gramModel (MUBSunCubeGram.gamma u).re (MUBSunCubeGram.gamma u).im
+MUBUniformSubmersion.actual_coefficient_characteristic_polynomial (u v : MUBSunCubeGram.Triple)
+  (hu : MUBSunCubeGram.UnitTriple u) (hv : MUBSunCubeGram.UnitTriple v)
+  (hunit : Matrix.conjTranspose (MUBSunCubeGram.blockMatrix u v) * MUBSunCubeGram.blockMatrix u v = 6 • 1) :
+  (MUBUniformSubmersion.coefficientMatrix u v * (MUBUniformSubmersion.coefficientMatrix u v).transpose).charpoly =
+    (Polynomial.X - Polynomial.C (3 - MUBSunCubeGram.q u)) * (Polynomial.X - Polynomial.C (3 + MUBSunCubeGram.q u / 3))
+MUBUniformSubmersion.actual_uniform_lower_bound (u v : MUBSunCubeGram.Triple) (hu : MUBSunCubeGram.UnitTriple u)
+  (hv : MUBSunCubeGram.UnitTriple v)
+  (hunit : Matrix.conjTranspose (MUBSunCubeGram.blockMatrix u v) * MUBSunCubeGram.blockMatrix u v = 6 • 1) (a b : ℝ) :
+  3 / 2 * (a ^ 2 + b ^ 2) ≤
+    ![a, b] ⬝ᵥ
+      (MUBUniformSubmersion.coefficientMatrix u v * (MUBUniformSubmersion.coefficientMatrix u v).transpose).mulVec
+        ![a, b]
+MUBUniformSubmersion.coefficient_action_on_mean_zero (u v : MUBSunCubeGram.Triple) (theta phi : Fin 3 → ℝ)
+  (htheta : ∑ j, theta j = 0) (hphi : ∑ j, phi j = 0) :
+  (MUBUniformSubmersion.coefficientMatrix u v).mulVec ![theta 0, theta 1, theta 2, phi 0, phi 1, phi 2] =
+    ![(Complex.I *
+          (∑ j, MUBUniformSubmersion.ratios u j * ↑(theta j) + ∑ j, MUBUniformSubmersion.ratios v j * ↑(phi j))).re,
+      (Complex.I *
+          (∑ j, MUBUniformSubmersion.ratios u j * ↑(theta j) + ∑ j, MUBUniformSubmersion.ratios v j * ↑(phi j))).im]
+MUBUniformSubmersion.actual_bounded_mean_zero_preimage (u v : MUBSunCubeGram.Triple) (hu : MUBSunCubeGram.UnitTriple u)
+  (hv : MUBSunCubeGram.UnitTriple v)
+  (hunit : Matrix.conjTranspose (MUBSunCubeGram.blockMatrix u v) * MUBSunCubeGram.blockMatrix u v = 6 • 1)
+  (y : Fin 2 → ℝ) :
+  ∃ x,
+    MUBUniformSubmersion.MeanZeroPair x ∧
+      (MUBUniformSubmersion.coefficientMatrix u v).mulVec x = y ∧ ∑ i, x i ^ 2 ≤ 2 / 3 * ∑ i, y i ^ 2
+@[expose] def MUBUniformSubmersion.coefficientMatrix : MUBSunCubeGram.Triple →
+  MUBSunCubeGram.Triple → Matrix (Fin 2) (Fin 6) ℝ :=
+fun u v =>
+  !![(MUBUniformSubmersion.projectedRatios u 0).re, (MUBUniformSubmersion.projectedRatios u 1).re,
+      (MUBUniformSubmersion.projectedRatios u 2).re, (MUBUniformSubmersion.projectedRatios v 0).re,
+      (MUBUniformSubmersion.projectedRatios v 1).re, (MUBUniformSubmersion.projectedRatios v 2).re;
+    (MUBUniformSubmersion.projectedRatios u 0).im, (MUBUniformSubmersion.projectedRatios u 1).im,
+      (MUBUniformSubmersion.projectedRatios u 2).im, (MUBUniformSubmersion.projectedRatios v 0).im,
+      (MUBUniformSubmersion.projectedRatios v 1).im, (MUBUniformSubmersion.projectedRatios v 2).im]
+@[expose] def MUBUniformSubmersion.MeanZeroPair : (Fin 6 → ℝ) → Prop :=
+fun x => x 0 + x 1 + x 2 = 0 ∧ x 3 + x 4 + x 5 = 0
+@[expose] def MUBUniformSubmersion.canonicalRightInverse : MUBSunCubeGram.Triple →
+  MUBSunCubeGram.Triple → Matrix (Fin 6) (Fin 2) ℝ :=
+fun u v =>
+  (MUBUniformSubmersion.coefficientMatrix u v).transpose *
+    (MUBUniformSubmersion.coefficientMatrix u v * (MUBUniformSubmersion.coefficientMatrix u v).transpose)⁻¹
+MUBSunCubeGram.actual_cube_gram (u v : MUBSunCubeGram.Triple) (hu : MUBSunCubeGram.UnitTriple u)
+  (hv : MUBSunCubeGram.UnitTriple v)
+  (hunit : Matrix.conjTranspose (MUBSunCubeGram.blockMatrix u v) * MUBSunCubeGram.blockMatrix u v = 6 • 1) :
+  Matrix.conjTranspose (MUBSunCubeGram.entryCube (MUBSunCubeGram.blockMatrix u v)) *
+      MUBSunCubeGram.entryCube (MUBSunCubeGram.blockMatrix u v) =
+    MUBSunCubeGram.correlationGram (6 - 6 * ↑(MUBSunCubeGram.q u))
+MUBSunCubeGram.actual_parameter_range (u v : MUBSunCubeGram.Triple) (hu : MUBSunCubeGram.UnitTriple u)
+  (hv : MUBSunCubeGram.UnitTriple v)
+  (hunit : Matrix.conjTranspose (MUBSunCubeGram.blockMatrix u v) * MUBSunCubeGram.blockMatrix u v = 6 • 1) :
+  0 ≤ MUBSunCubeGram.q u ∧ MUBSunCubeGram.q u ≤ 3 / 2
+MUBSunCubeGram.actual_normalization_identity (C : MUBSunCubeGram.SixMatrix) :
+  MUBSunCubeGram.normalizedDeficit (MUBSunCubeGram.entryCube C) =
+    1 / 72 -
+      ((Matrix.conjTranspose (MUBSunCubeGram.entryCube (MUBSunCubeGram.phaseNormalize C)) *
+              MUBSunCubeGram.entryCube (MUBSunCubeGram.phaseNormalize C)) ^
+            2).trace.re
+MUBSunCubeGram.actual_residual_energy (u v : MUBSunCubeGram.Triple) (hu : MUBSunCubeGram.UnitTriple u)
+  (hv : MUBSunCubeGram.UnitTriple v)
+  (hunit : Matrix.conjTranspose (MUBSunCubeGram.blockMatrix u v) * MUBSunCubeGram.blockMatrix u v = 6 • 1) :
+  MUBSunCubeGram.frobeniusSq (MUBSunCubeGram.residual (MUBSunCubeGram.entryCube (MUBSunCubeGram.blockMatrix u v))) =
+    2592 * MUBSunCubeGram.q u * (3 - MUBSunCubeGram.q u ^ 2)
+MUBSunCubeGram.actual_maximum_witness :
+  MUBSunCubeGram.UnitTriple MUBSunCubeGram.witnessU ∧
+    MUBSunCubeGram.UnitTriple MUBSunCubeGram.witnessV ∧
+      Matrix.conjTranspose (MUBSunCubeGram.blockMatrix MUBSunCubeGram.witnessU MUBSunCubeGram.witnessV) *
+            MUBSunCubeGram.blockMatrix MUBSunCubeGram.witnessU MUBSunCubeGram.witnessV =
+          6 • 1 ∧
+        MUBSunCubeGram.q MUBSunCubeGram.witnessU = 1
+MUBSunCubeSpectrum.actual_cube_characteristic_polynomial (u v : MUBSunCubeGram.Triple)
+  (hu : MUBSunCubeGram.UnitTriple u) (hv : MUBSunCubeGram.UnitTriple v)
+  (hunit : Matrix.conjTranspose (MUBSunCubeGram.blockMatrix u v) * MUBSunCubeGram.blockMatrix u v = 6 • 1) :
+  (Matrix.conjTranspose (MUBSunCubeGram.entryCube (MUBSunCubeGram.blockMatrix u v)) *
+        MUBSunCubeGram.entryCube (MUBSunCubeGram.blockMatrix u v)).charpoly =
+    (Polynomial.X - Polynomial.C (18 - 12 * ↑(MUBSunCubeGram.q u))) ^ 2 *
+      (Polynomial.X - Polynomial.C (6 * ↑(MUBSunCubeGram.q u))) ^ 4
+@[expose] def MUBSunCubeGram.blockMatrix : MUBSunCubeGram.Triple → MUBSunCubeGram.Triple → MUBSunCubeGram.SixMatrix :=
+fun u v =>
+  !![u 0, Complex.I * (starRingEnd ℂ) (v 0), u 1, Complex.I * (starRingEnd ℂ) (v 2), u 2,
+      Complex.I * (starRingEnd ℂ) (v 1);
+    Complex.I * v 0, (starRingEnd ℂ) (u 0), Complex.I * v 1, (starRingEnd ℂ) (u 2), Complex.I * v 2,
+      (starRingEnd ℂ) (u 1);
+    u 1, Complex.I * (starRingEnd ℂ) (v 2), u 2, Complex.I * (starRingEnd ℂ) (v 1), u 0,
+      Complex.I * (starRingEnd ℂ) (v 0);
+    Complex.I * v 1, (starRingEnd ℂ) (u 2), Complex.I * v 2, (starRingEnd ℂ) (u 1), Complex.I * v 0,
+      (starRingEnd ℂ) (u 0);
+    u 2, Complex.I * (starRingEnd ℂ) (v 1), u 0, Complex.I * (starRingEnd ℂ) (v 0), u 1,
+      Complex.I * (starRingEnd ℂ) (v 2);
+    Complex.I * v 2, (starRingEnd ℂ) (u 1), Complex.I * v 0, (starRingEnd ℂ) (u 0), Complex.I * v 1,
+      (starRingEnd ℂ) (u 2)]
+@[expose] def MUBSunCubeGram.UnitTriple : MUBSunCubeGram.Triple → Prop :=
+fun u => ∀ (j : Fin 3), u j * (starRingEnd ℂ) (u j) = 1
+@[expose] def MUBSeedGluing.step : MUBSeedGluing.Edge → MUBSeedGluing.Face → MUBSeedGluing.Face :=
+fun e f =>
+  match ↑e with
+  | 0 => (f.1, Equiv.swap 1 2 * f.2)
+  | 1 => (Equiv.swap 0 1 * f.1, f.2)
+  | 2 => (f.1, Equiv.swap 0 2 * f.2)
+  | 3 => (Equiv.swap 1 2 * f.1, f.2)
+  | 4 => (f.1, Equiv.swap 0 1 * f.2)
+  | x => (Equiv.swap 0 2 * f.1, f.2)
+MUBSeedGluing.actual_cell_counts : MUBSeedGluing.edgeCount = 108 ∧ MUBSeedGluing.vertexCount = 54
+MUBSeedGluing.gluing_graph_connected (f g : MUBSeedGluing.Face) : Relation.ReflTransGen MUBSeedGluing.adjacent f g
+MUBLocalGermAlgebra.powerSeries_generators_eq.{u_1} {σ : Type u_1} (Q : Matrix (Fin 4) (Fin 4) (MvPowerSeries σ ℝ))
+  (g : Fin 4 → MvPowerSeries σ ℝ) (hQ : Q.map ⇑MvPowerSeries.constantCoeff = MUBLocalGermAlgebra.mixedMatrix √3) :
+  Ideal.span (Set.range (Q.mulVec g)) = Ideal.span (Set.range g)
+@[expose] def MUBLocalGermAlgebra.mixedMatrix : ℝ → Matrix (Fin 4) (Fin 4) ℝ :=
+fun r =>
+  !![1, -r / 3, -1, r / 3;
+    1, -r / 3, 1 + r, 2 * r / 3;
+    1, -1 + 2 * r / 3, 0, 0;
+    1, -1 + 2 * r / 3, -2 + r, -1 + 2 * r / 3]
+MUBCoordinateProductIdeal.actual_cross_intersection.{u_2} {R : Type u_2} [CommRing R] :
+  MUBCoordinateProductIdeal.crossIdeal = MUBCoordinateProductIdeal.leftPlane ⊓ MUBCoordinateProductIdeal.rightPlane
+MUBCoordinateProductIdeal.actual_cross_quotient_reduced.{u_2} {R : Type u_2} [CommRing R] [IsDomain R] :
+  IsReduced (MUBCoordinateProductIdeal.FourPoly R ⧸ MUBCoordinateProductIdeal.crossIdeal)
+@[expose] def MUBCoordinateProductIdeal.crossIdeal.{u_2} : {R : Type u_2} →
+  [inst : CommRing R] → Ideal (MUBCoordinateProductIdeal.FourPoly R) :=
+fun {R} [CommRing R] =>
+  Ideal.span
+    {MvPolynomial.X 0 * MvPolynomial.X 2, MvPolynomial.X 0 * MvPolynomial.X 3, MvPolynomial.X 1 * MvPolynomial.X 2,
+      MvPolynomial.X 1 * MvPolynomial.X 3}
+MUBMixedTransport.mixed_projector_factorization.{u_1} {n : Type u_1} [Fintype n] [DecidableEq n] (A B : Matrix n n ℂ) :
+  have V := MUBTensorFrame.repetition n;
+  have F := MUBQuantumTransport.repeatedFrame A;
+  have G := MUBQuantumTransport.repeatedFrame B;
+  V * V.conjTranspose * (F * F.conjTranspose) * (G * G.conjTranspose) =
+    V * (MUBQuantumTransport.cube A * MUBQuantumTransport.cube (A.conjTranspose * B)) * G.conjTranspose
+MUBMixedTransport.centered_mixed_norm.{u_1} {n : Type u_1} [Fintype n] [DecidableEq n] (A B : Matrix n n ℂ)
+  (hunit : B ∈ Matrix.unitaryGroup n ℂ) (hflat : ∀ (i j : n), Complex.normSq (B i j) = 1 / 6) :
+  have D := MUBMixedTransport.mixedOperator A B - (1 / 36) • 1;
+  have R := MUBQuantumTransport.cube A * MUBQuantumTransport.cube (A.conjTranspose * B) - MUBQuantumTransport.cube B;
+  (D.conjTranspose * D).trace = (R.conjTranspose * R).trace / 36
+@[expose] def MUBMixedTransport.mixedOperator.{u_1} : {n : Type u_1} →
+  [Fintype n] → [DecidableEq n] → Matrix n n ℂ → Matrix n n ℂ → Matrix n n ℂ :=
+fun {n} [Fintype n] [DecidableEq n] A B =>
+  have V := MUBTensorFrame.repetition n;
+  have F := MUBQuantumTransport.repeatedFrame A;
+  have G := MUBQuantumTransport.repeatedFrame B;
+  MUBQuantumTransport.partialTrace12 (V * V.conjTranspose * (F * F.conjTranspose) * (G * G.conjTranspose))
+MUBBalancedSmallTables.actual_moment_majorant_bound (g : MUBBalancedSmallTables.Graph)
+  (e : MUBBalancedSmallTables.SignChoice) (h : 0 < MUBBalancedSmallTables.schur g e) :
+  MUBBalancedSmallTables.momentMajorant g e √3 < ↑(MUBBalancedSmallTables.tableBound g) ∧
+    MUBBalancedSmallTables.momentMajorant g e √3 < 25 / 2
+MUBBalancedSmallTables.sqrt_sum_lt_of_actual_moments (g : MUBBalancedSmallTables.Graph)
+  (e : MUBBalancedSmallTables.SignChoice) (h : 0 < MUBBalancedSmallTables.schur g e) (x : Fin 5 → ℝ)
+  (hx : ∀ (i : Fin 5), 0 ≤ x i) (h1 : ∑ i, x i = ↑(MUBBalancedSmallTables.moment g e 1))
+  (h2 : ∑ i, x i ^ 2 = ↑(MUBBalancedSmallTables.moment g e 2))
+  (h3 : ∑ i, x i ^ 3 = ↑(MUBBalancedSmallTables.moment g e 3)) : ∑ i, √(x i) < 25 / 2
+@[expose] def MUBBalancedSmallTables.moment : MUBBalancedSmallTables.Graph →
+  MUBBalancedSmallTables.SignChoice → ℕ → ℚ :=
+fun g e k => ((MUBBalancedSmallTables.extension g e * MUBBalancedSmallTables.centeringWeight) ^ k).trace
+@[expose] def MUBBalancedSmallTables.extension : MUBBalancedSmallTables.Graph →
+  MUBBalancedSmallTables.SignChoice → Matrix (Fin 5) (Fin 5) ℚ :=
+fun g e i j =>
+  if i = 0 then if j = 0 then 6 else 2 * MUBBalancedSmallTables.epsilon e (MUBBalancedSmallTables.tailIndex j)
+  else
+    if j = 0 then 2 * MUBBalancedSmallTables.epsilon e (MUBBalancedSmallTables.tailIndex i)
+    else MUBBalancedSmallTables.graphGram g (MUBBalancedSmallTables.tailIndex i) (MUBBalancedSmallTables.tailIndex j)
+@[expose] def MUBBalancedSmallTables.centeringWeight : Matrix (Fin 5) (Fin 5) ℚ :=
+fun i j => (if i = j then if i = 0 then 2 else 1 else 0) - if i = 0 ∨ j = 0 then 0 else 1 / 6
+@[expose] def MUBBalancedSmallTables.schur : MUBBalancedSmallTables.Graph → MUBBalancedSmallTables.SignChoice → ℚ :=
+fun g e =>
+  6 -
+    4 *
+      ∑ i,
+        ∑ j,
+          MUBBalancedSmallTables.epsilon e i * MUBBalancedSmallTables.graphInverse g i j *
+            MUBBalancedSmallTables.epsilon e j
+MUBFourLineForms.eight_gram_characteristic_polynomials (e : MUBFourLineForms.Signs) :
+  (MUBFourLineForms.gram e).charpoly = MUBFourLineForms.expectedCharpoly e
+MUBMatchingGram.signed_kernel_characterization (d : MUBMatchingGram.Orientation) (x : MUBMatchingGram.Index → ℚ) :
+  (MUBMatchingGram.orientedGram d).mulVec x = 0 ↔ (MUBMatchingGram.signProjection d).mulVec x = x
+@[expose] def MUBMatchingGram.nullPolynomial : Matrix MUBMatchingGram.Index MUBMatchingGram.Index ℚ →
+  Matrix MUBMatchingGram.Index MUBMatchingGram.Index ℚ :=
+fun K i j => ((K * K) i j - 16 * K i j + 48 * 1 i j) / 48
+MUBBalancedGram.balanced_gram_separation (rows : MUBBalancedRows.Index → MUBBalancedRows.Row) :
+  160 / 3 ≤ MUBBalancedGram.frobeniusSq (MUBBalancedGram.gramDefect rows)
+MUBBalancedGram.balanced_matrix_not_hadamard (rows : MUBBalancedRows.Index → MUBBalancedRows.Row) :
+  MUBBalancedGram.phaseMatrix rows * (MUBBalancedGram.phaseMatrix rows).conjTranspose ≠ 6 • 1
+@[reducible, expose] def MUBBalancedRows.Row : Type :=
+{ v // (∑ j, if v j = true then 1 else 0) = 3 }
+@[expose] def MUBBalancedGram.phaseMatrix : (MUBBalancedRows.Index → MUBBalancedRows.Row) →
+  Matrix MUBBalancedRows.Index MUBBalancedRows.Index ℂ :=
+fun rows i j => MUBBalancedGram.phaseEntry (rows i) j
+@[expose] def MUBBalancedGram.gramDefect : (MUBBalancedRows.Index → MUBBalancedRows.Row) →
+  Matrix MUBBalancedRows.Index MUBBalancedRows.Index ℂ :=
+fun rows => MUBBalancedGram.phaseMatrix rows * (MUBBalancedGram.phaseMatrix rows).conjTranspose - 6 • 1
+@[expose] def MUBBalancedGram.frobeniusSq : Matrix MUBBalancedRows.Index MUBBalancedRows.Index ℂ → ℝ :=
+fun M => ∑ i, ∑ j, Complex.normSq (M i j)
+MUBBalancedSpectralEnvelope.sqrt_majorant (x : ℝ) (hx : 0 ≤ x) : √x ≤ MUBBalancedSpectralEnvelope.upperPolynomial (√3) x
+MUBBalancedSpectralEnvelope.gram_error_scalar_gap (e : ℝ) (_he : 0 ≤ e) (h : √(160 / 3) ≤ 2 * √6 * e + e ^ 2) :
+  7 / 5 < e ^ 2
+MUBDensityTrace.canonical_density_trace_deficit
+  (R : Matrix MUBMeasurementProjectors.Coordinate MUBMeasurementProjectors.Coordinate ℂ) (hR : R.IsHermitian)
+  (hpurity : (R * R).trace = 1)
+  (hu :
+    ∀ (b : Fin 3) (o : MUBMeasurementProjectors.Outcome),
+      MUBMeasurementProjectors.expectation (MUBMeasurementProjectors.canonicalProjector (√3) b o) R = 1 / 6) :
+  1 / 144 < 1 - (R * R * R).trace.re
+MUBDensityGap.canonical_density_operator_gap
+  (R : Matrix MUBMeasurementProjectors.Coordinate MUBMeasurementProjectors.Coordinate ℂ) (hR : R.IsHermitian)
+  (hpurity : (R * R).trace = 1)
+  (hu :
+    ∀ (b : Fin 3) (o : MUBMeasurementProjectors.Outcome),
+      MUBMeasurementProjectors.expectation (MUBMeasurementProjectors.canonicalProjector (√3) b o) R = 1 / 6) :
+  ((143 / 144) • 1 - R).PosDef
+MUBDensityGap.canonical_density_cubic_operator_bound
+  (R : Matrix MUBMeasurementProjectors.Coordinate MUBMeasurementProjectors.Coordinate ℂ) (hR : R.IsHermitian)
+  (hpurity : (R * R).trace = 1)
+  (hu :
+    ∀ (b : Fin 3) (o : MUBMeasurementProjectors.Outcome),
+      MUBMeasurementProjectors.expectation (MUBMeasurementProjectors.canonicalProjector (√3) b o) R = 1 / 6) :
+  (R * R - R * R * R - (1 / 144) • (R * R)).PosSemidef
+MUBDensityGap.canonical_density_cubic_kernel
+  (R : Matrix MUBMeasurementProjectors.Coordinate MUBMeasurementProjectors.Coordinate ℂ) (hR : R.IsHermitian)
+  (hpurity : (R * R).trace = 1)
+  (hu :
+    ∀ (b : Fin 3) (o : MUBMeasurementProjectors.Outcome),
+      MUBMeasurementProjectors.expectation (MUBMeasurementProjectors.canonicalProjector (√3) b o) R = 1 / 6)
+  (u : MUBMeasurementProjectors.Coordinate → ℂ) :
+  (R * R - R * R * R - (1 / 144) • (R * R)).mulVec u = 0 ↔ R.mulVec u = 0
+MUBDensityGap.canonical_density_cubic_strict
+  (R : Matrix MUBMeasurementProjectors.Coordinate MUBMeasurementProjectors.Coordinate ℂ) (hR : R.IsHermitian)
+  (hpurity : (R * R).trace = 1)
+  (hu :
+    ∀ (b : Fin 3) (o : MUBMeasurementProjectors.Outcome),
+      MUBMeasurementProjectors.expectation (MUBMeasurementProjectors.canonicalProjector (√3) b o) R = 1 / 6)
+  (u : MUBMeasurementProjectors.Coordinate → ℂ) :
+  0 < star u ⬝ᵥ (R * R - R * R * R - (1 / 144) • (R * R)).mulVec u ↔ R.mulVec u ≠ 0
+MUBMeasurementBessel.canonical_measurement_bessel (r : ℝ) (hr : r ^ 2 = 3)
+  (R : Matrix MUBMeasurementProjectors.Coordinate MUBMeasurementProjectors.Coordinate ℂ) :
+  MUBMeasurementBessel.energy r R ≤ (R.conjTranspose * R).trace.re
+@[expose] def MUBMeasurementProjectors.canonicalProjector : ℝ →
+  Fin 3 →
+    MUBMeasurementProjectors.Outcome →
+      Matrix MUBMeasurementProjectors.Coordinate MUBMeasurementProjectors.Coordinate ℂ :=
+fun r b o => MUBMeasurementProjectors.projector r b (MUBQuantum.canonicalRelabel b o.1, o.2)
+@[expose] def MUBMeasurementProjectors.expectation : Matrix MUBMeasurementProjectors.Coordinate
+    MUBMeasurementProjectors.Coordinate ℂ →
+  Matrix MUBMeasurementProjectors.Coordinate MUBMeasurementProjectors.Coordinate ℂ → ℝ :=
+fun P R => (P * R).trace.re
+@[expose] def MUBMeasurementProjectors.pureState : (MUBMeasurementProjectors.Coordinate → ℂ) →
+  Matrix MUBMeasurementProjectors.Coordinate MUBMeasurementProjectors.Coordinate ℂ :=
+fun v => Matrix.vecMulVec v (star v)
+@[expose] def MUBMeasurementBessel.reconstruction : ℝ →
+  Matrix MUBMeasurementProjectors.Coordinate MUBMeasurementProjectors.Coordinate ℂ →
+    Matrix MUBMeasurementProjectors.Coordinate MUBMeasurementProjectors.Coordinate ℂ :=
+fun r R => ∑ b, ∑ o, MUBMeasurementBessel.coefficient r R b o • MUBMeasurementProjectors.centeredProjector r b o
+@[expose] def MUBMeasurementBessel.energy : ℝ →
+  Matrix MUBMeasurementProjectors.Coordinate MUBMeasurementProjectors.Coordinate ℂ → ℝ :=
+fun r R => ∑ b, ∑ o, Complex.normSq (MUBMeasurementBessel.coefficient r R b o)
+MUBBridge.canonical_probability_gap (v : MUBQuantum.Coefficients) (hv : MUBQuantum.totalNorm v = 1) :
+  1 / 72 < ∑ b, ∑ j, ∑ a, (MUBQuantum.canonicalProbability (√3) v b j a - 1 / 6) ^ 2
+MUBBridge.canonical_no_unbiased_state (v : MUBQuantum.Coefficients) (hv : MUBQuantum.totalNorm v = 1) :
+  ¬∀ (b j : Fin 3) (a : Fin 2), MUBQuantum.canonicalProbability (√3) v b j a = 1 / 6
+MUBSquarefreePhysical.physical_cube_gram_cap (H : Matrix MUBSquarefreePhysical.Six MUBSquarefreePhysical.Six ℂ)
+  (hu : ∀ (a j : MUBSquarefreePhysical.Six), H a j * (starRingEnd ℂ) (H a j) = 1) (ho : H * H.conjTranspose = 6 • 1)
+  (hfv : MUBSquarefreePhysical.FourierVanishing H) :
+  (18 • 1 - (MUBSquarefreePhysical.entrywiseCube H).conjTranspose * MUBSquarefreePhysical.entrywiseCube H).PosSemidef
+MUBCompatibility.coupled_equations_unitary.{u_1} {n : Type u_1} [Fintype n] [DecidableEq n] (A B C : Matrix n n ℂ)
+  (hAC : A * C = B) (hAB : A.conjTranspose * B = C) (hBC : B * C.conjTranspose = A)
+  (htrace : (A.conjTranspose * A).trace = ↑(Fintype.card n)) :
+  A ∈ Matrix.unitaryGroup n ℂ ∧ B ∈ Matrix.unitaryGroup n ℂ ∧ C ∈ Matrix.unitaryGroup n ℂ
+MUBCompatibility.coupled_flat_unitary.{u_1} {n : Type u_1} [Fintype n] [DecidableEq n] [Nonempty n]
+  (A B C : Matrix n n ℂ) (hAC : A * C = B) (hAB : A.conjTranspose * B = C) (hBC : B * C.conjTranspose = A)
+  (hflat : ∀ (i j : n), Complex.normSq (A i j) = (↑(Fintype.card n))⁻¹) :
+  A ∈ Matrix.unitaryGroup n ℂ ∧ B ∈ Matrix.unitaryGroup n ℂ ∧ C ∈ Matrix.unitaryGroup n ℂ
+MUBPhaseTensorConverse.phase_tensor_equivalence (t : MUBPhaseTensor.Tensor MUBPhaseTensor.Six) :
+  MUBPhaseTensor.UnitTensor t ∧ MUBPhaseTensor.AnchoredBoxes t 0 ∧ MUBPhaseTensor.LineSums t MUBPhaseTensor.rootSix ↔
+    ∃ A B C, MUBPhaseTensor.PhysicalRealization t A B C
+@[expose] def MUBPhaseTensor.UnitTensor.{u_1} : {n : Type u_1} → MUBPhaseTensor.Tensor n → Prop :=
+fun {n} t => ∀ (i k j : n), t i k j * (starRingEnd ℂ) (t i k j) = 1
+@[expose] def MUBPhaseTensor.AnchoredBoxes.{u_1} : {n : Type u_1} → MUBPhaseTensor.Tensor n → n → Prop :=
+fun {n} t o =>
+  ∀ (i k j : n), i ≠ o → k ≠ o → j ≠ o → t i k j * t i o o * t o k o * t o o j = t i k o * t i o j * t o k j * t o o o
+@[expose] def MUBPhaseTensor.LineSums.{u_1} : {n : Type u_1} → [Fintype n] → MUBPhaseTensor.Tensor n → ℂ → Prop :=
+fun {n} [Fintype n] t s =>
+  (∀ (i j : n), ∑ k, t i k j = s) ∧ (∀ (k j : n), ∑ i, t i k j = s) ∧ ∀ (i k : n), ∑ j, t i k j = s
+@[expose] def MUBPhaseTensor.PhysicalRealization : MUBPhaseTensor.Tensor MUBPhaseTensor.Six →
+  Matrix MUBPhaseTensor.Six MUBPhaseTensor.Six ℂ →
+    Matrix MUBPhaseTensor.Six MUBPhaseTensor.Six ℂ → Matrix MUBPhaseTensor.Six MUBPhaseTensor.Six ℂ → Prop :=
+fun t A B C =>
+  A ∈ Matrix.unitaryGroup MUBPhaseTensor.Six ℂ ∧
+    B ∈ Matrix.unitaryGroup MUBPhaseTensor.Six ℂ ∧
+      C ∈ Matrix.unitaryGroup MUBPhaseTensor.Six ℂ ∧
+        A * C = B ∧
+          (∀ (i j : MUBPhaseTensor.Six), Complex.normSq (A i j) = 1 / 6) ∧
+            (∀ (i j : MUBPhaseTensor.Six), Complex.normSq (B i j) = 1 / 6) ∧
+              (∀ (i j : MUBPhaseTensor.Six), Complex.normSq (C i j) = 1 / 6) ∧
+                ∀ (i k j : MUBPhaseTensor.Six), t i k j = MUBPhaseTensor.rootSix * A i k * C k j / B i j
+MUBResidualBounds.residual_purity_lower_bound.{u_1} {n : Type u_1} [Fintype n] (M : Matrix n n ℂ)
+  (ht : (M.conjTranspose * M).trace = 36) : MUBPurityGap.purityGap M ^ 2 / 36 ≤ MUBResidualBounds.residualEnergy M
+MUBResidualBounds.residual_purity_upper_bound.{u_1} {n : Type u_1} [Fintype n] [DecidableEq n] (M : Matrix n n ℂ)
+  (hcap : (18 • 1 - M.conjTranspose * M).PosSemidef) (ht : (M.conjTranspose * M).trace = 36) :
+  MUBResidualBounds.residualEnergy M ≤ 18 * MUBPurityGap.purityGap M
+MUBQuantumTransport.physical_partial_trace.{u_1} {n : Type u_1} [Fintype n] [DecidableEq n] (U : Matrix n n ℂ) :
+  MUBQuantumTransport.overlapSquare U =
+    MUBQuantumTransport.transport U
+      (MUBQuantumTransport.cube U * (MUBQuantumTransport.cube U).conjTranspose * MUBQuantumTransport.cube U)
+MUBQuantumTransport.residual_energy_decomposition (U : Matrix (Fin 6) (Fin 6) ℂ)
+  (hunit : U ∈ Matrix.unitaryGroup (Fin 6) ℂ) (hflat : ∀ (i j : Fin 6), Complex.normSq (U i j) = 1 / 6) :
+  ((MUBQuantumTransport.normalizedResidual U).conjTranspose * MUBQuantumTransport.normalizedResidual U).trace =
+    5184 * ((MUBQuantumTransport.tracelessOverlap U).conjTranspose * MUBQuantumTransport.tracelessOverlap U).trace +
+      864 * MUBQuantumTransport.normalizedGap U ^ 2
+@[expose] def MUBQuantumTransport.transport.{u_1} : {n : Type u_1} →
+  [Fintype n] → Matrix n n ℂ → Matrix n n ℂ → Matrix n n ℂ :=
+fun {n} [Fintype n] U R => (Matrix.of fun i j => R i j * star (U i j ^ 2)) * U.conjTranspose
+@[expose] def MUBQuantumTransport.partialTrace12.{u_1} : {n : Type u_1} →
+  [Fintype n] → Matrix (MUBTensorFrame.Triple n) (MUBTensorFrame.Triple n) ℂ → Matrix n n ℂ :=
+fun {n} [Fintype n] Q i j => ∑ a, ∑ b, Q (a, b, i) (a, b, j)
+@[expose] def MUBQuantumTransport.overlapSquare.{u_1} : {n : Type u_1} →
+  [Fintype n] → [DecidableEq n] → Matrix n n ℂ → Matrix n n ℂ :=
+fun {n} [Fintype n] [DecidableEq n] U =>
+  have P₀ := MUBTensorFrame.repetition n * (MUBTensorFrame.repetition n).conjTranspose;
+  have Pᵤ := MUBQuantumTransport.repeatedFrame U * (MUBQuantumTransport.repeatedFrame U).conjTranspose;
+  MUBQuantumTransport.partialTrace12 (P₀ * Pᵤ * (P₀ * Pᵤ))
+@[expose] def MUBQuantumTransport.normalizedResidual.{u_1} : {n : Type u_1} →
+  [Fintype n] → Matrix n n ℂ → Matrix n n ℂ :=
+fun {n} [Fintype n] U =>
+  12 • (MUBQuantumTransport.cube U * (MUBQuantumTransport.cube U).conjTranspose * MUBQuantumTransport.cube U) -
+    MUBQuantumTransport.cube U
+@[expose] def MUBQuantumTransport.normalizedGap : Matrix (Fin 6) (Fin 6) ℂ → ℂ :=
+fun U =>
+  1 / 72 -
+    ((MUBQuantumTransport.cube U).conjTranspose * MUBQuantumTransport.cube U *
+        ((MUBQuantumTransport.cube U).conjTranspose * MUBQuantumTransport.cube U)).trace
+@[expose] def MUBQuantumTransport.tracelessOverlap : Matrix (Fin 6) (Fin 6) ℂ → Matrix (Fin 6) (Fin 6) ℂ :=
+fun U => MUBQuantumTransport.overlapSquare U - (1 / 432 - MUBQuantumTransport.normalizedGap U / 6) • 1
+MUBAnchoredPurity.anchored_square_identity.{u_1} {n : Type u_1} [Fintype n] [DecidableEq n] (R : Matrix n n ℂ)
+  (hR : R.IsHermitian) (hpurity : (R * R).trace = 1) (a : n) :
+  have Z := MUBAnchoredPurity.anchorMass R a • R - MUBAnchoredPurity.anchorOuter R a;
+  (Z.conjTranspose * Z).trace = 2 * MUBAnchoredPurity.anchorMass R a * MUBAnchoredPurity.anchorDefect R a
+MUBAnchoredPurity.anchored_distance_identity.{u_1} {n : Type u_1} [Fintype n] [DecidableEq n] (R : Matrix n n ℂ)
+  (hR : R.IsHermitian) (hpurity : (R * R).trace = 1) (a : n) (ha : R a a ≠ 0) :
+  ((R - MUBAnchoredPurity.anchorProjection R a).conjTranspose * (R - MUBAnchoredPurity.anchorProjection R a)).trace =
+    2 * MUBAnchoredPurity.anchorDefect R a / MUBAnchoredPurity.anchorMass R a
+MUBAnchoredPurity.anchored_defect_zero_iff.{u_1} {n : Type u_1} [Fintype n] [DecidableEq n] (R : Matrix n n ℂ)
+  (hR : R.IsHermitian) (hpurity : (R * R).trace = 1) (a : n) (ha : R a a ≠ 0) :
+  MUBAnchoredPurity.anchorDefect R a = 0 ↔ R.PosSemidef ∧ R * R = R ∧ R.rank = 1
+MUBAnchoredPurity.anchored_distance_weighted_bound.{u_1} {n : Type u_1} [Fintype n] [DecidableEq n] (R : Matrix n n ℂ)
+  (hR : R.IsHermitian) (hpurity : (R * R).trace = 1) (a : n) (ha : R a a ≠ 0) :
+  ((R - MUBAnchoredPurity.anchorProjection R a).conjTranspose * (R - MUBAnchoredPurity.anchorProjection R a)).trace *
+      ↑(Complex.normSq (R a a)) ≤
+    2 * MUBAnchoredPurity.anchorDefect R a
+MUBAnchoredPurity.anchored_minor_identity.{u_1} {n : Type u_1} [Fintype n] (R : Matrix n n ℂ) (a : n) :
+  MUBAnchoredPurity.anchoredMinorSum R a =
+    (R * R * R) a a - R.trace * (R * R) a a + (R.trace ^ 2 - (R * R).trace) / 2 * R a a
+MUBAnchoredPurity.aggregate_minor_nonnegative_iff.{u_1, u_2} {n : Type u_1} [Fintype n] [DecidableEq n] {b : Type u_2}
+  [Fintype b] (R : b → Matrix n n ℂ) (a : n) (hHermitian : ∀ (k : b), (R k).IsHermitian)
+  (htrace : ∀ (k : b), (R k).trace = 1) (hpurity : ∀ (k : b), (R k * R k).trace = 1)
+  (hanchor : ∀ (k : b), R k a a ≠ 0) :
+  0 ≤ ∑ k, MUBAnchoredPurity.anchoredMinorSum (R k) a ↔ ∀ (k : b), (R k).PosSemidef ∧ R k * R k = R k ∧ (R k).rank = 1
+@[expose] def MUBAnchoredPurity.anchorDefect.{u_1} : {n : Type u_1} → [Fintype n] → Matrix n n ℂ → n → ℂ :=
+fun {n} [Fintype n] R a => (R * R - R * R * R) a a
+@[expose] def MUBAnchoredPurity.anchorProjection.{u_1} : {n : Type u_1} →
+  [Fintype n] → Matrix n n ℂ → n → Matrix n n ℂ :=
+fun {n} [Fintype n] R a => (MUBAnchoredPurity.anchorMass R a)⁻¹ • MUBAnchoredPurity.anchorOuter R a
+@[expose] def MUBAnchoredPurity.anchoredMinorSum.{u_1} : {n : Type u_1} → [Fintype n] → Matrix n n ℂ → n → ℂ :=
+fun {n} [Fintype n] R a => 1 / 2 * ∑ i, ∑ j, (R.submatrix ![a, i, j] ![a, i, j]).det
+MUBSixPhasePolynomial.positive_polynomial_certificate (t : ℝ) (ht : 0 ≤ t) :
+  0 < MUBSixPhasePolynomial.polynomialP (1 + t) ∧ 0 < MUBSixPhasePolynomial.polynomialQ (1 + t)
+MUBSixPhasePolynomial.rational_gap_identities (L : ℝ) (hL : L ≠ 0) :
+  MUBSixPhasePolynomial.targetGap L = (9 - L) * MUBSixPhasePolynomial.polynomialP L / (72 * L ^ 3) ∧
+    MUBSixPhasePolynomial.targetGap L ^ 2 - MUBSixPhasePolynomial.envelopeVariance L =
+      5 * (L - 9) ^ 2 * MUBSixPhasePolynomial.polynomialQ L / (648 * L ^ 3)
+MUBSixPhasePolynomial.sharp_envelope_bound (L : ℝ) (hlo : 1 ≤ L) (hhi : L ≤ 9) :
+  MUBSixPhasePolynomial.envelopeCenter L + √(MUBSixPhasePolynomial.envelopeVariance L) ≤ 98 / 3 ∧
+    (MUBSixPhasePolynomial.envelopeCenter L + √(MUBSixPhasePolynomial.envelopeVariance L) = 98 / 3 ↔ L = 9)
+@[expose] def MUBSixPhasePolynomial.polynomialP : ℝ → ℝ :=
+fun L => 13 * L ^ 5 - 12 * L ^ 4 + 243 * L ^ 3 - 705 * L ^ 2 + 864 * L - 243
+@[expose] def MUBSixPhasePolynomial.polynomialQ : ℝ → ℝ :=
+fun L => 4 * L ^ 7 + 3 * L ^ 6 + 9 * L ^ 5 + 435 * L ^ 4 - 2142 * L ^ 3 + 4293 * L ^ 2 - 4311 * L + 2349
+@[expose] def MUBSixPhasePolynomial.envelopeCenter : ℝ → ℝ :=
+fun L => (13 * L ^ 6 - 129 * L ^ 5 + 351 * L ^ 4 - 540 * L ^ 3 + 7209 * L ^ 2 - 8019 * L + 2187) / (72 * L ^ 3)
+@[expose] def MUBSixPhasePolynomial.envelopeVariance : ℝ → ℝ :=
+fun L => (L - 9) ^ 3 * (L - 1) ^ 3 * (L ^ 2 - 30 * L + 9) * (L ^ 2 - 3 * L + 9) ^ 2 / (576 * L ^ 6)
+@[expose] def MUBSixPhasePolynomial.targetGap : ℝ → ℝ :=
+fun L => 98 / 3 - MUBSixPhasePolynomial.envelopeCenter L
+MUBTetrahedral.tetrahedral_equivalence (t u v w : MUBPhaseTensor.Tensor MUBPhaseTensor.Six) :
+  MUBTetrahedral.TetrahedralConditions t u v w ↔ ∃ A B D C E F, MUBTetrahedral.PhysicalQuartet t u v w A B D C E F
+MUBTetrahedral.physical_quartet_is_unbiased (t u v w : MUBPhaseTensor.Tensor MUBPhaseTensor.Six)
+  (A B D C E F : Matrix MUBPhaseTensor.Six MUBPhaseTensor.Six ℂ)
+  (h : MUBTetrahedral.PhysicalQuartet t u v w A B D C E F) : MUBTetrahedral.UnbiasedQuartet A B D
+MUBTetrahedral.fourth_face_conditions (t u v w : MUBPhaseTensor.Tensor MUBPhaseTensor.Six)
+  (h : MUBTetrahedral.TetrahedralConditions t u v w) :
+  MUBPhaseTensor.UnitTensor w ∧ MUBPhaseTensor.AnchoredBoxes w 0 ∧ MUBPhaseTensor.LineSums w MUBPhaseTensor.rootSix
+@[expose] def MUBTetrahedral.Cocycle.{u_1} : {n : Type u_1} →
+  MUBPhaseTensor.Tensor n → MUBPhaseTensor.Tensor n → MUBPhaseTensor.Tensor n → MUBPhaseTensor.Tensor n → Prop :=
+fun {n} t u v w => ∀ (a b c d : n), t a b c * v a c d = u a b d * w b c d
+@[expose] def MUBTetrahedral.TetrahedralConditions : MUBPhaseTensor.Tensor MUBPhaseTensor.Six →
+  MUBPhaseTensor.Tensor MUBPhaseTensor.Six →
+    MUBPhaseTensor.Tensor MUBPhaseTensor.Six → MUBPhaseTensor.Tensor MUBPhaseTensor.Six → Prop :=
+fun t u v w =>
+  MUBPhaseTensor.UnitTensor t ∧
+    MUBPhaseTensor.UnitTensor u ∧
+      MUBPhaseTensor.UnitTensor v ∧
+        MUBPhaseTensor.UnitTensor w ∧
+          MUBTetrahedral.Cocycle t u v w ∧
+            MUBPhaseTensor.LineSums t MUBPhaseTensor.rootSix ∧
+              MUBPhaseTensor.LineSums u MUBPhaseTensor.rootSix ∧ MUBPhaseTensor.LineSums v MUBPhaseTensor.rootSix
+@[expose] def MUBTetrahedral.PhysicalQuartet : MUBPhaseTensor.Tensor MUBPhaseTensor.Six →
+  MUBPhaseTensor.Tensor MUBPhaseTensor.Six →
+    MUBPhaseTensor.Tensor MUBPhaseTensor.Six →
+      MUBPhaseTensor.Tensor MUBPhaseTensor.Six →
+        Matrix MUBPhaseTensor.Six MUBPhaseTensor.Six ℂ →
+          Matrix MUBPhaseTensor.Six MUBPhaseTensor.Six ℂ →
+            Matrix MUBPhaseTensor.Six MUBPhaseTensor.Six ℂ →
+              Matrix MUBPhaseTensor.Six MUBPhaseTensor.Six ℂ →
+                Matrix MUBPhaseTensor.Six MUBPhaseTensor.Six ℂ →
+                  Matrix MUBPhaseTensor.Six MUBPhaseTensor.Six ℂ → Prop :=
+fun t u v w A B D C E F =>
+  MUBPhaseTensor.PhysicalRealization t A B C ∧
+    MUBPhaseTensor.PhysicalRealization u A D E ∧
+      MUBPhaseTensor.PhysicalRealization v B D F ∧ MUBPhaseTensor.PhysicalRealization w C E F
+@[expose] def MUBTetrahedral.UnbiasedQuartet : Matrix MUBPhaseTensor.Six MUBPhaseTensor.Six ℂ →
+  Matrix MUBPhaseTensor.Six MUBPhaseTensor.Six ℂ → Matrix MUBPhaseTensor.Six MUBPhaseTensor.Six ℂ → Prop :=
+fun A B D =>
+  A ∈ Matrix.unitaryGroup MUBPhaseTensor.Six ℂ ∧
+    B ∈ Matrix.unitaryGroup MUBPhaseTensor.Six ℂ ∧
+      D ∈ Matrix.unitaryGroup MUBPhaseTensor.Six ℂ ∧
+        (∀ (i j : MUBPhaseTensor.Six), Complex.normSq (A i j) = 1 / 6) ∧
+          (∀ (i j : MUBPhaseTensor.Six), Complex.normSq (B i j) = 1 / 6) ∧
+            (∀ (i j : MUBPhaseTensor.Six), Complex.normSq (D i j) = 1 / 6) ∧
+              (∀ (i j : MUBPhaseTensor.Six), Complex.normSq ((A.conjTranspose * B) i j) = 1 / 6) ∧
+                (∀ (i j : MUBPhaseTensor.Six), Complex.normSq ((A.conjTranspose * D) i j) = 1 / 6) ∧
+                  ∀ (i j : MUBPhaseTensor.Six), Complex.normSq ((B.conjTranspose * D) i j) = 1 / 6
+MUBLocalExhaustion.local_graph_exhaustion.{u_1, u_2, u_3, u_4} {E : Type u_1} {Y : Type u_2} {W : Type u_3}
+  {Z : Type u_4} [NormedAddCommGroup E] [NormedSpace ℝ E] [CompleteSpace E] [NormedAddCommGroup Y] [NormedSpace ℝ Y]
+  [CompleteSpace Y] [NormedAddCommGroup W] [NormedSpace ℝ W] [CompleteSpace W] [Zero Z] (F : E × Y → Z) (G : E × Y → W)
+  (u : E × Y) (G' : E × Y →L[ℝ] W) (seed : E → Y) (hG : HasStrictFDerivAt G G' u)
+  (hinv : (G' ∘SL ContinuousLinearMap.inr ℝ E Y).IsInvertible) (hzero : G u = 0)
+  (hselect : ∀ (p : E × Y), F p = 0 → G p = 0) (hseed_cont : ContinuousAt seed u.1) (hseed_anchor : seed u.1 = u.2)
+  (hseed_full : ∀ᶠ (q : E) in nhds u.1, F (q, seed q) = 0) : ∀ᶠ (p : E × Y) in nhds u, F p = 0 ↔ p.2 = seed p.1
+MUBLocalExhaustion.local_property_transfer.{u_1, u_2, u_3, u_4} {E : Type u_1} {Y : Type u_2} {W : Type u_3}
+  {Z : Type u_4} [NormedAddCommGroup E] [NormedSpace ℝ E] [CompleteSpace E] [NormedAddCommGroup Y] [NormedSpace ℝ Y]
+  [CompleteSpace Y] [NormedAddCommGroup W] [NormedSpace ℝ W] [CompleteSpace W] [Zero Z] (F : E × Y → Z) (G : E × Y → W)
+  (u : E × Y) (G' : E × Y →L[ℝ] W) (seed : E → Y) (P : E × Y → Prop) (hG : HasStrictFDerivAt G G' u)
+  (hinv : (G' ∘SL ContinuousLinearMap.inr ℝ E Y).IsInvertible) (hzero : G u = 0)
+  (hselect : ∀ (p : E × Y), F p = 0 → G p = 0) (hseed_cont : ContinuousAt seed u.1) (hseed_anchor : seed u.1 = u.2)
+  (hseed_full : ∀ᶠ (q : E) in nhds u.1, F (q, seed q) = 0) (hseed_property : ∀ᶠ (q : E) in nhds u.1, P (q, seed q)) :
+  ∀ᶠ (p : E × Y) in nhds u, F p = 0 → P p

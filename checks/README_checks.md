@@ -1,4 +1,4 @@
-# Independent re-verification scripts (workstream A), structure-paper statements of workstream B/C
+# Independent re-verification scripts for the structure-paper and audit statements
 
 All scripts are numerical checks in double precision (not proofs) except `check_quartic_sos.py`, which is exact
 arithmetic over Q(sqrt3) for one concrete functional. Run each with `nice -n 5 python3 <script>`; logs in `logs/`.

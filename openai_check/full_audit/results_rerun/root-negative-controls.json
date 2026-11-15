@@ -1,0 +1,14 @@
+{
+  "result": "PASS",
+  "valid_control": "coarse0.bin record 0",
+  "corruptions_rejected_in_both_orientations": [
+    "phase_residual_corruption",
+    "tangent_gram_corruption",
+    "zero_C",
+    "zero_n0",
+    "zero_id",
+    "zero_mnorm",
+    "zero_froot"
+  ],
+  "scope": "Rejection controls; these do not replace the full certificate check."
+}

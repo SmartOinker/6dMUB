@@ -1,4 +1,4 @@
-"""Independent checks of the canonical product-triple claims in workstream B's working paper (first version)."""
+"""Independent checks of the canonical product-triple claims in the structure paper (first version)."""
 import numpy as np
 from scipy.optimize import minimize
 

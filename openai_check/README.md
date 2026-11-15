@@ -1,11 +1,11 @@
 # Independent re-run of the OpenAI MUB-6 record checker, mutation test and partial rebuild
 
-Performed on 2026-11-15 as a second, independent run for workstream A, by an AI agent that had not taken part in the first run.
+Performed on 2026-11-15 as a second, independent run, by an AI agent that had not taken part in the first run.
 Nothing from the OpenAI repository (sources, saved-run data, checker) is copied here; only the commit and paths are stated.
 
 ## What this is, and is not
 It re-verifies the behaviour of the **bookkeeping checker** `check_records.py` published with the preprint, and shows that a partial rebuild of the published C++ programs reproduces three saved outputs bit for bit.
-It does **not** verify the OpenAI proof, any floating-point inequality, the geometry or the mathematics (Sec. 2-6, App. A). The full 100-invocation native rerun reported by another workstream was **NOT repeated here**. Stage A (all shards), Stage B, 86 of 88 initial C batches, the B fallback and the final C were not run.
+It does **not** verify the OpenAI proof, any floating-point inequality, the geometry or the mathematics (Sec. 2-6, App. A). The full 100-invocation native rerun is documented separately in `full_audit/` (logs, checkers, repeat-run log); it was not repeated in this partial rebuild. Stage A (all shards), Stage B, 86 of 88 initial C batches, the B fallback and the final C were not run.
 
 ## Upstream
 - Repository: https://github.com/openai/math, pinned commit `4eaee87548250b2682affda7d05d947c05554bae` (`git rev-parse HEAD` printed exactly this after a blobless sparse clone and `git checkout` of the commit).
@@ -35,7 +35,7 @@ export LANG=C LC_ALL=C
 nice -n 5 covrun centers.txt                                          # seed cover
 nice -n 5 crun 12 4 1 .042 1 1 5000000 0 1 batches/badN.bin batches/fN.bin   # N = 0 and 3, inputs = saved fN.bin
 ```
-The scripts are unchanged copies of workstream A's versions (`mutate.py`, `cmp_records.py`, `build_rebuild.sh`). `cmp_records.py` was not needed, because sha256 values were identical.
+The scripts are unchanged copies of the first run's versions (`mutate.py`, `cmp_records.py`, `build_rebuild.sh`). `cmp_records.py` was not needed, because sha256 values were identical.
 
 ## 1. Baseline
 Unmodified checker on the unmodified saved run: **exit 0**, result "PASS within numerical consistency scope", wall 6.1 s (this loaded machine; 3.7 s earlier). The output reports 249,878 centres and 151,744,086 pairs; coarse records 764/774/757/788; mid 600; fine 22,379; 88 batches; initial C 163 bad (all cap).

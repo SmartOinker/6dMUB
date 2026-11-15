@@ -1,0 +1,14 @@
+{
+  "result": "PASS",
+  "arithmetic": "fractions.Fraction exact",
+  "pi_difference_matches_published_fraction": true,
+  "pi_error_upper": "43762477531991045458755962559977855352569628179/357123116381742283735348697207144448000000000000000000000000000",
+  "pi_error_bound": "1.225418e-16",
+  "cosine_tail_upper": "1177283262708755795357235797386371737397742759041/353634531250000000000000000000000000000000000000000000000000000000000",
+  "sine_tail_upper": "154224107414847009191797889457614697599104301434371/1237720859375000000000000000000000000000000000000000000000000000000000000",
+  "cosine_coordinate_error_bound": "4.74e-15",
+  "sine_coordinate_error_bound": "2.92e-15",
+  "combined_analytical_error_bound": "6e-15",
+  "source_asserted_exp_bound": "2e-14",
+  "scope": "Exact inequalities in the analytic expair proof, conditional on the source operation-count and correctly rounded primitive model."
+}

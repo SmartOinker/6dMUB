@@ -1,0 +1,151 @@
+{
+  "fresh_pipeline_checked": {
+    "result": "PASS",
+    "children": 100,
+    "centers": 249878,
+    "coarse": 3083,
+    "mid": 600,
+    "fine": 22379,
+    "batches": 88,
+    "initial_unresolved": 163,
+    "fallback": 1127,
+    "final_unresolved": 0,
+    "principal_files_match_released_sha256": {
+      "centers.txt": true,
+      "coarse0.bin": true,
+      "coarse1.bin": true,
+      "coarse2.bin": true,
+      "coarse3.bin": true,
+      "mid.bin": true,
+      "fine.bin": true,
+      "fb.bin": true
+    },
+    "scope": "Complete new-run parsing, stage counts, batch-root identity/radius enlargement, ordered failures, actual fallback operands and final modulo partition."
+  },
+  "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+  "binaries": {
+    "build/covrun": {
+      "bytes": 43296,
+      "sha256": "1f308b9cc5fb2bafb30a5c0d01489080aeb48edf5cfa363b45a144d081ead653"
+    },
+    "build/arun": {
+      "bytes": 176328,
+      "sha256": "835dfa804466e456f2ca465aa0a14d5e82bcca6bf4d140159642e5fd3f42111f"
+    },
+    "build/brun": {
+      "bytes": 191832,
+      "sha256": "99c8e590cf07c960f8b171b605d043d0b781b3c2563b4dbf1cf1719a1e921cc7"
+    },
+    "build/crun": {
+      "bytes": 213512,
+      "sha256": "37cbd09ab339f06d076adbae8848f9f6901b27b919dae5eba89ee94ed04c06a2"
+    },
+    "build/abi-probe": {
+      "bytes": 16176,
+      "sha256": "8b4d5f419b244904c165a06714296ed9bb2a7c6973dc9052ca3133a2576c4af8"
+    }
+  },
+  "sources": {
+    "src/build_native.sh": {
+      "bytes": 645,
+      "sha256": "379866fb8b22458455b2e52ccae8b850ae1f3eb5dcaa0caa2f3aaccf3a7e32d5"
+    },
+    "src/prepare_report.py": {
+      "bytes": 559,
+      "sha256": "fd4804f613ad50d05db34e07b0a3f8b3c6954ba8cbbd8be26f968934b23753db"
+    },
+    "src/verify_roots.py": {
+      "bytes": 4587,
+      "sha256": "84285d7b1503eef47abcecfb396c0189a25b4ba16a73233d56a17bf1df831ab9"
+    },
+    "src/graph_check.cpp": {
+      "bytes": 2289,
+      "sha256": "7dd20654269e14a3dfdf5b2c7e4ac16968ff10440320f3279bf502bb0773600a"
+    },
+    "src/package_results.py": {
+      "bytes": 1659,
+      "sha256": "f2d660095217fb7a770d489c1531399beb6de1240b58ad25752095f8a15cf020"
+    },
+    "src/check_exp_certificate.py": {
+      "bytes": 1715,
+      "sha256": "bd6e8565f78aa321717a96de6abd30adc2eb743d3a6a4b4d6a7ab4b001644ffa"
+    },
+    "src/finalize_results.py": {
+      "bytes": 3998,
+      "sha256": "81d5bb87c5bd70374250a1543ee58a020ff230b4c17155983f5905637946a295"
+    },
+    "src/build_report.py": {
+      "bytes": 4192,
+      "sha256": "362df803a6e1400759cba4e11bd3a2794551dfc90830d2d7695dac63da06ed6c"
+    },
+    "src/exact_checks.py": {
+      "bytes": 2156,
+      "sha256": "9157d8c21bedb5253b6eecbbd1e78bdb63e73f59e2f5e4ba83210feb90fc92d7"
+    },
+    "src/check_fresh.py": {
+      "bytes": 5136,
+      "sha256": "74470f96dbabd7e854fddf64d00173e132ce1a106c6d013315ed2fc260aa3627"
+    },
+    "src/progress.py": {
+      "bytes": 327,
+      "sha256": "ffb70f58719c167cf4e96f361e5cab4050ad82a51a6f2615225ca56705843c9c"
+    },
+    "src/replay_from_fine.py": {
+      "bytes": 2094,
+      "sha256": "3c5d8bb46ed5c0b8860eaab2b7767d87fc5eee1dffa9f8907ee710edf1e29089"
+    },
+    "src/check_small_graphs.py": {
+      "bytes": 1981,
+      "sha256": "72216c56875f3862afb9997f587995a8c6a824e7d11c96234fd35393fed25079"
+    },
+    "src/full_run.py": {
+      "bytes": 3346,
+      "sha256": "1f58835900195ba10ecab187c161582816268d14f218b2de272c3cde6d404508"
+    },
+    "src/check_root_negative_controls.py": {
+      "bytes": 1044,
+      "sha256": "50b42bd593fe0472a3cb7020bce204763e694452062eae42626b7dba10964126"
+    },
+    "src/fetch_upstream.py": {
+      "bytes": 2287,
+      "sha256": "5d7aad6f4568740d228485860db4930ea0a485dbf2047ee633a94e09bfe1b758"
+    },
+    "upstream/covout.cpp": {
+      "bytes": 5286,
+      "sha256": "2a7e6bf5ca4857653d0083144a1a1e815b5109df418d7f6f3bf98c4b974fe52c"
+    },
+    "upstream/seed.cpp": {
+      "bytes": 3514,
+      "sha256": "3c6c7a7092230de231fdb23b6d1782de0dd9ef6689095763b875d90ce5ddeb44"
+    },
+    "upstream/stageC.cpp": {
+      "bytes": 17471,
+      "sha256": "60a1b10091852809f523d4f5cc70abb28ebe8d7ed691843e7a2d73e9bbd7caae"
+    },
+    "upstream/patchx.cpp": {
+      "bytes": 16137,
+      "sha256": "a78a1ab171d8c7f11490f83f4fc6896f0b135a1648563c970c584210b192095a"
+    },
+    "upstream/abi-fp-probe.cpp": {
+      "bytes": 2496,
+      "sha256": "1589fe5b4365a3eb1a94818c3801cfcc1509f7c88da23d06175503a4934b4c3c"
+    },
+    "upstream/stageB.cpp": {
+      "bytes": 12030,
+      "sha256": "7e609a2f282d519a73479e6adb4f18e13202844e3ca8325135a444981e1b0c0a"
+    },
+    "upstream/atlas.cpp": {
+      "bytes": 8821,
+      "sha256": "dcbf2dbe1054c01f9a7551094c1ac5f495e8c360a5ab5187ba2de30861909c5f"
+    },
+    "upstream/ub.cpp": {
+      "bytes": 11557,
+      "sha256": "bb031282340012e6fea15eadc073cf79a9e5a75fa0d558ccc5e1ef541e2b1e77"
+    }
+  },
+  "driver_source_revisions": {
+    "full_run.py": "d0889bbce0e1d6b39b40a7ba46abd5def337c0c6",
+    "replay_from_fine.py": "d6f58c19b002705487357145975ea31cd46b66cd"
+  }
+}

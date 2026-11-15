@@ -1,6 +1,6 @@
 # Snapshot of the dimension-ten working folder ("mub10")
 
-These files are copied unchanged from the dimension-ten working folder of workstream A. That folder is not under
+These files are copied unchanged from the dimension-ten working folder of the team. That folder is not under
 version control, so there is no commit hash; this snapshot is the reference.
 
 - `data/exact/bu10hp_unimod.txt`: the 3,040 unimodular cyclic 10-roots (high precision midpoints).

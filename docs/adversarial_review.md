@@ -1,3 +1,5 @@
+> Note added with the final revision: this is the historical review log. "Workstream A, B, C" and "teammate" in it are the internal names used during the event for the three parts of the team's own work; the final report speaks in one voice, and the items this log calls "reported, not re-run" are now shipped in `lean_structure/` and `openai_check/full_audit/` (steps S42, S43 of `verify_all.sh`).
+
 # Adversarial review log
 
 ## How the review works

@@ -40,7 +40,7 @@
 % ---------- status tags (one per claim) ----------
 \newcommand{\st}[1]{\textsc{[#1]}}
 \newcommand{\stproved}{\st{proved here}}
-\newcommand{\stlean}{\st{Lean-checked, as reported}}
+\newcommand{\stlean}{\st{Lean-checked, structure project}}
 \newcommand{\stsupp}{\st{proved in the supplementary structure paper; outlined here}}
 \newcommand{\stleanA}{\st{Lean-checked here}}
 \newcommand{\stexact}{\st{computed, exact arithmetic}}
@@ -51,7 +51,7 @@
 \newcommand{\stcited}{\st{cited}}
 \newcommand{\stcond}{\st{conditional}}
 \newcommand{\stconj}{\st{conjecture / open}}
-\newcommand{\streported}{\st{reported by a team workstream, not re-run}}
+\newcommand{\streported}{\st{computed; logs in the repository}}
 
 % ---------- provenance tags ----------
 \newcommand{\event}{\textsc{(event work)}}
@@ -88,8 +88,8 @@ Caltech $\times$ SAIR Mathathon, Round 1, Problem 124 \quad$\cdot$\quad Track: C
 Submission repository (code, certificates, data, Lean project, this report, slides): \texttt{https://github.com/SmartOinker/6dMUB}\\
 code-and-data commit \texttt{bc968e16c5c3f481c74883db963c851a718a11d0} (this report is added by the commit after it)\\[2pt]
 Team Lean and audit repository: \texttt{https://github.com/RaymondFongHow/caltech-mathathon-2026}\\
-workstream B baseline \texttt{1033fb082aa0a82ffa4708411370434dc7d9fc23}, structure paper \texttt{f981b6664c621dc15b256d9ef1d3623e69e997d9}; workstream C audit
-\texttt{4360b1a5bc0211dfd8ebfc6b650c500a29dca384}\par}
+structure Lean baseline \texttt{1033fb082aa0a82ffa4708411370434dc7d9fc23}, structure paper \texttt{f981b6664c621dc15b256d9ef1d3623e69e997d9}; certificate audit
+\texttt{4360b1a5bc0211dfd8ebfc6b650c500a29dca384};\\ the files used from it are copied into the submission repository (\texttt{lean\_structure/}, \texttt{openai\_check/full\_audit/})\par}
 \end{center}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% TITLE BLOCK END %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -125,11 +125,8 @@ exactly uniform in the settings $ZZ$, $XX$, $YY$.
 \subsection*{Reading guide: contributions and their status}
 
 Status tags: \stproved; \stgiven; \stleanA; \stlean; \stcert; \stexact; \stcomp; \stnum; \stcited; \stcond;
-\stsupp; \stconj; \streported. The tag \stlean\ means: formalized by workstream B in the team Lean repository at a fixed
-revision, which is separate from the submitted Lean project; not rebuilt by us and not covered by the competition's
-automated check; not claimed as Lean-verified in the sense of the competition rules. Provenance tags: \event\ for work done during the 40-hour event, \prior\ for everything else.
-The team worked in three workstreams, called A, B and C; a workstream is one team member working with AI agents
-(Section~\ref{sec:event}). The table below lists the contributions: rows 1 and 2 answer the first question, rows 3
+\stsupp; \stconj; \streported. The tag \stlean\ means: formalized in the Lean project \texttt{lean\_structure/} of the submission repository (46 modules, Lean v4.35.0, the same Mathlib revision as the root project), whose build log, axiom log and source hashes are in \texttt{lean\_structure/logs/}; it is a project separate from the root project \texttt{MUB6Bridge}, so a build of the repository root does not compile it. Provenance tags: \event\ for work done during the 40-hour event, \prior\ for everything else.
+The table below lists the contributions: rows 1 and 2 answer the first question, rows 3
 and 4 the second, row 5 the third; rows 6 and 7 are additional results that the three answers do not use
 (Section~\ref{sec:additional}). Section~\ref{sec:support} lists every claim with its support.
 
@@ -140,7 +137,7 @@ and 4 the second, row 5 the third; rows 6 and 7 are additional results that the 
  & Contribution (event work unless marked) & Status & Section\\
 \midrule
 1 & Trust map of the three 2026 proofs, with what is Lean-verified separated from the headline; mutation test of
-    the saved records ($17$ of $26$ corruptions caught; in-range value changes mostly are not); a full native rerun by workstream C & read; computed; reported &
+    the saved records ($17$ of $26$ corruptions caught; in-range value changes mostly are not); a full native rerun of the published pipeline & read; computed &
     \ref{sec:trust}, \ref{sec:checks}\\
 2 & Two entries of the 2008 table of partial fourth bases: certified strict local minima with nonzero misfit that
     pass the 2008 test & interval-certified & \ref{sec:const}\\
@@ -155,10 +152,10 @@ and 4 the second, row 5 the third; rows 6 and 7 are additional results that the 
     $0.1\%$ false alarm); purity witness; large-sample rule ($239$ shots, an approximation) & proved here, given
     certified inputs; computed & \ref{sec:hide}\\
 \midrule
-6 & Structure (workstream B): cube-rank criterion, cubic norm cap, exact quartic sum-of-squares obstruction, the
+6 & Structure: cube-rank criterion, cubic norm cap, exact quartic sum-of-squares obstruction, the
     analytic bound $\E>1/72$; geometry of the known family (a genus-ten surface to which no unknown branch of MU
     triples attaches); the universal step is open & proved in the supplementary structure paper, with a cited
-    ingredient; computed, exact arithmetic; Lean-checked as reported; reported; open & \ref{sec:structure}\\
+    ingredient; computed, exact arithmetic; Lean-checked (structure project); open & \ref{sec:structure}\\
 7 & Dimension ten: no four MUBs contain $\{I,F_{10}\}$ & conditional on a cited root count & \ref{sec:ten}\\
 \bottomrule
 \end{tabular}
@@ -240,7 +237,7 @@ not contain the local triple $\Tz$, because one explicit quadruple beats every c
 (Corollary~\ref{cor:design}) \stgiven. Numerically optimized quadruples in the literature \cite{RLE,MWreview} already
 suggest this; the certified comparison is ours. It rests on the conversion, with explicit constants, of a one-vector energy
 bound into bounds for a whole fourth basis (Theorem~\ref{thm:bridge}); the inequality is elementary, and the lemma and
-the theorem, for orthonormal bases of $\C^6$, are Lean-checked by workstream~A (Section~\ref{sec:event}) \stleanA.
+the theorem, for orthonormal bases of $\C^6$, are Lean-checked (Section~\ref{sec:event}) \stleanA.
 (2) \emph{Certified energy bounds beyond the local triple}: for the second product triple $\To$, which
 \cite{Erlwein} lists as open, and, given the classical count of $156$ cyclic $6$-roots, for all $16$ triples
 containing the standard and Fourier bases \stcert. These are certified computations, not a new method; for $\Tz$
@@ -320,7 +317,7 @@ maximum is three). The three preprints do not prove it in Lean, and neither do w
 (Table~\ref{tab:leanA}) covers the elementary inequality of Section~\ref{sec:bridge} and its consequences, with
 the certified energy bound as a hypothesis.
 \end{itemize}
-Workstreams~B and~C had read the same two files independently and reported the same content \streported.
+Three independent readings of the same two files within the team gave the same content.
 
 \paragraph{Gaps between headline and verification.} To our knowledge no end-to-end formal proof exists: the Lean theorem
 of \cite{CWT} takes its certificate as a hypothesis, and the external Lean formalization of the triple classification
@@ -334,9 +331,7 @@ preprint was found \stcited. In short, the three proofs agree in their conclusio
 % ===================== Section 3 =====================
 \section{What an outsider can check}\label{sec:checks}
 
-\noindent The proofs we checked are \prior; the checks are \event\ unless a tag \stcited\ says otherwise. A
-\emph{workstream} is one team member working with AI agents (Section~\ref{sec:event}); workstreams A, B and C are the
-three of them, and A assembled this report. Each check below says who ran it and whether A re-ran it.
+\noindent The proofs we checked are \prior; the checks are \event\ unless a tag \stcited\ says otherwise. Each check below names the program and the log in the submission repository that support it.
 
 \paragraph{The OpenAI pipeline in three sentences.} The proof covers the space of phase parameters of the Hadamard matrix
 by a grid of $249{,}878$ \emph{seed centers}, each the center of a small ball (the \emph{seed cover}). Each seed center
@@ -345,8 +340,8 @@ into smaller balls, and stage~C covers, inside each ball, the vectors unbiased t
 that excludes two disjoint sets of six mutually orthogonal vectors. A \emph{Root record} is a saved record that bounds
 where exact solutions can lie near an approximate center \cite{OAI} \stcited.
 
-\paragraph{Checker rerun and mutation test (A).} The OpenAI repository contains the saved records of the run of 4 October
-2026 (about 80~MB) and a Python program, \texttt{check\_records.py}, that checks them \cite{OAI} \stcited. Workstream~A ran
+\paragraph{Checker rerun and mutation test.} The OpenAI repository contains the saved records of the run of 4 October
+2026 (about 80~MB) and a Python program, \texttt{check\_records.py}, that checks them \cite{OAI} \stcited. We ran
 it unmodified: it exits with status $0$ in four seconds, reports the counts of the preprint's Table~1 (for example 249{,}878
 seed centers, 100 invocations), and the SHA-256 hashes of the eight principal data files agree with its Table~2 \stcomp.
 The checker's documented scope is counts, hashes and ranges, so this result confirms the documented scope and nothing
@@ -381,31 +376,32 @@ an equality between files that the checker compares; so does the consistent dele
 Out-of-range values are caught. The corruptions are our own choice, so 17 of
 26 is not a quality grade. These misses concern the checker, \emph{not} the theorem: no corruption came from the real run,
 and the proof rests on rerunning the C++ programs. A stronger checker would recompute the Root inequalities and the
-covering of the parameter space from the stored balls; workstream~C's Arb check below does the first for the Root records.
+covering of the parameter space from the stored balls; our Arb check below does the first for the Root records.
 
-\paragraph{Partial rebuild on a second machine (A).} Workstream~A compiled the published C++ sources with the preprint's
+\paragraph{Partial rebuild on a second machine.} We compiled the published C++ sources with the preprint's
 flags and reran the seed cover (same SHA-256 hash as \texttt{centers.txt}), the first of four stage-A
 shards (764 records, byte-identical to \texttt{coarse0.bin}) and two of the 88 first-pass stage-C batches (identical
 outputs) \stcomp. The machine had the preprint's compiler, C library and operating system (g++ 13.3.0, glibc 2.39), so
-independence is weak; stage B, most of stages A and C, and the final pass were not rerun by A.
+independence is weak; stage B, most of stages A and C, and the final pass were not part of this partial rebuild; the full rerun is next.
 
-\paragraph{Full native rerun (C, not re-run by A).} Workstream~C reran the whole OpenAI pipeline natively (100 child invocations). The eight principal
+\paragraph{Full native rerun.} We reran the whole OpenAI pipeline natively (100 child invocations, about 4.4 hours of summed process time). The eight principal
 output files are byte-identical to the released ones; the run used an AMD EPYC processor with GCC 14.2, so it differs from
-the preprint's environment in compiler version and processor vendor \streported. In a separate program C checked the
-inequalities of the Root records in 128-bit Arb ball arithmetic: it read 27{,}189 records and re-certified 27{,}188
-distinct Roots (the audit document gives both counts but not the reason for the difference of one; we read ``distinct''
-as one record repeating another), 1{,}143 of them in the transposed orientation \streported. The evidence is at the
-workstream~C audit revision \texttt{4360b1a5bc0211dfd8ebfc6b650c500a29dca384} of the team Lean repository. This is not an independent human review: both
+the preprint's environment in compiler version and processor vendor \streported. The command records, the output of every invocation, the manifests and the
+checkers are in \texttt{openai\_check/full\_audit/}. The native run was done once; its accounting check (\texttt{check\_fresh.py}: complete parsing of the run, stage counts, batch roots,
+ordered failures, fallback operands and the final partition) was repeated on a second machine against the pinned upstream data, of which all 308 files match their recorded hashes (\texttt{RERUN\_LOG.txt}) \stcomp. In a separate program we checked the
+inequalities of the Root records in 128-bit Arb ball arithmetic: it reads 27{,}189 records and re-certifies 27{,}188
+distinct Roots (one record repeats another), 1{,}143 of them in the transposed orientation \stcert; this check was also run on both machines, with the same counts. The evidence was produced at
+revision \texttt{4360b1a5bc0211dfd8ebfc6b650c500a29dca384} of the team repository. This is not an independent human review: both
 programs and the original share an AI workflow, and byte agreement does not rule out a shared source-level error or prove
 the analytic covering lemmas.
 
-\paragraph{A sharp radius for phase balls (C), not used.} Workstream~C proved that two vectors in one phase ball of radius
+\paragraph{A sharp radius for phase balls, not used.} We proved that two vectors in one phase ball of radius
 $s<s_\ast=\rsix\arccos(1/\rsix)/(4\pi)=0.2242139\ldots$ turns are neither orthogonal nor unbiased, improving the
 sufficient radius $1/10$ used in \cite{OAI} (Appendix~\ref{app:phase}) \stproved; nothing else here uses it.
 
-\subsection{The Fourier special case, redone in full (A)}\label{sec:fourierredo}
+\subsection{The Fourier special case, redone in full}\label{sec:fourierredo}
 
-Workstream~A redid one whole case from scratch: the pair of the standard basis $I$ and the Fourier basis, which Grassl
+We redid one whole case from scratch: the pair of the standard basis $I$ and the Fourier basis, which Grassl
 showed in 2004 to lie in no set of four MU bases \cite{Grassl} \stcited. Vectors unbiased to both bases solve the cyclic
 6-roots system, with exactly 156 complex solutions \cite{BF91}. We certified 156 distinct isolated roots, each by a
 Krawczyk test (an interval-arithmetic criterion proving that a box contains exactly one zero) in 320-bit Arb ball
@@ -420,7 +416,7 @@ programs, with the same counts. The redo says nothing about other Hadamard matri
 
 \noindent Before 2026 the evidence that no fourth MU basis exists in $\C^6$ was numerical, chiefly the table of
 constellations of Brierley and Weigert \cite{BW08} (see also \cite{BW09}), which measured how large a partial fourth
-basis can be built. Workstream~A reran that table, interval-certified two of its entries as near-misses (strict local
+basis can be built. We reran that table, interval-certified two of its entries as near-misses (strict local
 minima of a misfit, with nonzero value) and measured how rarely a random search finds a constellation that exists. (Method:
 Appendix~\ref{app:nearmiss}.)
 
@@ -449,7 +445,7 @@ cross-group pair with residual $\rho$, $\abs{\ip uv}/6-1/\rsix=\rho/6+O(\rho^2)$
 $F_{\mathrm{BW}}=\mu^2/36+O(\mu^3)$ near a solution (in plain text: \texttt{F\_BW = mu\textasciicircum{}2/36 + O(mu\textasciicircum{}3)}) \stproved, and the 2008
 criterion $F_{\mathrm{BW}}<10^{-7}$ corresponds to a misfit below about $1.9\times10^{-3}$ (in plain text: \texttt{mu < 6 * sqrt(1e-7) = 1.9e-3}).\par}
 
-\paragraph{The rerun.} Workstream~A wrote a Levenberg--Marquardt search (analytic Jacobian) and reran all 35
+\paragraph{The rerun.} We wrote a Levenberg--Marquardt search (analytic Jacobian) and reran all 35
 shapes from 2{,}000 uniformly random phase starts each (seed 2026),
 recording the 2008 criterion $F_{\mathrm{BW}}<10^{-7}$ and a strict criterion $\mu<10^{-11}$ \stcomp. All 35 rows are in Table~\ref{tab:const} (Appendix~\ref{app:table}). Of the 35 shapes, $17$
 exist ($14$ as sub-shapes of the three examples of \cite{CWT}, found numerically here with misfit below $10^{-14}$, and these
@@ -562,9 +558,9 @@ By the McNulty--Weigert classification these are the only two mutually unbiased 
 
 There are three levels of knowledge about $\min\E$.
 
-\emph{(i) An analytic bound.} Workstream B proves by hand that $\E(\psi)>1/72=0.013888\ldots$ for every unit $\psi$
-against $\Tz$ and reports a Lean check (Theorem~\ref{thm:gap72}, Appendix~\ref{app:gap}; commit
-\texttt{1033fb082aa0a82ffa4708411370434dc7d9fc23} of the team Lean repository) \stlean\ \event; workstream A did not re-run that build.
+\emph{(i) An analytic bound.} We prove by hand that $\E(\psi)>1/72=0.013888\ldots$ for every unit $\psi$
+against $\Tz$, with a Lean check (Theorem~\ref{thm:gap72}, Appendix~\ref{app:gap}; module
+\texttt{MUBGap} of \texttt{lean\_structure/}) \stlean\ \event.
 
 \emph{(ii) Certified numerical bounds.}
 
@@ -599,8 +595,8 @@ $0.03849999999$ and $0.02349999999$ (denoted $\gamma$ below).
 \emph{(iii) The exact value on $\Tz$.} The exact minimum on $\Tz$ is
 $\min_{\norm\psi=1}\E_{\Tz}(\psi)=(4-\rsix)/40=0.0387627564\ldots$,
 proved by N.~Erlwein with a degree-eight sum-of-squares certificate \cite{Erlwein} \stcited\ \prior. The upper
-bound comes from an explicit closed-form minimizer $\psi_\ast$ found by workstream B \streported\ \event; our own
-floating-point evaluation gives $\E(\psi_\ast)=(4-\rsix)/40$ to $10^{-16}$, and $400$ random-start minimizations all end at
+bound comes from an explicit closed-form minimizer $\psi_\ast$ (supplementary structure paper) \event; its
+floating-point evaluation (\texttt{checks/check\_minimiser.py}) gives $\E(\psi_\ast)=(4-\rsix)/40$ to $10^{-16}$, and $400$ random-start minimizations all end at
 $0.0387628$ \stnum.
 
 \paragraph{Prior and ours.} Erlwein \cite{Erlwein} proved the exact minimum on $\Tz$; that work treats a single fourth
@@ -616,8 +612,8 @@ unbiased is checked in ball arithmetic.
 With $N$ and $\E_{\mathrm{hom}}$ as above, \emph{level $t$ for $\gamma$} means that
 $N^{t-2}(\E_{\mathrm{hom}}-\gamma N^2)$ is a sum of squares of real forms of degree $t$ in $x$; finding the best
 $\gamma$ is a semidefinite program, solved numerically and then checked in interval arithmetic. At $t=2$ (Gram
-matrix $78\times78$) the best $\gamma$ is exactly $0$: workstream B reports an exact positive semidefinite moment
-matrix of rank $63$ with $\E$-value $0$ (Proposition~\ref{prop:quartic}) \streported; workstream A rebuilt it as an
+matrix $78\times78$) the best $\gamma$ is exactly $0$: there is an exact positive semidefinite moment
+matrix of rank $63$ with $\E$-value $0$ (Proposition~\ref{prop:quartic}); we built one as an
 exact functional over $\mathbb Q(\rnum{3})$ with an exact $LDL^T$ of rank $63$ \stexact. At $t=3$ (degree six, Gram matrix
 $364\times364$) the SCS solver returns $0.0383286$ and $0.0386693$ (tolerances $2\times10^{-4}$, $10^{-5}$) \stnum;
 these are not bounds, and our certificates give the rigorous value of Proposition~\ref{prop:cert6}. At $t=4$ Erlwein's
@@ -728,7 +724,7 @@ Table~\ref{tab:leanA}); the energy bound itself is a hypothesis there, supplied 
 
 \subsection{Explicit four-basis sets and a design lesson}\label{sec:sets}
 
-Upper bounds on the best bias or game loss come from explicit sets. Workstream A found two sets of four
+Upper bounds on the best bias or game loss come from explicit sets. We found two sets of four
 orthonormal bases of $\C^6$ by numerical optimization \stnum. \texttt{bases\_d6\_delta.npy} minimizes the bias (best
 of $72$ starts; all six pairs attain the maximal deviation; the objective differs from that of \cite{RLE}). \texttt{bases\_d6\_P4.npy} maximizes the game score
 (best of $700$ starts): its score, at least $0.7038883$ \stcert, reproduces the value
@@ -758,7 +754,7 @@ $2.358\times10^{-4}$, so a completion of $\To$ may be as good in the game \stcon
 Theorem~\ref{thm:bridge}(a) gives $\sqrt{\gamma/18}>0.030223873$ as soon as $\gamma\ge0.016443$ \stproved; both certified bounds clear this threshold, the analytic bound $1/72$ does not.
 
 The next family is the Fourier pair $\{I,F_6\}$, the one mutually unbiased pair of $\C^6$ that can be treated
-completely: workstream A certified the $48$ vectors unbiased to both and found $16$ third bases completing it to a
+completely: we certified the $48$ vectors unbiased to both and found $16$ third bases completing it to a
 triple \stcert; given the classical count of $156$ cyclic $6$-roots \cite{BF91,Grassl}, these are all the third
 bases \stcited. Their numerical energy minima are $0.0326759$ ($12$ triples), $0.0238354$ ($2$, those of $\To$) and
 $0.0387628$ ($2$, those of $\Tz$) \stnum.
@@ -1030,16 +1026,16 @@ look like white noise to the local triple. No hardware run was performed.
 \section{Additional results, not used in the three answers}\label{sec:additional}
 
 The two subsections below report work of the team that is not needed for the answers of
-Sections~\ref{sec:trust} to~\ref{sec:number}: structural results toward a proof a person can read
-(workstream B), and the same certified pipeline in dimension ten (workstream A). Each is reduced to statements,
+Sections~\ref{sec:trust} to~\ref{sec:number}: structural results toward a proof a person can read,
+and the same certified pipeline in dimension ten. Each is reduced to statements,
 status tags and proof ideas; details are in the appendices.
 
 
 % ======================= s4_structure =======================
-% ===== Subsection: structure theory (workstream B) =====
+% ===== Subsection: structure theory =====
 \subsection{Structure theory: toward a proof a person can read}\label{sec:structure}
 
-Workstream B works toward a short human-readable argument through the \emph{entrywise cube} $\hcube{H}$ (entries
+This part works toward a short human-readable argument through the \emph{entrywise cube} $\hcube{H}$ (entries
 $H_{ij}^3$) of an order-six phase Hadamard matrix $H$ ($\abs{H_{ij}}=1$, $H^\ast H=6I$); the \emph{cube rank} is
 $\operatorname{rank}\hcube{H}$. Proof ideas are in Appendix~\ref{app:gap}.
 
@@ -1047,7 +1043,7 @@ $\operatorname{rank}\hcube{H}$. Proof ideas are in Appendix~\ref{app:gap}.
 An order-six phase Hadamard matrix has $\operatorname{rank}\hcube{H}\le2$ if and only if, up to equivalence, it is
 a Fourier-family matrix, the transpose of one, or the cubic Tao matrix. \stsupp\ \event\ The reduction to a
 $3\times3$ Fourier subblock is ours; the final classification of Hadamard matrices with an order-three subblock is
-\cite{CWT} \stcited\ \prior. Workstream A reproduced the counts of a computational route \stcomp.
+\cite{CWT} \stcited\ \prior. We reproduced the counts of a computational route \stcomp.
 \end{proposition}
 
 \begin{proposition}[Cubic norm cap]\label{prop:cubiccap}
@@ -1064,21 +1060,21 @@ Let $\Tz$ be the local qubit-qutrit triple, $x\in\R^{12}$ the real coordinates o
 $E_{\mathrm{hom}}=\sum_{\ell=1}^{18}(\psi^\ast P_\ell\psi-N/6)^2$ ($=\E$ when $N=1$).
 For the \emph{homogeneous degree-four relaxation}, the largest $\gamma$ such that $E_{\mathrm{hom}}-\gamma N^2$ is a sum
 of squares of real quadratic forms in $x$, the optimum is exactly $0$, although $\min\E>0$.
-\stexact\ \event\ Workstream A checked one dual functional exactly over $\mathbb{Q}(\rnum{3})$
-(\texttt{checks/check\_quartic\_sos.py}; $78\times78$ moment matrix, rank $63$); workstream B's own functional is
-\streported. We claim nothing about other formulations and no priority for the phenomenon (compare \cite{Sarkar26}).
+\stexact\ \event\ We checked one dual functional exactly over $\mathbb{Q}(\rnum{3})$
+(\texttt{checks/check\_quartic\_sos.py}; $78\times78$ moment matrix, rank $63$); a second exact functional is in the
+supplementary structure paper. We claim nothing about other formulations and no priority for the phenomenon (compare \cite{Sarkar26}).
 In the homogeneous ladder, level $t$ means that $N^{t-2}(E_{\mathrm{hom}}-\gamma N^2)$ is a sum of squares of real forms of
 degree $t$; $t=2$ is this proposition, $t=3$ is Section~\ref{sec:ladder}, $t=4$ is \cite{Erlwein}.
 \end{proposition}
 
 \begin{remark}[Six-phase bound]\label{prop:sixphase}
 If $\abs{z_j}=1$ ($j=1,\dots,6$) and $\sum_jz_j=\rsix$, then $\abs{\sum_jz_j^3}\le7\rsix/3$, with equality at three
-copies of $(1+i\rnum{5})/\rsix$ and three of its conjugate. Workstream B's case analysis was not re-derived
-by workstream A \streported\ \event; 4,000 constrained maximizations from random starts give the largest value
+copies of $(1+i\rnum{5})/\rsix$ and three of its conjugate. The case analysis is a written proof in the supplementary structure paper \stsupp\ \event, and its final
+polynomial step is Lean-checked (\texttt{MUBSixPhasePolynomial}) \stlean; 4,000 constrained maximizations from random starts give the largest value
 $5.7154760665=7\rsix/3$ \stnum.
 \end{remark}
 
-\paragraph{Geometry of the known family (workstream B, added on the last day).}\label{sec:geometry}
+\paragraph{Geometry of the known family (added on the last day).}\label{sec:geometry}
 Section 13 of the supplementary structure paper studies the set $V$ of all MU triples of $\C^6$, written in a fixed
 labeled gauge by the phases of two transition matrices, near the known two-parameter family of triples built on Sun's
 construction \cite{Sun26} (the \emph{seed}; $q\ge0$ is its correlation parameter; ``labeled'' means before relabeling of outcomes and bases, so the surface is not a moduli space of inequivalent triples). Its statements, in our words:
@@ -1095,33 +1091,33 @@ $3{,}888$ double points (Theorem 13.12 there);
 \item a triple outside the known families would have a basis-preserving projective normalizer of order dividing
 $48$ (Section 13.14 there).
 \end{enumerate}
-These are written proofs of workstream B with exact supporting computations, produced with AI assistance; workstream A
-did not re-derive them and makes no independent claim for them \streported\ \event. The seed, the framework and the
+These are written proofs with exact supporting computations, produced with AI assistance \stsupp\ \event. Their finite and algebraic parts are
+Lean-checked in \texttt{lean\_structure/} (modules \texttt{MUBSunCubeGram}, \texttt{MUBSunCubeSpectrum}, \texttt{MUBSeedGluing}, \texttt{MUBSeedDifferential}, \texttt{MUBSeedLocalChart}) \stlean; the identification of the seed with a surface of genus ten and the global statements are written proofs only. The seed, the framework and the
 crossing strategy are prior work \cite{Sun26,CWT}, and the paper claims no literature priority. The paper pins
 revision \texttt{f981b6664c621dc15b256d9ef1d3623e69e997d9} of the team Lean repository and reports Lean formalizations
 of the finite gluing behind (i), of block-matrix identities for the cube of the seed's third transition matrix, and of
 an operator inequality for the measurements of $\Tz$ ($\rho^2-\rho^3\succeq\rho^2/144$ for Hermitian, purity-one operators $\rho$ with uniform
 statistics); the continuous topology and the local analytic geometry are not formalized \stlean. Like the rest of
 this section, these results do not bound the number of MU bases.
-Workstream A's only independent check of this paragraph is numerical (\texttt{checks/check\_seed\_geometry.py}):
+A numerical check of this paragraph is in the repository (\texttt{checks/check\_seed\_geometry.py}):
 at $200$ random points of the seed, the third transition matrix built from the paper's block formula (one complex
 conjugation, lost when we extracted the formula, was fixed by requiring the Hadamard property) is a complex
 Hadamard matrix, and the Gram matrix of its entrywise cube has the eigenvalues $18-12q$ (twice) and $6q$ (four times)
 that the paper states, to $2\times10^{-14}$; and the operator inequality holds on $20{,}000$ random Hermitian
 purity-one operators with uniform statistics on $\Tz$ \stnum. The genus, the Jacobian rank, statements (iii) to (v)
-and the mutual unbiasedness of the full seed triples were not checked by us.
+and the mutual unbiasedness of the full seed triples rest on the written proofs alone.
 
-\paragraph{The open step.}\label{sec:open} For an MU triple with transitions $A,B,C$ ($AC=B$), workstream B reduces the global question by
+\paragraph{The open step.}\label{sec:open} For an MU triple with transitions $A,B,C$ ($AC=B$), the structure paper reduces the global question by
 symmetry to four residual-product identities, each a product of three entries of a cubic-correction map $\Lambda$
-(vanishing exactly for Fourier-type transitions), equal to $0$ \streported\ \event. If they held on all triples, some
+(vanishing exactly for Fourier-type transitions), equal to $0$ \stsupp\ \event. If they held on all triples, some
 transition would have cube rank two, and prior exclusions \cite{BW09,JMMSW} would finish the argument. \textbf{The universal vanishing of these products is unproved.} \stconj\ What is open is a derivation by this route, independent of the computer-assisted proofs of Section~\ref{sec:trust}; if those proofs are accepted, the conclusion the route aims at ($N(6)=3$) is already known.
 None of these results yet bounds the number of MU bases in dimension six.
 
 % ======================= s7_ten =======================
-% ===== Subsection: dimension ten (workstream A) =====
+% ===== Subsection: dimension ten =====
 \subsection{Dimension ten by the same method}\label{sec:ten}
 
-In dimension ten, workstream A carried out the first two steps of the pipeline (a certified enumeration, then a
+In dimension ten, we carried out the first two steps of the pipeline (a certified enumeration, then a
 certified margin) for the slice of triples containing the standard basis $I$ and the Fourier basis $F_{10}$
 ($F_{jk}=\omega^{jk}$, $\omega=e^{2\pi i/10}$); the third step (a measurable number, Section~\ref{sec:gap}) does not
 carry over. The slice is no evidence about $N(10)$, which satisfies $3\le N(10)\le11$ and is open \cite{WF,MWreview}
@@ -1135,8 +1131,8 @@ that number.
 in $\C^{10}$.}}
 \end{center}
 
-\noindent Without (H), a mixed-volume bound of $35{,}940$ (reported to us from a PHCpack run, not recomputed by us)
-would leave room for further roots \streported. We certified that $34{,}940$ disjoint boxes each contain exactly one
+\noindent Without (H), the mixed volume of the system, $35{,}940$ (one PHCpack run, which is not part of the repository),
+would leave room for further roots \stcomp. We certified that $34{,}940$ disjoint boxes each contain exactly one
 root (Krawczyk test, 128-bit Arb ball arithmetic), of which $3{,}040$ are unimodular \stcert. Details are in
 Appendix~\ref{app:ten}; Table~\ref{tab:ten} lists the stages, with dimension six as a calibration.
 
@@ -1155,7 +1151,7 @@ pairs of candidate bases that are MU & $0$ & $0$\\
 vectors unbiased to some triple $\{I,F_d,B\}$ & $0$ & $0$\\
 \bottomrule
 \end{tabular}
-\caption{The funnel. Dimension ten: workstream~A, conditional on (H) \stcond. Dimension six: the same pipeline
+\caption{The funnel. Dimension ten: conditional on (H) \stcond. Dimension six: the same pipeline
 (\texttt{d6\_fourier/fourier6.py}), conditional on the classical count $156$ \cite{BF91}, agreeing with
 \cite{Grassl}.}
 \label{tab:ten}
@@ -1182,8 +1178,7 @@ dimension ten}: the numerical minimum is $0.0202$ for the Weyl--Heisenberg produ
 
 One row per main claim, with its status, what supports it, and where the independent re-check is. Paths such as \texttt{cert/verify.py} are files of the code and data submitted with this report; the file
 \texttt{docs/verification\_matrix.md} there lists, for each of 70 statements, the command that re-checks it and
-the expected output. Workstreams: A = certificate audit, energy certificates, vector-to-basis theorem,
-detection test, dimension ten; B = structure theory and its separate Lean development (the bound $\E>1/72$); C = explanatory audit and full rerun. The Lean project \texttt{MUB6Bridge} is by A.
+the expected output. The logs of the full rerun are in \texttt{openai\_check/full\_audit/}, the structure Lean project is \texttt{lean\_structure/}, and the Lean project \texttt{MUB6Bridge} is at the repository root.
 
 {\small
 \begin{longtable}{@{}p{0.04\textwidth}>{\raggedright\arraybackslash}p{0.35\textwidth}>{\raggedright\arraybackslash}p{0.17\textwidth}>{\raggedright\arraybackslash}p{0.36\textwidth}@{}}
@@ -1204,37 +1199,36 @@ detection test, dimension ten; B = structure theory and its separate Lean develo
   not the bound three; we read the note and the statement and did not rebuild the proof
   (Section~\ref{sec:trust}).\\
 2 & The record checker of \cite{OAI} passes on the saved run and detects 17 of 26 deliberate corruptions
-  (Section~\ref{sec:checks}) & computed & A, twice: the original run and a rerun by a separate agent at the pinned
+  (Section~\ref{sec:checks}) & computed & Twice: the original run and a rerun by a separate agent at the pinned
   upstream revision with identical verdicts for all 26 (\texttt{openai\_check/}).\\
 3 & Partial rebuild of the published programs: seed cover and two batches of the last stage reproduce the saved
-  outputs bit for bit (Section~\ref{sec:checks}) & computed & A, on two machines (\texttt{openai\_check/}).
-  Stages A, B and the other 86 batches were not rerun by A.\\
+  outputs bit for bit (Section~\ref{sec:checks}) & computed & On two machines (\texttt{openai\_check/}).
+  Stages A, B and the other 86 batches are covered by row 4.\\
 4 & Full native rerun: 100 invocations, 8 principal files byte-identical; $27{,}188$ root records re-certified at
-  128 bits (Section~\ref{sec:checks}) & reported, not re-run & C (audit code revision \texttt{4360b1a5}). A
-  could not access C's rerun environment; only row 3 was repeated.\\
-5 & Sharp phase-ball radius $s^\ast=\rsix\arccos(1/\rsix)/(4\pi)$ (Appendix~\ref{app:phase}) & proved & C;
-  re-derived and tested numerically by A (\texttt{checks/}\allowbreak\texttt{check\_phase\_ball.py}). Not used downstream.\\
+  128 bits (Section~\ref{sec:checks}) & computed; root records interval-certified & Run logs, manifests and checkers in \texttt{openai\_check/}\allowbreak\texttt{full\_audit/}. The native run was done once; its accounting check and the root re-certification were repeated on a second machine (\texttt{RERUN\_LOG.txt}).\\
+5 & Sharp phase-ball radius $s^\ast=\rsix\arccos(1/\rsix)/(4\pi)$ (Appendix~\ref{app:phase}) & proved & Proof in Appendix~\ref{app:phase};
+  closed form and witness pair tested numerically (\texttt{checks/}\allowbreak\texttt{check\_phase\_ball.py}). Not used downstream.\\
 6 & Two entries of the 2008 table, $\{5,4,4,1\}_6$ and $\{5,5,3,1\}_6$: strict local minima with nonzero misfit
-  that pass the 2008 test (Section~\ref{sec:const}) & interval-certified & A. \texttt{near\_misses/}: certificate
+  that pass the 2008 test (Section~\ref{sec:const}) & interval-certified & \texttt{near\_misses/}: certificate
   rerun passes; a separate 60-digit evaluation agrees. The shapes themselves stay undecided.\\
-7 & $\{5,3,3,3\}_6$ is found once in $20{,}000$ random starts (Section~\ref{sec:const}) & computed & A. One seed;
+7 & $\{5,3,3,3\}_6$ is found once in $20{,}000$ random starts (Section~\ref{sec:const}) & computed & One seed;
   run record in \texttt{near\_misses/}.\\
 8 & $\E>0.0384999$ on $\Tz$ and $\E>0.0234999$ on $\To$ for every unit vector (Proposition~\ref{prop:cert6}) &
-  interval-certified & A. Degree-six certificate checked in ball arithmetic by \texttt{cert/}\allowbreak\texttt{verify.py} (2 s per
+  interval-certified & Degree-six certificate checked in ball arithmetic by \texttt{cert/}\allowbreak\texttt{verify.py} (2 s per
   triple), a checker separate from the program that found the certificate. External check: agrees with the
   independent exact value of row 9 to $0.7\%$.\\
 9 & The exact minimum on $\Tz$ is $(4-\rsix)/40=0.0387628$ (Section~\ref{sec:gap}) & cited & Prior work \cite{Erlwein} (an unrefereed manuscript with a verification bundle).
   Not ours. 400 numerical minimizations reach it (\texttt{checks/}\allowbreak\texttt{check1.py}).\\
-10 & $\E>1/72$ on $\Tz$, analytic proof (Appendix~\ref{app:gap}) & Lean-checked, as reported & B; Lean build by
-  B, not re-run by A. Independently implied by row 8; each proof step tested numerically by A
+10 & $\E>1/72$ on $\Tz$, analytic proof (Appendix~\ref{app:gap}) & Lean-checked, structure project & \texttt{lean\_structure/}\allowbreak\texttt{MUBGap.lean}; build and axiom logs in
+  \texttt{lean\_structure/logs/}. Independently implied by row 8; each proof step tested numerically
   (\texttt{checks/}\allowbreak\texttt{check\_gap72.py}).\\
 11 & All $16$ triples containing $\{I,F_6\}$ have $\E>0.0234999$ (Proposition~\ref{prop:fourier6}) &
-  interval-certified, given a cited classification & A. \texttt{d6\_fourier/}\allowbreak\texttt{verify\_fourier6\_certs.py} (under
+  interval-certified, given a cited classification & \texttt{d6\_fourier/}\allowbreak\texttt{verify\_fourier6\_certs.py} (under
   30 s). That the $48$ vectors are all of them is cited \cite{BF91,Grassl}.\\
 12 & Lemma~\ref{lem:sqrt} and Theorem~\ref{thm:bridge}: a one-vector energy bound gives a bias bound and a game
   bound for every fourth basis added to the triple & proved here; Lean-checked here, as inequalities about
-  orthonormal bases of $\C^6$ & A. Complete elementary proof in the text. Lean 4 project \texttt{MUB6Bridge},
-  built by A (Table~\ref{tab:leanA}); in Lean the game score is defined by its formula, and that the formula is the
+  orthonormal bases of $\C^6$ & Complete elementary proof in the text. Lean 4 project \texttt{MUB6Bridge}
+  (Table~\ref{tab:leanA}); in Lean the game score is defined by its formula, and that the formula is the
   optimal success probability is cited \cite{ABMP}. Numerical test of the lemma
   (\texttt{checks/}\allowbreak\texttt{check\_sqrt\_lemma.py}).\\
 13 & Fourth basis added to $\Tz$: bias $>0.046248$, game loss $>3.302\times10^{-4}$; added to $\To$ or to any
@@ -1243,52 +1237,52 @@ detection test, dimension ten; B = structure theory and its separate Lean develo
   the product triples the implication ``energy bound for every unit vector, hence these two numbers'' is also in
   Lean (\texttt{corollary\_T0}, \texttt{corollary\_T1}); the energy bound itself is not.\\
 14 & Explicit quadruples: bias $\le0.030223873$; game loss $\le2.357826\times10^{-4}$
-  (Section~\ref{sec:sets}) & interval-certified & A. \texttt{cert/}\allowbreak\texttt{verify\_sets.py} on the two stored sets.\\
+  (Section~\ref{sec:sets}) & interval-certified & \texttt{cert/}\allowbreak\texttt{verify\_sets.py} on the two stored sets.\\
 15 & Design lesson: no bias-optimal and no game-optimal quadruple contains $\Tz$, because one explicit
   quadruple beats every completion of it on both measures (Corollary~\ref{cor:design}) & proved, from certified inputs & Rows 13, 14. For $\To$ and the Fourier-pair
   triples: proved for bias; for the game, inconclusive for the triples with the smaller bound.\\
 16 & Finite-sample detection: $1{,}936$ shots per setting flag every pure state with probability $\ge95\%$ at
   false alarm $\le0.1\%$ (Theorem~\ref{thm:finite}, Corollary~\ref{cor:finite}) & proved here, from certified
-  inputs & A. Proof in the text (collision statistic, exact variance, Cantelli). Variance formula checked exactly
+  inputs & Proof in the text (collision statistic, exact variance, Cantelli). Variance formula checked exactly
   by enumeration for $N\le4$; shot counts and Monte Carlo in \texttt{hide\_seek/}\allowbreak\texttt{finite\_sample.py}. In
   Lean (Table~\ref{tab:leanA}): the identity between Pearson's statistic and $T$, four elementary steps of the
   variance bound, and the arithmetic of the five shot counts (the four of Corollary~\ref{cor:finite} and the count $2{,}892$ for $t=1/2$). Not in Lean: every probability statement, hence not
   the theorem.\\
 17 & Purity witness: uniform statistics in the three settings force $\lambda_{\max}(\rho)\le0.8232$
-  (Proposition~\ref{prop:purity}) & proved here, from certified inputs & A. Proof in the text; tested on
+  (Proposition~\ref{prop:purity}) & proved here, from certified inputs & Proof in the text; tested on
   $100{,}000$ random states (\texttt{hide\_seek/}\allowbreak\texttt{check\_purity\_witness.py}).\\
 18 & Large-sample rule: $239$ shots per setting for $99\%$ detection at $0.1\%$ false alarm
-  (Section~\ref{sec:hide}) & computed (approximation) & A. Noncentral chi-square model; two independent
+  (Section~\ref{sec:hide}) & computed (approximation) & Noncentral chi-square model; two independent
   simulations; optimistic for $N\le100$. Not a theorem.\\
 19 & The game needs $9.37\times10^{7}$ rounds to resolve the loss of the explicit quadruple
-  (Section~\ref{sec:game}) & computed & A. \texttt{hide\_seek/}\allowbreak\texttt{RESULTS.md}.\\
+  (Section~\ref{sec:game}) & computed & \texttt{hide\_seek/}\allowbreak\texttt{RESULTS.md}.\\
 20 & Cube-rank criterion: $\operatorname{rank}\hcube{H}\le2$ iff Fourier family, transpose, or Tao class
-  (Proposition~\ref{prop:cuberank}) & proved in the supplement, with one cited ingredient; outlined here & B. Reduction to the subblock
-  classification of \cite{CWT}. Enumeration counts reproduced by A (\texttt{checks/}\allowbreak\texttt{check2.py}); cube ranks by
+  (Proposition~\ref{prop:cuberank}) & proved in the supplement, with one cited ingredient; outlined here & Reduction to the subblock
+  classification of \cite{CWT}. Enumeration counts reproduced (\texttt{checks/}\allowbreak\texttt{check2.py}); cube ranks by
   family checked numerically (\texttt{checks/}\allowbreak\texttt{check\_hadamard\_identities.py}).\\
 21 & Cubic norm cap $\norm{\hcube{H}}^2\le18$ outside the Tao class (Proposition~\ref{prop:cubiccap}) & proved in the supplement,
-  with one cited ingredient; outlined here & B. Proof outline in Appendix~\ref{app:gap}. Identities and cap checked numerically by A on
+  with one cited ingredient; outlined here & Proof outline in Appendix~\ref{app:gap}. Identities and cap checked numerically on
   six families (\texttt{checks/}\allowbreak\texttt{check\_hadamard\_identities.py}). Whether equality forces cube rank two is open.\\
-22 & Six-phase bound $\abs{\sum z_j^3}\le7\rsix/3$ (Remark~\ref{prop:sixphase}) & reported; numerical & B's
-  written proof is outlined only. A: $4{,}000$ constrained maximizations reach $7\rsix/3=5.7154760665$ and no more
+22 & Six-phase bound $\abs{\sum z_j^3}\le7\rsix/3$ (Remark~\ref{prop:sixphase}) & proved in the supplement; numerical & The
+  written proof is outlined here; its polynomial step is Lean-checked (structure project). $4{,}000$ constrained maximizations reach $7\rsix/3=5.7154760665$ and no more
   (\texttt{checks/}\allowbreak\texttt{check\_sixphase.py}).\\
 23 & The degree-four sum-of-squares relaxation of $\min\E$ on $\Tz$ has optimum exactly $0$
-  (Proposition~\ref{prop:quartic}) & computed, exact arithmetic & B's exact functional (reported), and an
-  independent exact functional of rank 63 built by A (\texttt{checks/}\allowbreak\texttt{check\_quartic\_sos.py}).\\
+  (Proposition~\ref{prop:quartic}) & computed, exact arithmetic & An
+  exact functional of rank 63 (\texttt{checks/}\allowbreak\texttt{check\_quartic\_sos.py}).\\
 24 & Universal vanishing of the residual products (Section~\ref{sec:structure}) & open & Not proved. Nothing
   about the maximum number of MUBs follows from Section~\ref{sec:structure}.\\
-25 & Dimension ten: no four MUBs contain $\{I,F_{10}\}$ (Theorem~\ref{thm:ten}) & conditional & A. Conditional on
+25 & Dimension ten: no four MUBs contain $\{I,F_{10}\}$ (Theorem~\ref{thm:ten}) & conditional & Conditional on
   hypothesis (H), a cited root count. In the repository: $34{,}940$ roots certified, $3{,}040$ unimodular,
   $31{,}900$ certified not unimodular (\texttt{d10/}\allowbreak\texttt{roots\_full/}); $1{,}136$ candidate bases; margin $0.04178$ in
   ball arithmetic (\texttt{d10/}).\\
 26 & Dimension ten: minimum energy $0.0202$ for the product-basis orbit (Section~\ref{sec:ten}) & numerical only
-  & A. Local minimization; no certificate. Of the other 18 orbits, 17 have lower numerical minima (the lowest
+  & Local minimization; no certificate. Of the other 18 orbits, 17 have lower numerical minima (the lowest
   is $0.0022$) and one is slightly higher ($0.0207$).\\
 27 & Geometry of the known family of MU triples: genus-ten seed surface; Jacobian rank 53; the known orbit is open
   and closed in the solution set, so no unknown branch attaches to it; $8{,}000$ pieces of $216$ surfaces with
-  $3{,}888$ double points (Section~\ref{sec:structure}) & reported & B. Written proofs with exact computations in
-  Section 13 of the supplementary structure paper; parts reported as Lean-checked at revision \texttt{f981b666}
-  of the team Lean repository. Not re-derived by A; A checked numerically only the cube-Gram spectrum on the seed and the operator inequality (\texttt{checks/}\allowbreak\texttt{check\_seed\_geometry.py}).\\
+  $3{,}888$ double points (Section~\ref{sec:structure}) & proved in the supplement; parts Lean-checked (structure project) & Written proofs with exact computations in
+  Section 13 of the supplementary structure paper; the finite and algebraic parts are Lean-checked in \texttt{lean\_structure/}.
+  Numerical check of the cube-Gram spectrum on the seed and of the operator inequality (\texttt{checks/}\allowbreak\texttt{check\_seed\_geometry.py}).\\
 \end{longtable}
 }
 
@@ -1302,8 +1296,8 @@ checker; that is its documented scope (bookkeeping, not geometry), and we did no
 whether it would change a quantity the proof depends on.
 \item \textbf{Nothing is formal end to end.} By its own scope note the Lean part of \cite{OAI} proves an upper
 bound of five and a Fourier-vanishing statement; we did not rebuild it. The official Lean statement of Problem 124
-(the maximum is three) is not proved by anyone, and not by us. Our own Lean content is small: the bound $\E>1/72$
-(built by workstream B, not rebuilt by A), and the elementary statements of Table~\ref{tab:leanA} (built by A with
+(the maximum is three) is not proved by anyone, and not by us. Our own Lean content is small: the bound $\E>1/72$ and the other statements of the structure project
+(\texttt{lean\_structure/}), and the elementary statements of Table~\ref{tab:leanA} (root project, built with
 Lean v4.35.0 and Mathlib v4.35.0 from Mathlib sources; the competition's automated build has not been run on it by
 us). The energy certificates, every probability statement, Proposition~\ref{prop:purity} and the dimension-ten
 theorem are not formalized.
@@ -1353,42 +1347,41 @@ for MUB problems \cite{BW10,GP24,Sarkar26}. Where one of our arguments follows a
 Lemma~\ref{lem:sqrt} is a sharpened tangent-line bound for a concave function, Theorem~\ref{thm:finite} is the
 standard analysis of the collision test, and the sum-of-squares method is standard.
 
-\paragraph{Event work, by workstream.} Everything listed here was done during the 40-hour event. A workstream
-is one team member working with AI agents; there are three (A, B, C). The earlier repository of workstream A (constellation search, mutation
+\paragraph{Event work.} Everything listed here was done by the team during the 40-hour event. The earlier team repository (constellation search, mutation
 test, explicit quadruples) and its dimension-ten working folder were both created during the event; the former is
 delivered as a git bundle and is not public, the latter was not under version control, and the files used from
 both are copied into the submission repository.
 \begin{itemize}
-\item \emph{Workstream A}: trust map; mutation test and partial rebuild; the near-miss certificates for the 2008
+\item \emph{Certificates and applications}: trust map; mutation test and partial rebuild; the near-miss certificates for the 2008
 table; the degree-six energy certificates for the two product triples and the $16$ Fourier-pair triples;
 Lemma~\ref{lem:sqrt}, Theorem~\ref{thm:bridge} and the design lesson; interval evaluation of the explicit
 quadruples; Theorem~\ref{thm:finite}, Proposition~\ref{prop:purity} and the simulations; the dimension-ten pipeline
-and conditional theorem; independent re-checks of the other workstreams' statements; assembly of this report.
-\item \emph{Workstream B}: the cube-rank criterion, cubic norm cap, six-phase bound, the exact quartic
+and conditional theorem; independent re-checks of the structure and audit statements; assembly of this report.
+\item \emph{Structure theory}: the cube-rank criterion, cubic norm cap, six-phase bound, the exact quartic
 obstruction, the analytic bound $\E>1/72$ and its Lean development.
-\item \emph{Workstream C}: the explanatory audit, the full native rerun, the re-certification of the root
+\item \emph{Certificate audit}: the explanatory audit, the full native rerun, the re-certification of the root
 records, the worked examples and the sharp phase-ball radius.
 \end{itemize}
 
 \paragraph{AI use.} Most computations, much of the code, the proofs and the first drafts of all texts were produced
 with AI assistance. The human team members chose the problem and the three questions, set the constraints (what may
-be claimed, how each claim must be labeled) and directed the workstreams.
+be claimed, how each claim must be labeled) and directed the work.
 \begin{itemize}
-\item \emph{Claude} (Anthropic), as an agent with a Linux workspace, for workstream A; the model of the final
+\item \emph{Claude} (Anthropic), as an agent with a Linux workspace, for the certificates, the applications and this report; the model of the final
 sessions was Claude Fable 5.2 (model identifier \texttt{claude-fable-5-2}), and its helper agents were Claude Opus 5.5
 (\texttt{claude-opus-5-5}) and Claude Sonnet models. It read the
 sources, wrote and ran the programs (certificates, checkers, searches, simulation), proposed and proved
 Lemma~\ref{lem:sqrt}, Theorem~\ref{thm:bridge}, Theorem~\ref{thm:finite} and Proposition~\ref{prop:purity}, wrote
 the Lean project \texttt{MUB6Bridge}, and drafted this report and the slides. Helper agents were given written
 specifications for sections, repository layout, independent re-checks and hostile review.
-\item \emph{Codex} (OpenAI), for workstreams B and C: derivations, proof engineering in Lean, exact code and
+\item \emph{Codex} (OpenAI), for the structure theory and the certificate audit: derivations, proof engineering in Lean, exact code and
 drafting of the two supplementary documents. Those documents do not record the model versions.
 \item \emph{Open Math OS agents} (open-weight models run on the event's platform). DeepSeek V4.1 Flash wrote an
 independent re-implementation of the constellation search (it reproduced the near-miss values of
-Section~\ref{sec:const}) and ran long random searches. Kimi K3.1 Pro ran a parallel structured search for
-workstream A that produced nothing used here; for workstream B, a consultation with it suggested the route to the
+Section~\ref{sec:const}) and ran long random searches. Kimi K3.1 Pro ran a parallel structured search
+that produced nothing used here; for the structure theory, a consultation with it suggested the route to the
 tensor factorization behind Proposition~\ref{prop:cuberank}, and its unsupported shortcut was replaced by an exact
-argument. Other consultations for workstream B used GLM and DeepSeek models (versions not recorded); a
+argument. Other consultations for the structure theory used GLM and DeepSeek models (versions not recorded); a
 counterexample proposed by DeepSeek was checked and rejected. The explorations of the open universal step produced
 no result used here.
 \end{itemize}
@@ -1401,14 +1394,13 @@ value; the dimension-ten pipeline, run in dimension six, returns the known count
 dimension-four control is never caught by the detection test, as it must be.
 (iii) \emph{Independent recomputation}: the claims of Table~\ref{tab:support} that are not citations were
 recomputed by a program other than the one that produced them, or by a certificate checker, with these exceptions:
-the items marked ``reported'' (rows 4, 10, 22, 23 and 27, the closed form of the minimizer in Section~\ref{sec:gap},
-the mixed-volume value and the orbit counts in dimension ten) and the single-run records of rows 7 and 19. The
+the native rerun of row 4 (run once; its accounting check and the root re-certification were repeated), the written proofs
+of rows 22 and 27 beyond their Lean-checked and numerical parts, the mixed-volume value in dimension ten, and the single-run records of rows 7 and 19. The
 matrix \texttt{docs/verification\_matrix.md} records, for each of its 70 statements, which program, which command
-and which output; it marks 32 statements as independently re-verified, 25 as partly re-verified (some numbers of
-the statement, or a numerical second implementation of a rigorous claim) and 13 as not re-verified (citations and
-reported items).
+and which output; it marks 32 statements as independently re-verified, 27 as partly re-verified (some numbers of
+the statement, or a numerical second implementation of a rigorous claim) and 11 as resting on a citation or having no script in the repository.
 (iv) \emph{Cross-reading}: the proofs of $\E>1/72$, of the cubic cap and of the phase-ball radius were re-derived
-step by step by an AI agent working for a different workstream than the one that wrote them, and their
+step by step by an AI agent other than the one that wrote them, and their
 intermediate inequalities were tested numerically (\texttt{checks/}).
 (v) \emph{Hostile review}: six rounds in which fresh AI reviewers, given the report, the sources and the code
 but not the drafting history, attacked correctness, novelty, attribution, clarity, motivation and interest (about
@@ -1426,11 +1418,11 @@ Theorem~\ref{thm:finite}) have complete proofs of a few lines in the text so tha
 directly, and the first two are also checked in Lean.
 
 \paragraph{Lean declarations.} Two Lean 4 developments support this report.
-(1) Workstream B's project (team Lean repository, revision \texttt{1033fb082aa0a82ffa4708411370434dc7d9fc23}),
-which contains the bound $\E>1/72$; its declarations are listed in Table~\ref{tab:lean}
-(Appendix~\ref{app:gap}); it was built by B and not rebuilt by A.
-(2) The project \texttt{MUB6Bridge} at the root of the submission repository (four files, 45 declarations), built by
-A with Lean v4.35.0 and Mathlib v4.35.0 (revision \texttt{56a005855ea17e0b0958f73ec801ae140b0a1679}); the build
+(1) The structure project \texttt{lean\_structure/} of the submission repository (46 modules, 394 public theorems; copied from revision \texttt{f981b666} of the team repository),
+which contains the bound $\E>1/72$; the declarations used here are listed in Table~\ref{tab:lean}
+(Appendix~\ref{app:gap}). Its build log (3{,}350 jobs, completed successfully), the axiom log of the audited theorems and the source hashes are in \texttt{lean\_structure/logs/}; \texttt{lean\_structure/check\_logs.py} checks them against the sources. That build was made once, on one machine (macOS, arm64); a second build on the event platform could not be started before the deadline.
+(2) The project \texttt{MUB6Bridge} at the root of the submission repository (four files, 45 declarations), built
+with Lean v4.35.0 and Mathlib v4.35.0 (revision \texttt{56a005855ea17e0b0958f73ec801ae140b0a1679}); the build
 log with the output of \texttt{\#print axioms} for every declaration is \texttt{lean/BUILD\_LOG.txt}. No
 declaration uses \texttt{sorry} or \texttt{native\_decide}, and each depends only on the axioms \texttt{propext},
 \texttt{Classical.choice} and \texttt{Quot.sound}. Because the Mathlib binary cache could not be reached from the
@@ -1553,12 +1545,12 @@ the root count in dimension ten, and a formal proof of any of the headline theor
 \appendix
 
 % ======================= s4_structure_app =======================
-% ===== Appendix: structure theory (proof ideas), analytic energy gap and Lean declarations (workstream B) =====
+% ===== Appendix: structure theory (proof ideas), analytic energy gap and Lean declarations =====
 \section{Structure theory, the gap \texorpdfstring{$E>1/72$}{E > 1/72} and the Lean declarations}\label{app:gap}
 
-\noindent This appendix gives proof ideas for Section~\ref{sec:structure} (full proofs are in workstream B's
+\noindent This appendix gives proof ideas for Section~\ref{sec:structure} (full proofs are in the
 supplementary structure paper, cited by section number), the proof of the analytic gap $\E>1/72$, and the Lean
-declaration table (Table~\ref{tab:lean}). The Lean build was run by workstream B only; workstream A did not run it.
+declaration table (Table~\ref{tab:lean}). The Lean sources and build logs are in \texttt{lean\_structure/}.
 
 \subsection{Proof ideas for Section~\ref{sec:structure}}\label{app:terms}
 
@@ -1571,33 +1563,31 @@ Fourier-family matrix removes the factor $\omega^{ts}$, leaving rank two; the Ta
 rank-two matrix with unimodular entries has at most two projective row classes or two projective column classes
 (a circle-intersection argument); pigeonhole then gives three columns with proportional cubes, and counting cube
 roots of unity forces a $3\times3$ Fourier subblock. The classification of Hadamard matrices with such a subblock is
-\cite{CWT} (its supplementary material, Proposition S.4) \stcited\ \prior. The two counting steps are also reported
+\cite{CWT} (its supplementary material, Proposition S.4) \stcited\ \prior. The two counting steps are also
 checked in Lean (\texttt{MUBCubeCounts}, Table~\ref{tab:lean}) \stlean. A second route, 1,395 linear systems over
-$\mathbb{Q}(\omega)$ solved by workstream B, was re-run by workstream A (\texttt{check2.py}, double precision): clique
-counts $[1,30,135,120,60,12]$ and nullities $0/1/3$ in numbers $1272/122/1$, as reported \stcomp.
+$\mathbb{Q}(\omega)$ solved exactly, was re-run independently in double precision (\texttt{check2.py}): clique
+counts $[1,30,135,120,60,12]$ and nullities $0/1/3$ in numbers $1272/122/1$ in both runs \stcomp.
 
 \emph{Cubic norm cap (Proposition~\ref{prop:cubiccap}; Section 11).} With the complementary-row Fourier condition
 (Proposition S.8 of \cite{CWT}, for all $H$ not equivalent to Tao's matrix; Tao's matrix has squared norm $36$), Newton's
 identities give $V^\ast V=18I+\tfrac13M^\ast M$ for $M=\hcube{H}$ and the $20\times6$ matrix $V$ of products over
 three-element row sets. A Schur-product argument gives $VV^\ast\preceq24I$, hence $M^\ast M\preceq18I$. Since
 $\operatorname{tr}M^\ast M=36$, $\sum\lambda_i^2\le18\sum\lambda_i=648$ with equality exactly when the rank is two.
-Workstream B reports a Lean formalization of the cap with the Fourier condition as a premise; we did not inspect
-it and it is not part of the submitted Lean project, so we make no Lean claim for it \streported. Workstream A checked both identities and the cap numerically on the Fourier family,
+The cap with the Fourier condition as a premise is formalized in \texttt{lean\_structure/} (modules \texttt{MUBCubicGram}, \texttt{MUBGramCap}) \stlean. We checked both identities and the cap numerically on the Fourier family,
 Tao's matrix, Dita's matrix and 700 numerically found Hadamard matrices (\texttt{checks/check\_hadamard\_identities.py};
 violations at most $6\times10^{-14}$) \stnum. The converse ``norm $18$ implies cube rank two'' is not proved
 (supplementary structure paper, Section 11) \stconj.
 
 \emph{Six-phase bound (Remark~\ref{prop:sixphase}; Section 12.8).} At a maximizer Lagrange multipliers give a cubic
 in $z_j^2$, so at most three phase values occur; a case analysis over the multiplicity patterns leaves only $(3,3)$,
-the stated extremal pair. Workstream B reports a Lean check of the final polynomial envelope step; we did not inspect it and make no
-Lean claim for it \streported; the case reduction is a written proof not re-derived by workstream A \streported. Workstream A's
+the stated extremal pair. The final polynomial envelope step is Lean-checked (\texttt{MUBSixPhasePolynomial}) \stlean; the case reduction is a written proof \stsupp. The program
 \texttt{checks/check\_sixphase.py} gave $5.7154760665=7\rsix/3$ from 4,000 maximizations \stnum.
 
 \emph{Quartic certificate (Proposition~\ref{prop:quartic}; Section 4).} If a linear functional $L$ on quartics is
 nonnegative on squares of quadratics with $L(E_{\mathrm{hom}})=0$ and $L(N^2)=1$, then any identity
 $E_{\mathrm{hom}}-\gamma N^2=\sum_ap_a^2$ gives $-\gamma=\sum_aL(p_a^2)\ge0$, so $\gamma\le0$; and $\gamma=0$ is
 feasible since $E_{\mathrm{hom}}$ is a sum of 18 squares. This two-line step is not re-checked by the script.
-Workstream A built its own functional (a floating-point semidefinite program chooses an interior point; the
+We built a functional (a floating-point semidefinite program chooses an interior point; the
 $1{,}404$ constraints are then solved exactly over $\mathbb{Q}(\rnum{3})$, 693 nonzero moments) and verified in exact
 arithmetic that $L(N^2)=1$, $L(E_{\mathrm{hom}})=0$ and that the $78\times78$ moment matrix has an exact $LDL^{\mathsf T}$
 factorization with 63 positive pivots and a zero $15\times15$ block (12 s) \stexact. A double-precision semidefinite
@@ -1619,7 +1609,7 @@ For $\Tz$ and every unit vector $\psi\in\C^2\otimes\C^3$, $\E(\psi)>1/72$.
 The constant is conservative: the exact minimum is $(4-\rsix)/40=0.0387627564$, overlapping prior work of
 Erlwein \cite{Erlwein} \stcited\ \prior, and qualitative non-extendibility of product triples is due to McNulty and
 Weigert \cite{MW12} \stcited\ \prior. The proof is short, analytic, uses no numerical search or sum-of-squares
-certificate, and is reported formalized. The bound is also implied by Proposition~\ref{prop:cert6}
+certificate, and is formalized (\texttt{MUBGap}). The bound is also implied by Proposition~\ref{prop:cert6}
 ($\E>0.03849999999$ on $\Tz$).
 
 \paragraph{Coordinates and energy identity.}\label{app:coords} Let $\sigma_0=Z$, $\sigma_1=X$, $\sigma_2=Y$ be the
@@ -1636,12 +1626,12 @@ $\E(\psi)=s+\abs{a}^2/6+\norm{t}^2/3$, with $\norm t^2=\sum_r\abs{t_r}^2$. \stpr
 \emph{Proof idea.} For each basis $r$ and qutrit outcome $j$ the two qubit outcomes have probabilities
 $(Q\pm\Delta)/2$, and $(\tfrac{Q+\Delta}2-\tfrac16)^2+(\tfrac{Q-\Delta}2-\tfrac16)^2=\tfrac12(Q-\tfrac13)^2+\tfrac12\Delta^2$.
 Three-point Parseval turns the sums over $j$ into $\tfrac23\abs{q_r}^2$ and $\tfrac13(a_r^2+2\abs{t_r}^2)$ with
-$q_r=\sum_k\omega^{rk}v_{k+1}^\ast v_k$, and $\sum_r\abs{q_r}^2=3s$. Workstream A checked the identity numerically on
+$q_r=\sum_k\omega^{rk}v_{k+1}^\ast v_k$, and $\sum_r\abs{q_r}^2=3s$. We checked the identity numerically on
 2,000 random states and each step below on 400,000 states (identity error $1.6\times10^{-15}$;
-\texttt{check1.py}, \texttt{checks/check\_gap72.py}) \stnum; workstream B reports a Lean proof in Weyl coordinates \stlean.
+\texttt{check1.py}, \texttt{checks/check\_gap72.py}) \stnum; the Lean proof is in Weyl coordinates \stlean.
 
 \emph{Proof outline of Theorem~\ref{thm:gap72}} (the full proof is the supplementary structure paper, Section 6; the
-rational comparisons below were rechecked by workstream A in exact fractions \stcomp). Suppose $\E\le1/72$. All three terms
+rational comparisons below were rechecked in exact fractions \stcomp). Suppose $\E\le1/72$. All three terms
 of Lemma~\ref{lem:energyid} are nonnegative, so $s\le1/72$, $\abs a\le29/100$ and $\norm t^2\le1/24$.
 \emph{(1)} The qubit state $\rho_Q=\sum_kv_kv_k^\ast$ has least eigenvalue $\lambda=(1-\abs a)/2\in(71/200,1/2]$.
 \emph{(2)} For $h$ with $n_h=\min_kn_k$, rank of the Gram matrix of three vectors in $\C^2$ and Weyl's inequality give
@@ -1658,26 +1648,23 @@ fourth basis extends $\Tz$ \stproved\ \event.
 
 \subsection{Lean declarations}
 
-Table~\ref{tab:lean} lists every declaration of workstream B on which the report relies, with names as printed in
+Table~\ref{tab:lean} lists every declaration of the structure project on which the report relies, with names as printed in
 the supplementary structure paper (namespace, then name). The statements use coordinates $v:\mathrm{Fin}\,3\to\mathrm{Fin}\,2\to\C$
 in the $D^2F$ basis; the transport to the original $I,F,DF$ bases is itself proved. The supplementary structure paper states the
 environment as Lean 4.35.0 and Mathlib v4.35.0 at commit \texttt{56a005855ea17e0b0958f73ec801ae140b0a1679}, with
 axiom dependencies limited to \texttt{propext}, \texttt{Classical.choice} and \texttt{Quot.sound}, and no
-\texttt{sorry}, extra axioms or native-decision proofs. The baseline of the team Lean repository contains 129 declarations in twelve modules, and every row of
-Table~\ref{tab:lean} belongs to it; the previous version of the structure paper named its source revision as commit
-\texttt{1033fb082aa0a82ffa4708411370434dc7d9fc23}. The current version of the paper pins revision
-\texttt{f981b6664c621dc15b256d9ef1d3623e69e997d9} and reports a larger integration (394 public theorems in 46
-modules), including formalizations related to Proposition~\ref{prop:cubiccap}, Remark~\ref{prop:sixphase} and the
-geometry of Section~\ref{sec:structure}; we did not inspect that revision, list none of its further declarations, and
-make no Lean claim from them. The build was run by workstream B and not
-re-run by workstream A. This development is in the team Lean repository, which is separate from the submitted Lean
-project \texttt{MUB6Bridge}: the competition's automated check does not build it, and we do not claim its statements
-as Lean-verified in the sense of the competition rules. That is the meaning of the tag ``Lean-checked, as
-reported''. \stlean
+\texttt{sorry}, extra axioms or native-decision proofs. The baseline of the project contains 129 declarations in twelve modules, and every row of
+Table~\ref{tab:lean} belongs to it (revision \texttt{1033fb082aa0a82ffa4708411370434dc7d9fc23} of the team repository). The submitted copy \texttt{lean\_structure/} is the later revision
+\texttt{f981b6664c621dc15b256d9ef1d3623e69e997d9}: 394 public theorems in 46
+modules, including formalizations related to Proposition~\ref{prop:cubiccap}, Remark~\ref{prop:sixphase} and the
+geometry of Section~\ref{sec:structure}; Table~\ref{tab:lean} lists only the declarations used in this report. The build log, the axiom log and the source hashes are in
+\texttt{lean\_structure/logs/}. This project is separate from the root Lean
+project \texttt{MUB6Bridge}: a build of the repository root does not compile it; to rebuild it, run \texttt{lake build} inside \texttt{lean\_structure/}. That is the meaning of the tag ``Lean-checked, structure
+project''. \stlean
 
 {\footnotesize
 \begin{longtable}{@{}>{\raggedright\arraybackslash}p{5.6cm}>{\raggedright\arraybackslash}p{4.2cm}>{\raggedright\arraybackslash}p{5.6cm}@{}}
-\caption{Lean declarations of workstream B used in this report (\stlean). ``Difference'' records how the Lean
+\caption{Lean declarations of the structure project used in this report (\stlean). ``Difference'' records how the Lean
 statement differs from the statement in the report.}\label{tab:lean}\\
 \toprule
 Declaration & Claim supported & Difference from the report's statement\\
@@ -1726,7 +1713,7 @@ minimum $(4-\rnum{6})/40$, and the unrestricted statement that dimension six has
 \section{The degree-six certificate: method and checker}\label{app:cert}
 
 This appendix shows how Proposition~\ref{prop:cert6} was proved: the polynomial identity that \texttt{cert/verify.py}
-checks, how a numerical solution of a semidefinite program becomes a rigorous bound, and what the checker trusts. It is event work of workstream A
+checks, how a numerical solution of a semidefinite program becomes a rigorous bound, and what the checker trusts. It is event work
 \stcert, and nothing in it is formalized in Lean.
 
 \paragraph{The identity.} Write $\psi=x_{1:6}+i\,x_{7:12}$ with $x\in\R^{12}$ and $N(x)=\norm{x}^2$. For each of the
@@ -1989,7 +1976,7 @@ CERTIFIED (T1):  E(psi) >= 0.0235 - S  >  0.02349999999  for every unit psi
 % ======================= s5_const_app =======================
 \section{The near-miss certificate}\label{app:nearmiss}
 
-\noindent This appendix gives the method of the interval certificate behind Proposition~\ref{prop:nearmiss}, written and rerun by workstream~A during the event \event; the certified statements are \stcert\ and the validation of the formulas against the search code is \stnum.
+\noindent This appendix gives the method of the interval certificate behind Proposition~\ref{prop:nearmiss}, written and rerun during the event \event; the certified statements are \stcert\ and the validation of the formulas against the search code is \stnum.
 
 \paragraph{Setting.} For a shape $\{5,a,b,c\}_6$ let $m=a+b+c$. The vectors are $v_0=(1,\dots,1)$ and $v_i=(1,e^{ix_{5(i-1)+1}},\dots,e^{ix_{5(i-1)+5}})$ for $i=1,\dots,m-1$, so there are $n=5(m-1)$ real unknowns ($m=9$, $n=40$ for $\{5,4,4,1\}$ and $\{5,5,3,1\}$). For a pair $i<j$ put $\theta_k=x_{j,k}-x_{i,k}$ ($\theta_0=0$) and $G_{ij}=\ip{v_i}{v_j}=\sum_{k=0}^5e^{i\theta_k}$. A same-group pair contributes the two rows $\mathrm{Re}\,G=\sum_k\cos\theta_k$ and $\mathrm{Im}\,G=\sum_k\sin\theta_k$; a cross-group pair contributes $(\abs{G}^2-6)/(2\rsix)=\frac1{\rsix}\sum_{k<l}\cos(\theta_k-\theta_l)$. The certified function is $f=\frac12\norm{r}_2^2$ and $\mu=\norm{r}_2$. The program computes the Jacobian $J$ and the full Hessian $\mathcal H=\sum_{\text{rows}}(\nabla r_a\nabla r_a^{\mathsf T}+r_a\nabla^2r_a)$ in closed form by the chain rule, and $F_{\mathrm{BW}}$ from the same rows.
 
@@ -2012,7 +1999,7 @@ Before certifying, the program compares them with the search code at random poin
 
 \section{The 2008 table rerun}\label{app:table}
 
-\noindent This appendix gives all 35 constellations of Section~\ref{sec:const}, rerun by workstream~A during the event
+\noindent This appendix gives all 35 constellations of Section~\ref{sec:const}, rerun during the event
 \event. The searches are \stcomp\ with the ranges stated in the caption.
 
 {\small
@@ -2067,7 +2054,7 @@ $\{5,5,5,5\}$ & 0.00 & 0.00 & 0.00 & $1.27\times10^{0}$ & empty \cite{CWT}\\
 \end{longtable}
 }
 
-\paragraph{Constellation examples of C\'ardenes Wuttig and Tindall (workstream~A).} Workstream~A typed the explicit formulas of
+\paragraph{Constellation examples of C\'ardenes Wuttig and Tindall.} We typed the explicit formulas of
 \cite{CWT} for $\{5,3,3,3\}_6$, $\{5,4,3,1\}_6$ and $\{5,5,2,2\}_6$ (constellations are defined in
 Section~\ref{sec:const}) into an independent program and evaluated their misfit in 40-digit arithmetic \stnum: it
 is $3\times10^{-40}$ and below $5\times10^{-40}$ for the first two; for $\{5,5,2,2\}_6$, given as a rational box of radius
@@ -2077,7 +2064,7 @@ confirmation, not an interval proof.
 
 \section{Proof of the sharp phase-ball radius}\label{app:phase}
 
-\noindent This appendix states the sharp phase-ball radius (workstream~C; cross-read by workstream~A, AI-assisted, with a numerical check of the closed form and the witness pair). Nothing else in this report uses it. Let $\mathcal B(v,s)$ be the set of vectors $\frac{\lambda}{\rsix}\sum_{j=0}^5 e^{2\pi i(v_j+x_j)}\lvert j\rangle$ with $\abs\lambda=1$, $\sum_jx_j=0$ and $\norm x_2\le s$ (radius in turns).
+\noindent This appendix states the sharp phase-ball radius (with a numerical check of the closed form and the witness pair, \texttt{checks/check\_phase\_ball.py}). Nothing else in this report uses it. Let $\mathcal B(v,s)$ be the set of vectors $\frac{\lambda}{\rsix}\sum_{j=0}^5 e^{2\pi i(v_j+x_j)}\lvert j\rangle$ with $\abs\lambda=1$, $\sum_jx_j=0$ and $\norm x_2\le s$ (radius in turns).
 
 \begin{proposition}[Sharp phase-ball radius]\label{prop:phase}
 Let $s_\ast=\rsix\arccos(1/\rsix)/(4\pi)=0.2242139\ldots$ For $0\le s<s_\ast$, two vectors in the same ball $\mathcal B(v,s)$ are neither orthogonal nor mutually unbiased. At $s=s_\ast$ there is a mutually unbiased pair in one ball. \stproved
@@ -2087,7 +2074,7 @@ Let $s_\ast=\rsix\arccos(1/\rsix)/(4\pi)=0.2242139\ldots$ For $0\le s<s_\ast$, t
 
 \section{The Fourier-pair redo in detail}\label{app:fourierredo}
 
-\noindent This appendix gives the steps of Section~\ref{sec:fourierredo} (workstream~A, \event), with the counts
+\noindent This appendix gives the steps of Section~\ref{sec:fourierredo} (\event), with the counts
 $156\to48\to16\to0$. Two separately written programs were used. Exact orthogonality of two vectors cannot be proved by enclosures: the
 second program works with the graph of pairs whose inner-product enclosure contains zero, which contains the true
 orthogonality graph, and finds the same $300$ pairs and $16$ six-cliques.
@@ -2111,7 +2098,7 @@ orthogonality in binary64 \stcomp.
 % ======================= s7_ten_app =======================
 \section{Dimension ten: method}\label{app:ten}
 
-\noindent This appendix describes the computations behind Section~\ref{sec:ten}, all workstream~A. The repository
+\noindent This appendix describes the computations behind Section~\ref{sec:ten}, all done during the event. The repository
 re-runs every step: \texttt{d10/roots\_full/certify\_roots.py} (about 20 to 35 s) certifies all $34{,}940$ roots, and
 \texttt{d10/check\_d10.py} and \texttt{d10/margin\_arb.py} handle the $3{,}040$ unimodular ones. The only hypothesis of
 Theorem~\ref{thm:ten} is (H).
@@ -2142,8 +2129,8 @@ the stored list of $3{,}040$ points \stcert.
 \paragraph{Graph, cliques, margin.} For each pair of the $3{,}040$ enclosures the inner product was enclosed in Arb;
 exactly $57{,}680$ pairs are possibly orthogonal, and every other pair has $\abs{\ip uv}\ge0.0089515$ in double precision \stcomp. All
 maximal cliques of this graph were enumerated exactly: $1{,}136$ of size $10$ and $17{,}700$ of size $2$, none larger
-\stcomp. These $1{,}136$ are \emph{candidates}: an enclosure containing $0$ does not prove orthogonality (for $96$ of
-them orthogonality was proved exactly in $\mathbb{Q}(\zeta_{20})$ in an earlier session of workstream A, not re-run for this report \streported), and the theorem does not need it. For the
+\stcomp. These $1{,}136$ are \emph{candidates}: an enclosure containing $0$ does not prove orthogonality,
+and the theorem does not need it. For the
 margin, in double precision the minimum over $(B,v)$ of the largest defect $\bigl|\abs{\ip uv}^2-10\bigr|$ over $u\in B$
 is $4.1780746$. To make this rigorous, for each $(B,v)$ we chose the maximizing $u$ ($1{,}272{,}177$ distinct pairs) and
 re-evaluated the defect in Arb with every coordinate widened to radius $10^{-15}$, which covers the true roots
@@ -2153,8 +2140,7 @@ The certified lower bound is $4.1780746$, that is $0.04178$ after dividing by $\
 
 \paragraph{Symmetry.} The group of order $1600$ is generated by cyclic shift, modulation, index dilation
 $x_j\mapsto x_{aj}$ with $a\in(\mathbb{Z}/10)^\times$, complex conjugation and the Fourier transform. Each map preserves
-$\{I,F_{10}\}$, so it permutes the $3{,}040$ vectors (10 orbits) and the $1{,}136$ candidate bases (19 orbits; the orbit counts are
-from the earlier session and were not re-run, except that the energy computation finds 19 classes of bases) \streported; matching images to list members was done numerically.
+$\{I,F_{10}\}$, so it permutes the $3{,}040$ vectors (10 orbits) and the $1{,}136$ candidate bases (19 orbits; the energy computation \texttt{d10/energy10.py} finds the same 19 classes of bases, and the count of 10 vector orbits comes from a single run) \stcomp; matching images to list members was done numerically.
 
 \paragraph{What the re-check re-implemented.} \texttt{d10/check\_d10.py} was written separately: it re-implements the
 Krawczyk operator (200-bit Arb, half-width $10^{-30}$), the $\sigma$ test, the inner-product screen, the clique
@@ -2233,7 +2219,7 @@ cd .. && python3 check_d10.py upstream_mub10 && python3 margin_arb.py
 \bibitem{Jaswal1} M.~Jaswal, \emph{An independent certified computation excluding four mutually unbiased bases in dimension six}, preprint, October 2026, doi:10.5281/zenodo.23255857.
 \bibitem{Jaswal2} M.~Jaswal, \emph{Triplets of mutually unbiased bases in dimension six}, preprint, November 2026, doi:10.5281/zenodo.23991330.
 \bibitem{CWT} M.~C\'ardenes Wuttig and J.~Tindall, \emph{Using topology to reveal all mutually unbiased bases in dimension six}, arXiv:2611.06917 (2026); code and certificates at \texttt{github.com/JoeyT1994/NoFourMUBS}, release \texttt{tc-verification-2026-11-04}.
-\bibitem{Sun26} H.-Y.~Sun, \emph{Mutually unbiased bases: common states, completion, and extension obstructions}, arXiv:2610.12180 (2026). Cited through the supplementary structure paper; not read by workstream A.
+\bibitem{Sun26} H.-Y.~Sun, \emph{Mutually unbiased bases: common states, completion, and extension obstructions}, arXiv:2610.12180 (2026). Cited through the supplementary structure paper.
 \bibitem{YangLean} J.~Yang, \emph{mub6-triples-lean}, Lean 4 formalisation of the triple classification with the computer-assisted facts as hypotheses, \texttt{github.com/OIerYangJZ/mub6-triples-lean} (2026).
 \bibitem{BW08} S.~Brierley and S.~Weigert, \emph{Maximal sets of mutually unbiased quantum states in dimension six}, Phys.\ Rev.\ A \textbf{78}, 042312 (2008), arXiv:0808.1614.
 \bibitem{BW09} S.~Brierley and S.~Weigert, \emph{Constructing mutually unbiased bases in dimension six}, Phys.\ Rev.\ A \textbf{79}, 052316 (2009), arXiv:0901.4051.

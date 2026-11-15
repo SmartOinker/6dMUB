@@ -1,0 +1,12 @@
+name = "t124gap"
+version = "0.1.0"
+defaultTargets = ["MUBGap"]
+
+[[require]]
+name = "mathlib"
+git = "https://github.com/leanprover-community/mathlib4.git"
+rev = "56a005855ea17e0b0958f73ec801ae140b0a1679"
+
+[[lean_lib]]
+name = "MUBGap"
+roots = ["MUBIdentities", "MUBGap", "MUBQuantum", "MUBQuantumFourier", "MUBQuantumMeasurements", "MUBSpectral", "MUBBridge", "MUBResidual", "MUBTensorFrame", "MUBFieldObstruction", "MUBOperationalTV", "MUBCubeCounts", "MUBCubicGram", "MUBGramCap", "MUBPurityGap", "MUBSquarefreePhysical", "MUBCompatibility", "MUBPhaseTensor", "MUBPhaseTensorConverse", "MUBResidualBounds", "MUBQuantumTransport", "MUBAnchoredPurity", "MUBSixPhasePolynomial", "MUBTetrahedral", "MUBLocalExhaustion", "MUBMeasurementProjectors", "MUBMeasurementBessel", "MUBDensityGap", "MUBDensityTrace", "MUBBalancedRows", "MUBBalancedGram", "MUBBalancedSpectralEnvelope", "MUBBalancedSmallTables", "MUBFourLineForms", "MUBMatchingGram", "MUBLocalGermAlgebra", "MUBCoordinateProductIdeal", "MUBMixedTransport", "MUBSunCubeGram", "MUBSunCubeSpectrum", "MUBSeedGluing", "MUBUniformSubmersion", "MUBSeedDifferential", "MUBSeedLocalChart", "MUBSunDiscriminant", "MUBNormalizerObstructions"]

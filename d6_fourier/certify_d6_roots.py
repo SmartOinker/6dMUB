@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Cyclic 6-roots: find all isolated roots numerically, then certify them in Arb ball arithmetic.
 
-This is `d10/roots_full/find_roots.py` and `certify_roots.py` adapted to n = 6 (workstream A).
+This is `d10/roots_full/find_roots.py` and `certify_roots.py` adapted to n = 6.
 What is checked, and with which arithmetic:
 
   System: x in (C*)^6, x_0 = 1, g_k(x) = sum_j x_{j+k}/x_j = 0 (k = 1..5), equivalent to the cyclic

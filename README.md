@@ -5,7 +5,7 @@ report: degree-six sum-of-squares energy certificates for the two product MUB tr
 bounds and their check against explicit four-basis sets, the hide-and-seek detection simulation, the rerun of the
 2008-table near-miss certificate, and the conditional dimension-ten result. Every claim of the report is mapped to the check that
 re-verifies it, with the exact command and expected output, in `docs/verification_matrix.md`; `verify_all.sh` runs all fast checks
-in one go (log: `docs/verify_all.log`; 41 steps). `docs/verification_ledger.md` is a short pointer to the matrix. Upstream sources and commit
+in one go (log: `docs/verify_all.log`, 41 steps; steps S42 and S43, added in the final revision for `lean_structure/` and `openai_check/full_audit/`, are logged in `docs/verify_final_steps.log`). `docs/verification_ledger.md` is a short pointer to the matrix. Upstream sources and commit
 hashes are in `docs/UPSTREAM.md`.
 
     ./verify_all.sh 2>&1 | tee docs/verify_all.log     # about 11 minutes on 2 cores; works on a copy of the repository; exit status 0 = all passed
@@ -24,7 +24,9 @@ hashes are in `docs/UPSTREAM.md`.
 | `d10/` | dimension-ten checks: `check_d10.py` (Krawczyk, orthogonality graph, cliques, margins), `margin_arb.py` (margin in Arb), `search.py`, `search_match.py`, `energy10.py`, data and logs |
 | `d10/roots_full/` | regenerated and certified list of all 34,940 cyclic 10-roots: `find_roots.py` (heuristic search), `certify_roots.py` (Arb certification: 3,040 unimodular, 31,900 not, none undecided), data and logs; its README states what is and is not proved |
 | `openai_check/` | second, independent rerun (by a separate agent, pinned upstream revision) of the record checker of the OpenAI proof, the 26-corruption mutation test (`mutate.py`, `mutations_rerun.json`: 17 detected, same verdict for all 26) and the partial rebuild (`build_rebuild.sh`, `cmp_records.py`, `rebuild_rerun.json`). It needs the upstream repository (80 MB, not shipped), so it is not part of `verify_all.sh`; see its README |
-| `supplementary/` | working documents of workstreams B and C (see its README) |
+| `supplementary/` | the structure paper and the certificate audit document (see its README) |
+| `lean_structure/` | the structure Lean project (E > 1/72 and the structure declarations): sources, build log, axiom log, `check_logs.py` |
+| `openai_check/full_audit/` | full native rerun of the OpenAI pipeline and re-certification of the Root records: drivers, logs of every invocation, checkers, repeat-run log |
 | `lakefile.toml`, `lean-toolchain`, `lake-manifest.json`, `MUB6Bridge/`, `lean/` | Lean 4 project `MUB6Bridge`: four files (`BridgeLemma.lean`, `FiniteSample.lean`, `Bases.lean`, `Corollaries.lean`), 45 declarations; built locally with Lean v4.35.0 and Mathlib v4.35.0, no `sorry`, standard axioms only; the competition's automated build has not been run on it by us. Lean-verified: the square-root cap inequality; the vector-to-basis theorem as inequalities about orthonormal bases of C^6 with the game score defined by its formula (`bridge_bias`, `bridge_game`); the numerical corollaries as implications from an assumed energy bound (`corollary_T0`, `corollary_T1`); `gameScore_le`; the identity X^2 = 15 + 6(N-1)T (`pearson_eq_collision`, `pearson_total`); four elementary variance steps; the arithmetic of all five shot counts (`shots_*`). NOT Lean-verified: the energy bounds, the meaning of the score as an optimal success probability, every probability statement, the purity witness, dimension ten. `lean/README.md` lists the declarations and the differences from the report, `lean/BUILD_LOG.txt` is the build log. Not run by `verify_all.sh` |
 | `docs/` | `verification_matrix.md` (claim-by-claim matrix), `verify_all.log`, `verification_ledger.md` (pointer), `adversarial_review.md`, `UPSTREAM.md` |
 | `report/`, `slides/` | the report source and the slides with speaker notes |
@@ -79,6 +81,9 @@ Trusts: numpy/scipy floating point; these are numerical checks, not proofs.
     python3 sos.py 4       # 18 s. Expected: "relaxation optimum = -0.0000000207"; "numerical rank (>1e-7) 63"
     python3 sos.py 6 SCS 2e-4    # 22 s. Expected: "relaxation optimum = 0.0383285692" (matches sos6.log)
     python3 sos.py 6 SCS 1e-5    # 53 s. Expected: "relaxation optimum = 0.0386693296" (matches sos6_tight.log)
+    # Numerical only: SCS is a first-order solver and these digits depend on the solver build. On a second machine (scs 3.3.2) the same
+    # commands gave 0.0377947174 and 0.0377028616, so steps S06/S07 of verify_all.sh can fail there; no claim of the report depends on them
+    # (the certified bound is checked in ball arithmetic by cert/verify.py).
 
 Audit checks, written separately from the programs they check (each prints `OK` as its last line; the claim ids they support
 are in `docs/verification_matrix.md`; commands and expected lines for all of them are in the matrix):
@@ -189,12 +194,11 @@ a hard-coded folder `/home/claude/mub6/results/...`; they were run on copies wit
 In progress and not reproducible from this repository alone: the commands in `openai_check/README.md` need a sparse clone of the upstream
 repository at the pinned revision (80 MB of saved records). The stored result `mutations_rerun.json` agrees mutant by mutant (17 of 26
 detected) with the first run in `near_misses/repo/results/openai_check/mutations.json`; `checks/check_report_arithmetic.py` compares the two.
-The full native rerun of the OpenAI pipeline (100 invocations) was done by workstream C and was **not** repeated here.
+The full native rerun of the OpenAI pipeline (100 invocations, 8 principal files byte-identical) is in `openai_check/full_audit/`: logs of every invocation, the accounting checker and the 128-bit re-certification of the 27,188 Root records. The native run was done once (about 4.4 hours of process time); its accounting check and the Root re-certification were repeated on a second machine (`openai_check/full_audit/RERUN_LOG.txt`), and `verify_all.sh` step S43 checks the stored results.
 
 ## What is not checked here
 
-The Lean build of workstream B (including the bound E > 1/72, which is independently implied by the interval certificate), the full native
-rerun by workstream C (27,188 Root records), the completeness of the 34,940 cyclic 10-roots (hypothesis H) and of the 156 cyclic 6-roots (cited
+A second native run of the OpenAI pipeline (see above: run once, checks repeated), a second build of the structure Lean project (`lean_structure/`: its stored build log, axiom log and source hashes are checked by step S42, and the bound E > 1/72 is independently implied by the interval certificate), the completeness of the 34,940 cyclic 10-roots (hypothesis H) and of the 156 cyclic 6-roots (cited
 counts), the cited literature, the Qiskit simulations (`hide_seek.py`, not run in the last session), and a full rerun of the 35-shape search
 (the raw output is shipped and recomputed by `near_misses/check_table.py`; seven of the 35 shapes and the triple {5,5,5} were rerun by hand with bit-identical output). The complete list, with what would be needed for each, is in the section "Claims without independent re-verification" of
-`docs/verification_matrix.md`. The Lean project at the repository root (`MUB6Bridge`) is separate from workstream B's Lean repository (not rebuilt here) and from the OpenAI Lean development, whose scope note and statement file we read at the pinned revision (hashes in `openai_check/README.md`) but did not rebuild; the competition's automated Lean build has not been run on `MUB6Bridge` by us.
+`docs/verification_matrix.md`. The Lean project at the repository root (`MUB6Bridge`) is separate from the structure Lean project in `lean_structure/` (a build of the repository root does not compile it) and from the OpenAI Lean development, whose scope note and statement file we read at the pinned revision (hashes in `openai_check/README.md`) but did not rebuild; the competition's automated Lean build has not been run on `MUB6Bridge` by us.

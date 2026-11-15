@@ -1,0 +1,9 @@
+{
+  "result": "PASS: all fine records resolved by fresh Stage C and actual-failure fallback",
+  "fine_records": 22379,
+  "batches": 88,
+  "initial_unresolved": 163,
+  "fallback_records": 1127,
+  "final_unresolved": 0,
+  "invocations": 93
+}

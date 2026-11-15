@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-"""Independent quick numerical checks of the seed-geometry claims of workstream B's structure paper (supplementary/workstream_B_structure_paper.pdf, Section 13).
-Written from the paper's displayed formulas only; imports nothing from teammate code.
+"""Independent quick numerical checks of the seed-geometry claims of the structure paper (supplementary/structure_paper.pdf, Section 13).
+Written from the paper's displayed formulas only; imports nothing from other code.
 Conjugation bars were lost in the text extraction; where a formula is ambiguous the
 variant is selected by the physical requirement stated in the paper and this is printed."""
 import itertools

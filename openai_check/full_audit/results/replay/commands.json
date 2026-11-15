@@ -1,0 +1,1685 @@
+{
+  "C0": {
+    "command": [
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/build/crun",
+      "12",
+      "4",
+      "1",
+      ".042",
+      "1",
+      "1",
+      "5000000",
+      "0",
+      "1",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/bad0.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/upstream/saved-run/execution/data/batches/f0.bin"
+    ],
+    "returncode": 0,
+    "seconds": 56.19112038612366
+  },
+  "C1": {
+    "command": [
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/build/crun",
+      "12",
+      "4",
+      "1",
+      ".042",
+      "1",
+      "1",
+      "5000000",
+      "0",
+      "1",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/bad1.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/upstream/saved-run/execution/data/batches/f1.bin"
+    ],
+    "returncode": 0,
+    "seconds": 58.71014070510864
+  },
+  "C2": {
+    "command": [
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/build/crun",
+      "12",
+      "4",
+      "1",
+      ".042",
+      "1",
+      "1",
+      "5000000",
+      "0",
+      "1",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/bad2.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/upstream/saved-run/execution/data/batches/f2.bin"
+    ],
+    "returncode": 0,
+    "seconds": 59.20845603942871
+  },
+  "C3": {
+    "command": [
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/build/crun",
+      "12",
+      "4",
+      "1",
+      ".042",
+      "1",
+      "1",
+      "5000000",
+      "0",
+      "1",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/bad3.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/upstream/saved-run/execution/data/batches/f3.bin"
+    ],
+    "returncode": 1,
+    "seconds": 60.37608456611633
+  },
+  "C4": {
+    "command": [
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/build/crun",
+      "12",
+      "4",
+      "1",
+      ".042",
+      "1",
+      "1",
+      "5000000",
+      "0",
+      "1",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/bad4.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/upstream/saved-run/execution/data/batches/f4.bin"
+    ],
+    "returncode": 1,
+    "seconds": 58.51318645477295
+  },
+  "C5": {
+    "command": [
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/build/crun",
+      "12",
+      "4",
+      "1",
+      ".042",
+      "1",
+      "1",
+      "5000000",
+      "0",
+      "1",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/bad5.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/upstream/saved-run/execution/data/batches/f5.bin"
+    ],
+    "returncode": 1,
+    "seconds": 56.777738094329834
+  },
+  "C7": {
+    "command": [
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/build/crun",
+      "12",
+      "4",
+      "1",
+      ".042",
+      "1",
+      "1",
+      "5000000",
+      "0",
+      "1",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/bad7.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/upstream/saved-run/execution/data/batches/f7.bin"
+    ],
+    "returncode": 1,
+    "seconds": 55.61784386634827
+  },
+  "C6": {
+    "command": [
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/build/crun",
+      "12",
+      "4",
+      "1",
+      ".042",
+      "1",
+      "1",
+      "5000000",
+      "0",
+      "1",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/bad6.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/upstream/saved-run/execution/data/batches/f6.bin"
+    ],
+    "returncode": 1,
+    "seconds": 57.71957230567932
+  },
+  "C10": {
+    "command": [
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/build/crun",
+      "12",
+      "4",
+      "1",
+      ".042",
+      "1",
+      "1",
+      "5000000",
+      "0",
+      "1",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/bad10.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/upstream/saved-run/execution/data/batches/f10.bin"
+    ],
+    "returncode": 1,
+    "seconds": 53.19164991378784
+  },
+  "C8": {
+    "command": [
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/build/crun",
+      "12",
+      "4",
+      "1",
+      ".042",
+      "1",
+      "1",
+      "5000000",
+      "0",
+      "1",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/bad8.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/upstream/saved-run/execution/data/batches/f8.bin"
+    ],
+    "returncode": 1,
+    "seconds": 55.52884030342102
+  },
+  "C11": {
+    "command": [
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/build/crun",
+      "12",
+      "4",
+      "1",
+      ".042",
+      "1",
+      "1",
+      "5000000",
+      "0",
+      "1",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/bad11.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/upstream/saved-run/execution/data/batches/f11.bin"
+    ],
+    "returncode": 0,
+    "seconds": 53.383580684661865
+  },
+  "C9": {
+    "command": [
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/build/crun",
+      "12",
+      "4",
+      "1",
+      ".042",
+      "1",
+      "1",
+      "5000000",
+      "0",
+      "1",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/bad9.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/upstream/saved-run/execution/data/batches/f9.bin"
+    ],
+    "returncode": 0,
+    "seconds": 55.0686891078949
+  },
+  "C14": {
+    "command": [
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/build/crun",
+      "12",
+      "4",
+      "1",
+      ".042",
+      "1",
+      "1",
+      "5000000",
+      "0",
+      "1",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/bad14.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/upstream/saved-run/execution/data/batches/f14.bin"
+    ],
+    "returncode": 0,
+    "seconds": 50.87416172027588
+  },
+  "C15": {
+    "command": [
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/build/crun",
+      "12",
+      "4",
+      "1",
+      ".042",
+      "1",
+      "1",
+      "5000000",
+      "0",
+      "1",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/bad15.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/upstream/saved-run/execution/data/batches/f15.bin"
+    ],
+    "returncode": 0,
+    "seconds": 52.0602023601532
+  },
+  "C13": {
+    "command": [
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/build/crun",
+      "12",
+      "4",
+      "1",
+      ".042",
+      "1",
+      "1",
+      "5000000",
+      "0",
+      "1",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/bad13.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/upstream/saved-run/execution/data/batches/f13.bin"
+    ],
+    "returncode": 0,
+    "seconds": 52.54110813140869
+  },
+  "C12": {
+    "command": [
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/build/crun",
+      "12",
+      "4",
+      "1",
+      ".042",
+      "1",
+      "1",
+      "5000000",
+      "0",
+      "1",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/bad12.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/upstream/saved-run/execution/data/batches/f12.bin"
+    ],
+    "returncode": 0,
+    "seconds": 53.720847845077515
+  },
+  "C18": {
+    "command": [
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/build/crun",
+      "12",
+      "4",
+      "1",
+      ".042",
+      "1",
+      "1",
+      "5000000",
+      "0",
+      "1",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/bad18.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/upstream/saved-run/execution/data/batches/f18.bin"
+    ],
+    "returncode": 0,
+    "seconds": 40.28141140937805
+  },
+  "C19": {
+    "command": [
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/build/crun",
+      "12",
+      "4",
+      "1",
+      ".042",
+      "1",
+      "1",
+      "5000000",
+      "0",
+      "1",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/bad19.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/upstream/saved-run/execution/data/batches/f19.bin"
+    ],
+    "returncode": 0,
+    "seconds": 40.278308629989624
+  },
+  "C17": {
+    "command": [
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/build/crun",
+      "12",
+      "4",
+      "1",
+      ".042",
+      "1",
+      "1",
+      "5000000",
+      "0",
+      "1",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/bad17.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/upstream/saved-run/execution/data/batches/f17.bin"
+    ],
+    "returncode": 0,
+    "seconds": 42.420969009399414
+  },
+  "C16": {
+    "command": [
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/build/crun",
+      "12",
+      "4",
+      "1",
+      ".042",
+      "1",
+      "1",
+      "5000000",
+      "0",
+      "1",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/bad16.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/upstream/saved-run/execution/data/batches/f16.bin"
+    ],
+    "returncode": 0,
+    "seconds": 47.369521141052246
+  },
+  "C20": {
+    "command": [
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/build/crun",
+      "12",
+      "4",
+      "1",
+      ".042",
+      "1",
+      "1",
+      "5000000",
+      "0",
+      "1",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/bad20.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/upstream/saved-run/execution/data/batches/f20.bin"
+    ],
+    "returncode": 0,
+    "seconds": 39.88417410850525
+  },
+  "C21": {
+    "command": [
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/build/crun",
+      "12",
+      "4",
+      "1",
+      ".042",
+      "1",
+      "1",
+      "5000000",
+      "0",
+      "1",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/bad21.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/upstream/saved-run/execution/data/batches/f21.bin"
+    ],
+    "returncode": 0,
+    "seconds": 40.05256676673889
+  },
+  "C22": {
+    "command": [
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/build/crun",
+      "12",
+      "4",
+      "1",
+      ".042",
+      "1",
+      "1",
+      "5000000",
+      "0",
+      "1",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/bad22.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/upstream/saved-run/execution/data/batches/f22.bin"
+    ],
+    "returncode": 0,
+    "seconds": 40.30329179763794
+  },
+  "C23": {
+    "command": [
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/build/crun",
+      "12",
+      "4",
+      "1",
+      ".042",
+      "1",
+      "1",
+      "5000000",
+      "0",
+      "1",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/bad23.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/upstream/saved-run/execution/data/batches/f23.bin"
+    ],
+    "returncode": 0,
+    "seconds": 40.83445119857788
+  },
+  "C24": {
+    "command": [
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/build/crun",
+      "12",
+      "4",
+      "1",
+      ".042",
+      "1",
+      "1",
+      "5000000",
+      "0",
+      "1",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/bad24.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/upstream/saved-run/execution/data/batches/f24.bin"
+    ],
+    "returncode": 0,
+    "seconds": 43.88922381401062
+  },
+  "C25": {
+    "command": [
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/build/crun",
+      "12",
+      "4",
+      "1",
+      ".042",
+      "1",
+      "1",
+      "5000000",
+      "0",
+      "1",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/bad25.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/upstream/saved-run/execution/data/batches/f25.bin"
+    ],
+    "returncode": 0,
+    "seconds": 45.10791635513306
+  },
+  "C26": {
+    "command": [
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/build/crun",
+      "12",
+      "4",
+      "1",
+      ".042",
+      "1",
+      "1",
+      "5000000",
+      "0",
+      "1",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/bad26.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/upstream/saved-run/execution/data/batches/f26.bin"
+    ],
+    "returncode": 0,
+    "seconds": 45.09004521369934
+  },
+  "C27": {
+    "command": [
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/build/crun",
+      "12",
+      "4",
+      "1",
+      ".042",
+      "1",
+      "1",
+      "5000000",
+      "0",
+      "1",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/bad27.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/upstream/saved-run/execution/data/batches/f27.bin"
+    ],
+    "returncode": 0,
+    "seconds": 44.53917908668518
+  },
+  "C28": {
+    "command": [
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/build/crun",
+      "12",
+      "4",
+      "1",
+      ".042",
+      "1",
+      "1",
+      "5000000",
+      "0",
+      "1",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/bad28.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/upstream/saved-run/execution/data/batches/f28.bin"
+    ],
+    "returncode": 0,
+    "seconds": 43.748164892196655
+  },
+  "C29": {
+    "command": [
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/build/crun",
+      "12",
+      "4",
+      "1",
+      ".042",
+      "1",
+      "1",
+      "5000000",
+      "0",
+      "1",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/bad29.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/upstream/saved-run/execution/data/batches/f29.bin"
+    ],
+    "returncode": 0,
+    "seconds": 43.625776290893555
+  },
+  "C30": {
+    "command": [
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/build/crun",
+      "12",
+      "4",
+      "1",
+      ".042",
+      "1",
+      "1",
+      "5000000",
+      "0",
+      "1",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/bad30.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/upstream/saved-run/execution/data/batches/f30.bin"
+    ],
+    "returncode": 0,
+    "seconds": 43.67909240722656
+  },
+  "C31": {
+    "command": [
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/build/crun",
+      "12",
+      "4",
+      "1",
+      ".042",
+      "1",
+      "1",
+      "5000000",
+      "0",
+      "1",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/bad31.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/upstream/saved-run/execution/data/batches/f31.bin"
+    ],
+    "returncode": 0,
+    "seconds": 42.446398973464966
+  },
+  "C33": {
+    "command": [
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/build/crun",
+      "12",
+      "4",
+      "1",
+      ".042",
+      "1",
+      "1",
+      "5000000",
+      "0",
+      "1",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/bad33.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/upstream/saved-run/execution/data/batches/f33.bin"
+    ],
+    "returncode": 0,
+    "seconds": 39.219268560409546
+  },
+  "C34": {
+    "command": [
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/build/crun",
+      "12",
+      "4",
+      "1",
+      ".042",
+      "1",
+      "1",
+      "5000000",
+      "0",
+      "1",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/bad34.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/upstream/saved-run/execution/data/batches/f34.bin"
+    ],
+    "returncode": 0,
+    "seconds": 38.044010639190674
+  },
+  "C32": {
+    "command": [
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/build/crun",
+      "12",
+      "4",
+      "1",
+      ".042",
+      "1",
+      "1",
+      "5000000",
+      "0",
+      "1",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/bad32.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/upstream/saved-run/execution/data/batches/f32.bin"
+    ],
+    "returncode": 0,
+    "seconds": 42.73709678649902
+  },
+  "C35": {
+    "command": [
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/build/crun",
+      "12",
+      "4",
+      "1",
+      ".042",
+      "1",
+      "1",
+      "5000000",
+      "0",
+      "1",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/bad35.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/upstream/saved-run/execution/data/batches/f35.bin"
+    ],
+    "returncode": 0,
+    "seconds": 37.54867386817932
+  },
+  "C36": {
+    "command": [
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/build/crun",
+      "12",
+      "4",
+      "1",
+      ".042",
+      "1",
+      "1",
+      "5000000",
+      "0",
+      "1",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/bad36.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/upstream/saved-run/execution/data/batches/f36.bin"
+    ],
+    "returncode": 0,
+    "seconds": 38.293182134628296
+  },
+  "C37": {
+    "command": [
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/build/crun",
+      "12",
+      "4",
+      "1",
+      ".042",
+      "1",
+      "1",
+      "5000000",
+      "0",
+      "1",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/bad37.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/upstream/saved-run/execution/data/batches/f37.bin"
+    ],
+    "returncode": 0,
+    "seconds": 37.73237347602844
+  },
+  "C38": {
+    "command": [
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/build/crun",
+      "12",
+      "4",
+      "1",
+      ".042",
+      "1",
+      "1",
+      "5000000",
+      "0",
+      "1",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/bad38.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/upstream/saved-run/execution/data/batches/f38.bin"
+    ],
+    "returncode": 0,
+    "seconds": 37.21637415885925
+  },
+  "C39": {
+    "command": [
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/build/crun",
+      "12",
+      "4",
+      "1",
+      ".042",
+      "1",
+      "1",
+      "5000000",
+      "0",
+      "1",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/bad39.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/upstream/saved-run/execution/data/batches/f39.bin"
+    ],
+    "returncode": 0,
+    "seconds": 37.18102169036865
+  },
+  "C41": {
+    "command": [
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/build/crun",
+      "12",
+      "4",
+      "1",
+      ".042",
+      "1",
+      "1",
+      "5000000",
+      "0",
+      "1",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/bad41.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/upstream/saved-run/execution/data/batches/f41.bin"
+    ],
+    "returncode": 0,
+    "seconds": 36.62062120437622
+  },
+  "C40": {
+    "command": [
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/build/crun",
+      "12",
+      "4",
+      "1",
+      ".042",
+      "1",
+      "1",
+      "5000000",
+      "0",
+      "1",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/bad40.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/upstream/saved-run/execution/data/batches/f40.bin"
+    ],
+    "returncode": 0,
+    "seconds": 37.20374894142151
+  },
+  "C42": {
+    "command": [
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/build/crun",
+      "12",
+      "4",
+      "1",
+      ".042",
+      "1",
+      "1",
+      "5000000",
+      "0",
+      "1",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/bad42.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/upstream/saved-run/execution/data/batches/f42.bin"
+    ],
+    "returncode": 0,
+    "seconds": 36.6704216003418
+  },
+  "C43": {
+    "command": [
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/build/crun",
+      "12",
+      "4",
+      "1",
+      ".042",
+      "1",
+      "1",
+      "5000000",
+      "0",
+      "1",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/bad43.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/upstream/saved-run/execution/data/batches/f43.bin"
+    ],
+    "returncode": 0,
+    "seconds": 37.987327098846436
+  },
+  "C44": {
+    "command": [
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/build/crun",
+      "12",
+      "4",
+      "1",
+      ".042",
+      "1",
+      "1",
+      "5000000",
+      "0",
+      "1",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/bad44.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/upstream/saved-run/execution/data/batches/f44.bin"
+    ],
+    "returncode": 0,
+    "seconds": 65.48508310317993
+  },
+  "C45": {
+    "command": [
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/build/crun",
+      "12",
+      "4",
+      "1",
+      ".042",
+      "1",
+      "1",
+      "5000000",
+      "0",
+      "1",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/bad45.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/upstream/saved-run/execution/data/batches/f45.bin"
+    ],
+    "returncode": 0,
+    "seconds": 67.66364336013794
+  },
+  "C46": {
+    "command": [
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/build/crun",
+      "12",
+      "4",
+      "1",
+      ".042",
+      "1",
+      "1",
+      "5000000",
+      "0",
+      "1",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/bad46.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/upstream/saved-run/execution/data/batches/f46.bin"
+    ],
+    "returncode": 0,
+    "seconds": 67.37113785743713
+  },
+  "C47": {
+    "command": [
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/build/crun",
+      "12",
+      "4",
+      "1",
+      ".042",
+      "1",
+      "1",
+      "5000000",
+      "0",
+      "1",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/bad47.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/upstream/saved-run/execution/data/batches/f47.bin"
+    ],
+    "returncode": 0,
+    "seconds": 68.77789688110352
+  },
+  "C48": {
+    "command": [
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/build/crun",
+      "12",
+      "4",
+      "1",
+      ".042",
+      "1",
+      "1",
+      "5000000",
+      "0",
+      "1",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/bad48.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/upstream/saved-run/execution/data/batches/f48.bin"
+    ],
+    "returncode": 0,
+    "seconds": 66.41206073760986
+  },
+  "C51": {
+    "command": [
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/build/crun",
+      "12",
+      "4",
+      "1",
+      ".042",
+      "1",
+      "1",
+      "5000000",
+      "0",
+      "1",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/bad51.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/upstream/saved-run/execution/data/batches/f51.bin"
+    ],
+    "returncode": 0,
+    "seconds": 61.92439246177673
+  },
+  "C49": {
+    "command": [
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/build/crun",
+      "12",
+      "4",
+      "1",
+      ".042",
+      "1",
+      "1",
+      "5000000",
+      "0",
+      "1",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/bad49.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/upstream/saved-run/execution/data/batches/f49.bin"
+    ],
+    "returncode": 0,
+    "seconds": 65.69847583770752
+  },
+  "C50": {
+    "command": [
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/build/crun",
+      "12",
+      "4",
+      "1",
+      ".042",
+      "1",
+      "1",
+      "5000000",
+      "0",
+      "1",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/bad50.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/upstream/saved-run/execution/data/batches/f50.bin"
+    ],
+    "returncode": 0,
+    "seconds": 65.55254125595093
+  },
+  "C54": {
+    "command": [
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/build/crun",
+      "12",
+      "4",
+      "1",
+      ".042",
+      "1",
+      "1",
+      "5000000",
+      "0",
+      "1",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/bad54.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/upstream/saved-run/execution/data/batches/f54.bin"
+    ],
+    "returncode": 0,
+    "seconds": 42.71512961387634
+  },
+  "C55": {
+    "command": [
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/build/crun",
+      "12",
+      "4",
+      "1",
+      ".042",
+      "1",
+      "1",
+      "5000000",
+      "0",
+      "1",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/bad55.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/upstream/saved-run/execution/data/batches/f55.bin"
+    ],
+    "returncode": 1,
+    "seconds": 48.86146426200867
+  },
+  "C53": {
+    "command": [
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/build/crun",
+      "12",
+      "4",
+      "1",
+      ".042",
+      "1",
+      "1",
+      "5000000",
+      "0",
+      "1",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/bad53.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/upstream/saved-run/execution/data/batches/f53.bin"
+    ],
+    "returncode": 1,
+    "seconds": 56.09738206863403
+  },
+  "C52": {
+    "command": [
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/build/crun",
+      "12",
+      "4",
+      "1",
+      ".042",
+      "1",
+      "1",
+      "5000000",
+      "0",
+      "1",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/bad52.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/upstream/saved-run/execution/data/batches/f52.bin"
+    ],
+    "returncode": 1,
+    "seconds": 62.289551734924316
+  },
+  "C56": {
+    "command": [
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/build/crun",
+      "12",
+      "4",
+      "1",
+      ".042",
+      "1",
+      "1",
+      "5000000",
+      "0",
+      "1",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/bad56.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/upstream/saved-run/execution/data/batches/f56.bin"
+    ],
+    "returncode": 1,
+    "seconds": 48.19967317581177
+  },
+  "C57": {
+    "command": [
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/build/crun",
+      "12",
+      "4",
+      "1",
+      ".042",
+      "1",
+      "1",
+      "5000000",
+      "0",
+      "1",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/bad57.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/upstream/saved-run/execution/data/batches/f57.bin"
+    ],
+    "returncode": 0,
+    "seconds": 48.576104164123535
+  },
+  "C58": {
+    "command": [
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/build/crun",
+      "12",
+      "4",
+      "1",
+      ".042",
+      "1",
+      "1",
+      "5000000",
+      "0",
+      "1",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/bad58.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/upstream/saved-run/execution/data/batches/f58.bin"
+    ],
+    "returncode": 0,
+    "seconds": 50.108967781066895
+  },
+  "C59": {
+    "command": [
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/build/crun",
+      "12",
+      "4",
+      "1",
+      ".042",
+      "1",
+      "1",
+      "5000000",
+      "0",
+      "1",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/bad59.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/upstream/saved-run/execution/data/batches/f59.bin"
+    ],
+    "returncode": 0,
+    "seconds": 74.50817894935608
+  },
+  "C60": {
+    "command": [
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/build/crun",
+      "12",
+      "4",
+      "1",
+      ".042",
+      "1",
+      "1",
+      "5000000",
+      "0",
+      "1",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/bad60.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/upstream/saved-run/execution/data/batches/f60.bin"
+    ],
+    "returncode": 0,
+    "seconds": 85.04035425186157
+  },
+  "C61": {
+    "command": [
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/build/crun",
+      "12",
+      "4",
+      "1",
+      ".042",
+      "1",
+      "1",
+      "5000000",
+      "0",
+      "1",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/bad61.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/upstream/saved-run/execution/data/batches/f61.bin"
+    ],
+    "returncode": 0,
+    "seconds": 84.8162636756897
+  },
+  "C62": {
+    "command": [
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/build/crun",
+      "12",
+      "4",
+      "1",
+      ".042",
+      "1",
+      "1",
+      "5000000",
+      "0",
+      "1",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/bad62.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/upstream/saved-run/execution/data/batches/f62.bin"
+    ],
+    "returncode": 0,
+    "seconds": 80.88769912719727
+  },
+  "C63": {
+    "command": [
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/build/crun",
+      "12",
+      "4",
+      "1",
+      ".042",
+      "1",
+      "1",
+      "5000000",
+      "0",
+      "1",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/bad63.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/upstream/saved-run/execution/data/batches/f63.bin"
+    ],
+    "returncode": 0,
+    "seconds": 71.25440549850464
+  },
+  "C64": {
+    "command": [
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/build/crun",
+      "12",
+      "4",
+      "1",
+      ".042",
+      "1",
+      "1",
+      "5000000",
+      "0",
+      "1",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/bad64.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/upstream/saved-run/execution/data/batches/f64.bin"
+    ],
+    "returncode": 0,
+    "seconds": 62.0937705039978
+  },
+  "C66": {
+    "command": [
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/build/crun",
+      "12",
+      "4",
+      "1",
+      ".042",
+      "1",
+      "1",
+      "5000000",
+      "0",
+      "1",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/bad66.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/upstream/saved-run/execution/data/batches/f66.bin"
+    ],
+    "returncode": 0,
+    "seconds": 59.677390336990356
+  },
+  "C65": {
+    "command": [
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/build/crun",
+      "12",
+      "4",
+      "1",
+      ".042",
+      "1",
+      "1",
+      "5000000",
+      "0",
+      "1",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/bad65.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/upstream/saved-run/execution/data/batches/f65.bin"
+    ],
+    "returncode": 0,
+    "seconds": 82.41900992393494
+  },
+  "C67": {
+    "command": [
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/build/crun",
+      "12",
+      "4",
+      "1",
+      ".042",
+      "1",
+      "1",
+      "5000000",
+      "0",
+      "1",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/bad67.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/upstream/saved-run/execution/data/batches/f67.bin"
+    ],
+    "returncode": 0,
+    "seconds": 59.21880745887756
+  },
+  "C68": {
+    "command": [
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/build/crun",
+      "12",
+      "4",
+      "1",
+      ".042",
+      "1",
+      "1",
+      "5000000",
+      "0",
+      "1",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/bad68.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/upstream/saved-run/execution/data/batches/f68.bin"
+    ],
+    "returncode": 0,
+    "seconds": 64.65411734580994
+  },
+  "C69": {
+    "command": [
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/build/crun",
+      "12",
+      "4",
+      "1",
+      ".042",
+      "1",
+      "1",
+      "5000000",
+      "0",
+      "1",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/bad69.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/upstream/saved-run/execution/data/batches/f69.bin"
+    ],
+    "returncode": 0,
+    "seconds": 64.3235993385315
+  },
+  "C71": {
+    "command": [
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/build/crun",
+      "12",
+      "4",
+      "1",
+      ".042",
+      "1",
+      "1",
+      "5000000",
+      "0",
+      "1",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/bad71.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/upstream/saved-run/execution/data/batches/f71.bin"
+    ],
+    "returncode": 0,
+    "seconds": 45.26746869087219
+  },
+  "C70": {
+    "command": [
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/build/crun",
+      "12",
+      "4",
+      "1",
+      ".042",
+      "1",
+      "1",
+      "5000000",
+      "0",
+      "1",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/bad70.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/upstream/saved-run/execution/data/batches/f70.bin"
+    ],
+    "returncode": 0,
+    "seconds": 63.901609659194946
+  },
+  "C74": {
+    "command": [
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/build/crun",
+      "12",
+      "4",
+      "1",
+      ".042",
+      "1",
+      "1",
+      "5000000",
+      "0",
+      "1",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/bad74.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/upstream/saved-run/execution/data/batches/f74.bin"
+    ],
+    "returncode": 0,
+    "seconds": 48.0471453666687
+  },
+  "C72": {
+    "command": [
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/build/crun",
+      "12",
+      "4",
+      "1",
+      ".042",
+      "1",
+      "1",
+      "5000000",
+      "0",
+      "1",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/bad72.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/upstream/saved-run/execution/data/batches/f72.bin"
+    ],
+    "returncode": 0,
+    "seconds": 62.05681395530701
+  },
+  "C75": {
+    "command": [
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/build/crun",
+      "12",
+      "4",
+      "1",
+      ".042",
+      "1",
+      "1",
+      "5000000",
+      "0",
+      "1",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/bad75.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/upstream/saved-run/execution/data/batches/f75.bin"
+    ],
+    "returncode": 0,
+    "seconds": 44.00458312034607
+  },
+  "C73": {
+    "command": [
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/build/crun",
+      "12",
+      "4",
+      "1",
+      ".042",
+      "1",
+      "1",
+      "5000000",
+      "0",
+      "1",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/bad73.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/upstream/saved-run/execution/data/batches/f73.bin"
+    ],
+    "returncode": 0,
+    "seconds": 69.13081502914429
+  },
+  "C76": {
+    "command": [
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/build/crun",
+      "12",
+      "4",
+      "1",
+      ".042",
+      "1",
+      "1",
+      "5000000",
+      "0",
+      "1",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/bad76.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/upstream/saved-run/execution/data/batches/f76.bin"
+    ],
+    "returncode": 0,
+    "seconds": 52.08418345451355
+  },
+  "C77": {
+    "command": [
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/build/crun",
+      "12",
+      "4",
+      "1",
+      ".042",
+      "1",
+      "1",
+      "5000000",
+      "0",
+      "1",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/bad77.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/upstream/saved-run/execution/data/batches/f77.bin"
+    ],
+    "returncode": 0,
+    "seconds": 48.49452304840088
+  },
+  "C78": {
+    "command": [
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/build/crun",
+      "12",
+      "4",
+      "1",
+      ".042",
+      "1",
+      "1",
+      "5000000",
+      "0",
+      "1",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/bad78.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/upstream/saved-run/execution/data/batches/f78.bin"
+    ],
+    "returncode": 1,
+    "seconds": 53.8415629863739
+  },
+  "C81": {
+    "command": [
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/build/crun",
+      "12",
+      "4",
+      "1",
+      ".042",
+      "1",
+      "1",
+      "5000000",
+      "0",
+      "1",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/bad81.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/upstream/saved-run/execution/data/batches/f81.bin"
+    ],
+    "returncode": 0,
+    "seconds": 49.90243983268738
+  },
+  "C79": {
+    "command": [
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/build/crun",
+      "12",
+      "4",
+      "1",
+      ".042",
+      "1",
+      "1",
+      "5000000",
+      "0",
+      "1",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/bad79.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/upstream/saved-run/execution/data/batches/f79.bin"
+    ],
+    "returncode": 1,
+    "seconds": 92.30704641342163
+  },
+  "C82": {
+    "command": [
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/build/crun",
+      "12",
+      "4",
+      "1",
+      ".042",
+      "1",
+      "1",
+      "5000000",
+      "0",
+      "1",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/bad82.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/upstream/saved-run/execution/data/batches/f82.bin"
+    ],
+    "returncode": 0,
+    "seconds": 52.939146757125854
+  },
+  "C80": {
+    "command": [
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/build/crun",
+      "12",
+      "4",
+      "1",
+      ".042",
+      "1",
+      "1",
+      "5000000",
+      "0",
+      "1",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/bad80.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/upstream/saved-run/execution/data/batches/f80.bin"
+    ],
+    "returncode": 1,
+    "seconds": 75.12313914299011
+  },
+  "C83": {
+    "command": [
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/build/crun",
+      "12",
+      "4",
+      "1",
+      ".042",
+      "1",
+      "1",
+      "5000000",
+      "0",
+      "1",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/bad83.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/upstream/saved-run/execution/data/batches/f83.bin"
+    ],
+    "returncode": 0,
+    "seconds": 55.33046221733093
+  },
+  "C85": {
+    "command": [
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/build/crun",
+      "12",
+      "4",
+      "1",
+      ".042",
+      "1",
+      "1",
+      "5000000",
+      "0",
+      "1",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/bad85.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/upstream/saved-run/execution/data/batches/f85.bin"
+    ],
+    "returncode": 0,
+    "seconds": 54.577558279037476
+  },
+  "C87": {
+    "command": [
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/build/crun",
+      "12",
+      "4",
+      "1",
+      ".042",
+      "1",
+      "1",
+      "5000000",
+      "0",
+      "1",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/bad87.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/upstream/saved-run/execution/data/batches/f87.bin"
+    ],
+    "returncode": 0,
+    "seconds": 19.459577798843384
+  },
+  "C84": {
+    "command": [
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/build/crun",
+      "12",
+      "4",
+      "1",
+      ".042",
+      "1",
+      "1",
+      "5000000",
+      "0",
+      "1",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/bad84.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/upstream/saved-run/execution/data/batches/f84.bin"
+    ],
+    "returncode": 1,
+    "seconds": 65.89516639709473
+  },
+  "C86": {
+    "command": [
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/build/crun",
+      "12",
+      "4",
+      "1",
+      ".042",
+      "1",
+      "1",
+      "5000000",
+      "0",
+      "1",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/bad86.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/upstream/saved-run/execution/data/batches/f86.bin"
+    ],
+    "returncode": 0,
+    "seconds": 52.47777700424194
+  },
+  "Bfallback": {
+    "command": [
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/build/brun",
+      ".011",
+      ".0038",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/fb.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/fbbad.bin",
+      "-",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/bad10.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/bad3.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/bad4.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/bad5.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/bad52.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/bad53.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/bad55.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/bad56.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/bad6.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/bad7.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/bad78.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/bad79.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/bad8.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/bad80.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/bad84.bin"
+    ],
+    "returncode": 0,
+    "seconds": 8.523003101348877
+  },
+  "Final0": {
+    "command": [
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/build/crun",
+      "12",
+      "4",
+      "1",
+      ".042",
+      "1",
+      "1",
+      "5000000",
+      "0",
+      "4",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/finalbad0.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/fb.bin"
+    ],
+    "returncode": 0,
+    "seconds": 43.221686363220215
+  },
+  "Final1": {
+    "command": [
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/build/crun",
+      "12",
+      "4",
+      "1",
+      ".042",
+      "1",
+      "1",
+      "5000000",
+      "1",
+      "4",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/finalbad1.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/fb.bin"
+    ],
+    "returncode": 0,
+    "seconds": 44.398149490356445
+  },
+  "Final2": {
+    "command": [
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/build/crun",
+      "12",
+      "4",
+      "1",
+      ".042",
+      "1",
+      "1",
+      "5000000",
+      "2",
+      "4",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/finalbad2.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/fb.bin"
+    ],
+    "returncode": 0,
+    "seconds": 44.82952404022217
+  },
+  "Final3": {
+    "command": [
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/build/crun",
+      "12",
+      "4",
+      "1",
+      ".042",
+      "1",
+      "1",
+      "5000000",
+      "3",
+      "4",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/finalbad3.bin",
+      "/workspace/scratch/3d1c41dc15f2/mathathon124/results/replay/fb.bin"
+    ],
+    "returncode": 0,
+    "seconds": 45.763906955718994
+  }
+}

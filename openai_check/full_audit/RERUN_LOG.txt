@@ -1,0 +1,148 @@
+Repeat of the audit checks on a second machine, 15 November 2026 (UTC 18:31)
+host: Linux 6.18.44-fc-v470 x86_64, 2 cores; python 3.13.18; python-flint 0.9.0; numpy 2.5.3; sympy 1.14.0
+data: ./fetch_upstream_git.sh (openai/math at 4eaee87548250b2682affda7d05d947c05554bae): 308 files, 82505759 bytes, 0 SHA-256 mismatches against results/upstream-manifest.json
+commands: python3 src/restore_recorded_data.py; python3 src/check_fresh.py; python3 upstream/saved-run/execution/check_records.py; python3 src/exact_checks.py; OPENBLAS_NUM_THREADS=1 python3 src/verify_roots.py; python3 src/check_root_negative_controls.py
+The native pipeline (src/full_run.py) was NOT repeated in this session; results/ holds its original logs.
+---------------- output ----------------
+{
+  "result": "PASS",
+  "data_files_checked": 285,
+  "data_files_restored": 285,
+  "scope": "Exact SHA-256 restoration of previously recorded bytes; no new native execution."
+}
+RESTORE_OK
+{
+  "result": "PASS",
+  "children": 100,
+  "centers": 249878,
+  "coarse": 3083,
+  "mid": 600,
+  "fine": 22379,
+  "batches": 88,
+  "initial_unresolved": 163,
+  "fallback": 1127,
+  "final_unresolved": 0,
+  "principal_files_match_released_sha256": {
+    "centers.txt": true,
+    "coarse0.bin": true,
+    "coarse1.bin": true,
+    "coarse2.bin": true,
+    "coarse3.bin": true,
+    "mid.bin": true,
+    "fine.bin": true,
+    "fb.bin": true
+  },
+  "scope": "Complete new-run parsing, stage counts, batch-root identity/radius enlargement, ordered failures, actual fallback operands and final modulo partition."
+}
+FRESH_OK
+{
+  "result": "PASS within numerical consistency scope",
+  "cover": {
+    "centers": 249878,
+    "checked_pairs": 151744086
+  },
+  "coarse_records": [
+    764,
+    774,
+    757,
+    788
+  ],
+  "mid_records": 600,
+  "fine_records": 22379,
+  "batches": 88,
+  "initial_C": {
+    "done": 22379,
+    "bad": 163,
+    "graph": 0,
+    "cap": 163,
+    "over": 0,
+    "cluster": 0
+  },
+  "fallback_inputs": [
+    "batches/bad10.bin",
+    "batches/bad3.bin",
+    "batches/bad4.bin",
+    "batches/bad5.bin",
+    "batches/bad52.bin",
+    "batches/bad53.bin",
+    "batches/bad55.bin",
+    "batches/bad56.bin",
+    "batches/bad6.bin",
+    "batches/bad7.bin",
+    "batches/bad78.bin",
+    "batches/bad79.bin",
+    "batches/bad8.bin",
+    "batches/bad80.bin",
+    "batches/bad84.bin"
+  ],
+  "fallback_records": 1127,
+  "final_C": [
+    {
+      "done": 282,
+      "bad": 0,
+      "graph": 0,
+      "cap": 0,
+      "over": 0,
+      "cluster": 0
+    },
+    {
+      "done": 282,
+      "bad": 0,
+      "graph": 0,
+      "cap": 0,
+      "over": 0,
+      "cluster": 0
+    },
+    {
+      "done": 282,
+      "bad": 0,
+      "graph": 0,
+      "cap": 0,
+      "over": 0,
+      "cluster": 0
+    },
+    {
+      "done": 281,
+      "bad": 0,
+      "graph": 0,
+      "cap": 0,
+      "over": 0,
+      "cluster": 0
+    }
+  ],
+  "children": 100,
+  "data_files": 196,
+  "result_files": 100,
+  "scope": "Derived numerical consistency check only; no source, binary, or original execution provenance verification."
+}
+RECORDS_EXIT=0
+{
+  "result": "PASS",
+  "arithmetic": "SymPy exact Q(i,sqrt(3))",
+  "sympy_version": "1.14.0",
+  "ordered_gram_checks": 324,
+  "unscaled_overlap_bound_s_one_fifth": "3478/1225",
+  "sharp_phase_radius_expression": "sqrt(6)/(4*pi)*acos(1/sqrt(6))",
+  "sharp_phase_radius_display_only": 0.22421389884043774,
+  "sharpness_witness": "x=(alpha,alpha,alpha,-alpha,-alpha,-alpha)/(4*pi), y=-x, alpha=acos(1/sqrt(6))",
+  "accumulation_bound_exact_rational_check": true,
+  "sharp_radius_derivative_and_witness_identities": true
+}
+EXACT_OK
+{'result': 'PASS', 'scope': 'All Root inequalities certified with a separately reconstructed inverse-like map and Arb enclosures', 'precision_bits': 128, 'python_flint': '0.9.0', 'records_read': 27189, 'unique_roots_checked': 27188, 'transposed_orientation_certificates': 1143, 'seconds': 462.29732394218445, 'files': ['upstream/saved-run/execution/data/coarse0.bin', 'upstream/saved-run/execution/data/coarse1.bin', 'upstream/saved-run/execution/data/coarse2.bin', 'upstream/saved-run/execution/data/coarse3.bin', 'upstream/saved-run/execution/data/mid.bin', 'upstream/saved-run/execution/data/fine.bin', 'upstream/saved-run/execution/data/fb1.bin']}
+ROOTS_OK
+{
+  "result": "PASS",
+  "valid_control": "coarse0.bin record 0",
+  "corruptions_rejected_in_both_orientations": [
+    "phase_residual_corruption",
+    "tangent_gram_corruption",
+    "zero_C",
+    "zero_n0",
+    "zero_id",
+    "zero_mnorm",
+    "zero_froot"
+  ],
+  "scope": "Rejection controls; these do not replace the full certificate check."
+}
+NEG_OK

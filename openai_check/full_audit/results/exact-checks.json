@@ -1,0 +1,12 @@
+{
+  "result": "PASS",
+  "arithmetic": "SymPy exact Q(i,sqrt(3))",
+  "sympy_version": "1.14.0",
+  "ordered_gram_checks": 324,
+  "unscaled_overlap_bound_s_one_fifth": "3478/1225",
+  "sharp_phase_radius_expression": "sqrt(6)/(4*pi)*acos(1/sqrt(6))",
+  "sharp_phase_radius_display_only": 0.22421389884043774,
+  "sharpness_witness": "x=(alpha,alpha,alpha,-alpha,-alpha,-alpha)/(4*pi), y=-x, alpha=acos(1/sqrt(6))",
+  "accumulation_bound_exact_rational_check": true,
+  "sharp_radius_derivative_and_witness_identities": true
+}

@@ -203,7 +203,13 @@ step S40 "C34" "stored record of the optimisation behind the explicit four-basis
 step S41 "C70" "structure paper, Section 13 (numerical only): cube-Gram spectrum on the seed, operator inequality on random admissible operators" "$R/checks" \
   "PASS\] seed third transition C is a phase Hadamard|||PASS\] 1 - tr rho\^3 > 1/144|||NOT CHECKED\] requires the 55-variable" \
   nice -n 5 python3 check_seed_geometry.py
+step S42 "C24, C23" "structure Lean project (lean_structure/): stored build log, axiom log and source hashes checked against the sources (no Lean needed)" "$R/lean_structure" \
+  "PASS\] source hashes match hash-manifest.json|||PASS\] build log reports success: Build completed successfully \(3350 jobs\)|||PASS\] axiom log: audited theorems: 394 theorems|||PASS\] axiom log: only standard axioms|||^OK" \
+  nice -n 5 python3 -I check_logs.py
+step S43 "C11" "full native rerun and Root re-certification: stored results of the original run and of the repeat on a second machine" "$R/openai_check/full_audit" \
+  "original run: principal files byte-identical|||repeat on a second machine: Root records re-certified in Arb: read 27189, distinct certified 27188, transposed 1143, 128 bits|||100 invocations|||^OK" \
+  nice -n 5 python3 -I check_recorded_evidence.py
 echo
 echo "=== SUMMARY: $NPASS steps passed, $NFAIL failed.${FAILED:+ Failed steps:$FAILED}"
-echo "Not re-run here (stored logs only): hide_seek/hide_seek.py, d6_fourier/run_fourier6_certs.py, d10/search_match.py, d10/energy10.py, openai_check/*, near_misses 20,000-start and 35-shape searches, near_misses/repo/src/fourier/fourier_case.py, evidence.py, the Lean build."
+echo "Not re-run here (stored logs only): hide_seek/hide_seek.py, d6_fourier/run_fourier6_certs.py, d10/search_match.py, d10/energy10.py, openai_check/* (the native rerun; its stored results are checked in S43), near_misses 20,000-start and 35-shape searches, near_misses/repo/src/fourier/fourier_case.py, evidence.py, the Lean builds (stored logs of the structure project are checked in S42)."
 [ "$NFAIL" -eq 0 ]

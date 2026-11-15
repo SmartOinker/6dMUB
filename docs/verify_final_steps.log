@@ -1,0 +1,24 @@
+Steps S42 and S43 of verify_all.sh, added in the final revision; run 2026-11-15T18:35Z on Linux x86_64, python 3.13.18
+
+=== S42 (cd lean_structure && python3 check_logs.py)
+[PASS] source hashes match hash-manifest.json: 66 files, 47 Lean files
+[PASS] build log reports success: Build completed successfully (3350 jobs)
+[PASS] axiom log: audited theorems: 394 theorems
+[PASS] axiom log: only standard axioms: Classical.choice, Quot.sound, propext
+[PASS] every audited theorem is declared in the sources: 479 declarations found
+[PASS] no sorry / admit / native_decide / axiom declarations in the sources: 47 files scanned
+OK
+
+=== S43 (cd openai_check/full_audit && python3 check_recorded_evidence.py)
+[PASS] original run: accounting check of the full native run passes: children 100, centers 249878, batches 88, initial unresolved 163, fallback 1127, final unresolved 0
+[PASS] original run: principal files byte-identical to the released ones: centers.txt, coarse0.bin, coarse1.bin, coarse2.bin, coarse3.bin, fb.bin, fine.bin, mid.bin
+[PASS] original run: Root records re-certified in Arb: read 27189, distinct certified 27188, transposed 1143, 128 bits, python-flint 0.9.0, 435 s
+[PASS] original run: negative controls of the Root checker: Rejection controls; these do not replace the full certificate check.
+[PASS] repeat on a second machine: accounting check of the full native run passes: children 100, centers 249878, batches 88, initial unresolved 163, fallback 1127, final unresolved 0
+[PASS] repeat on a second machine: principal files byte-identical to the released ones: centers.txt, coarse0.bin, coarse1.bin, coarse2.bin, coarse3.bin, fb.bin, fine.bin, mid.bin
+[PASS] repeat on a second machine: Root records re-certified in Arb: read 27189, distinct certified 27188, transposed 1143, 128 bits, python-flint 0.9.0, 462 s
+[PASS] repeat on a second machine: negative controls of the Root checker: Rejection controls; these do not replace the full certificate check.
+[PASS] driver log: 100 child invocations, exit statuses 0 or 1 (1 = batch with records sent to the fallback), run completed: 100 invocations, 15 stage-C batches with status 1, 15791 s summed
+[PASS] per-invocation output files of the native run are present: 207 files in results/fresh
+[PASS] pinned upstream manifest: 308 files, 82505759 bytes
+OK
