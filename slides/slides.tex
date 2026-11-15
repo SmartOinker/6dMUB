@@ -303,6 +303,40 @@ $\displaystyle\sqrt p\le\tfrac1{\sqrt6}+\tfrac{\sqrt6}2\bigl(p-\tfrac16\bigr)-\c
 \end{frame}
 
 % ======================= 9 =======================
+\begin{frame}{In a random access code, any fourth basis added to the local triple must lose at least $3.3\times10^{-4}$ of the ideal score}
+\begin{columns}[T]
+\begin{column}{0.43\textwidth}
+\centering
+\begin{tikzpicture}[font=\scriptsize,pl/.style={draw=accent,fill=soft,rounded corners=3pt,minimum width=1.4cm,minimum height=0.9cm,align=center,font=\small\bfseries}]
+\node[pl] (A) at (0,0) {Alice};
+\node[pl] (B) at (3.7,0) {Bob};
+\draw[-{Stealth},thick] (0,1.1) node[above] {$x_1,x_2\in\{1,\dots,6\}$} -- (A);
+\draw[-{Stealth},line width=1.6pt,hl] (A) -- node[above,hl] {one six-level} node[below,hl] {system} (B);
+\draw[-{Stealth},thick] (3.7,1.1) node[above] {``$x_1$ or $x_2$?''} -- (B);
+\draw[-{Stealth},thick] (B) -- (3.7,-0.95) node[below] {his guess};
+\node[align=center,black!60] at (1.0,-1.05) {Bob measures in one of\\ two of the four bases};
+\end{tikzpicture}\\[0.3cm]
+\begin{tikzpicture}[font=\scriptsize,x=1.3cm]
+\fill[hl!20] (3.302,-0.18) rectangle (4.5,0.18);
+\draw[->,thick] (0,0)--(4.6,0);
+\node[anchor=west] at (-0.1,-1.0) {game loss $\times10^{4}$ (ideal score minus score)};
+\fill[cOpen] (0,0) circle (2.4pt) node[above=2pt,anchor=south west,xshift=-4pt] {0: four MUBs};
+\fill[cCert] (2.358,0) circle (2.4pt) node[below=2pt,align=center] {$\le2.358$\\ explicit quadruple};
+\fill[cProved] (3.302,0) circle (2.4pt) node[above=3pt,anchor=south east,xshift=34pt] {$>3.302$: completions of $T_0$};
+\end{tikzpicture}
+\end{column}
+\begin{column}{0.55\textwidth}
+\begin{itemize}\footnotesize\setlength\itemsep{4pt}
+\item Game of Aguilar, Borka{\l}a, Mironowicz, Paw{\l}owski (2018): no four bases score above $\mu=\tfrac12+\tfrac{\sqrt6}{12}=0.7041$; only unbiased ones reach it. They proposed the score as a measure of unbiasedness and could not rule out four MUBs with it. \Tcited
+\item Ours: a \emph{proved} loss. Any fourth basis added to $T_0$ scores below $\mu-\cstar\gamma/72<\mu-3.302\times10^{-4}$. \Tproved\ from certified inputs
+\item Meaning: no encoding, however clever, lets four such measurements play perfectly; the score certifies that the fourth one is missing.
+\item Size: resolving the loss takes about $10^{8}$ rounds \Tcomp, so the laboratory test uses another statistic.
+\end{itemize}
+\end{column}
+\end{columns}
+\end{frame}
+
+% ======================= 10 =======================
 \begin{frame}{One explicit quadruple beats every completion of the local triple on both measures; another reaches bias $0.030224$}
 \small
 A quadruple is four bases; smaller is closer to four unbiased bases. Shaded: impossible for any fourth basis added to $T_0$.\\[0.1cm]
@@ -325,7 +359,7 @@ A quadruple is four bases; smaller is closer to four unbiased bases. Shaded: imp
 \raggedright\hspace{0.2cm}Quadruple 2 (game-optimized) wins on both measures; quadruple 1 (bias-optimized) has the lowest bias found. So no bias-optimal and no game-optimal quadruple contains $T_0$. For the second product triple the bias claim holds and the game comparison is inconclusive.
 \end{frame}
 
-% ======================= 10 =======================
+% ======================= 11 =======================
 \begin{frame}{Hide and seek: 1,936 shots per setting expose every pure state, with 95\% detection and at most 0.1\% false alarm}
 \small
 A hider repeats one pure state; a referee counts equal-outcome pairs among $N$ shots per local setting (ideal measurements, independent copies). The statistic $T$ estimates $E$.\\[0.1cm]
@@ -366,8 +400,8 @@ A hider repeats one pure state; a referee counts equal-outcome pairs among $N$ s
 \hspace{0.2cm}Not new: the classical collision test (Goldreich--Ron, Paninski) \Tcited. Ours: the certified gap. Lean: the identity, four variance-step inequalities and the shot arithmetic only; no probability statement.
 \end{frame}
 
-% ======================= 11 =======================
-\begin{frame}{In simulation, three local settings and modest gate noise suffice, while the game route needs about $10^{8}$ rounds}
+% ======================= 12 =======================
+\begin{frame}{In simulation, three local settings and modest gate noise suffice, and a dimension-four control is never caught}
 \begin{columns}[T]
 \begin{column}{0.5\textwidth}
 \centering
@@ -393,13 +427,12 @@ A hider repeats one pure state; a referee counts equal-outcome pairs among $N$ s
 \item Purity witness: uniform statistics force the largest eigenvalue $\le0.8232$. \Tproved\ from certified inputs
 \item No qubit-qutrit entangling gate; shots for 50\% detection (CNOT error, five-sigma false alarm, large-sample model): 589 ideal, 646 at 1\%, 1,500 at 10\%. \Tcomp
 \item Dimension-four control: $(1,1,i,-i)/2$ is exactly uniform in $ZZ,XX,YY$, never caught. \Tproved\ \Tcomp
-\item Game: $9.37\times10^{7}$ rounds, a different question. \Tcomp
 \end{itemize}
 \end{column}
 \end{columns}
 \end{frame}
 
-% ======================= 12 =======================
+% ======================= 13 =======================
 \begin{frame}{Additional result: structure for order-six Hadamard matrices is proved, but the universal step toward $N(6)=3$ is open}
 \addbanner
 \small
@@ -427,32 +460,6 @@ Known family: genus-ten surface; no unknown branch attaches to it (disjoint comp
 \raggedright\footnotesize\hspace{0.2cm}None of this yet bounds the number of MUBs.
 \end{frame}
 
-% ======================= 13 =======================
-\begin{frame}{Additional result: if a cited root count (H) holds, no four MUBs of $\C^{10}$ contain the standard and Fourier bases}
-\addbanner
-\small
-\begin{columns}[T]
-\begin{column}{0.42\textwidth}
-\centering
-\begin{tikzpicture}[font=\scriptsize,x=0.6cm,y=0.72cm]
-\foreach \w/\y/\lab/\num/\six/\col in {4.54/4/certified roots/{34,940}/156/accent!30,3.48/3/unimodular/{3,040}/48/accent!45,3.06/2/candidate bases/{1,136}/16/accent!60} {
-  \fill[\col] (-\w/2,\y-0.36) rectangle (\w/2,\y+0.36); \node at (0,\y) {\num}; \node[anchor=east] at (-2.5,\y) {\lab}; \node[black!60] at (3.2,\y) {\six};}
-\foreach \y/\lab in {1/MU pairs of them,0/extending vectors} {
-  \fill[hl] (-0.3,\y-0.36) rectangle (0.3,\y+0.36); \node[white,font=\scriptsize\bfseries] at (0,\y) {0}; \node[anchor=east] at (-2.5,\y) {\lab}; \node[black!60] at (3.2,\y) {0};}
-\node[font=\scriptsize\bfseries,accent] at (0,4.8) {$d=10$}; \node[font=\scriptsize\bfseries,black!60] at (3.2,4.8) {$d=6$};
-\end{tikzpicture}\\[1pt]
-\footnotesize $d=6$ calibrates the pipeline (widths: log scale).
-\end{column}
-\begin{column}{0.56\textwidth}
-\begin{itemize}\small\setlength\itemsep{3pt}
-\item (H): cyclic 10-roots number at most $34{,}940$ (cited, not verified). Margin $0.04178$. \Tcond
-\item Grassl, McNulty, Mi\v{s}ta, Paterek (2017): to our reading their dimension-ten example concerns a triple of this kind, handled there without a root-count hypothesis; not reproduced by us. \Tcited
-\item Energy: no certified bound; numerical minimum $0.0202$. \Tnum
-\end{itemize}
-\end{column}
-\end{columns}
-\end{frame}
-
 % ======================= 14 =======================
 \begin{frame}{Every claim has a status; AI did most of the computing and first drafts, and we claim no line-by-line human refereeing}
 \centering\footnotesize
@@ -472,7 +479,7 @@ Known family: genus-ten surface; no unknown branch attaches to it (disjoint comp
 \end{frame}
 
 % ======================= 15 =======================
-\begin{frame}{To our knowledge nothing is formal end to end, but the missing basis now has certified numbers and a laboratory test}
+\begin{frame}{Three answers: nothing is formal end to end, but the missing basis now has certified numbers and a laboratory test}
 \small
 \begin{columns}[T]
 \begin{column}{0.32\textwidth}
@@ -497,8 +504,25 @@ shots per setting expose every pure state (95\% detection, 0.1\% false alarm), i
 \end{beamercolorbox}
 \end{column}
 \end{columns}
-\vspace{0.5cm}
-\raggedright\small\textbf{Open:} bound over all triples and quadruples; universal step; (H); hardware run. \Topen
+\end{frame}
+
+% ======================= 16 =======================
+\begin{frame}{Conclusion: one short inequality turns a certificate about single vectors into numbers that quantum-information tasks can use}
+\centering
+\begin{tikzpicture}[font=\footnotesize,bx/.style={draw=black!40,rounded corners=3pt,align=center,inner sep=4pt}]
+\node[bx,fill=cCert!14,text width=3.0cm] (g) at (0,0) {\textbf{Certified gap}\\ no single vector is unbiased to the triple:\\ $E\ge\gamma=0.0384999$\\ \Tcert};
+\node[bx,fill=cProved!14,text width=3.0cm] (t) at (4.3,0) {\textbf{Vector-to-basis theorem}\\ every fourth basis:\\ bias $\ge\sqrt{\gamma/18}$,\\ loss $\ge\cstar\gamma/72$\\ \Tproved\ \Tleanh};
+\node[bx,fill=soft,text width=4.9cm,font=\scriptsize] (d) at (10.1,1.45) {\textbf{Design.} The best four measurements in $\C^6$ avoid the product triple: bias $>0.046248$, and an explicit quadruple does better.};
+\node[bx,fill=soft,text width=4.9cm,font=\scriptsize] (p) at (10.1,0) {\textbf{Protocols.} A random access code with such bases stays $3.302\times10^{-4}$ below the ideal score.};
+\node[bx,fill=soft,text width=4.9cm,font=\scriptsize] (l) at (10.1,-1.45) {\textbf{Laboratory.} 1,936 shots per setting expose every pure state (95\% detection, 0.1\% false alarm).};
+\draw[-{Stealth},very thick,accent] (g)--(t);
+\draw[-{Stealth},very thick,accent] (t.east)--(d.west);
+\draw[-{Stealth},very thick,accent] (t.east)--(p.west);
+\draw[-{Stealth},thick,accent] (g.south) |- (0,-2.15) -- node[below,font=\scriptsize] {classical collision test, fed with the certified gap} (6.9,-2.15) |- (l.west);
+\end{tikzpicture}\\[0.1cm]
+\raggedright\footnotesize
+\hspace{0.2cm}\textbf{Limit.} These numbers are for quadruples built on the local triple $T_0$; for the 17 other certified triples we have the bias bound $>0.036132$. The game formula is cited.\\[2pt]
+\hspace{0.2cm}\textbf{Open.} A certified gap over all triples would give all three statements for every quadruple; the universal step; a hardware run. \Topen
 \end{frame}
 
 % ======================= BACKUP DIVIDER =======================
@@ -511,6 +535,33 @@ the 16 Fourier-pair triples \textbullet\ phase-ball radius \textbullet\ six-phas
 \end{frame}
 
 % ======================= B1 =======================
+% ======================= BACKUP: dimension ten =======================
+\begin{frame}{Backup: if a cited root count (H) holds, no four MUBs of $\C^{10}$ contain the standard and Fourier bases}
+\addbanner
+\small
+\begin{columns}[T]
+\begin{column}{0.42\textwidth}
+\centering
+\begin{tikzpicture}[font=\scriptsize,x=0.6cm,y=0.72cm]
+\foreach \w/\y/\lab/\num/\six/\col in {4.54/4/certified roots/{34,940}/156/accent!30,3.48/3/unimodular/{3,040}/48/accent!45,3.06/2/candidate bases/{1,136}/16/accent!60} {
+  \fill[\col] (-\w/2,\y-0.36) rectangle (\w/2,\y+0.36); \node at (0,\y) {\num}; \node[anchor=east] at (-2.5,\y) {\lab}; \node[black!60] at (3.2,\y) {\six};}
+\foreach \y/\lab in {1/MU pairs of them,0/extending vectors} {
+  \fill[hl] (-0.3,\y-0.36) rectangle (0.3,\y+0.36); \node[white,font=\scriptsize\bfseries] at (0,\y) {0}; \node[anchor=east] at (-2.5,\y) {\lab}; \node[black!60] at (3.2,\y) {0};}
+\node[font=\scriptsize\bfseries,accent] at (0,4.8) {$d=10$}; \node[font=\scriptsize\bfseries,black!60] at (3.2,4.8) {$d=6$};
+\end{tikzpicture}\\[1pt]
+\footnotesize $d=6$ calibrates the pipeline (widths: log scale).
+\end{column}
+\begin{column}{0.56\textwidth}
+\begin{itemize}\small\setlength\itemsep{3pt}
+\item (H): cyclic 10-roots number at most $34{,}940$ (cited, not verified). Margin $0.04178$. \Tcond
+\item Grassl, McNulty, Mi\v{s}ta, Paterek (2017): to our reading their dimension-ten example concerns a triple of this kind, handled there without a root-count hypothesis; not reproduced by us. \Tcited
+\item Energy: no certified bound; numerical minimum $0.0202$. \Tnum
+\end{itemize}
+\end{column}
+\end{columns}
+\end{frame}
+
+
 \begin{frame}{Backup: the square-root inequality has a short proof}
 \small
 Let $a=1/\sqrt6$, $s=\sqrt p\in[0,1]$, so $p-\tfrac16=(s-a)(s+a)$. \Tproved\ \Tleanh\ (the inequality, not its equality cases)

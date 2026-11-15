@@ -15,16 +15,17 @@ Caltech x SAIR Mathathon, Problem 124. This file contains the speaker script for
 | 6 | A 10^-7 threshold in the 2008 table admitted two certified near-misses, so "found numerically" is not "proved" | 1:20 | 177 | 173 |
 | 7 | No pure state is unbiased to the local triple T0: its energy exceeds 0.0384999, 99.3% of the exact minimum | 2:00 | 257 | 260 |
 | 8 | A one-vector bound becomes a bound on every fourth basis; Lean checks it as inequalities, given the energy bound | 2:00 | 243 | 260 |
-| 9 | One explicit quadruple beats every completion of the local triple on both measures; another reaches bias 0.030224 | 1:30 | 190 | 195 |
-| 10 | Hide and seek: 1,936 shots per setting expose every pure state, with 95% detection and at most 0.1% false alarm | 2:20 | 302 | 303 |
-| 11 | In simulation, three local settings and modest gate noise suffice, while the game route needs about 10^8 rounds | 1:30 | 197 | 195 |
-| 12 | Additional result: structure for order-six Hadamard matrices is proved, but the universal step toward N(6)=3 is open | 0:50 | 106 | 108 |
-| 13 | Additional result: if a cited root count (H) holds, no four MUBs of C^10 contain the standard and Fourier bases | 1:00 | 129 | 130 |
-| 14 | Every claim has a status; AI did most of the computing and first drafts, and we claim no line-by-line human refereeing | 1:20 | 176 | 173 |
-| 15 | To our knowledge nothing is formal end to end, but the missing basis now has certified numbers and a laboratory test | 1:00 | 130 | 130 |
-| **Total** | | **20:00** | 2586 | 2599 |
+| 9 | In a random access code, any fourth basis added to the local triple must lose at least 3.3 x 10^-4 of the ideal score | 1:20 | 169 | 173 |
+| 10 | One explicit quadruple beats every completion of the local triple on both measures; another reaches bias 0.030224 | 1:05 | 140 | 141 |
+| 11 | Hide and seek: 1,936 shots per setting expose every pure state, with 95% detection and at most 0.1% false alarm | 2:20 | 302 | 303 |
+| 12 | In simulation, three local settings and modest gate noise suffice, and a dimension-four control is never caught | 1:15 | 169 | 162 |
+| 13 | Additional result: structure for order-six Hadamard matrices is proved, but the universal step toward N(6)=3 is open | 0:40 | 95 | 87 |
+| 14 | Every claim has a status; AI did most of the computing and first drafts, and we claim no line-by-line human refereeing | 1:10 | 155 | 152 |
+| 15 | Three answers: nothing is formal end to end, but the missing basis now has certified numbers and a laboratory test | 0:45 | 90 | 98 |
+| 16 | Conclusion: one short inequality turns a certificate about single vectors into numbers that quantum-information tasks can use | 0:55 | 130 | 119 |
+| **Total** | | **20:00** | 2606 | 2600 |
 
-Sum of the per-slide times: 20:00 exactly. Check: 0:40 + 0:55 + 0:45 + 1:20 + 1:00 + 0:30 + 1:20 + 2:00 + 2:00 + 1:30 + 2:20 + 1:30 + 0:50 + 1:00 + 1:20 + 1:00 = 20:00. Title plus slides 1 to 11 take 15:50 (79 percent of the talk); the two additional results take 1:50. Backup slides are untimed and used only for questions. Slides 1 to 13 each carry a diagram or a chart; slides 14 and 15 are the status table and the summary.
+Sum of the per-slide times: 20:00 exactly. Check: 0:40 + 0:55 + 0:45 + 1:20 + 1:00 + 0:30 + 1:20 + 2:00 + 2:00 + 1:20 + 1:05 + 2:20 + 1:15 + 0:40 + 1:10 + 0:45 + 0:55 = 20:00. Title plus slides 1 to 12 take 16:30 (82 percent of the talk); the additional result (slide 13) takes 0:40; status, the three answers and the conclusion take 2:50. Slides 1 to 13 and 16 each carry a diagram or a chart. Dimension ten is the first backup slide. Backup slides are untimed and used only for questions.
 
 ## Title slide
 
@@ -32,7 +33,7 @@ Sum of the per-slide times: 20:00 exactly. Check: 0:40 + 0:55 + 0:45 + 1:20 + 1:
 
 **Time:** 0:40
 
-Good morning. We are Ren Jie Tee, Xinrui Li and Raymond Fong, and this is our talk on Problem 124, mutually unbiased bases in dimension six. The title carries our three questions: how do we know, how far away is a fourth basis, and how would one see it. They are the main line of the talk. Two further results are marked as additional. Every claim carries a colored tag that says how we know it, and everything on a slide is in our report.
+Good morning. We are Ren Jie Tee, Xinrui Li and Raymond Fong, and this is our talk on Problem 124, mutually unbiased bases in dimension six. The title carries our three questions: how do we know, how far away is a fourth basis, and how would one see it. They are the main line of the talk. One further result is marked as additional. Every claim carries a colored tag that says how we know it, and everything on a slide is in our report.
 
 **If asked:** Q: Did you prove that N(6) is 3? A: No. We did not prove it and we did not verify the three 2026 proofs. We checked parts of them and turned their conclusion into numbers.
 
@@ -116,17 +117,27 @@ A bound on one vector is not yet a statement about a measurement, which uses a w
 
 **If asked:** Q: Does this show that no fourth basis exists? A: No. It concerns fourth bases added to triples whose one-vector bound is certified. For all quadruples we have no certified lower bound, and that is open.
 
-## Slide 9. The design lesson
+## Slide 9. What the theorem means for a protocol: the random access code
+
+**Headline on slide:** In a random access code, any fourth basis added to the local triple must lose at least 3.3 x 10^-4 of the ideal score
+
+**Time:** 1:20
+
+What does the theorem mean for a quantum-information task? Take the random access code of Aguilar, Borkala, Mironowicz and Pawlowski. A pair of the four bases is drawn and announced. Alice receives two symbols, each one of six values, and sends a single six-level system. Bob is asked for one of the two symbols and measures in the corresponding basis. With optimal encoding, no four bases score above about 0.7041, and only mutually unbiased ones reach it. That formula is their result; they proposed the score as a measure of unbiasedness and could not rule out four such bases with it. Our theorem turns it into a proved number: any fourth basis added to the local triple leaves the players more than 3.302 times ten to the minus four below the ideal score. So no encoding, however clever, lets four such measurements play this game perfectly. The gap is small: resolving it takes about ten to the eight rounds, which is why our laboratory test uses a different statistic.
+
+**If asked:** Q: Is the random access code result new? A: The game and its formula are Aguilar and coauthors, 2018; they proposed the score as a measure of unbiasedness and could not rule out four bases in dimension six with it. New here is a proved lower bound on the loss for every fourth basis added to a certified triple, with its inequality checked in Lean, and the explicit quadruple that beats those completions. Not in Lean: that the formula is the optimal success probability (cited).
+
+## Slide 10. The design lesson
 
 **Headline on slide:** One explicit quadruple beats every completion of the local triple on both measures; another reaches bias 0.030224
 
-**Time:** 1:30
+**Time:** 1:05
 
-Now compare with explicit sets. A quadruple is four bases. We found two quadruples numerically, one minimizing the bias and one maximizing the game score, and evaluated them in interval arithmetic, with the stored matrices corrected to exactly unitary ones and bounds rounded up. Quadruple two, the game-optimized one, has game loss at most 2.357826 times ten to the minus four, written 2.358, and bias at most 0.040599. With E above 0.0384999, every completion of T zero has bias above 0.046248 and game loss above 3.302 times ten to the minus four. So this one quadruple beats every completion on both measures. Quadruple one, the bias-optimized one, has the lowest bias we found, at most 0.030224. That is the design lesson: no bias-optimal and no game-optimal quadruple contains T zero. For the bias the argument is short: a bound E above gamma forces bias above the square root of gamma over eighteen, which exceeds 0.030224 as soon as gamma is 0.016443. Both product triples clear that threshold; the analytic bound one over seventy-two does not. For the second product triple the bias lesson holds, but the game comparison is inconclusive.
+Now compare with explicit sets. A quadruple is four bases. We found two quadruples numerically, one minimizing the bias and one maximizing the game score, and evaluated them in interval arithmetic. Quadruple two, the game-optimized one, has game loss at most 2.358 times ten to the minus four and bias at most 0.040599. Every completion of T zero has bias above 0.046248 and game loss above 3.302 times ten to the minus four. So this one quadruple beats every completion on both measures. Quadruple one has the lowest bias we found, at most 0.030224. That is the design lesson: no bias-optimal and no game-optimal quadruple contains T zero. If you want the best four measurements in dimension six, do not start from the product triple. For the second product triple the bias lesson holds, but the game comparison is inconclusive.
 
 **If asked:** Q: Does this say anything about all quadruples? A: Only that explicit quadruples beat every completion of the triples we examined: one on both measures for T0, and the bias-optimal one on bias. A certified lower bound over all quadruples is open.
 
-## Slide 10. Hide and seek
+## Slide 11. Hide and seek
 
 **Headline on slide:** Hide and seek: 1,936 shots per setting expose every pure state, with 95% detection and at most 0.1% false alarm
 
@@ -136,57 +147,59 @@ What would this look like in a laboratory? Play hide and seek. A hider prepares 
 
 **If asked:** Q: Is the detection test new? A: No, the test is classical. What is new is feeding it the certified energy gap, which gives a finite-sample guarantee for every pure state with three fixed local settings, assuming ideal measurements and independent identical copies.
 
-## Slide 11. Circuits, noise, control and the game
+## Slide 12. Circuits, noise, control and the game
 
-**Headline on slide:** In simulation, three local settings and modest gate noise suffice, while the game route needs about 10^8 rounds
+**Headline on slide:** In simulation, three local settings and modest gate noise suffice, and a dimension-four control is never caught
 
-**Time:** 1:30
+**Time:** 1:15
 
-Four more facts about the experiment, all from simulation. First, a purity witness: if the statistics are exactly uniform in the three settings, the largest eigenvalue of the state is at most 0.8232, so the state is not pure, by a definite margin. Second, circuits. Every setting is a product measurement, so no entangling gate between the qubit and the qutrit is needed. In a noise simulation, the total number of shots for fifty percent detection at five-sigma false alarm, in the large-sample model, is 589 for ideal gates, 646 at one percent two-qubit error and 1,500 at ten percent. Third, the dimension-four control: for two qubits with settings ZZ, XX and YY the state (1,1,i,-i)/2 is exactly uniform in all three, because a complete set of bases exists there. The referee never catches it, the dashed line. This is what a complete set looks like to the test. Fourth, the game: resolving the loss of our explicit quadruple takes about nine point three seven times ten to the seven rounds. The two experiments answer different questions. No hardware run was performed; the repository has only a rehearsal on a simulated noise model, which is not evidence.
+Three more facts about the experiment, all from simulation. First, a purity witness: if the statistics are exactly uniform in the three settings, the largest eigenvalue of the state is at most 0.8232, so the state is not pure, by a definite margin. Second, circuits. Every setting is a product measurement, so no entangling gate between the qubit and the qutrit is needed. In a noise simulation, the total number of shots for fifty percent detection at five-sigma false alarm, in the large-sample model, is 589 for ideal gates, 646 at one percent two-qubit error and 1,500 at ten percent. Third, the dimension-four control: for two qubits with settings ZZ, XX and YY the state (1,1,i,-i)/2 is exactly uniform in all three, because a complete set of bases exists there. The referee never catches it, the dashed line. This is what a complete set looks like to the test. No hardware run was performed; the repository has only a rehearsal on a simulated noise model, which is not evidence.
 
 **If asked:** Q: Why should a quantum-information person care? A: Because it turns an abstract no-go claim into a test that needs three local measurements and a few thousand shots, and tells them how much gate noise it tolerates, while the game route needs about 10^8 rounds.
 
-## Slide 12. Additional result: structure theory
+## Slide 13. Additional result: structure theory
 
 **Headline on slide:** Additional result: structure for order-six Hadamard matrices is proved, but the universal step toward N(6)=3 is open
 
-**Time:** 0:50
+**Time:** 0:40
 
-Additional result, unused by the three answers. For an order-six Hadamard matrix H, take the entrywise cube. Its rank is at most two exactly for the Fourier family, its transpose or the Tao class, and its squared norm is at most eighteen outside the Tao class: both proved, with cited ingredients. The degree-four relaxation of the energy has optimum exactly zero. E above one over seventy-two is Lean-checked in our structure project. Also: the known family is a genus-ten surface with no unknown branch attached, a written proof in the supplement whose finite parts are Lean-checked; disjoint components are not excluded. The universal step is open.
+Additional result, unused by the three answers. For an order-six Hadamard matrix H, take the entrywise cube. Its rank is at most two exactly for the Fourier family, its transpose or the Tao class, and its squared norm is at most eighteen outside the Tao class: both proved, with cited ingredients. E above one over seventy-two is Lean-checked in our structure project. The known family is a genus-ten surface with no unknown branch attached, a written proof in the supplement. The route in the picture needs one more step, and that universal step is open.
 
 **If asked:** Q: Does the cubic norm cap prove N(6)=3? A: No. Whether norm 18 forces cube rank two is not proved, and neither is the universal step. Nothing in this section yet bounds the number of MUBs.
-
-## Slide 13. Additional result: dimension ten
-
-**Headline on slide:** Additional result: if a cited root count (H) holds, no four MUBs of C^10 contain the standard and Fourier bases
-
-**Time:** 1:00
-
-Also additional. Vectors unbiased to the standard and the Fourier basis of dimension ten correspond to unimodular cyclic ten-roots. Hypothesis H: there are at most 34,940 cyclic ten-roots, a cited count that we did not verify. All 34,940 roots are certified in the repository: 3,040 unimodular. Those form 1,136 candidate bases. Assuming H, for every vector and every candidate basis some basis vector is at least 0.04178 away from unbiased, so no four bases contain the pair. The table shows dimension six as a calibration. To our reading, the dimension-ten example of Grassl, McNulty, Mista and Paterek concerns a triple of this kind, which they handle without a root-count hypothesis; we did not reproduce it. There is no certified energy bound in dimension ten; the numerical minimum is 0.0202.
-
-**If asked:** Q: Is dimension ten a theorem? A: Yes, as a computer-assisted theorem conditional only on H, the cited count, which we did not verify. The roots themselves are certified in the repository, and the theorem says nothing about N(10).
 
 ## Slide 14. Claims, status, AI use and how it was checked
 
 **Headline on slide:** Every claim has a status; AI did most of the computing and first drafts, and we claim no line-by-line human refereeing
 
-**Time:** 1:20
+**Time:** 1:10
 
-The whole talk, by status. Proved here: the bridge theorem, the detection guarantee and the purity witness. Lean-checked here: the cap inequality, the bridge theorem as inequalities given the energy bound, and the shot arithmetic; not the energy bounds or any probability statement. Interval-certified: the energy bounds, the 2008 near-misses, the explicit quadruples and the 34,940 roots. Computed: the mutation test, the partial rebuild and the 239-shot rule of thumb. Also Lean-checked, in the structure project: E above one over seventy-two. Run once, with logs in the repository: the full native rerun. Proved in the supplement: the six-phase bound. Cited: the exact minimum and the absence of an end-to-end formal proof. Conditional: dimension ten. Open: the universal step and a bound over all triples. AI use: Claude, Codex and open-weight agents did most of the computing and first drafts. Each certified bound is checked by a short certificate checker not reviewed by a second person, and fresh AI reviewers attacked the report in six logged rounds, about 180 findings. We do not claim line-by-line human refereeing.
+The whole talk, by status. Proved: the bridge theorem, the detection guarantee and the purity witness. Lean-checked: the cap inequality, the bridge theorem as inequalities given the energy bound, the shot arithmetic, and E above one over seventy-two; not the energy bounds or any probability statement. Certified or computed: the energy bounds, the 2008 near-misses, the explicit quadruples, the mutation test and the full native rerun, which was run once with its logs in the repository. Cited: the exact minimum and the absence of an end-to-end formal proof. Open: the universal step and a bound over all triples; dimension ten, in the backup slides, is conditional. AI use: Claude, Codex and open-weight agents did most of the computing and first drafts. Each certified bound is checked by a short certificate checker not reviewed by a second person, and fresh AI reviewers attacked the report in six logged rounds. We do not claim line-by-line human refereeing.
 
 **If asked:** Q: Which claims are Lean-verified? A: See the table: the lemma's inequality and the bridge theorem, in the root project, and E above 1/72, in the structure project; both have their build logs in the repository. The energy certificates and dimension ten are not formalized.
 
-## Slide 15. Summary
+## Slide 15. The three answers
 
-**Headline on slide:** To our knowledge nothing is formal end to end, but the missing basis now has certified numbers and a laboratory test
+**Headline on slide:** Three answers: nothing is formal end to end, but the missing basis now has certified numbers and a laboratory test
 
-**Time:** 1:00
+**Time:** 0:45
 
-To summarize. How do we know? To our knowledge nothing is formal end to end. The record checker catches seventeen of twenty-six corruptions, and two 2008 entries are certified near-misses. By how much? Every pure state has energy above 0.0384999 against the local triple, and every fourth basis added to it has bias above 0.046248. One explicit quadruple does better on both measures, so the best quadruple does not contain the local triple. What would a laboratory see? With 1,936 shots per setting, assuming ideal measurements, every pure state is exposed, with 95 percent detection, 0.1 percent false alarm. We did no hardware run. Open: a certified bound over all triples and quadruples, the universal step, hypothesis H, and a hardware run. Thank you; we are happy to take questions.
+To summarize the three answers. How do we know? To our knowledge nothing is formal end to end; the record checker catches seventeen of twenty-six corruptions, and two 2008 entries are certified near-misses. By how much? Every pure state has energy above 0.0384999 against the local triple, and every fourth basis added to it has bias above 0.046248. What would a laboratory see? With 1,936 shots per setting, assuming ideal measurements, every pure state is exposed, with 95 percent detection and 0.1 percent false alarm. We did no hardware run.
+
+**If asked:** Q: Which of the three answers is the strongest? A: The second: it is a proved theorem with certified inputs and a Lean-checked core. The first is an audit, and the third is a guarantee for ideal measurements without a hardware run.
+
+## Slide 16. Conclusion: the main new result and what it implies
+
+**Headline on slide:** Conclusion: one short inequality turns a certificate about single vectors into numbers that quantum-information tasks can use
+
+**Time:** 0:55
+
+Our conclusion. The main new result is the vector-to-basis theorem: a certified statement about single vectors, that none is unbiased to the triple, becomes a statement about every fourth basis. It is elementary, a page long, and its inequalities are checked in Lean. What does it imply? For design: the best four measurements in dimension six do not contain the product triple. For protocols: a random access code played with such bases stays a proved distance below the ideal score. And the same certified gap gives the laboratory test with 1,936 shots. The limit is clear: these numbers hold for quadruples built on the local triple. A certified gap over all triples would make them hold for every quadruple. That is open. Thank you; we are happy to take questions.
 
 **If asked:** Q: What is the one thing you would do next? A: A certified energy bound over all mutually unbiased triples of C six, to which the bridge theorem and the finite-sample theorem then apply unchanged.
 
 ## Backup slides (untimed)
+
+B0 dimension ten (moved from the main deck; conditional on hypothesis H). Script if asked: Also additional. Vectors unbiased to the standard and the Fourier basis of dimension ten correspond to unimodular cyclic ten-roots. Hypothesis H: there are at most 34,940 cyclic ten-roots, a cited count that we did not verify. All 34,940 roots are certified in the repository: 3,040 unimodular. Those form 1,136 candidate bases. Assuming H, for every vector and every candidate basis some basis vector is at least 0.04178 away from unbiased, so no four bases contain the pair. The table shows dimension six as a calibration. To our reading, the dimension-ten example of Grassl, McNulty, Mista and Paterek concerns a triple of this kind, which they handle without a root-count hypothesis; we did not reproduce it. There is no certified energy bound in dimension ten; the numerical minimum is 0.0202. If asked: Q: Is dimension ten a theorem? A: Yes, as a computer-assisted theorem conditional only on H, the cited count, which we did not verify. The roots themselves are certified in the repository, and the theorem says nothing about N(10).
 
 B1 proof of the square-root lemma; B2 the finite-sample theorem, statement and proof sketch; B3 the degree-six certificate method and what the checker trusts (E > 0.03849999999 from the nominal level 0.0385 minus S <= 2.189e-12); B4 what is Lean-checked and what is not; B5 the second product triple and the 16 Fourier-pair triples (E > 0.0323999 for 12, E > 0.0234999 for 2, E > 0.0384999 for 2; every fourth basis added to any of them has bias above 0.036132, above 0.030224); B6 phase-ball radius; B7 six-phase bound and quartic obstruction; B8 mutation-test table.
 

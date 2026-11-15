@@ -1,6 +1,6 @@
 # Verification matrix
 
-> Slide numbers in this matrix refer to the 13-slide deck of the previous revision. The final deck has 15 content slides: old 1 is now 1 and 2, old 2 is 3, old 3 is 4 and 5, and old 4 to 13 are 6 to 15.
+> Slide numbers in this matrix refer to the 13-slide deck of the previous revision. The final deck has 16 content slides: old 1 is now 1 and 2, old 2 is 3, old 3 is 4 and 5, old 4 to 6 are 6 to 8, slide 9 (random access code) is new, old 7 to 10 are 10 to 13, old 11 (dimension ten) is the first backup slide, old 12 and 13 are 14 and 15, and slide 16 (conclusion) is new.
 
 
 One row per claim of the report (`report/report.tex`, 50 pages in the compiled `report/report.pdf`) and of the slides (`slides/`). The team rule is that every claim must have
